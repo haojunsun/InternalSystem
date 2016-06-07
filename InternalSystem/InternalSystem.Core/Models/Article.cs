@@ -73,5 +73,10 @@ namespace InternalSystem.Core.Models
         /// 维护的管理员
         /// </summary>
         public string ManagerName { get; set; }
+
+        /// <summary>
+        /// 视频
+        /// </summary>
+        public string MediaUrl { get; set; }
     }
 }

@@ -46,16 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201606070159003_InitialCreate.cs" />
+    <Compile Include="Migrations\201606070159003_InitialCreate.Designer.cs">
+      <DependentUpon>201606070159003_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AppDbContext.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\ManagerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606070159003_InitialCreate.resx">
+      <DependentUpon>201606070159003_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InternalSystem.Infrastructure\InternalSystem.Infrastructure.csproj">
       <Project>{2af998bc-7465-4d8a-a244-ee6fdd77620a}</Project>
