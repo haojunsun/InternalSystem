@@ -278,5 +278,8 @@ namespace InternalSystem.Core.Models
         /// 文件名 上传多媒体 文件夹名称
         /// </summary>
         public string FileName { get; set; }
+
+
+        public DateTime? CreatedUtc { get; set; }
     }
 }

@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201606130330591_WorldHeritages.Designer.cs">
       <DependentUpon>201606130330591_WorldHeritages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606130553076_WorldHeritagesTime.cs" />
+    <Compile Include="Migrations\201606130553076_WorldHeritagesTime.Designer.cs">
+      <DependentUpon>201606130553076_WorldHeritagesTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Manager.cs" />
@@ -62,6 +66,7 @@
     <Compile Include="Repositories\AppDbContext.cs" />
     <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\ManagerService.cs" />
+    <Compile Include="Services\WorldHeritageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -73,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606130330591_WorldHeritages.resx">
       <DependentUpon>201606130330591_WorldHeritages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606130553076_WorldHeritagesTime.resx">
+      <DependentUpon>201606130553076_WorldHeritagesTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
