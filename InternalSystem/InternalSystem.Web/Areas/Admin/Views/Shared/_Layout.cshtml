@@ -45,7 +45,7 @@
                 <div class="page-logo">
                     <a href="@Url.Action("Index", "Home")">
                         @*<img src="~/Assets/img/logo-default.png" alt="logo" class="logo-default">*@
-                        <h1>文艺发展中心</h1>
+                        <h1>管理中心</h1>
                     </a>
                 </div>
                 <!-- END LOGO -->
@@ -84,86 +84,23 @@
                 <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
                 <div class="hor-menu ">
                     <ul class="nav navbar-nav">
-                        <li class="menu-dropdown mega-menu-dropdown ">
-                            <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                首页 <i class="fa fa-angle-down"></i>
+                        <li>
+                            <a href="@(Url.Action("Index", "Home"))">
+                                首页
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="mega-menu-content">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <ul class="mega-menu-submenu">
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "轮播图", @tagtype = 1 })">轮播图</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "通知公告", @tagtype = 1 })">通知公告</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "机构设置", @tagtype = 1 })">机构设置</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "中心快讯", @tagtype = 1 })">中心快讯</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "新闻博览", @tagtype = 1 })">新闻博览</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "友情连接", @tagtype = 1 })">友情连接</a>
-                                                    </li>
-                                                    @*<li>
-                                                        <a href="@Url.Action("List", "Article", new {@channelTag = "首页", @columnTag = "招聘信息", @tagtype = 1})">招聘信息</a>
-                                                    </li>*@
-                                                     <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "首页", @columnTag = "下载中心", @tagtype = 1 })">下载中心</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
                         </li>
 
-                    <li class="menu-dropdown mega-menu-dropdown ">
-                            <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                单位概况 <i class="fa fa-angle-down"></i>
+                        <li>
+                            <a href="@(Url.Action("Index", "Import"))">
+                                文件导入 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="mega-menu-content">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <ul class="mega-menu-submenu">
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "单位概况", @columnTag = "单位简介", @tagtype = 1 })">单位简介</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "单位概况", @columnTag = "领导简介", @tagtype = 1 })">领导简介</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "单位概况", @columnTag = "机构设置", @tagtype = 1 })">机构设置</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "单位概况", @columnTag = "特约研究员", @tagtype = 1 })">特约研究员</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "单位概况", @columnTag = "研究中心", @tagtype = 1 })">研究中心</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
                         </li>
 
-                        <li class="menu-dropdown mega-menu-dropdown ">
+                        <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                科研规划栏目 <i class="fa fa-angle-down"></i>
+                                科研规划栏目 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="display:none">
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">
@@ -176,12 +113,12 @@
                                                         <a href="@Url.Action("List", "Article", new { @channelTag = "科研规划", @columnTag = "科研项目", @tagtype = 1 })">科研项目</a>
                                                     </li>
                                                     @*<li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "科研规划", @columnTag = "全国艺术科研规划", @tagtype = 1 })">全国艺术科研规划</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("List", "Article", new { @channelTag = "科研规划", @columnTag = "全国文化艺术资源标准化技术委员会", @tagtype = 1 })">全国文化艺术资源标准化技术委员会</a>
-                                                    </li>*@
-                                                 
+                                                            <a href="@Url.Action("List", "Article", new { @channelTag = "科研规划", @columnTag = "全国艺术科研规划", @tagtype = 1 })">全国艺术科研规划</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("List", "Article", new { @channelTag = "科研规划", @columnTag = "全国文化艺术资源标准化技术委员会", @tagtype = 1 })">全国文化艺术资源标准化技术委员会</a>
+                                                        </li>*@
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -189,11 +126,11 @@
                                 </li>
                             </ul>
                         </li>
-                    <li class="menu-dropdown mega-menu-dropdown ">
+                        <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                科研规划 <i class="fa fa-angle-down"></i>
+                                科研规划 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="display:none">
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">
@@ -219,11 +156,11 @@
                             </ul>
                         </li>
 
-                        <li class="menu-dropdown mega-menu-dropdown ">
+                        <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                重大工程 <i class="fa fa-angle-down"></i>
+                                重大工程 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="display:none">
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">
@@ -252,11 +189,11 @@
                             </ul>
                         </li>
 
-                        <li class="menu-dropdown mega-menu-dropdown ">
+                        <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                文化科技 <i class="fa fa-angle-down"></i>
+                                文化科技 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="display:none">
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">
@@ -283,11 +220,11 @@
                             </ul>
                         </li>
 
-                        <li class="menu-dropdown mega-menu-dropdown ">
+                        <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                文化交流 <i class="fa fa-angle-down"></i>
+                                文化交流 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="display:none">
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">
@@ -310,11 +247,11 @@
                             </ul>
                         </li>
 
-                        <li class="menu-dropdown mega-menu-dropdown ">
+                        <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
-                                专项管理 <i class="fa fa-angle-down"></i>
+                                专项管理 @*<i class="fa fa-angle-down"></i>*@
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="display:none">
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">

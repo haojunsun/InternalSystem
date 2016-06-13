@@ -14,6 +14,7 @@ namespace InternalSystem.Core.Services
     public interface IWorldHeritageService : IDependency
     {
         IEnumerable<WorldHeritage> List();
+        IEnumerable<WorldHeritage> List(int pageIndex, int pageSize, ref int totalCount);
         void Add(WorldHeritage manager);
         void Update(WorldHeritage manager);
         void Delete(int id);
@@ -31,6 +32,16 @@ namespace InternalSystem.Core.Services
          public IEnumerable<WorldHeritage> List()
          {
              return _appDbContext.WorldHeritages.OrderByDescending(x => x.CreatedUtc).ToList();
+         }
+
+         public IEnumerable<WorldHeritage> List(int pageIndex, int pageSize, ref int totalCount)
+         {
+             var list = (from p in _appDbContext.WorldHeritages
+                         orderby p.CreatedUtc descending
+                         select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+             totalCount = _appDbContext.WorldHeritages.Count();
+             return list.ToList();
+
          }
 
          public void Add(WorldHeritage wh)
