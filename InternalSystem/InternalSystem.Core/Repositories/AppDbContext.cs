@@ -19,5 +19,7 @@ namespace InternalSystem.Core.Repositories
         public DbSet<Article> Articles { get; set; }
 
         public DbSet<Manager> Managers { get; set; }
+
+        public DbSet<WorldHeritage> WorldHeritages { get; set; }
     }
 }
