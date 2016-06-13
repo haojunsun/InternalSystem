@@ -1,0 +1,105 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+
+@model PagedList.StaticPagedList<InternalSystem.Core.Models.Article>
+@{
+    ViewBag.Title = ViewBag.channelTag;
+    ViewBag.SubTitle = ViewBag.columnTag + "内容";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">@ViewBag.columnTag</span>
+                </div>
+                <div class="pull-right">
+
+                    <div class="btn-group">
+                        <a class="btn btn-sm green" href="@Url.Action("Create", new {ViewBag.channelTag, ViewBag.columnTag, @tagtype = 1 })">
+                            添加 @ViewBag.columnTag <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                <div class="table-scrollable table-scrollable-borderless">
+
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th>发布人</th>
+                                <th>标题</th>
+                                <th>频道</th>
+                                <th>栏目</th>
+                                <th>开始日期</th>
+                                <th>发布状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null&&Model.Count != 0)
+                            {
+                                foreach (var item in Model.Where(item => item != null))
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.ManagerName
+                                        </td>
+                                        <td>
+                                            @item.Title
+                                        </td>
+                                        <td>
+                                            @item.ChannelTags
+                                        </td>
+                                        <td>
+                                            @item.ColumnTags
+                                        </td>
+                                        <td>
+                                            @DateTime.Parse(item.CreatedUtc.ToString()).ToString("yyyy-MM-dd HH:mm:ss")
+                                        </td>
+                                        <td>
+                                            @(item.IsDraft == 0 ? "已发布" : "草稿")
+                                        </td>
+                                        <td>
+                                            @if (item.IsDraft == 0)
+                                            {
+                                                <a class="btn default btn-xs purple-stripe" href="@Url.Action("Release", new { id = item.ArticleId })"><i class="fa fc-month-view"></i> 撤销发布</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn default btn-xs purple-stripe" href="@Url.Action("Detail", new {id = item.ArticleId})"><i class="fa fc-month-view"></i> 查看草稿</a>
+                                                <a class="btn default btn-xs purple-stripe" href="@Url.Action("Release", new { id = item.ArticleId })"><i class="fa fc-month-view"></i> 发布</a>
+                                            }
+                                            <a class="btn default btn-xs purple-stripe" href="@Url.Action("Edit", new {id = item.ArticleId})"><i class="fa fc-month-view"></i> 编辑</a>
+                                            <a href="@Url.Action("Delete", new {id = item.ArticleId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
+                                                <i class="fa fa-trash-o"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.PageNumber)/@(Model.PageCount)页
+                    </div>
+                    <div class="col-md-7 col-sm-12 text-right">
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("List", new
+                        {
+                            page,
+                            @size = ViewBag.Size,
+                            ViewBag.channelTag,
+                            ViewBag.columnTag,
+                            ViewBag.tagtype
+                        }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@model  InternalSystem.Core.Models.Article
+@{
+    Layout = "~/areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.ChannelTags + "-" + Model.ColumnTags + "编辑";
+}
+
+<div class="row" ng-controller="PackageController">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">@Model.Title</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                @using (Html.BeginForm("Edit", "Article", FormMethod.Post, new { @class = "form-horizontal", @role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(model => model.ArticleId)
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">频道</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ChannelTags, new { @class = "form-control", @placeholder = "频道", @readonly = "true" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">栏目</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ColumnTags, new { @class = "form-control", @placeholder = "栏目", @readonly = "true" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">标题</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "标题" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">内容</label>
+                            <div class="col-md-9">
+                                @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "内容", @rows = "20" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">图片</label>
+                            <div class="col-md-9">
+                                <img src="~/Uploads/@Model.TitleImageUrl" alt="" width="300px" />
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div>
+                                        <span class="btn default btn-file">
+                                            <span class="fileinput-new">
+                                                选择图片
+                                            </span>
+                                            <input type="file" name="file">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">发布设置</label>
+                            <div class="col-md-9">
+                                <label class="radio-inline">
+                                    <input type="radio" value="0" name="isDraft" @(Model.IsDraft == 0 ? "checked" : "") />直接发布
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="1" name="isDraft" @(Model.IsDraft == 0 ? "" : "checked") />存为草稿
+                                </label>
+                            </div>
+                        </div>
+                        @if (ViewBag.columnTag == "下载中心")
+                        {
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">图片</label>
+                                <div class="col-md-9">
+                                    <a href="~/Uploads/@Model.OtherImageUrl" target="_blank">@Model.OtherImageUrl</a>
+                                  
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div>
+                                            <span class="btn default btn-file">
+                                                <span class="fileinput-new">
+                                                    选择文件
+                                                </span>
+                                                <input type="file" name="file1">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn green">保 存</button>
+                                    <a href="@Url.Action("List", new
+                                        {
+                                            @channelTag = Model.ChannelTags,
+                                            @columnTag = Model.ColumnTags,
+                                            @tagtype = 1
+                                        })" class="btn default">取消，返回列表</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

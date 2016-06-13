@@ -1,0 +1,144 @@
+﻿@model InternalSystem.Core.Models.Article
+<div class="row" ng-controller="ArticleController">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">活动详情 - @Model.title</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-sm green" href="@Url.Action("List")">>返回活动列表</a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-1">发布人</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3"> @(Model.name)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1">分类</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.sort)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">内容</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.Nr)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">简介微博消息号</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.Jianjie)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">开始日期</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.Date_start)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">人数</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.Rs)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">报名人数</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.Rs_bm)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">费用</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.fy)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">发布时间</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.AddTime)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1">报名截止日期</label>
+                            <div class="col-md-11">
+                                <label class="control-label col-md-3">@(Model.Date_bmzj)</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">报名信息</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th>活动序号</th>
+                                <th>会员编码</th>
+                                <th>报名序号</th>
+                                <th>姓名</th>
+                                <th>出生年</th>
+                                <th>性别</th>
+                                <th>联系电话</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null&&Model.Count != 0)
+                            {
+                                foreach (var item in Model.Arvs.Where(item => item != null))
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.ActivityId
+                                        </td>
+                                        <td>
+                                            @item.username
+                                        </td>
+                                        <td>
+                                            @item.Xh_hy
+                                        </td>
+                                        <td>
+                                            @item.Name
+                                        </td>
+                                        <td>
+                                            @item.Year
+                                        </td>
+                                        <td>
+                                            @item.sex
+                                        </td>
+                                        <td>
+                                            @item.Tel
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
