@@ -275,7 +275,7 @@ namespace InternalSystem.Core.Models
         public string url { get; set; }
 
         /// <summary>
-        /// 文件名 上传多媒体 文件夹名称
+        /// 文件名 上传多媒体 文件夹名称 路径的组成部分 /FileName/ArtificialId +"."+ DigitalFormat
         /// </summary>
         public string FileName { get; set; }
 
