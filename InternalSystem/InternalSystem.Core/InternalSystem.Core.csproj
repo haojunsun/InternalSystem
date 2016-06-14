@@ -44,6 +44,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Extensions">
+      <HintPath>..\packages\Z.EntityFramework.Extensions.3.9.36\lib\net45\Z.EntityFramework.Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\201606070159003_InitialCreate.cs" />
