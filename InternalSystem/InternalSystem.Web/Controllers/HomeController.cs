@@ -26,5 +26,10 @@ namespace InternalSystem.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Main()
+        {
+            return View();
+        }
     }
 }
