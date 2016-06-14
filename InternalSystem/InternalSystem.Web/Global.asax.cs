@@ -16,8 +16,7 @@ namespace InternalSystem.Web
         private readonly LogService _log = new LogService();
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-         
+            AreaRegistration.RegisterAllAreas();      
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
@@ -52,10 +51,11 @@ namespace InternalSystem.Web
             }
             else
             {
+                //Response.Redirect("/Home");
                 Response.Redirect("/Error");
             }
             //LogHelper.ErrorLog("<br/><strong>客户机IP</strong>：" + Request.UserHostAddress + "<br /><strong>错误地址</strong>：" + Request.Url, objExp);
-            // Response.Redirect("~/home/Index");
+            //Response.Redirect("/home");
         }
     }
 }
