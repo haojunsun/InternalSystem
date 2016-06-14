@@ -8,6 +8,9 @@ using InternalSystem.Core.Models;
 using InternalSystem.Core.Repositories;
 using InternalSystem.Infrastructure;
 
+using Z.EntityFramework.Extensions;
+using Z.BulkOperations;
+
 namespace InternalSystem.Core.Services
 {
 
@@ -19,6 +22,8 @@ namespace InternalSystem.Core.Services
         void Update(WorldHeritage manager);
         void Delete(int id);
         WorldHeritage Get(int id);
+
+        void Import(List<WorldHeritage> list);
     }
 
     public class WorldHeritageService : IWorldHeritageService
@@ -73,6 +78,12 @@ namespace InternalSystem.Core.Services
          {
              return _appDbContext.WorldHeritages.Find(id);
          }
+
+        public void Import(List<WorldHeritage> list)
+        {
+            _appDbContext.BulkInsert(list);
+            _appDbContext.BulkSaveChanges();
+        }
 
     }
 }
