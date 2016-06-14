@@ -47,8 +47,19 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             sr.Close();
             #region 解析 文件 导入 数据 _worldHeritageService
 
-            var wh = new WorldHeritage();
-            _worldHeritageService.Add(wh);
+            var wh = new List<WorldHeritage>();
+            //解析文件
+            List<string> list = new List<string>();
+            foreach (var f in list)
+            {
+                var d=new WorldHeritage();
+                //解析 赋值 
+                d.Title = f;//之类的
+
+                wh.Add(d);
+            }
+
+            _worldHeritageService.Import(wh);//一次性 录入数据 没测试 导入的时候你测试一下
 
             #endregion
             return RedirectToAction("List");
