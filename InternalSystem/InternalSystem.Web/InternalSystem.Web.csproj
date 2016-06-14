@@ -1244,7 +1244,7 @@
     <Content Include="Content\site.scss" />
     <Content Include="Content\_public.scss" />
     <Content Include="Log4net.config" />
-    <Content Include="fyexcel\第四批96个.xls" />
+    <Content Include="Uploads\fyexcel\第四批96个.xls" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1300,7 +1300,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\WebApi\" />
     <Folder Include="files\imgs\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -43,7 +43,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult ImportFile()
         {
-            //string path = HttpContext.Server.MapPath("~/Uploads/");
+            string path = HttpContext.Server.MapPath("~/Uploads/");
             //var file = SaveImg(path, Request.Files["file"]);
             //StreamReader sr = new StreamReader(path + file, System.Text.Encoding.Default);
             //string data = sr.ReadToEnd();
@@ -51,7 +51,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             #region 解析 文件 导入 数据 _worldHeritageService
 
             //解析文件 读取文件 导出datatable
-            DirectoryInfo di = new DirectoryInfo("\\fyexcel");
+            DirectoryInfo di = new DirectoryInfo(path+"\\fyexcel");
             DirectoryInfo[] dir = di.GetDirectories();//获取子文件夹列表
             var wh = new List<WorldHeritage>();
 
@@ -60,7 +60,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 Console.WriteLine(file.Name);
                 //ExcelHelper eh = new ExcelHelper("C:\\Users\\Administrator\\Desktop\\fyexcel\\" + file.Name);
                 DataTable dt = new DataTable();
-                dt = ExcelToDataTable("\\fyexcel\\" + file.Name);
+                dt = ExcelToDataTable(path + "\\fyexcel\\" + file.Name);
                 //Console.WriteLine(dt.Rows.count);
 
                 for (int i = 0; i < dt.Rows.Count; i++)
