@@ -7,6 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>非遗</title>
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
 
 <body ng-app="scApp" ng-controller="VideoListController">
@@ -28,11 +32,36 @@
         </div>
         <div style=" clear:both;"></div>
         <div class="banner" style="margin-left:400px">
-            <div>分类：<a href="javascript:void(0)">民间文学</a><a href="javascript:void(0)">传统音乐</a><a href="javascript:void(0)">传统美术</a><a href="javascript:void(0)">传统技艺</a><a href="javascript:void(0)">曲艺</a></div>
-            <div>类型：<a href="javascript:void(0)">全部</a><a href="javascript:void(0)">视频</a><a href="javascript:void(0)">图片</a><a href="javascript:void(0)">文本</a></div>
-            <div>民族：<a href="javascript:void(0)">全部</a><a href="javascript:void(0)">满族</a><a href="javascript:void(0)">汉族</a><a href="javascript:void(0)">回族</a></div>
-            <div>地区：<a href="javascript:void(0)">全国</a><a href="javascript:void(0)">北京市</a><a href="javascript:void(0)">天津市</a><a href="javascript:void(0)">河北省</a></div>
-            <div>关键字搜索：<input type="text" name="name" placeholder="项目名称" /></div>
+            <div>
+                分类：
+                <a class="classtype" href="javascript:void(0)">民间文学</a>
+                <a class="classtype" href="javascript:void(0)">传统音乐</a>
+                <a class="classtype" href="javascript:void(0)">传统美术</a>
+                <a class="classtype" href="javascript:void(0)">传统技艺</a>
+                <a class="classtype" href="javascript:void(0)">曲艺</a>
+            </div>
+            <div>
+                类型：
+                <a class="type" href="javascript:void(0)">全部</a>
+                <a class="type" href="javascript:void(0)">视频</a>
+                <a class="type" href="javascript:void(0)">图片</a>
+                <a class="type" href="javascript:void(0)">文本</a>
+            </div>
+            <div>
+                民族：
+                <a class="nation" href="javascript:void(0)">全部</a>
+                <a class="nation" href="javascript:void(0)">满族</a>
+                <a class="nation" href="javascript:void(0)">汉族</a>
+                <a class="nation" href="javascript:void(0)">回族</a>
+            </div>
+            <div>
+                地区：
+                <a class="area" href="javascript:void(0)">全国</a>
+                <a class="area" href="javascript:void(0)">北京市</a>
+                <a class="area" href="javascript:void(0)">天津市</a>
+                <a class="area" href="javascript:void(0)">河北省</a>
+            </div>
+            <div>关键字搜索：<input type="text" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()"/></div>
         </div>
         <div style=" clear:both;"></div>
 
