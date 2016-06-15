@@ -321,5 +321,32 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return View(personsAsIPagedList);
         }
 
+        /// <summary>
+        /// 验证信息写入反馈 返回结果类
+        /// </summary>
+        /// <param name="statusCode"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ContentResult CResult(int statusCode, string message)
+        {
+            Response.StatusCode = statusCode;
+            Response.TrySkipIisCustomErrors = true;
+            return Content(message);
+        }
+
+        [HttpPost]
+        public ActionResult Search(string firstlevel,string dataformat, string nation, string municipalities,string title,int pageSize,int pageIndex)
+        {
+            var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat,  nation,  municipalities, title);
+            return Json(result, JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpPost]
+        public ActionResult Find(int id)
+        {
+            var result = _worldHeritageService.Get(id);
+            return Json(result, JsonRequestBehavior.DenyGet);
+        }
+
     }
 }
