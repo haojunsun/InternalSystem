@@ -36,5 +36,17 @@ namespace InternalSystem.Web.Controllers
         {
             return View();
         }
+
+        //详情页
+        public ActionResult Detail()
+        {
+            return View();
+        }
+
+        //非遗介绍页面
+        public ActionResult ICHintroduce()
+        {
+            return View();
+        }
     }
 }

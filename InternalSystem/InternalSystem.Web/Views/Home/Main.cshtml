@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -19,12 +18,12 @@
             <div class="logo"><img src="~/img/logo.png" width="200" /></div>
             <div class="nav">
                 <ul>
-                    <li><a href="index.html">首 页</a></li>
-                    <li><a href="news.html">xxxx</a></li>
-                    <li><a href="news.html">xxxxx</a></li>
-                    <li><a href="news.html">xxxxxx</a></li>
-                    <li><a href="news.html">xxxx</a></li>
-                    <li><a href="text.html">xxx</a></li>
+                    <li><a href="@Url.Action("main","home")">首 页</a></li>
+                    <li><a href="@Url.Action("videolist", "home")">视频资源</a></li>
+                    <li><a href="news.html">图片资源</a></li>
+                    <li><a href="news.html">文字资源</a></li>
+                    <li><a href="news.html">网站规划</a></li>
+                    <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
                 </ul>
             </div>
         </div>
