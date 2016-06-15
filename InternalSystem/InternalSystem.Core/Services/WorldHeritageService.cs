@@ -112,10 +112,10 @@ namespace InternalSystem.Core.Services
             try
             {
                 var list = (from p in _appDbContext.WorldHeritages
-                            orderby p.CreatedUtc descending
-                            select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                    orderby p.CreatedUtc descending
+                    select p).AsQueryable();
                 var totalCount = _appDbContext.WorldHeritages.Count();
-                var aa = list.Count();
+
 
                 if (!string.IsNullOrEmpty(firstlevel))
                 {
@@ -143,7 +143,7 @@ namespace InternalSystem.Core.Services
                     totalCount = list.Count(x => x.Title.Contains(title));
                 }
 
-                result.Data.Items = list.ToList();
+                result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                 result.Data.TotalCount = totalCount;
                 result.IsSuccessful = true;
                 result.StatusCode = StatusCode.Success;
