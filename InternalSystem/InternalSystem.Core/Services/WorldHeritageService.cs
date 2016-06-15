@@ -102,6 +102,10 @@ namespace InternalSystem.Core.Services
             string municipalities, string title)
         {
             var result = new ApiResponse<PagerInfoResponse<WorldHeritage>>();
+
+            result.Data = new PagerInfoResponse<WorldHeritage>();
+            result.Data.Items = new List<WorldHeritage>();
+
             result.Data.Size = pageSize;
             result.Data.Index = pageIndex;
 
@@ -111,31 +115,31 @@ namespace InternalSystem.Core.Services
                             orderby p.CreatedUtc descending
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
                 var totalCount = 0;
+                var aa = list.Count();
 
                 if (!string.IsNullOrEmpty(firstlevel))
                 {
                     list = list.Where(x => x.FirstLevel.Contains(firstlevel));
                 }
-                else if (!string.IsNullOrEmpty(dataformat))
+                if (!string.IsNullOrEmpty(dataformat))
                 {
                     list = list.Where(x => x.DataFormat.Contains(dataformat));
                 }
-                else if (!string.IsNullOrEmpty(nation))
+                if (!string.IsNullOrEmpty(nation))
                 {
                     list = list.Where(x => x.Nation.Contains(nation));
                 }
-                else if (!string.IsNullOrEmpty(municipalities))
+                if (!string.IsNullOrEmpty(municipalities))
                 {
                     list = list.Where(x => x.Municipalities.Contains(municipalities));
                 }
-                else if (!string.IsNullOrEmpty(title))
+                if (!string.IsNullOrEmpty(title))
                 {
-                    list = list.Where(x => x.Title.Contains(municipalities));
+                    list = list.Where(x => x.Title.Contains(title));
                 }
 
                 totalCount = list.Count();
-                result.Data = new PagerInfoResponse<WorldHeritage>();
-                result.Data.Items = new List<WorldHeritage>();
+
                 result.Data.Items = list.ToList();
                 result.Data.TotalCount = totalCount;
 
