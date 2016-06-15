@@ -114,35 +114,37 @@ namespace InternalSystem.Core.Services
                 var list = (from p in _appDbContext.WorldHeritages
                             orderby p.CreatedUtc descending
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
-                var totalCount = 0;
+                var totalCount = _appDbContext.WorldHeritages.Count();
                 var aa = list.Count();
 
                 if (!string.IsNullOrEmpty(firstlevel))
                 {
                     list = list.Where(x => x.FirstLevel.Contains(firstlevel));
+                    totalCount = list.Count(x => x.FirstLevel.Contains(firstlevel));
                 }
                 if (!string.IsNullOrEmpty(dataformat))
                 {
                     list = list.Where(x => x.DataFormat.Contains(dataformat));
+                    totalCount = list.Count(x => x.DataFormat.Contains(dataformat)); 
                 }
                 if (!string.IsNullOrEmpty(nation))
                 {
                     list = list.Where(x => x.Nation.Contains(nation));
+                    totalCount = list.Count(x => x.Nation.Contains(nation));
                 }
                 if (!string.IsNullOrEmpty(municipalities))
                 {
                     list = list.Where(x => x.Municipalities.Contains(municipalities));
+                    totalCount = list.Count(x => x.Municipalities.Contains(municipalities));
                 }
                 if (!string.IsNullOrEmpty(title))
                 {
                     list = list.Where(x => x.Title.Contains(title));
+                    totalCount = list.Count(x => x.Title.Contains(title));
                 }
-
-                totalCount = list.Count();
 
                 result.Data.Items = list.ToList();
                 result.Data.TotalCount = totalCount;
-
                 result.IsSuccessful = true;
                 result.StatusCode = StatusCode.Success;
                 return result;
