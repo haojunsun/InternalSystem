@@ -89,7 +89,7 @@
                 <p><strong>视频资源</strong></p>
                 <div class="picmain">
                     <div class="picmain_up">
-                        <div class="picmain_pic" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" ng-click="openDetail($(this));">
+                        <div class="picmain_pic" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <a href="javascript:void(0)">
                                 <img src="~/img/lj.png" width="100%" />
                                 <p>{{item.Title}}</p>

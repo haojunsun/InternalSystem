@@ -120,6 +120,7 @@ namespace InternalSystem.Core.Services
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
                     totalCount = _appDbContext.WorldHeritages.Count();
                     result.Data.Items = list.ToList();
+                    result.Data.TotalCount = totalCount;
                 }
                 else
                 {
@@ -248,7 +249,7 @@ namespace InternalSystem.Core.Services
                     }
                     // result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                 }
-                result.Message = "无数据错误！";
+                result.Message = "全部数据！";
                 result.IsSuccessful = false;
                 result.StatusCode = StatusCode.ClientError;
                 return result;

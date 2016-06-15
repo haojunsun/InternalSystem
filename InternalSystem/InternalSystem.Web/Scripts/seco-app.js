@@ -91,8 +91,8 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
             $scope.getVedioList();
         }
 
-        $scope.openDetail = function (ele) {
-            console.log($(ele));
+        $scope.openDetail = function (whid) {
+            console.log(whid);
         }
 
     }])
