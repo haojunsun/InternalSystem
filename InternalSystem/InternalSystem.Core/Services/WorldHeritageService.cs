@@ -102,51 +102,155 @@ namespace InternalSystem.Core.Services
             string municipalities, string title)
         {
             var result = new ApiResponse<PagerInfoResponse<WorldHeritage>>();
-
             result.Data = new PagerInfoResponse<WorldHeritage>();
             result.Data.Items = new List<WorldHeritage>();
-
             result.Data.Size = pageSize;
             result.Data.Index = pageIndex;
 
             try
             {
-                var list = (from p in _appDbContext.WorldHeritages
-                    orderby p.CreatedUtc descending
-                    select p).AsQueryable();
-                var totalCount = _appDbContext.WorldHeritages.Count();
+                IQueryable<WorldHeritage> list;
+                var totalCount = 0;
+                if (string.IsNullOrEmpty(firstlevel) && string.IsNullOrEmpty(dataformat) && string.IsNullOrEmpty(nation) &&
+                    string.IsNullOrEmpty(municipalities) && string.IsNullOrEmpty(title))
+                {
+                    //没有任何 条件 取 全部 第一页
+                    list = (from p in _appDbContext.WorldHeritages
+                            orderby p.CreatedUtc descending
+                            select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                    totalCount = _appDbContext.WorldHeritages.Count();
+                    result.Data.Items = list.ToList();
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(firstlevel))
+                    {
+                        list = (from p in _appDbContext.WorldHeritages
+                                where p.FirstLevel.Contains(firstlevel)
+                                orderby p.CreatedUtc descending
+                                select p).AsQueryable();
+                        totalCount = list.Count(x => x.FirstLevel.Contains(firstlevel));
+
+                        if (!string.IsNullOrEmpty(dataformat))
+                        {
+                            list = list.Where(x => x.DataFormat.Contains(dataformat));
+                            totalCount = list.Count(x => x.DataFormat.Contains(dataformat));
+                        }
+                        if (!string.IsNullOrEmpty(nation))
+                        {
+                            list = list.Where(x => x.Nation.Contains(nation));
+                            totalCount = list.Count(x => x.Nation.Contains(nation));
+                        }
+                        if (!string.IsNullOrEmpty(municipalities))
+                        {
+                            list = list.Where(x => x.Municipalities.Contains(municipalities));
+                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities));
+                        }
+                        if (!string.IsNullOrEmpty(title))
+                        {
+                            list = list.Where(x => x.Title.Contains(title));
+                            totalCount = list.Count(x => x.Title.Contains(title));
+                        }
+
+                        result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                        result.Data.TotalCount = totalCount;
+                        result.IsSuccessful = true;
+                        result.StatusCode = StatusCode.Success;
+                        return result;
+                    }
+                    if (!string.IsNullOrEmpty(dataformat))
+                    {
+                        list = (from p in _appDbContext.WorldHeritages
+                                where p.DataFormat.Contains(firstlevel)
+                                orderby p.CreatedUtc descending
+                                select p).AsQueryable();
+                        totalCount = list.Count(x => x.DataFormat.Contains(dataformat));
+
+                        if (!string.IsNullOrEmpty(nation))
+                        {
+                            list = list.Where(x => x.Nation.Contains(nation));
+                            totalCount = list.Count(x => x.Nation.Contains(nation));
+                        }
+                        if (!string.IsNullOrEmpty(municipalities))
+                        {
+                            list = list.Where(x => x.Municipalities.Contains(municipalities));
+                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities));
+                        }
+                        if (!string.IsNullOrEmpty(title))
+                        {
+                            list = list.Where(x => x.Title.Contains(title));
+                            totalCount = list.Count(x => x.Title.Contains(title));
+                        }
+                        result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                        result.Data.TotalCount = totalCount;
+                        result.IsSuccessful = true;
+                        result.StatusCode = StatusCode.Success;
+                        return result;
+                    }
 
 
-                if (!string.IsNullOrEmpty(firstlevel))
-                {
-                    list = list.Where(x => x.FirstLevel.Contains(firstlevel));
-                    totalCount = list.Count(x => x.FirstLevel.Contains(firstlevel));
-                }
-                if (!string.IsNullOrEmpty(dataformat))
-                {
-                    list = list.Where(x => x.DataFormat.Contains(dataformat));
-                    totalCount = list.Count(x => x.DataFormat.Contains(dataformat)); 
-                }
-                if (!string.IsNullOrEmpty(nation))
-                {
-                    list = list.Where(x => x.Nation.Contains(nation));
-                    totalCount = list.Count(x => x.Nation.Contains(nation));
-                }
-                if (!string.IsNullOrEmpty(municipalities))
-                {
-                    list = list.Where(x => x.Municipalities.Contains(municipalities));
-                    totalCount = list.Count(x => x.Municipalities.Contains(municipalities));
-                }
-                if (!string.IsNullOrEmpty(title))
-                {
-                    list = list.Where(x => x.Title.Contains(title));
-                    totalCount = list.Count(x => x.Title.Contains(title));
-                }
+                    if (!string.IsNullOrEmpty(nation))
+                    {
+                        list = (from p in _appDbContext.WorldHeritages
+                                where p.Nation.Contains(nation)
+                                orderby p.CreatedUtc descending
+                                select p).AsQueryable();
+                        totalCount = list.Count(x => x.Nation.Contains(nation));
 
-                result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-                result.Data.TotalCount = totalCount;
-                result.IsSuccessful = true;
-                result.StatusCode = StatusCode.Success;
+                        if (!string.IsNullOrEmpty(municipalities))
+                        {
+                            list = list.Where(x => x.Municipalities.Contains(municipalities));
+                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities));
+                        }
+                        if (!string.IsNullOrEmpty(title))
+                        {
+                            list = list.Where(x => x.Title.Contains(title));
+                            totalCount = list.Count(x => x.Title.Contains(title));
+                        }
+                        result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                        result.Data.TotalCount = totalCount;
+                        result.IsSuccessful = true;
+                        result.StatusCode = StatusCode.Success;
+                        return result;
+                    }
+                    if (!string.IsNullOrEmpty(municipalities))
+                    {
+                        list = (from p in _appDbContext.WorldHeritages
+                                where p.Municipalities.Contains(municipalities)
+                                orderby p.CreatedUtc descending
+                                select p).AsQueryable();
+                        totalCount = list.Count(x => x.Municipalities.Contains(municipalities));
+
+                        if (!string.IsNullOrEmpty(title))
+                        {
+                            list = list.Where(x => x.Title.Contains(title));
+                            totalCount = list.Count(x => x.Title.Contains(title));
+                        }
+                        result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                        result.Data.TotalCount = totalCount;
+                        result.IsSuccessful = true;
+                        result.StatusCode = StatusCode.Success;
+                        return result;
+                    }
+                    if (!string.IsNullOrEmpty(title))
+                    {
+                        list = (from p in _appDbContext.WorldHeritages
+                                where p.Title.Contains(title)
+                                orderby p.CreatedUtc descending
+                                select p).AsQueryable();
+                        totalCount = list.Count(x => x.Title.Contains(title));
+
+                        result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                        result.Data.TotalCount = totalCount;
+                        result.IsSuccessful = true;
+                        result.StatusCode = StatusCode.Success;
+                        return result;
+                    }
+                    // result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                }
+                result.Message = "无数据错误！";
+                result.IsSuccessful = false;
+                result.StatusCode = StatusCode.ClientError;
                 return result;
             }
             catch
