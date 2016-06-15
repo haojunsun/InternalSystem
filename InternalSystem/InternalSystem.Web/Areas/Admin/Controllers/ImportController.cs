@@ -51,7 +51,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             #region 解析 文件 导入 数据 _worldHeritageService
 
             //解析文件 读取文件 导出datatable
-            DirectoryInfo di = new DirectoryInfo(path+"\\fyexcel");
+            DirectoryInfo di = new DirectoryInfo(path + "\\fyexcel");
             DirectoryInfo[] dir = di.GetDirectories();//获取子文件夹列表
             var wh = new List<WorldHeritage>();
 
@@ -71,7 +71,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 0)
                             wh1.InventoryId = dt.Rows[i][j].ToString();
                         if (j == 1)
+                        {
                             wh1.ArtificialId = dt.Rows[i][j].ToString();
+                            wh1.FileName = path + "1\\" + dt.Rows[i][j].ToString() + ".mp4";
+                        }
                         if (j == 2)
                             wh1.TitleProper = dt.Rows[i][j].ToString();
                         if (j == 3)
