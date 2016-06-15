@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>非遗</title>
+    <link href="~/css/pagination.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
     <script>
         var sc = sc || {};
@@ -34,6 +35,7 @@
         <div class="banner" style="margin-left:400px">
             <div>
                 分类：
+                <a class="classtype" href="javascript:void(0)">全部</a>
                 <a class="classtype" href="javascript:void(0)">民间文学</a>
                 <a class="classtype" href="javascript:void(0)">传统音乐</a>
                 <a class="classtype" href="javascript:void(0)">传统美术</a>
@@ -61,7 +63,7 @@
                 <a class="area" href="javascript:void(0)">天津市</a>
                 <a class="area" href="javascript:void(0)">河北省</a>
             </div>
-            <div>关键字搜索：<input type="text" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()"/></div>
+            <div>关键字搜索：<input type="text" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()" /></div>
         </div>
         <div style=" clear:both;"></div>
 
@@ -84,21 +86,20 @@
                     <div class="box-nav-right"><strong>首页 > 视频列表</strong></div>
                 </div>
                 <img src="~/img/002.png" width="740" />
-                <p><strong>解酒护肝系列</strong></p>
+                <p><strong>视频资源</strong></p>
                 <div class="picmain">
                     <div class="picmain_up">
-                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
-                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
-                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                        <div class="picmain_pic" ng-repeat="item in videoList">
+                            <a href="picpic.html">
+                                <img src="~/img/lj.png" width="100%" />
+                                <p>{{item.Title}}</p>
+                            </a>
+                        </div>
                     </div>
-                    <div class="picmain_down">
-                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
-                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
-                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
-                    </div>
+
                 </div>
                 <img src="~/img/002.png" width="740" />
-                <div class="page-normal">
+                @*<div class="page-normal">
                     <span class="page-prev">&lt;</span>
                     <span class="page-current">1</span>
                     <a href="#">2</a>
@@ -111,7 +112,9 @@
                     <a href="#">199</a>
                     <a href="#">200</a>
                     <a href="#" class="page-next">&gt;</a>
-                </div>
+                    <span>总条数：{{datacount}}</span>
+                </div>*@
+                <div id="pages"></div>
             </div>
 
         </div>
@@ -131,6 +134,7 @@
     <script src="~/Scripts/angular.bundled.min.js"></script>
     <script src="~/Scripts/seco-ng-utils.js"></script>
     <script src="~/Scripts/seco-ng-utils-extra.js"></script>
+    <script src="~/Scripts/pagination.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
     <script>
         $(function () {
