@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>弘悦静心</title>
+    <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="top"></div>
+    <div id="wrap">
+        <!--整体-->
+        <div class="index-nav">
+            <div class="logo"><img src="~/img/logo.png" width="200" /></div>
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">首 页</a></li>
+                    <li><a href="news.html">梵音禅</a></li>
+                    <li><a href="news.html">行星颂钵能量疗愈</a></li>
+                    <li><a href="news.html">唱颂禅修</a></li>
+                    <li><a href="news.html">学员分享</a></li>
+                    <li><a href="text.html">轻断食</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style=" clear:both;"></div>
+        <div class="banner"><img src="~/img/banner.png" width="100%" /></div>
+        <div style=" clear:both;"></div>
+
+        <div class="index-box-up">
+            <div class="pic-left">
+                <p>产品分类</p>
+                <div class="lanrenzhijia">
+                    <ul>
+                        <li class="on"><a href='#'>分类1</a></li>
+                        <li class="on"><a href='#'>分类2</a></li>
+                        <li class="on"><a href='#'>分类3</a></li>
+                        <li class="on"><a href='#'>分类4</a></li>
+                    </ul>
+                    <div class="hover"></div>
+                </div>
+            </div>
+            <div class="pic-right">
+                <div class="box-nav">
+                    <div class="box-nav-left"><img src="~/img/16.png" width="149" /></div>
+                    <div class="box-nav-right"><strong>首页 > 静心之旅</strong></div>
+                </div>
+                <img src="~/img/002.png" width="740" />
+                <p><strong>解酒护肝系列</strong></p>
+                <div class="picmain">
+                    <div class="picmain_up">
+                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                    </div>
+                    <div class="picmain_down">
+                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                        <div class="picmain_pic"><a href="picpic.html"><img src="~/img/lj.png" width="100%" /><p>解酒护肝</p></a></div>
+                    </div>
+                </div>
+                <img src="~/img/002.png" width="740" />
+                <div class="page-normal">
+                    <span class="page-prev">&lt;</span>
+                    <span class="page-current">1</span>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    ...
+                    <a href="#">199</a>
+                    <a href="#">200</a>
+                    <a href="#" class="page-next">&gt;</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style=" clear:both;"></div>
+    <div class="foot">
+        <div class="footer">
+            <div class="foot-text">
+                <p>版权所有：弘悦静心　 24小时热线电话：400-9977-639</p>
+                <p>地址：青岛城阳区王沙路1616号长水山庄　电话：0532-66727827　邮箱：hongyuejingxin@163.com</p>
+                <p>技术支持：青岛品赢网络技术有限公司</p>
+            </div>
+            <div class="foot-img"><p>官<br />方<br />微<br />信<br />扫<br />描</p><img src="~/img/ewm.jpg" width="100" /></div>
+        </div>
+    </div>
+</body>
+<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+<script>
+    $(function () {
+        var Height = 40; //li的高度
+        var pTop = 0; // .lanrenzhijia 的paddding-top的值
+        $('.lanrenzhijia li').mouseover(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+            var index = $(this).index();
+            var distance = index * (Height + 1) + pTop + 'px'; //如果你的li有个border-bottom为1px高度的话，这里需要加1
+            $('.lanrenzhijia .hover').stop().animate({ top: distance }, 150); //默认动画时间为150毫秒，懒人们可根据需要修改
+        });
+    });
+</script>
+</html>
+

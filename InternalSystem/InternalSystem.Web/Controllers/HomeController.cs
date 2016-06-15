@@ -26,8 +26,13 @@ namespace InternalSystem.Web.Controllers
 
             return View();
         }
-
+        //首页
         public ActionResult Main()
+        {
+            return View();
+        }
+        //视频列表页
+        public ActionResult VideoList()
         {
             return View();
         }
