@@ -8,9 +8,13 @@
     <meta name="viewport" content="width=device-width" />
     <title>非遗</title>
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
 
-<body>
+<body ng-app="scApp" ng-controller="HomeController">
     <div class="top"></div>
     <div id="wrap">
         <!--整体-->
@@ -115,5 +119,11 @@
             <div class="foot-img"><p>官<br />方<br />微<br />信<br />扫<br />描</p><img src="~/img/ewm.jpg" width="100" /></div>
         </div>
     </div>
+
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/seco-ng-utils.js"></script>
+    <script src="~/Scripts/seco-ng-utils-extra.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
 </body>
 </html>

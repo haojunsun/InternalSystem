@@ -1162,6 +1162,9 @@
     <Content Include="img\新建文件夹\pic2.jpg" />
     <Content Include="img\新建文件夹\top.png" />
     <Content Include="img\新建文件夹\top1.png" />
+    <Content Include="Scripts\angular.bundled.min.js" />
+    <Content Include="Scripts\angular.ui-sortable.js" />
+    <Content Include="Scripts\angularui-sortable-bundle.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Backload\Logs\log.folder" />
@@ -1239,6 +1242,10 @@
     <Content Include="Content\site.scss" />
     <Content Include="Content\_public.scss" />
     <Content Include="Log4net.config" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\seco-app.js" />
+    <Content Include="Scripts\seco-ng-utils-extra.js" />
+    <Content Include="Scripts\seco-ng-utils.js" />
     <Content Include="Uploads\fyexcel\第四批96个.xls" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
