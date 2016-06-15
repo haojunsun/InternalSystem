@@ -1087,6 +1087,7 @@
     <Content Include="Content\site.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="css\css.css" />
+    <Content Include="css\pagination.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1243,6 +1244,7 @@
     <Content Include="Content\_public.scss" />
     <Content Include="Log4net.config" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\pagination.js" />
     <Content Include="Scripts\seco-app.js" />
     <Content Include="Scripts\seco-ng-utils-extra.js" />
     <Content Include="Scripts\seco-ng-utils.js" />

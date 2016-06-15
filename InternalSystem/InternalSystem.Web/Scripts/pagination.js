@@ -1,8 +1,3 @@
-//pagination.js
-//This is a pagination control for ajax use, if you like this, hope you can keep this info wherever you use it, thx!
-//author: silentsea   date:2009-10-28 13:03     email:alva.wu@qq.com    csdn:yiliyili
-//built on JQuery library
-
 $.extend({
     pagination: function (render, curPage, pageSize, totalRecord, callback, extra) {
         var totalPage = Math.ceil(totalRecord / pageSize);
@@ -24,7 +19,6 @@ $.extend({
             $('<li>...</li>').appendTo(ulObj);
         }
         for (; (i <= totalPage) && (i <= parseInt(curPage) + 3) ; i++) {
-            console.log(i, '11');
             $.createLi(curPage, i, i, totalPage, pageArg, extra, callback, "").appendTo(ulObj);
         }
         //后省略

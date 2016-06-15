@@ -60,8 +60,6 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
             $scope.getVedioList();
         }
 
-     
-
         $scope.getVedioList = function () {
             $scope.videoList = [];
             $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": $scope.classtype, "dataformat": $scope.type, "nation": $scope.nation, "municipalities": $scope.area, "title": $scope.searchkey, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
@@ -91,6 +89,10 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
                 $scope.pageIndex = nextpage;
             }
             $scope.getVedioList();
+        }
+
+        $scope.openDetail = function (ele) {
+            console.log($(ele));
         }
 
     }])
