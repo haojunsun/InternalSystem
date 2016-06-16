@@ -8,11 +8,10 @@
     <title>非遗</title>
     <link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
     <script src="~/Scripts/jquery.js"></script>
-    <script src="~/Scripts/mediaelement-and-player.min.js"></script>
+
     <link href="~/css/pagination.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
-    <link href="~/css/mediaelementplayer.min.css" rel="stylesheet" />
-    <script src="~/Scripts/projekktor.js"></script>
+    
     <script>
         var sc = sc || {};
         sc.baseUrl = '@Url.Content("~/")';
@@ -73,7 +72,7 @@
         <div style=" clear:both;"></div>
 
         <div class="index-box-up">
-            <div class="pic-left">
+            @*<div class="pic-left">
                 <p>产品分类</p>
                 <div class="lanrenzhijia">
                     <ul>
@@ -84,9 +83,9 @@
                     </ul>
                     <div class="hover"></div>
                 </div>
-            </div>
+            </div>*@
 
-            <div class="pic-right">
+            <div class="">
                 <div class="box-nav">
                     <div class="box-nav-left"><img src="~/img/16.png" width="149" /></div>
                     <div class="box-nav-right"><strong>首页 > 视频列表</strong></div>
@@ -97,9 +96,7 @@
                     <div class="picmain_up">
                         <div class="picmain_pic" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <a href="javascript:void(0)">
-                                <video class="projekktor" poster="~/img/pic.png" title="this is Projekktor" width="200" height="140" controls=controls>
-                                    <source src="/Uploads/1/11000001030101040202.mp4" type="video/mp4" />
-                                </video>
+                                <img src="~/img/lj.png" width="100%" />
                                 <p>{{item.Title}}</p>
                             </a>
                         </div>
@@ -107,7 +104,7 @@
 
                 </div>
                 <img src="~/img/002.png" width="740" />
-                <div id="pages"></div>
+                <div id="pages" style="margin-left:350px"></div>
             </div>
 
         </div>
@@ -116,11 +113,10 @@
     <div class="foot">
         <div class="footer">
             <div class="foot-text">
-                <p>版权所有：弘悦静心　 24小时热线电话：400-9977-639</p>
-                <p>地址：青岛城阳区王沙路1616号长水山庄　电话：0532-66727827　邮箱：hongyuejingxin@163.com</p>
-                <p>技术支持：青岛品赢网络技术有限公司</p>
+                <p>版权所有：xxx　 24小时热线电话：400-8888-888</p>
+                <p>地址：北京市海淀区南锣鼓巷　电话：010-88888888　邮箱：111111@qq.com</p>
+                <p>技术支持：mark team</p>
             </div>
-            <div class="foot-img"><p>官<br />方<br />微<br />信<br />扫<br />描</p><img src="~/img/ewm.jpg" width="100" /></div>
         </div>
     </div>
     <script src="~/Scripts/jquery.js"></script>

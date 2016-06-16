@@ -14,6 +14,7 @@ using System.Data;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
+using System.Text.RegularExpressions;
 
 namespace InternalSystem.Web.Areas.Admin.Controllers
 {
@@ -73,7 +74,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 1)
                         {
                             wh1.ArtificialId = dt.Rows[i][j].ToString();
-                            wh1.FileName = path + "1\\" + dt.Rows[i][j].ToString() + ".mp4";
+                            wh1.FileName = "~/Uploads/1/" + dt.Rows[i][j].ToString() + ".mp4";
                         }
                         if (j == 2)
                             wh1.TitleProper = dt.Rows[i][j].ToString();
@@ -110,13 +111,33 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 19)
                             wh1.Genre = dt.Rows[i][j].ToString();
                         if (j == 20)
-                            wh1.Municipalities = dt.Rows[i][j].ToString();
+                        {
+                            if (dt.Rows[i][j].ToString() == "")
+                                wh1.Municipalities = "不清";
+                            else
+                                wh1.Municipalities = dt.Rows[i][j].ToString();
+                        }
                         if (j == 21)
-                            wh1.Region = dt.Rows[i][j].ToString();
+                        {
+                            if (dt.Rows[i][j].ToString() == "")
+                                wh1.Region = "不清";
+                            else
+                                wh1.Region = dt.Rows[i][j].ToString();
+                        }
                         if (j == 22)
-                            wh1.CountyLevelCity = dt.Rows[i][j].ToString();
+                        {
+                            if (dt.Rows[i][j].ToString() == "")
+                                wh1.CountyLevelCity = "不清";
+                            else
+                                wh1.CountyLevelCity = dt.Rows[i][j].ToString();
+                        }
                         if (j == 23)
-                            wh1.Township = dt.Rows[i][j].ToString();
+                        {
+                            if (dt.Rows[i][j].ToString() == "")
+                                wh1.Township = "不清";
+                            else
+                                wh1.Township = dt.Rows[i][j].ToString();
+                        }
                         if (j == 24)
                             wh1.Village = dt.Rows[i][j].ToString();
                         if (j == 25)
@@ -168,7 +189,15 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 48)
                             wh1.Description = dt.Rows[i][j].ToString();
                         if (j == 49)
-                            wh1.DescriptionTime = dt.Rows[i][j].ToString();
+                        {
+                            string aa = dt.Rows[i][j].ToString(), bb = "";
+                            Regex obj = new Regex(@"[0-9]{1,2}/[0-9]{1,2}/[0-9]{2}");
+                            if (obj.IsMatch(aa))
+                            {
+                                bb = "20" + aa.Split('/')[2] + "-" + aa.Split('/')[0] + "-" + aa.Split('/')[1];
+                            }
+                            wh1.DescriptionTime = bb;//dt.Rows[i][j].ToString();
+                        }
                         if (j == 50)
                             wh1.Audit = dt.Rows[i][j].ToString();
                         if (j == 51)
@@ -335,9 +364,9 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search(string firstlevel,string dataformat, string nation, string municipalities,string title,int pageSize,int pageIndex)
+        public ActionResult Search(string firstlevel, string dataformat, string nation, string municipalities, string title, int pageSize, int pageIndex)
         {
-            var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat,  nation,  municipalities, title);
+            var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat, nation, municipalities, title);
             return Json(result, JsonRequestBehavior.DenyGet);
         }
 

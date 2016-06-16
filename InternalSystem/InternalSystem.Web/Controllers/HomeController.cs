@@ -40,6 +40,7 @@ namespace InternalSystem.Web.Controllers
         //详情页
         public ActionResult Detail()
         {
+            ViewBag.Url = "~/Uploads/1/14098101030102040102.mp4";
             return View();
         }
 

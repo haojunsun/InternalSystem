@@ -7,7 +7,7 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
     .controller('HomeController', ['$scope', '$location', function ($scope, $location) {
         console.log('HomeController');
     }])
-    .controller('VideoListController', ['$scope', '$http', function ($scope, $http) {
+    .controller('VideoListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         console.log('VideoListController');
         console.log(sc.baseUrl);
         $scope.classtype = "";//分类
@@ -63,15 +63,14 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
         $scope.getVedioList = function () {
             $scope.videoList = [];
             $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": $scope.classtype, "dataformat": $scope.type, "nation": $scope.nation, "municipalities": $scope.area, "title": $scope.searchkey, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
-                console.log(data);
+                //console.log(data);
                 $scope.datacount = data.Data.TotalCount;
                 $scope.totalpage = data.Data.TotalPaged;
                 $scope.videoList = data.Data.Items;
+                //重新加载页码
                 $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
-                setTimeout(function () {
-                    projekktor('.projekktor'); // instantiation
-                }, 1000)
-            
+
+
             }).error(function (data) {
                 console.log("查询失败");
             });
@@ -79,6 +78,7 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
 
         $scope.getVedioList();
 
+        //翻页
         changePage = function (ele) {
             var nextpage = $(ele).text();
             if (nextpage == '第一页') {
@@ -95,12 +95,41 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
             $scope.getVedioList();
         }
 
-        $scope.openDetail = function (whid) {
+        //进入详情页
+        openDetail = function (whid, ele) {
             console.log(whid);
+            window.location.href = 'detail?video=' + whid;
         }
 
     }])
-    .controller('DetailController', ['$scope', function ($scope) {
+    .controller('DetailController', ['$scope', '$http', function ($scope, $http) {
         console.log('DetailController');
+        var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
+        $scope.videoinfo = {};
+
+        //获取单条数据
+        $scope.getVideoInfo = function () {
+            if (!whid)
+                return;
+            $http.post(sc.baseUrl + 'Import/Find', { "id": whid }).success(function (data) {
+                console.log(data);
+                $scope.videoinfo = data;
+                console.log($scope.videoinfo.FileName);
+
+                var curWwwPath = window.document.location.href;
+                var pathName = window.document.location.pathname;
+                var pos = curWwwPath.indexOf(pathName);
+                var localhostPaht = curWwwPath.substring(0, pos);
+
+                $('#videosource').attr("src", localhostPaht + $scope.videoinfo.FileName.substring(1));
+                setTimeout(function () {
+                    projekktor('#videoplayer'); // instantiation
+                }, 100)
+            }).error(function (data) {
+                console.log("查询失败");
+            });
+        }
+
+        $scope.getVideoInfo();
     }])
 ;;

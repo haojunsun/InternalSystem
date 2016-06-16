@@ -6,7 +6,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>非遗</title>
+    <link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/mediaelement-and-player.min.js"></script>
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/mediaelementplayer.min.css" rel="stylesheet" />
+    <script src="~/Scripts/projekktor.js"></script>
     <script>
         var sc = sc || {};
         sc.baseUrl = '@Url.Content("~/")';
@@ -31,45 +36,62 @@
             </div>
         </div>
         <div style=" clear:both;"></div>
-        <div class="banner"><img src="~/img/banner.png" width="100%" /></div>
+        @*<div class="banner"><img src="~/img/banner.png" width="100%" /></div>*@
         <div style=" clear:both;"></div>
 
         <div>
             <div class="box-nav">
                 <div class="box-nav-left"><img src="~/img/15.png" width="149" /></div>
-                <div class="box-nav-right"><strong>首页 > 梵音禅 > 详情</strong></div>
+                <div class="box-nav-right"><strong>首页 > 视频资源 > 详情</strong></div>
             </div>
             <img src="~/img/002.png" width="1003" />
             <div class="abouttext">
-                <p><strong>乐嘉：从断食到素食，让我拒绝了死神的“邀请函”</strong></p>
+                <p><strong><span ng-bind="videoinfo.Title" style="font-size:x-large"></span></strong></p>
                 <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
-                <p><span>发布时间：2015-10-1 10:56:50 信息来源：本站</span></p>
+                <p>
+                    <span>
+                        著录者：<span ng-bind="videoinfo.Description" style="margin-right:50px"></span>
+                        著录时间：<span ng-bind="videoinfo.DescriptionTime" style="margin-right:50px"></span>
+                    </span>
+                </p>
                 <div class="text">
-                    <p>乐嘉，相信很多人都知道他不仅是著名主持人，也是众多高校的特聘导师。在无数光芒的背后，却暗藏了他对生活的许多无奈。</p>
-                    <p>由于超负荷工作，乐嘉的身体向他发出了最后的“通牒”。正是因为这次经历，从断食到食素，他的生活以一种全新的形式出现，并且重新审视了“修行”的本义。</p>
-                    <p>2013年2月的一天早晨，一觉睡醒，左手食指的整个指头发麻，没几天，弥漫到两根指头，那时正紧赶慢赶几本书稿，没咋当回事。等到我过了半个月后，已经有点大事不妙，左小臂全麻。。</p>
-
-                    <div class="abouttext-img"><img src="~/img/lj.png" width="50%" /></div>
                     <p>
-                        2013年2月的一天早晨，一觉睡醒，左手食指的整个指头发麻，没几天，弥漫到两根指头，那时正紧赶慢赶几本书稿，没咋当回事。等到我过了半个月后，已经有点大事不妙，左小臂全麻。
-                        这下急了，放血，刮痧，板砸，疏经，拍了核磁和CT，最后确诊，长期伏案造成的颈椎问题暨运动时斜方肌拉伤，必须马上治疗。请了正骨的医生，扎了针灸，然后按摩，每天坚持做理疗瑜伽。
+                        项目类别：<span ng-bind="videoinfo.FirstLevel" style="margin-right:50px"></span>
+                        民族：<span ng-bind="videoinfo.Nation" style="margin-right:50px"></span>
+                        传承人：<span ng-bind="videoinfo.Successor"></span>
                     </p>
-                    <p>第二天下午在央视录节目，化妆师惊呼，“这是什么东西！”从后颈到后脑勺到脸颊侧耳部蔓延了大小类似风疹的红肿，此起彼伏约有8块，拍了照片，发给医生朋友，几个家伙语重心长地给了多种猜测，结论是速去医院。</p>
-
+                    <p>
+                        省/直辖市：<span ng-bind="videoinfo.Municipalities" style="margin-right:50px"></span>
+                        市/地区：<span ng-bind="videoinfo.Region" style="margin-right:50px"></span>
+                        县/县级市：<span ng-bind="videoinfo.CountyLevelCity" style="margin-right:50px"></span>
+                        乡/镇：<span ng-bind="videoinfo.Township"></span>
+                    </p>
+                    <p>
+                        源资料格式：<span ng-bind="videoinfo.DataFormat" style="margin-right:50px"></span>
+                        源资料提供者：<span ng-bind="videoinfo.DataProvider" style="margin-right:50px"></span>
+                        时长：<span ng-bind="videoinfo.Duration"></span>
+                    </p>
+                    <center>
+                        <div>
+                            <video id="videoplayer" poster="~/img/pic.png" title="this is Projekktor" width="900" height="500" controls=controls>
+                                <source id="videosource" src="" type="video/mp4" />
+                            </video>
+                        </div>
+                    </center>
                 </div>
             </div>
-            <img src="~/img/002.png" width="1003" />
+         
+
         </div>
     </div>
     <div style=" clear:both;"></div>
     <div class="foot">
         <div class="footer">
             <div class="foot-text">
-                <p>版权所有：弘悦静心　 24小时热线电话：400-9977-639</p>
-                <p>地址：青岛城阳区王沙路1616号长水山庄　电话：0532-66727827　邮箱：hongyuejingxin@163.com</p>
-                <p>技术支持：青岛品赢网络技术有限公司</p>
+                <p>版权所有：xxx　 24小时热线电话：400-8888-888</p>
+                <p>地址：北京市海淀区南锣鼓巷　电话：010-88888888　邮箱：111111@qq.com</p>
+                <p>技术支持：mark team</p>
             </div>
-            <div class="foot-img"><p>官<br />方<br />微<br />信<br />扫<br />描</p><img src="~/img/ewm.jpg" width="100" /></div>
         </div>
     </div>
     <script src="~/Scripts/jquery-1.11.0.min.js"></script>
