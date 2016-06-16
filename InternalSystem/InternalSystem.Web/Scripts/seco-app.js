@@ -9,7 +9,7 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
     }])
     .controller('VideoListController', ['$scope', '$http', function ($scope, $http) {
         console.log('VideoListController');
-
+        console.log(sc.baseUrl);
         $scope.classtype = "";//分类
         $scope.type = "";//类型
         $scope.nation = "";//民族
@@ -68,6 +68,10 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
                 $scope.totalpage = data.Data.TotalPaged;
                 $scope.videoList = data.Data.Items;
                 $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
+                setTimeout(function () {
+                    projekktor('.projekktor'); // instantiation
+                }, 1000)
+            
             }).error(function (data) {
                 console.log("查询失败");
             });

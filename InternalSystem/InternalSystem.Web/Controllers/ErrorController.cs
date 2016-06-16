@@ -14,5 +14,11 @@ namespace InternalSystem.Web.Controllers
             ViewBag.ExLevel = exLevel;
             return View();
         }
+
+        public ActionResult Main(int? exLevel)
+        {
+            ViewBag.ExLevel = exLevel;
+            return View();
+        }
     }
 }

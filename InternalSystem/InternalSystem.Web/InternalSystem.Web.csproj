@@ -1087,6 +1087,7 @@
     <Content Include="Content\site.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="css\css.css" />
+    <Content Include="css\mediaelementplayer.min.css" />
     <Content Include="css\pagination.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1217,6 +1218,8 @@
     <Content Include="Assets\plugins\uniform\README.md" />
     <Content Include="Areas\Admin\Views\Import\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Import\List.cshtml" />
+    <Content Include="App_Data\logs\2016-06-15.log" />
+    <Content Include="App_Data\logs\2016-06-16.log" />
     <None Include="Backload\Config\Web.Backload.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1244,10 +1247,24 @@
     <Content Include="Content\_public.scss" />
     <Content Include="Log4net.config" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\mediaelement-and-player.min.js" />
     <Content Include="Scripts\pagination.js" />
+    <Content Include="Scripts\projekktor.js" />
     <Content Include="Scripts\seco-app.js" />
     <Content Include="Scripts\seco-ng-utils-extra.js" />
     <Content Include="Scripts\seco-ng-utils.js" />
+    <Content Include="theme\buffering.gif" />
+    <Content Include="theme\maccaco-load-static.png" />
+    <Content Include="theme\maccaco-load.gif" />
+    <Content Include="theme\maccaco.png" />
+    <Content Include="theme\maccaco_.png" />
+    <Content Include="theme\noise.gif" />
+    <Content Include="theme\player.png" />
+    <Content Include="theme\start.png" />
+    <Content Include="theme\style.css" />
+    <Content Include="Uploads\1\11000001030101040202.mp4" />
+    <Content Include="Uploads\1\11000001040101040202.mp4" />
     <Content Include="Uploads\fyexcel\第四批96个.xls" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1301,9 +1318,10 @@
     <Content Include="Views\Home\VideoList.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\ICHintroduce.cshtml" />
+    <Content Include="theme\Thumbs.db" />
+    <Content Include="Views\Error\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\WebApi\" />
     <Folder Include="files\imgs\" />

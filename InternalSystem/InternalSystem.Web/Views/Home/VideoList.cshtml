@@ -6,8 +6,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>非遗</title>
+    <link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/mediaelement-and-player.min.js"></script>
     <link href="~/css/pagination.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/mediaelementplayer.min.css" rel="stylesheet" />
+    <script src="~/Scripts/projekktor.js"></script>
     <script>
         var sc = sc || {};
         sc.baseUrl = '@Url.Content("~/")';
@@ -80,6 +85,7 @@
                     <div class="hover"></div>
                 </div>
             </div>
+
             <div class="pic-right">
                 <div class="box-nav">
                     <div class="box-nav-left"><img src="~/img/16.png" width="149" /></div>
@@ -91,7 +97,9 @@
                     <div class="picmain_up">
                         <div class="picmain_pic" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <a href="javascript:void(0)">
-                                <img src="~/img/lj.png" width="100%" />
+                                <video class="projekktor" poster="~/img/pic.png" title="this is Projekktor" width="200" height="140" controls=controls>
+                                    <source src="/Uploads/1/11000001030101040202.mp4" type="video/mp4" />
+                                </video>
                                 <p>{{item.Title}}</p>
                             </a>
                         </div>
@@ -99,21 +107,6 @@
 
                 </div>
                 <img src="~/img/002.png" width="740" />
-                @*<div class="page-normal">
-                    <span class="page-prev">&lt;</span>
-                    <span class="page-current">1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    ...
-                    <a href="#">199</a>
-                    <a href="#">200</a>
-                    <a href="#" class="page-next">&gt;</a>
-                    <span>总条数：{{datacount}}</span>
-                </div>*@
                 <div id="pages"></div>
             </div>
 
@@ -130,7 +123,7 @@
             <div class="foot-img"><p>官<br />方<br />微<br />信<br />扫<br />描</p><img src="~/img/ewm.jpg" width="100" /></div>
         </div>
     </div>
-    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/angular.bundled.min.js"></script>
     <script src="~/Scripts/seco-ng-utils.js"></script>
     <script src="~/Scripts/seco-ng-utils-extra.js"></script>
