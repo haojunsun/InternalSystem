@@ -1,18 +1,61 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>ICHintroduce</title>
+    <title>文化资源归集系统</title>
+    <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
-<body>
-    <div> 
-        非遗介绍页
+
+<body ng-app="scApp" ng-controller="HomeController">
+    <div class="top"></div>
+    <div id="wrap">
+        <!--整体-->
+        <div class="index-nav">
+            <div class="logo"><img src="~/img/logo.png" width="200" /></div>
+            <div class="nav">
+                <ul>
+                    <li><a href="@Url.Action("main","home")">首 页</a></li>
+                    <li><a href="@Url.Action("videolist", "home")">视频资源</a></li>
+                    <li><a href="news.html">图片资源</a></li>
+                    <li><a href="news.html">文字资源</a></li>
+                    <li><a href="news.html">网站规划</a></li>
+                    <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style=" clear:both;"></div>
+        <div class="banner"><img src="~/img/banner.png" width="100%" /></div>
+        <div style=" clear:both;"></div>
+        
+        <div style=" clear:both;"></div>
+
+        
+
+
     </div>
+    <div style=" clear:both;"></div>
+    <div class="foot">
+        <div class="footer">
+            <div class="foot-text">
+                <p>版权所有：xxx　 24小时热线电话：400-8888-888</p>
+                <p>地址：北京市海淀区南锣鼓巷　电话：010-88888888　邮箱：111111@qq.com</p>
+                <p>技术支持：mark team</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/seco-ng-utils.js"></script>
+    <script src="~/Scripts/seco-ng-utils-extra.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
 </body>
 </html>

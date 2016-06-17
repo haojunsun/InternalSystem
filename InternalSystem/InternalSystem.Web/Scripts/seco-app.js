@@ -23,32 +23,40 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
 
         $('.classtype').click(function () {
             $scope.classtype = $(this).text();
-            if ($scope.classtype == "全部")
+            if ($scope.classtype == "全部") {
                 $scope.classtype = "";
+                $('.clearList').find('div').eq(0).hide();
+            }
             console.log($scope.classtype);
             $scope.pageIndex = 1;
             $scope.getVedioList();
         })
         $('.type').click(function () {
             $scope.type = $(this).text();
-            if ($scope.type == "全部")
+            if ($scope.type == "全部") {
                 $scope.type = "";
+                $('.clearList').find('div').eq(1).hide();
+            }
             console.log($scope.type);
             $scope.pageIndex = 1;
             $scope.getVedioList();
         })
         $('.nation').click(function () {
             $scope.nation = $(this).text();
-            if ($scope.nation == "全部")
+            if ($scope.nation == "全部"){
                 $scope.nation = "";
+                $('.clearList').find('div').eq(2).hide();
+            }
             console.log($scope.nation);
             $scope.pageIndex = 1;
             $scope.getVedioList();
         })
         $('.area').click(function () {
             $scope.area = $(this).text();
-            if ($scope.area == "全国")
+            if ($scope.area == "全国"){
                 $scope.area = "";
+                $('.clearList').find('div').eq(3).hide();
+            }
             console.log($scope.area);
             $scope.pageIndex = 1;
             $scope.getVedioList();
@@ -69,7 +77,6 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
                 $scope.videoList = data.Data.Items;
                 //重新加载页码
                 $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
-
 
             }).error(function (data) {
                 console.log("查询失败");
@@ -101,6 +108,45 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
             window.location.href = 'detail?video=' + whid;
         }
 
+
+        //筛选条件
+        //删除一个
+        $(".selectedShow em").live("click", function () {
+            $(this).parents(".selectedShow").hide();
+            var textTypeIndex = $(this).parents(".selectedShow").index();
+            index = textTypeIndex;
+            $(".listIndex").eq(index).find("a").removeClass("selected");
+
+            if ($(".listIndex .selected").length < 2) {
+                $(".eliminateCriteria").hide();
+            }
+            if (index == 0)
+                $scope.classtype = "";//分类
+            else if (index == 1)
+                $scope.type = "";//类型
+            else if (index == 2)
+                $scope.nation = "";//民族
+            else if (index == 3)
+                $scope.area = "";//地区
+
+            $(".listIndex").eq(index).find("a").eq(0).addClass("selected");
+
+        });
+        //清空
+        $(".eliminateCriteria").live("click", function () {
+            $(".selectedShow").hide();
+            $(this).hide();
+            $(".listIndex a ").removeClass("selected");
+            $scope.classtype = "";//分类
+            $scope.type = "";//类型
+            $scope.nation = "";//民族
+            $scope.area = "";//地区
+            $scope.getVedioList();
+            $(".listIndex").eq(0).find("a").eq(0).addClass("selected");
+            $(".listIndex").eq(1).find("a").eq(0).addClass("selected");
+            $(".listIndex").eq(2).find("a").eq(0).addClass("selected");
+            $(".listIndex").eq(3).find("a").eq(0).addClass("selected");
+        });
     }])
     .controller('DetailController', ['$scope', '$http', function ($scope, $http) {
         console.log('DetailController');
@@ -114,7 +160,7 @@ sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
             $http.post(sc.baseUrl + 'Import/Find', { "id": whid }).success(function (data) {
                 console.log(data);
                 $scope.videoinfo = data;
-                console.log($scope.videoinfo.FileName);
+                //console.log($scope.videoinfo.FileName);
 
                 var curWwwPath = window.document.location.href;
                 var pathName = window.document.location.pathname;

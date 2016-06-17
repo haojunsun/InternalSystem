@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>非遗</title>
+    <title>文化资源归集系统</title>
     <link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
     <script src="~/Scripts/jquery.js"></script>
-
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
     <link href="~/css/pagination.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
-    
+
     <script>
         var sc = sc || {};
         sc.baseUrl = '@Url.Content("~/")';
@@ -36,54 +36,116 @@
             </div>
         </div>
         <div style=" clear:both;"></div>
-        <div class="banner" style="margin-left:400px">
-            <div>
-                分类：
-                <a class="classtype" href="javascript:void(0)">全部</a>
-                <a class="classtype" href="javascript:void(0)">民间文学</a>
-                <a class="classtype" href="javascript:void(0)">传统音乐</a>
-                <a class="classtype" href="javascript:void(0)">传统美术</a>
-                <a class="classtype" href="javascript:void(0)">传统技艺</a>
-                <a class="classtype" href="javascript:void(0)">曲艺</a>
+        @*<div class="banner" style="margin-left:400px">
+                <div>
+                    分类：
+                    <a class="classtype" href="javascript:void(0)">全部</a>
+                    <a class="classtype" href="javascript:void(0)">民间文学</a>
+                    <a class="classtype" href="javascript:void(0)">传统音乐</a>
+                    <a class="classtype" href="javascript:void(0)">传统美术</a>
+                    <a class="classtype" href="javascript:void(0)">传统技艺</a>
+                    <a class="classtype" href="javascript:void(0)">曲艺</a>
+                </div>
+                <div>
+                    类型：
+                    <a class="type" href="javascript:void(0)">全部</a>
+                    <a class="type" href="javascript:void(0)">视频</a>
+                    <a class="type" href="javascript:void(0)">图片</a>
+                    <a class="type" href="javascript:void(0)">文本</a>
+                </div>
+                <div>
+                    民族：
+                    <a class="nation" href="javascript:void(0)">全部</a>
+                    <a class="nation" href="javascript:void(0)">满族</a>
+                    <a class="nation" href="javascript:void(0)">汉族</a>
+                    <a class="nation" href="javascript:void(0)">回族</a>
+                </div>
+                <div>
+                    地区：
+                    <a class="area" href="javascript:void(0)">全国</a>
+                    <a class="area" href="javascript:void(0)">北京市</a>
+                    <a class="area" href="javascript:void(0)">天津市</a>
+                    <a class="area" href="javascript:void(0)">河北省</a>
+                </div>
+                <div>关键字搜索：<input type="text" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()" /></div>
+            </div>*@
+        <div class="selectNumberScreen">
+
+            <div id="selectList" class="screenBox screenBackground">
+
+                <dl class="listIndex" attr="terminal_brand_s">
+                    <dt>分　　类：</dt>
+                    <dd>
+                        <a class="classtype" href="javascript:void(0)">全部</a>
+                        <a class="classtype" name="condition" href="javascript:void(0)">民间文学</a>
+                        <a class="classtype" name="condition" href="javascript:void(0)">传统音乐</a>
+                        <a class="classtype" name="condition" href="javascript:void(0)">传统美术</a>
+                        <a class="classtype" name="condition" href="javascript:void(0)">传统技艺</a>
+                        <a class="classtype" name="condition" href="javascript:void(0)">曲艺</a>
+                    </dd>
+                </dl>
+
+                <dl class="listIndex" attr="价格范围">
+                    <dt>类　　型：</dt>
+                    <dd>
+                        <a class="type" href="javascript:void(0)">全部</a>
+                        <a class="type" name="condition" href="javascript:void(0)">视频</a>
+                        <a class="type" name="condition" href="javascript:void(0)">图片</a>
+                        <a class="type" name="condition" href="javascript:void(0)">文本</a>
+                    </dd>
+                </dl>
+
+                <dl class="listIndex" attr="terminal_os_s">
+                    <dt>民　　族：</dt>
+                    <dd>
+                        <a class="nation" href="javascript:void(0)">全部</a>
+                        <a class="nation" name="condition" href="javascript:void(0)">满族</a>
+                        <a class="nation" name="condition" href="javascript:void(0)">汉族</a>
+                        <a class="nation" name="condition" href="javascript:void(0)">回族</a>
+                    </dd>
+                </dl>
+
+                <dl class="listIndex" attr="terminal_activity_s">
+                    <dt>地　　区：</dt>
+                    <dd>
+                        <a class="area" href="javascript:void(0)">全国</a>
+                        <a class="area" name="condition" href="javascript:void(0)">北京市</a>
+                        <a class="area" name="condition" href="javascript:void(0)">天津市</a>
+                        <a class="area" name="condition" href="javascript:void(0)">河北省</a>
+                    </dd>
+                </dl>
+                <dl class="listIndex" attr="terminal_activity_s">
+                    <dt>搜　　索：</dt>
+                    <input type="text" style="border-radius:6px;width:400px;height:28px;font-size:larger" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()" />
+                </dl>
             </div>
-            <div>
-                类型：
-                <a class="type" href="javascript:void(0)">全部</a>
-                <a class="type" href="javascript:void(0)">视频</a>
-                <a class="type" href="javascript:void(0)">图片</a>
-                <a class="type" href="javascript:void(0)">文本</a>
+
+            <div class="hasBeenSelected">
+                <dl>
+                    <dt>您已选择：</dt>
+                    <dd style="display:none" class="clearDd">
+                        <div class="clearList"></div>
+                        <div style="display:none;" class="eliminateCriteria">清空</div>
+                    </dd>
+                </dl>
             </div>
-            <div>
-                民族：
-                <a class="nation" href="javascript:void(0)">全部</a>
-                <a class="nation" href="javascript:void(0)">满族</a>
-                <a class="nation" href="javascript:void(0)">汉族</a>
-                <a class="nation" href="javascript:void(0)">回族</a>
-            </div>
-            <div>
-                地区：
-                <a class="area" href="javascript:void(0)">全国</a>
-                <a class="area" href="javascript:void(0)">北京市</a>
-                <a class="area" href="javascript:void(0)">天津市</a>
-                <a class="area" href="javascript:void(0)">河北省</a>
-            </div>
-            <div>关键字搜索：<input type="text" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()" /></div>
+
         </div>
         <div style=" clear:both;"></div>
 
         <div class="index-box-up">
             @*<div class="pic-left">
-                <p>产品分类</p>
-                <div class="lanrenzhijia">
-                    <ul>
-                        <li class="on"><a href='#'>分类1</a></li>
-                        <li class="on"><a href='#'>分类2</a></li>
-                        <li class="on"><a href='#'>分类3</a></li>
-                        <li class="on"><a href='#'>分类4</a></li>
-                    </ul>
-                    <div class="hover"></div>
-                </div>
-            </div>*@
+                    <p>产品分类</p>
+                    <div class="lanrenzhijia">
+                        <ul>
+                            <li class="on"><a href='#'>分类1</a></li>
+                            <li class="on"><a href='#'>分类2</a></li>
+                            <li class="on"><a href='#'>分类3</a></li>
+                            <li class="on"><a href='#'>分类4</a></li>
+                        </ul>
+                        <div class="hover"></div>
+                    </div>
+                </div>*@
 
             <div class="">
                 <div class="box-nav">
@@ -126,6 +188,7 @@
     <script src="~/Scripts/pagination.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
     <script>
+        var index;
         $(function () {
             var Height = 40; //li的高度
             var pTop = 0; // .lanrenzhijia 的paddding-top的值
@@ -136,6 +199,40 @@
                 $('.lanrenzhijia .hover').stop().animate({ top: distance }, 150); //默认动画时间为150毫秒，懒人们可根据需要修改
             });
         });
+
+
+        //选项卡
+        var dlNum = $("#selectList").find("dl");
+        for (i = 0; i < dlNum.length; i++) {
+            $(".hasBeenSelected .clearList").append("<div class=\"selectedInfor selectedShow\" style=\"display:none\"><span></span><label></label><em></em></div>");
+        }
+
+        var refresh = "true";
+
+        $(".listIndex a ").live("click", function () {
+            if ($(this).attr('name') == 'condition') {
+                var text = $(this).text();
+                var selectedShow = $(".selectedShow");
+                var textTypeIndex = $(this).parents("dl").index();
+                var textType = $(this).parent("dd").siblings("dt").text();
+                index = textTypeIndex; //- (2);
+                $(".clearDd").show();
+                $(".selectedShow").eq(index).show();
+                $(this).addClass("selected").siblings().removeClass("selected");
+                selectedShow.eq(index).find("span").text(textType);
+                selectedShow.eq(index).find("label").text(text);
+                var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
+                if (show > 1) {
+                    $(".eliminateCriteria").show();
+                }
+            } else {
+                $(this).addClass("selected").siblings().removeClass("selected");
+            }
+
+
+        });
+
+        //选项卡
     </script>
 </body>
 </html>
