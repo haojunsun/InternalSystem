@@ -36,7 +36,16 @@
             </div>
         </div>
         <div style=" clear:both;"></div>
-        @*<div class="banner"><img src="~/img/banner.png" width="100%" /></div>*@
+        <div class="banner">
+            @*<img src="~/img/banner.png" width="100%" />*@
+            <div id="owl-demo" class="owl-carousel">
+                <a class="item"><img src="~/images/1.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/2.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/3.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/4.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/5.jpg" alt="" /></a>
+            </div>
+        </div>
         <div style=" clear:both;"></div>
 
         <div>
@@ -96,8 +105,14 @@
     </div>
     <script src="~/Scripts/jquery-1.11.0.min.js"></script>
     <script src="~/Scripts/angular.bundled.min.js"></script>
-    <script src="~/Scripts/seco-ng-utils.js"></script>
-    <script src="~/Scripts/seco-ng-utils-extra.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
+    <script>
+        $(function () {
+            $('#owl-demo').owlCarousel({
+                items: 1,
+                autoPlay: true
+            });
+        });
+    </script>
 </body>
 </html>

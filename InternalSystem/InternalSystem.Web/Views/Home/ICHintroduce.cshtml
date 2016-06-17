@@ -8,6 +8,28 @@
     <meta name="viewport" content="width=device-width" />
     <title>文化资源归集系统</title>
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/css/owl.theme.css" rel="stylesheet">
+    <style>
+        #owl-demo {
+            width: 1000px;
+            height: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            #owl-demo .item {
+                display: block;
+            }
+
+            #owl-demo img {
+                display: block;
+                height: 450px;
+                width: 100%;
+            }
+    </style>
+    <script src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
     <script>
         var sc = sc || {};
         sc.baseUrl = '@Url.Content("~/")';
@@ -16,6 +38,7 @@
 
 <body ng-app="scApp" ng-controller="HomeController">
     <div class="top"></div>
+
     <div id="wrap">
         <!--整体-->
         <div class="index-nav">
@@ -32,13 +55,18 @@
             </div>
         </div>
         <div style=" clear:both;"></div>
-        <div class="banner"><img src="~/img/banner.png" width="100%" /></div>
+        <div class="banner">
+            @*<img src="~/img/banner.png" width="100%" />*@
+            <div id="owl-demo" class="owl-carousel">
+                <a class="item"><img src="~/images/1.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/2.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/3.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/4.jpg" alt="" /></a>
+                <a class="item"><img src="~/images/5.jpg" alt="" /></a>
+            </div>
+        </div>
         <div style=" clear:both;"></div>
-        
         <div style=" clear:both;"></div>
-
-        
-
 
     </div>
     <div style=" clear:both;"></div>
@@ -52,10 +80,16 @@
         </div>
     </div>
 
-    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+
     <script src="~/Scripts/angular.bundled.min.js"></script>
-    <script src="~/Scripts/seco-ng-utils.js"></script>
-    <script src="~/Scripts/seco-ng-utils-extra.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
+    <script>
+        $(function () {
+            $('#owl-demo').owlCarousel({
+                items: 1,
+                autoPlay: true
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 ﻿var sc = sc || {};
-sc.app = angular.module('scApp', ['ngAnimate', 'ngTouch', 'scUtils'])
+sc.app = angular.module('scApp', [])
 
     .controller('RootController', ['$scope', '$location', function ($scope, $location) {
 
