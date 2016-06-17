@@ -162,7 +162,7 @@ namespace InternalSystem.Core.Services
                     if (!string.IsNullOrEmpty(dataformat))
                     {
                         list = (from p in _appDbContext.WorldHeritages
-                                where p.DataFormat.Contains(firstlevel)
+                                where p.DataFormat.Contains(dataformat)
                                 orderby p.CreatedUtc descending
                                 select p).AsQueryable();
                         totalCount = list.Count(x => x.DataFormat.Contains(dataformat));

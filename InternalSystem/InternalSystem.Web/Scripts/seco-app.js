@@ -91,7 +91,7 @@ sc.app = angular.module('scApp', [])
             if (nextpage == '第一页') {
                 $scope.pageIndex = 1;
             } else if (nextpage == '下一页') {
-                $scope.pageIndex = $scope.pageIndex + 1;
+                $scope.pageIndex =parseInt($scope.pageIndex) + 1;
             } else if (nextpage == '最后一页') {
                 $scope.pageIndex = $scope.totalpage;
             } else if (nextpage == '上一页') {
