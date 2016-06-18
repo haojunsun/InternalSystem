@@ -28,16 +28,15 @@
                 <ul>
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
                     <li><a href="@Url.Action("videolist", "home")">视频资源</a></li>
-                    <li><a href="news.html">图片资源</a></li>
-                    <li><a href="news.html">文字资源</a></li>
-                    <li><a href="news.html">网站规划</a></li>
+                    <li><a href="javascript:void(0)">图片资源</a></li>
+                    <li><a href="javascript:void(0)">文字资源</a></li>
+                    <li><a href="javascript:void(0)">网站规划</a></li>
                     <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
                 </ul>
             </div>
         </div>
         <div style=" clear:both;"></div>
-        <div class="banner">
-            @*<img src="~/img/banner.png" width="100%" />*@
+        @*<div class="banner">
             <div id="owl-demo" class="owl-carousel">
                 <a class="item"><img src="~/images/1.jpg" alt="" /></a>
                 <a class="item"><img src="~/images/2.jpg" alt="" /></a>
@@ -45,7 +44,7 @@
                 <a class="item"><img src="~/images/4.jpg" alt="" /></a>
                 <a class="item"><img src="~/images/5.jpg" alt="" /></a>
             </div>
-        </div>
+        </div>*@
         <div style=" clear:both;"></div>
 
         <div>
@@ -59,26 +58,26 @@
                 <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
                 <p>
                     <span>
-                        著录者：<span ng-bind="videoinfo.Description" style="margin-right:50px"></span>
-                        著录时间：<span ng-bind="videoinfo.DescriptionTime" style="margin-right:50px"></span>
+                        著录者：<span ng-bind="videoinfo.Description" style="color: black; margin-right: 50px"></span>
+                        著录时间：<span ng-bind="videoinfo.DescriptionTime" style="color: black; margin-right: 50px"></span>
                     </span>
                 </p>
                 <div class="text">
                     <p>
-                        项目类别：<span ng-bind="videoinfo.FirstLevel" style="margin-right:50px"></span>
-                        民族：<span ng-bind="videoinfo.Nation" style="margin-right:50px"></span>
-                        传承人：<span ng-bind="videoinfo.Successor"></span>
+                        项目类别：<span ng-bind="videoinfo.FirstLevel" style="color: black; margin-right: 50px"></span>
+                        民族：<span ng-bind="videoinfo.Nation" style="color:black;margin-right:50px"></span>
+                        传承人：<span ng-bind="videoinfo.Successor" style="color:black;"></span>
                     </p>
                     <p>
-                        省/直辖市：<span ng-bind="videoinfo.Municipalities" style="margin-right:50px"></span>
-                        市/地区：<span ng-bind="videoinfo.Region" style="margin-right:50px"></span>
-                        县/县级市：<span ng-bind="videoinfo.CountyLevelCity" style="margin-right:50px"></span>
-                        乡/镇：<span ng-bind="videoinfo.Township"></span>
+                        省/直辖市：<span ng-bind="videoinfo.Municipalities" style="color: black; margin-right: 50px"></span>
+                        市/地区：<span ng-bind="videoinfo.Region" style="color: black; margin-right: 50px"></span>
+                        县/县级市：<span ng-bind="videoinfo.CountyLevelCity" style="color: black; margin-right: 50px"></span>
+                        乡/镇：<span ng-bind="videoinfo.Township" style="color:black;"></span>
                     </p>
                     <p>
-                        源资料格式：<span ng-bind="videoinfo.DataFormat" style="margin-right:50px"></span>
-                        源资料提供者：<span ng-bind="videoinfo.DataProvider" style="margin-right:50px"></span>
-                        时长：<span ng-bind="videoinfo.Duration"></span>
+                        源资料格式：<span ng-bind="videoinfo.DataFormat" style="color: black; margin-right: 50px"></span>
+                        源资料提供者：<span ng-bind="videoinfo.DataProvider" style="color: black; margin-right: 50px"></span>
+                        时长：<span ng-bind="videoinfo.Duration" style="color:black;"></span>
                     </p>
                     <center>
                         <div>

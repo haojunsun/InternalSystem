@@ -1087,6 +1087,7 @@
     <Content Include="Content\site.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="css\css.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\mediaelementplayer.min.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.theme.css" />
@@ -1106,6 +1107,9 @@
     <Content Include="images\border.png" />
     <Content Include="images\close.gif" />
     <Content Include="images\controls.png" />
+    <Content Include="images\guide1.jpg" />
+    <Content Include="images\guide2.jpg" />
+    <Content Include="images\guide3.jpg" />
     <Content Include="images\ico_sliding.png" />
     <Content Include="images\index_focus_bg.png" />
     <Content Include="images\loading.gif" />
@@ -1357,6 +1361,7 @@
     <Content Include="Views\Home\ICHintroduce.cshtml" />
     <Content Include="theme\Thumbs.db" />
     <Content Include="Views\Error\Main.cshtml" />
+    <Content Include="Views\Home\GuidePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

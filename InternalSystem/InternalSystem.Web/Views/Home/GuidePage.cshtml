@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>文化资源归集系统</title>
+    <link rel="stylesheet" href="~/css/login.css">
+    <style>
+        .d_over {
+            background-color: #808080;
+        }
+
+        .d_out {
+            background-color: #171717;
+        }
+    </style>
+    <script src="~/Scripts/jquery.js"></script>
+</head>
+<body id="bgbody" class="bg1" style="background-color:black">
+    <div>
+        <div style="text-align: center;">
+            @*filter: alpha(opacity=50); -moz-opacity: 0.50; opacity: 0.30; *@
+            <center>
+                <div class="d_out" onmouseover="mouseover($(this));" onmouseout=" mouseout($(this));" style="width: 170px; height: 40px; border: 1px solid white; text-align: center; margin-top: 400px; cursor: pointer;">
+                    <h3 style="font-size:x-large;color:white;"><a href="@Url.Action("main","home")" style="font-size:x-large;color:white;">走进非遗</a></h3>
+                </div>
+            </center>
+        </div>
+    </div>
+    <div style="display:none">
+        <img src="~/images/guide1.jpg" />
+        <img src="~/images/guide1.jpg" />
+        <img src="~/images/guide1.jpg" />
+    </div>
+    <script>
+        var picindex = 0;
+        mouseout = function (ele) {
+            $(ele).className = 'd_out'; picindex = 0; $('#bgbody').addClass('bg1').removeClass('bg3')
+        }
+
+        mouseover = function (ele) {
+            $(ele).className = 'd_over'; picindex = 3; $('#bgbody').addClass('bg3').removeClass('bg1').removeClass('bg2');
+        }
+
+        $(function () {
+            var inter = setInterval(function () {
+                if (picindex == 0) {
+                    $('#bgbody').addClass('bg2').removeClass('bg1');
+                    picindex++;
+                } else if (picindex == 1) {
+                    $('#bgbody').addClass('bg1').removeClass('bg2');
+                    picindex--;
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+</html>

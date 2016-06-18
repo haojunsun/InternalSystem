@@ -49,5 +49,11 @@ namespace InternalSystem.Web.Controllers
         {
             return View();
         }
+
+        //引导页
+        public ActionResult GuidePage()
+        {
+            return View();
+        }
     }
 }

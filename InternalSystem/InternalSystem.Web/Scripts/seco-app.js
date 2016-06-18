@@ -4,8 +4,29 @@ sc.app = angular.module('scApp', [])
     .controller('RootController', ['$scope', '$location', function ($scope, $location) {
 
     }])
-    .controller('HomeController', ['$scope', '$location', function ($scope, $location) {
+    .controller('HomeController', ['$scope', '$location', '$http', function ($scope, $location, $http) {
         console.log('HomeController');
+
+        $scope.pageIndex = 1;//页码
+        $scope.pageSize = 5;//条数每页
+        $scope.mainVideoList = [];
+
+        $scope.getMainVedioList = function () {
+            $scope.videoList = [];
+            $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": "", "dataformat": "视频", "nation": "", "municipalities": "", "title": "", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                $scope.mainVideoList = data.Data.Items;
+            }).error(function (data) {
+                console.log("查询失败");
+            });
+        }
+
+        //进入详情页
+        openDetail = function (whid, ele) {
+            console.log(whid);
+            window.location.href = '/home/detail?video=' + whid;
+        }
+
+        $scope.getMainVedioList();
     }])
     .controller('VideoListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         console.log('VideoListController');
@@ -43,7 +64,7 @@ sc.app = angular.module('scApp', [])
         })
         $('.nation').click(function () {
             $scope.nation = $(this).text();
-            if ($scope.nation == "全部"){
+            if ($scope.nation == "全部") {
                 $scope.nation = "";
                 $('.clearList').find('div').eq(2).hide();
             }
@@ -53,7 +74,7 @@ sc.app = angular.module('scApp', [])
         })
         $('.area').click(function () {
             $scope.area = $(this).text();
-            if ($scope.area == "全国"){
+            if ($scope.area == "全国") {
                 $scope.area = "";
                 $('.clearList').find('div').eq(3).hide();
             }
@@ -91,7 +112,7 @@ sc.app = angular.module('scApp', [])
             if (nextpage == '第一页') {
                 $scope.pageIndex = 1;
             } else if (nextpage == '下一页') {
-                $scope.pageIndex =parseInt($scope.pageIndex) + 1;
+                $scope.pageIndex = parseInt($scope.pageIndex) + 1;
             } else if (nextpage == '最后一页') {
                 $scope.pageIndex = $scope.totalpage;
             } else if (nextpage == '上一页') {
