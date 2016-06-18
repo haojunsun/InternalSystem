@@ -5,8 +5,6 @@ sc.app = angular.module('scApp', [])
 
     }])
     .controller('HomeController', ['$scope', '$location', '$http', function ($scope, $location, $http) {
-        console.log('HomeController');
-
         $scope.pageIndex = 1;//页码
         $scope.pageSize = 5;//条数每页
         $scope.mainVideoList = [];
@@ -29,8 +27,6 @@ sc.app = angular.module('scApp', [])
         $scope.getMainVedioList();
     }])
     .controller('VideoListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-        console.log('VideoListController');
-        console.log(sc.baseUrl);
         $scope.classtype = "";//分类
         $scope.type = "";//类型
         $scope.nation = "";//民族
@@ -170,7 +166,6 @@ sc.app = angular.module('scApp', [])
         });
     }])
     .controller('DetailController', ['$scope', '$http', function ($scope, $http) {
-        console.log('DetailController');
         var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
         $scope.videoinfo = {};
 
