@@ -1268,6 +1268,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\Hind_Vadodara\HindVadodara-Regular.ttf" />
     <Content Include="fonts\Raleway\Raleway-Regular.ttf" />
+    <None Include="Properties\PublishProfiles\InternalSystem.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
