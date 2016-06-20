@@ -90,7 +90,7 @@ namespace InternalSystem.Core.Services
 
         public WorldHeritage Get(int id)
         {
-            return _appDbContext.WorldHeritages.Find(id);
+            return _appDbContext.WorldHeritages.FirstOrDefault(x=>x.IsEffect==1 && x.WorldHeritageId==id);
         }
 
         public void Import(List<WorldHeritage> list)
