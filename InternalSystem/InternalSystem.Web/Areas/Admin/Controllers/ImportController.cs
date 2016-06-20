@@ -363,8 +363,23 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content(message);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstlevel"></param>
+        /// <param name="secondlevel"></param>
+        /// <param name="dataformat"></param>
+        /// <param name="nation"></param>
+        /// <param name="municipalities"></param>
+        /// <param name="countylevelcity"></param>
+        /// <param name="title"></param>
+        /// <param name="successor"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult Search(string firstlevel, string dataformat, string nation, string municipalities, string title, int pageSize, int pageIndex)
+        public ActionResult Search(string firstlevel, string secondlevel, string dataformat, string nation, string municipalities, string countylevelcity, string title, string successor, int pageSize, int pageIndex)
         {
             var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat, nation, municipalities, title);
             return Json(result, JsonRequestBehavior.DenyGet);
