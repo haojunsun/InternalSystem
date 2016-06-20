@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201606130553076_WorldHeritagesTime.Designer.cs">
       <DependentUpon>201606130553076_WorldHeritagesTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606200548462_IsEffect.cs" />
+    <Compile Include="Migrations\201606200548462_IsEffect.Designer.cs">
+      <DependentUpon>201606200548462_IsEffect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606130553076_WorldHeritagesTime.resx">
       <DependentUpon>201606130553076_WorldHeritagesTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606200548462_IsEffect.resx">
+      <DependentUpon>201606200548462_IsEffect.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

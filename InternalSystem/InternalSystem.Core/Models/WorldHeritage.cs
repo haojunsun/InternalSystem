@@ -281,5 +281,10 @@ namespace InternalSystem.Core.Models
 
 
         public DateTime? CreatedUtc { get; set; }
+
+        /// <summary>
+        /// 0失效 1有效
+        /// </summary>
+        public int IsEffect { get; set; }
     }
 }
