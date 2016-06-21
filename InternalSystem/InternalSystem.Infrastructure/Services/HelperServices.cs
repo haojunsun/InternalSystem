@@ -4,6 +4,7 @@ using System.Drawing;
 
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -121,6 +122,21 @@ namespace InternalSystem.Infrastructure.Services
         int GetStrCount(string strOriginal, string strSymbol);
 
         string UpLoadFile(string fileName, string path);
+
+        void SetSession(string key, string value);
+        void SetSession(string key, object value);
+
+        string GetSession(string key);
+        object GetSessionObject(string key);
+
+
+        ///   <summary>
+        ///   给一个字符串进行MD5加密
+        ///   </summary>
+        ///   <param   name="strText">待加密字符串</param>
+        ///   <returns>加密后的字符串</returns>
+        string MD5Encrypt(string strText);
+
     }
 
     public class HelperServices : IHelperServices
@@ -501,6 +517,37 @@ namespace InternalSystem.Infrastructure.Services
                 }
             }
             return "";
+        }
+        public void SetSession(string key, string value)
+        {
+            HttpContext.Current.Session[key] = value;
+        }
+
+        public void SetSession(string key, object value)
+        {
+            HttpContext.Current.Session[key] = value;
+        }
+
+        public string GetSession(string key)
+        {
+            return HttpContext.Current.Session[key] != null ? HttpContext.Current.Session[key].ToString() : null;
+        }
+        public object GetSessionObject(string key)
+        {
+            return HttpContext.Current.Session[key];
+        }
+
+
+        ///   <summary>
+        ///   给一个字符串进行MD5加密
+        ///   </summary>
+        ///   <param   name="strText">待加密字符串</param>
+        ///   <returns>加密后的字符串</returns>
+        public string MD5Encrypt(string strText)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] result = md5.ComputeHash(System.Text.Encoding.Default.GetBytes(strText));
+            return System.Text.Encoding.Default.GetString(result);
         }
     }
 }

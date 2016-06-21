@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InternalSystem.Web.Filters;
+using InternalSystem.Web.Helpers;
 
 namespace InternalSystem.Web.Areas.Admin.Controllers
 {
-    //[Authorize]
-    public class HomeController : Controller
+    [InternalSystemAuthorize]
+    public class HomeController : ControllerHelper
     {
-        // GET: Admin/Home
         public ActionResult Index()
         {
             return View();

@@ -20,14 +20,12 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         private readonly IArticleService _articleService;
         private readonly IHelperServices _helperServices;
 
-        public ArticleController(ISimpleAccountManager simpleAccount, IArticleService articleService, IHelperServices helperServices)
-            : base(simpleAccount, articleService)
+        public ArticleController(ISimpleAccountManager simpleAccount, IArticleService articleService, IHelperServices helperServices)  
         {
             _simpleAccount = simpleAccount;
             _articleService = articleService;
             _helperServices = helperServices;
         }
-
 
 
         /// <summary>

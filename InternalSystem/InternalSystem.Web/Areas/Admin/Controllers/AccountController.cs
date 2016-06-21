@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
+using InternalSystem.Core.Basis;
+using InternalSystem.Core.Services;
 using InternalSystem.Infrastructure.Services;
+using InternalSystem.Web.Helpers;
 
 namespace InternalSystem.Web.Areas.Admin.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : ControllerHelper
     {
-        private readonly ISimpleAccountManager _simpleAccountManager;
-        public AccountController(ISimpleAccountManager simpleAccountManager)
+        private readonly IManagerService _managerService;
+        private readonly IHelperServices _helperServices;
+
+        public AccountController(IManagerService managerService, IHelperServices helperServices)
         {
-            _simpleAccountManager = simpleAccountManager;
+            _managerService = managerService;
+            _helperServices = helperServices;
         }
+
         public ActionResult Login()
         {
             return View(false);
@@ -22,19 +31,20 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password, bool remember = false)
         {
-            //var result = _simpleAccountManager.LoginByPassword(username, password);
-            //if (!result)
-            //{
-            //    return View(true);
-            //}
+            var pass = _helperServices.MD5Encrypt(password);
+            var result = _managerService.Login(username, pass);
+            if (result == null)
+            {
+                return View(true);
+            }
 
+            _helperServices.SetSession("SESSION_USER_INFO", result);
             return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Logout()
         {
-            _simpleAccountManager.Logout();
-
+            System.Web.HttpContext.Current.Session.Clear();
             return RedirectToAction("Login");
         }
     }

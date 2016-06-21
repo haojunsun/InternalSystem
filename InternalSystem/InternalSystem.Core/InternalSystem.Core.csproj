@@ -42,6 +42,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basis\UserLogin.cs" />
     <Compile Include="Migrations\201606070159003_InitialCreate.cs" />
     <Compile Include="Migrations\201606070159003_InitialCreate.Designer.cs">
       <DependentUpon>201606070159003_InitialCreate.cs</DependentUpon>

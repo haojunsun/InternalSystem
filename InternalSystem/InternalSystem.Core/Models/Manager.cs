@@ -9,7 +9,6 @@ namespace InternalSystem.Core.Models
     public class Manager
     {
         public int ManagerId { get; set; }
-
         public string Name { get; set; }
         public string LoginId { get; set; }
         public string Pass { get; set; }

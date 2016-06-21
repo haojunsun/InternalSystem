@@ -212,7 +212,7 @@
     <Compile Include="Areas\Admin\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImportController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SqlDependencyController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerController.cs" />
     <Compile Include="Backload\Bundles\BackloadBundles.cs" />
     <Compile Include="Backload\Controller\BackloadController.cs" />
     <Compile Include="Backload\Controller\BackloadController.obsolete.cs" />
@@ -220,6 +220,7 @@
     <Compile Include="Backload\Helper\ResultCreator.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\InternalSystemAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1247,6 +1248,7 @@
     <Content Include="Areas\Admin\Views\Import\List.cshtml" />
     <Content Include="App_Data\logs\2016-06-15.log" />
     <Content Include="App_Data\logs\2016-06-16.log" />
+    <Content Include="Areas\Admin\Views\Manager\List.cshtml" />
     <None Include="Backload\Config\Web.Backload.xsd">
       <SubType>Designer</SubType>
     </None>
