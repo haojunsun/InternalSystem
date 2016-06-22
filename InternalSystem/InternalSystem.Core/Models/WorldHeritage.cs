@@ -286,5 +286,7 @@ namespace InternalSystem.Core.Models
         /// 0失效 1有效
         /// </summary>
         public int IsEffect { get; set; }
+
+        public virtual Manager Manager { get; set; }
     }
 }
