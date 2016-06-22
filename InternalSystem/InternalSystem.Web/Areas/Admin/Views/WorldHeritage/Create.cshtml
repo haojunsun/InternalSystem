@@ -1,17 +1,426 @@
-﻿@{
-    Layout = null;
+﻿@model InternalSystem.Core.Models.WorldHeritage
+@{
+    Layout = "~/areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "发布资源";
 }
+<div class="row" ng-controller="PackageController">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">@ViewBag.Title</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                @using (Html.BeginForm("Create", "Article", FormMethod.Post, new { @class = "form-horizontal", @role = "form", enctype = "multipart/form-data" }))
+                {
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">系统编码</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.InventoryId, new { @class = "form-control", placeholder = "系统编码" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">人工编码</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ArtificialId, new { @class = "form-control", placeholder = "人工编码" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">文件名</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.TitleProper, new { @class = "form-control", placeholder = "文件名" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">项目名称</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "项目名称" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">一级类别</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.FirstLevel, new { @class = "form-control", placeholder = "一级类别" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">二级类别</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.SecondLevel, new { @class = "form-control", placeholder = "二级类别" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">项目编码</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", placeholder = "项目编码" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">子项序号</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.SubItemNumber, new { @class = "form-control", placeholder = "子项序号" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">子项序号</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.SubItemNumber, new { @class = "form-control", placeholder = "子项序号" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">批次</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Batch, new { @class = "form-control", placeholder = "批次" })
+                            </div>
+                        </div>
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
+                        @*<div class="form-group">
+                                <label class="col-md-3 control-label">批次</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Batch, new { @class = "form-control", placeholder = "批次" })
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">民族</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Nation, new { @class = "form-control", placeholder = "民族" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">民族支系</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.NationalBranch, new { @class = "form-control", placeholder = "民族支系" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">性别</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Gender, new { @class = "form-control", placeholder = "性别" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">出生日期</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Birth, new { @class = "form-control", placeholder = "出生日期" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">文化程度</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Education, new { @class = "form-control", placeholder = "文化程度" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">职业</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Occupation, new { @class = "form-control", placeholder = "职业" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">传承人</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Successor, new { @class = "form-control", placeholder = "传承人" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">类型</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Genre, new { @class = "form-control", placeholder = "类型" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">直辖市</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Municipalities, new { @class = "form-control", placeholder = "直辖市" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">地区</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Region, new { @class = "form-control", placeholder = "地区" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">县级市</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.CountyLevelCity, new { @class = "form-control", placeholder = "县级市" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">县级市</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.CountyLevelCity, new { @class = "form-control", placeholder = "县级市" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">乡镇</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Township, new { @class = "form-control", placeholder = "乡镇" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> 村落</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Village, new { @class = "form-control", placeholder = " 村落" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">申报地区</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.DeclarationArea, new { @class = "form-control", placeholder = "申报地区" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">保护单位</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ProtectionUnit, new { @class = "form-control", placeholder = "保护单位" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">生态区项目</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.EcologicalZoneProject, new { @class = "form-control", placeholder = "生态区项目" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">生产性保护基地</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ProductiveProtectionBase, new { @class = "form-control", placeholder = "生产性保护基地" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">省区代码</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ProvinceCode, new { @class = "form-control", placeholder = "省区代码" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">申请时间</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.PostTime, new { @class = "form-control", placeholder = "申请时间" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">去世</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Death, new { @class = "form-control", placeholder = "去世" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">通过</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Adopt, new { @class = "form-control", placeholder = "通过" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">语言</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Language, new { @class = "form-control", placeholder = "语言" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">创建者名称</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.CreatorName, new { @class = "form-control", placeholder = "创建者名称" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">创建者责任方式</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ResponsibilityCreator, new { @class = "form-control", placeholder = "创建者责任方式" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">资料格式类型</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.DataFormat, new { @class = "form-control", placeholder = "资料格式类型" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">资料提供者</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.DataProvider, new { @class = "form-control", placeholder = "资料提供者" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">资料典藏单位</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.CollectionUnit, new { @class = "form-control", placeholder = "资料典藏单位" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">数字化格式</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.DigitalFormat, new { @class = "form-control", placeholder = "数字化格式" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">大小</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Size, new { @class = "form-control", placeholder = "大小" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">时长</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Duration, new { @class = "form-control", placeholder = "时长" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">分辨率</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ResolvingPower, new { @class = "form-control", placeholder = "分辨率" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">视频码率</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.KBps, new { @class = "form-control", placeholder = "视频码率" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">采样频率</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.SamplingFrequency, new { @class = "form-control", placeholder = "采样频率" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">声道数</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Channels, new { @class = "form-control", placeholder = "声道数" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">存储地</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.StoragePlace, new { @class = "form-control", placeholder = "存储地" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">显示级别</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.DisplayLevel, new { @class = "form-control", placeholder = "显示级别" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">著录者</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "著录者" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">著录时间</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.DescriptionTime, new { @class = "form-control", placeholder = "著录时间" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-md-3 control-label"> 审核者</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Audit, new { @class = "form-control", placeholder = " 审核者" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 审核时间</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.AuditTime, new { @class = "form-control", placeholder = " 审核时间" })
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> 管理机构</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Organization, new { @class = "form-control", placeholder = " 管理机构" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"> 备注</label>
+                            <div class="col-md-9">
+                                @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control", placeholder = " 备注", rows = "20" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-md-3 control-label">内容</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" placeholder="内容" name="body" rows="20"></textarea>
+                                </div>
+                            </div>*@
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">媒体图片</label>
+                            <div class="col-md-9">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div>
+                                        <span class="btn default btn-file">
+                                            <span class="fileinput-new">
+                                                选择图片
+                                            </span>
+                                            <input type="file" name="file">
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                <label class="col-md-3 control-label">发布设置</label>
+                                <div class="col-md-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" value="0" name="isDraft" checked />直接发布
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="1" name="isDraft" />存为草稿
+                                    </label>
+                                </div>
+                            </div>*@
+
+                        @*@if (ViewBag.columnTag == "下载中心")
+                            {
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">下载文件</label>
+                                    <div class="col-md-9">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div>
+                                                <span class="btn default btn-file">
+                                                    <span class="fileinput-new">
+                                                        选择文件
+                                                    </span>
+                                                    <input type="file" name="file1">
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }*@
+
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn green">保 存</button>
+                                    <a href="@Url.Action("My")" cl class="btn default">取消，返回列表</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>

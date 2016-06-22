@@ -61,7 +61,6 @@ namespace InternalSystem.Core.Services
                         select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1);
             return list.ToList();
-
         }
 
         public void Add(WorldHeritage wh)
