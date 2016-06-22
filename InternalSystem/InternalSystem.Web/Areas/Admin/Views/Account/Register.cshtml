@@ -74,7 +74,8 @@
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Verification Code</label>
-                <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="验证码" name="verificationCode" style="width: 260px;float: left;" /><img src="~/img/11.png" style="height: 43px;margin-left:10px" />
+                <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="验证码" name="verificationCode" style="width: 260px; float: left;"/>
+                <img src="~/Admin/Account/CheckCode?ID=1" id="imgCode" alt="单击可刷新" onclick="ClickRemoveChangeCode()" style="height: 43px;margin-left:10px" />
             </div>
             <div class="form-actions">
                 <button type="button" class="btn btn-primary btn-block uppercase" onclick="subform();">提交</button>
@@ -129,6 +130,11 @@
             } else {
                 $('.login-form').submit();
             }
+        }
+
+        function ClickRemoveChangeCode() {
+            var code = $("#imgCode").attr("src");
+            $("#imgCode").attr("src", code + "1");
         }
     </script>
 

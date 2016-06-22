@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using InternalSystem.Core.Basis;
+using InternalSystem.Core.Models;
 using InternalSystem.Core.Services;
 using InternalSystem.Infrastructure.Services;
 using InternalSystem.Web.Helpers;
@@ -43,7 +48,22 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Register(string username, string password, string verificationCode)
         {
-            return View();
+            if (string.IsNullOrEmpty(verificationCode))
+            {
+                return Content("<script>alert('验证码为空！');window.location.href='Register';</script>");
+            }
+            if (Session["ValidateCode"].ToString().ToLower() != verificationCode.ToLower())
+            {
+                return Content("<script>alert('验证码错误！');window.location.href='Register';</script>");
+            }
+            var manager = new Manager();
+            manager.Authority = 2;
+            manager.CreatedUtc = DateTime.Now;
+            manager.LoginId = username;
+            manager.Name = username;
+            manager.Pass = _helperServices.MD5Encrypt(password);
+            _managerService.Add(manager);
+            return Content("<script>alert('跳转登陆！');window.location.href='Login';</script>");
         }
 
         [HttpPost]
@@ -65,5 +85,21 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             System.Web.HttpContext.Current.Session.Clear();
             return RedirectToAction("Login");
         }
+
+        /// <summary>
+        /// 验证码的校验
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public ActionResult CheckCode()
+        {
+            //生成验证码
+            ValidateCode validateCode = new ValidateCode();
+            string code = validateCode.CreateValidateCode(4);
+            Session["ValidateCode"] = code;
+            byte[] bytes = validateCode.CreateValidateGraphic(code);
+            return File(bytes, @"image/jpeg");
+        }
     }
 }
+
