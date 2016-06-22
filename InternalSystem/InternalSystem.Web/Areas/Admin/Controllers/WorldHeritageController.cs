@@ -29,7 +29,12 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             _log = log;
         }
 
-        // GET: Admin/WorldHeritage
+        /// <summary>
+        /// 我的资源
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
         public ActionResult My(int page = 1, int size = 50)
         {
             var user = UserLogin.GetUserInfo();
@@ -39,6 +44,26 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             var list = _worldHeritageService.My(user.ManagerId, pageIndex, pageSize, ref totalCount).ToList();
             var personsAsIPagedList = new StaticPagedList<WorldHeritage>(list, pageIndex, pageSize, totalCount);
             return View(personsAsIPagedList);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult Detail(int id)
+        {
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return View();
         }
     }
 }

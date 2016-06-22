@@ -18,8 +18,7 @@ namespace InternalSystem.Core.Services
         void Update(Manager manager);
         void Delete(int id);
         Manager Get(int id);
-
-        Manager Login(string username, string password);
+        Manager Login(string username, string password);  
     }
 
     public class ManagerService : IManagerService
@@ -80,5 +79,7 @@ namespace InternalSystem.Core.Services
                 _appDbContext.Managers.FirstOrDefault(x => x.LoginId == username && x.Pass == password);
             return manager;
         }
+
+      
     }
 }

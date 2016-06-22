@@ -287,6 +287,7 @@ namespace InternalSystem.Core.Models
         /// </summary>
         public int IsEffect { get; set; }
 
-        public virtual Manager Manager { get; set; }
+        
+        public virtual Manager User { get; set; }
     }
 }

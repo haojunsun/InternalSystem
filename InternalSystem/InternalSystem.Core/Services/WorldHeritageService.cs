@@ -37,6 +37,7 @@ namespace InternalSystem.Core.Services
         /// <param name="title">关键字搜索 title</param>
         /// <returns></returns>
         ApiResponse<PagerInfoResponse<WorldHeritage>> Search(int pageIndex, int pageSize, string firstlevel, string dataformat, string nation, string municipalities, string title);
+        IEnumerable<WorldHeritage> My(int id, int pageIndex, int pageSize, ref int totalCount);
     }
 
     public class WorldHeritageService : IWorldHeritageService
@@ -117,7 +118,7 @@ namespace InternalSystem.Core.Services
                 {
                     //没有任何 条件 取 全部 第一页
                     list = (from p in _appDbContext.WorldHeritages
-                            where p.IsEffect == 1
+                            where p.IsEffect == 1 
                             orderby p.CreatedUtc descending
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
                     totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1);
@@ -263,6 +264,17 @@ namespace InternalSystem.Core.Services
                 result.StatusCode = StatusCode.ClientError;
                 return result;
             }
+        }
+
+
+        public IEnumerable<WorldHeritage> My(int id, int pageIndex, int pageSize, ref int totalCount)
+        {
+            var list = (from p in _appDbContext.WorldHeritages
+                        where p.User.ManagerId==id
+                        orderby p.CreatedUtc descending
+                        select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            totalCount = _appDbContext.WorldHeritages.Count(x => x.User.ManagerId == id);
+            return list.ToList();
         }
     }
 }
