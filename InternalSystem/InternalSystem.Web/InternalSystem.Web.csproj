@@ -1251,6 +1251,11 @@
     <Content Include="App_Data\logs\2016-06-16.log" />
     <Content Include="Areas\Admin\Views\Manager\List.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\WorldHeritage\List.cshtml" />
+    <Content Include="Areas\Admin\Views\WorldHeritage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\WorldHeritage\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\WorldHeritage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\WorldHeritage\My.cshtml" />
     <None Include="Backload\Config\Web.Backload.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1345,7 +1350,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\WebApi\" />
-    <Folder Include="Areas\Admin\Views\WorldHeritage\" />
     <Folder Include="files\imgs\" />
     <Folder Include="Models\" />
     <Folder Include="Uploads\1\" />

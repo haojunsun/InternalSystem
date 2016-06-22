@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201606220754444_addWorldHeritageManager.Designer.cs">
       <DependentUpon>201606220754444_addWorldHeritageManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606220831347_User.cs" />
+    <Compile Include="Migrations\201606220831347_User.Designer.cs">
+      <DependentUpon>201606220831347_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606220754444_addWorldHeritageManager.resx">
       <DependentUpon>201606220754444_addWorldHeritageManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220831347_User.resx">
+      <DependentUpon>201606220831347_User.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
