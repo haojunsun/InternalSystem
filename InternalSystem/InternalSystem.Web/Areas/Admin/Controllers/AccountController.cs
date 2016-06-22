@@ -28,6 +28,24 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return View(false);
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="verificationCode"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Register(string username, string password, string verificationCode)
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Login(string username, string password, bool remember = false)
         {

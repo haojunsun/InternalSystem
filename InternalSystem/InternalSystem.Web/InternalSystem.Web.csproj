@@ -1249,6 +1249,7 @@
     <Content Include="App_Data\logs\2016-06-15.log" />
     <Content Include="App_Data\logs\2016-06-16.log" />
     <Content Include="Areas\Admin\Views\Manager\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
     <None Include="Backload\Config\Web.Backload.xsd">
       <SubType>Designer</SubType>
     </None>
