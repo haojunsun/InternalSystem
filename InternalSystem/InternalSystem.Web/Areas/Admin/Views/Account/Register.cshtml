@@ -62,22 +62,22 @@
             <div class="form-group">
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                 <label class="control-label visible-ie8 visible-ie9">Username</label>
-                <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username" />
+                <input id="reusername" class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username" />
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Password</label>
-                <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password" />
+                <input id="repwd1" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password" />
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Confirm password</label>
-                <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="确认密码" name="password" />
+                <input id="repwd2" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="确认密码" name="password" />
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Verification Code</label>
                 <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="验证码" name="verificationCode" style="width: 260px;float: left;" /><img src="~/img/11.png" style="height: 43px;margin-left:10px" />
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary btn-block uppercase">提交</button>
+                <button type="button" class="btn btn-primary btn-block uppercase" onclick="subform();">提交</button>
             </div>
             <div class="form-actions">
                 @*<div class="pull-left">
@@ -115,6 +115,21 @@
             Metronic.init(); // init metronic core components
             Layout.init(); // init current layout
         });
+
+        //表单提交
+        subform = function () {
+            if (!$('#reusername').val()) {
+                alert('请输入用户名');
+            } else if (!$('#repwd1').val() || !$('#repwd2').val()) {
+                alert('请输入密码');
+            } else if ($('#repwd1').val().length < 6) {
+                alert('密码不能小于6位');
+            } else if ($('#repwd1').val() != $('#repwd2').val()) {
+                alert('两次密码输入不一致');
+            } else {
+                $('.login-form').submit();
+            }
+        }
     </script>
 
 </body>
