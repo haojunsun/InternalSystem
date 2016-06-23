@@ -289,5 +289,13 @@ namespace InternalSystem.Core.Models
 
         
         public virtual Manager User { get; set; }
+
+        /// <summary>
+        /// 类型：视频 0 文字1 图片2
+        /// </summary>
+        public int HeritageType { get; set; }
+
+        [MaxLength]
+        public string Content { get; set; }
     }
 }

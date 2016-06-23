@@ -51,6 +51,13 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create(WorldHeritage wh)
+        {
+            //return View();
+            return RedirectToAction("My");
+        }
+
         public ActionResult Detail(int id)
         {
             return View();

@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201606220831347_User.Designer.cs">
       <DependentUpon>201606220831347_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606230256594_addHeritageType.cs" />
+    <Compile Include="Migrations\201606230256594_addHeritageType.Designer.cs">
+      <DependentUpon>201606230256594_addHeritageType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606220831347_User.resx">
       <DependentUpon>201606220831347_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606230256594_addHeritageType.resx">
+      <DependentUpon>201606230256594_addHeritageType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
