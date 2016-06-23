@@ -54,8 +54,38 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(WorldHeritage wh)
         {
-            //return View();
+            wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+            wh.HeritageType = 1;
+            if (Request.Files.Count > 0)
+            {
+                wh.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
+                wh.HeritageType = 2;
+            }
+            wh.CreatedUtc = DateTime.Now;
+            wh.User = UserLogin.GetUserInfo();
+            wh.IsEffect = 0;
+            _worldHeritageService.Add(wh);
             return RedirectToAction("My");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var wh = _worldHeritageService.Get(id);
+            if (!string.IsNullOrEmpty(wh.Content))
+            {
+                wh.Content = wh.Content.Replace("<br />", "\r\n").Replace("&nbsp", " ");
+            }
+            if (!string.IsNullOrEmpty(wh.Remarks))
+            {
+                wh.Remarks = wh.Remarks.Replace("<br />", "\r\n").Replace("&nbsp", " ");
+            }
+            return View(wh);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(WorldHeritage wh)
+        {
+            return Content("<script>alert('编辑内容成功');window.location.href='" + Url.Action("My") + "';</script>");
         }
 
         public ActionResult HasCode(string code)
@@ -68,17 +98,22 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
 
         public ActionResult Detail(int id)
         {
-            return View();
+            var wh = _worldHeritageService.Get(id);
+            return View(wh);
         }
 
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        public ActionResult Edit(int id)
-        {
-            return View();
+            var old = _worldHeritageService.Get(id);
+            if (old == null)
+                return JumpUrl("My", "id错误");
+            _worldHeritageService.Delete(id);
+            return Content("<script>alert('删除成功');window.location.href='" + Url.Action("My") + "';</script>");
         }
     }
 }

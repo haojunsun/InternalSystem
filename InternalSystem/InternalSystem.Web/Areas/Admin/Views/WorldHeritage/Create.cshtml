@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="portlet-body form">
-                @using (Html.BeginForm("Create", "Article", FormMethod.Post, new { @class = "form-horizontal", @role = "form", enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("Create", "WorldHeritage", FormMethod.Post, new { @class = "form-horizontal", @role = "form", enctype = "multipart/form-data" }))
                 {
                     <div class="form-body">
                         <div class="form-group">
@@ -33,6 +33,12 @@
                             <label class="col-md-3 control-label">文件名</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.TitleProper, new { @class = "form-control", placeholder = "文件名" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">项目申请时间</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.ApplicationTime, new { @class = "form-control", placeholder = "项目申请时间" })
                             </div>
                         </div>
                         <div class="form-group">
@@ -65,12 +71,7 @@
                                 @Html.TextBoxFor(m => m.SubItemNumber, new { @class = "form-control", placeholder = "子项序号" })
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">子项序号</label>
-                            <div class="col-md-4">
-                                @Html.TextBoxFor(m => m.SubItemNumber, new { @class = "form-control", placeholder = "子项序号" })
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label class="col-md-3 control-label">批次</label>
                             <div class="col-md-4">
