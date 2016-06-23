@@ -38,6 +38,8 @@ namespace InternalSystem.Core.Services
         /// <returns></returns>
         ApiResponse<PagerInfoResponse<WorldHeritage>> Search(int pageIndex, int pageSize, string firstlevel, string dataformat, string nation, string municipalities, string title);
         IEnumerable<WorldHeritage> My(int id, int pageIndex, int pageSize, ref int totalCount);
+
+        WorldHeritage FindByCode(string code);
     }
 
     public class WorldHeritageService : IWorldHeritageService
@@ -274,6 +276,11 @@ namespace InternalSystem.Core.Services
                         select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             totalCount = _appDbContext.WorldHeritages.Count(x => x.User.ManagerId == id);
             return list.ToList();
+        }
+
+        public WorldHeritage FindByCode(string code)
+        {
+            return _appDbContext.WorldHeritages.FirstOrDefault(x => x.ArtificialId == code);
         }
     }
 }

@@ -58,6 +58,14 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return RedirectToAction("My");
         }
 
+        public ActionResult HasCode(string code)
+        {
+            var result = _worldHeritageService.FindByCode(code);
+            if (result != null)
+                return CResult(200, "重复");
+            return CResult(200, "");
+        }
+
         public ActionResult Detail(int id)
         {
             return View();

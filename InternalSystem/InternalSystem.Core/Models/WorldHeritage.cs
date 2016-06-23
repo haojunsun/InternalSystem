@@ -283,7 +283,7 @@ namespace InternalSystem.Core.Models
         public DateTime? CreatedUtc { get; set; }
 
         /// <summary>
-        /// 0失效 1有效
+        /// 创建的资源iseffect=0 未审核状态，审核后iseffect=1，审核拒绝iseffect=2，
         /// </summary>
         public int IsEffect { get; set; }
 

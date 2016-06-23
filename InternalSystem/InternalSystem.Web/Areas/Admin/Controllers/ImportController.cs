@@ -25,10 +25,13 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         private readonly IWorldHeritageService _worldHeritageService;
 
         private readonly ILogService _log;
-        public ImportController(IWorldHeritageService worldHeritageService, IHelperServices helperServices, ILogService logService)
+        private readonly IManagerService _managerService;
+
+        public ImportController(IWorldHeritageService worldHeritageService, IHelperServices helperServices, ILogService logService, IManagerService managerService)
         {
             _helperServices = helperServices;
             _log = logService;
+            _managerService = managerService;
             _worldHeritageService = worldHeritageService;
         }
 
@@ -208,7 +211,14 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                             wh1.Remarks = dt.Rows[i][j].ToString();
                         if (j == 54)
                             wh1.url = dt.Rows[i][j].ToString();
+
+                    
                     }
+                    wh1.User = _managerService.Get(2);
+
+                    wh1.CreatedUtc = DateTime.Now;
+                    wh1.HeritageType = 0;
+                    wh1.IsEffect = 1;
                     wh.Add(wh1);
                 }
                 //eh.DataTableToExcel(dt, true, @"C:\Users\Administrator\Desktop\模板.xls", pro + "\\" + file.Name, pro);
