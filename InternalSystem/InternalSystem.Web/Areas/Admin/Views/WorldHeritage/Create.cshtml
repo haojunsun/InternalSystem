@@ -25,7 +25,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">人工编码</label>
                             <div class="col-md-4">
-                                @Html.TextBoxFor(m => m.ArtificialId, new { @class = "form-control", placeholder = "人工编码" })
+                                @Html.TextBoxFor(m => m.ArtificialId, new { @class = "form-control", placeholder = "人工编码", id = "rgcode" })
+                                <span id="hascode"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -396,3 +397,19 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery.js"></script>
+<script>
+    var rgcode;
+    $(function () {
+        $('#rgcode').blur(function () {
+            //值相等，不重复发送请求
+            if (rgcode != $(this).val()) {
+                rgcode = $(this).val();//人工编码
+                //$.get("xxx/xxx？xx="+rgcode, function (data) {
+                //    $('#hascode').text('人工编码已存在');
+                //})
+            }
+        })
+
+    })
+</script>
