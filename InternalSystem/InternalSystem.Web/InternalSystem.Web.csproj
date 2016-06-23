@@ -1256,6 +1256,7 @@
     <Content Include="Areas\Admin\Views\WorldHeritage\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\WorldHeritage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\WorldHeritage\My.cshtml" />
+    <Content Include="Areas\Admin\Views\Manager\ModifyPassword.cshtml" />
     <None Include="Backload\Config\Web.Backload.xsd">
       <SubType>Designer</SubType>
     </None>

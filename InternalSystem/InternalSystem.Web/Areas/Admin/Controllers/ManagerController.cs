@@ -139,5 +139,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content("<script>alert('编辑管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
         }
 
+        public ActionResult ModifyPassword()
+        {
+            return View();
+        }
+
     }
 }

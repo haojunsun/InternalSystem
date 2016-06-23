@@ -1,11 +1,17 @@
-﻿@functions {
+﻿@using InternalSystem.Core.Basis
+@functions {
     public string CheckActive(string controller)
     {
         var controllers = controller.Split(',');
         string currentController = Request.RequestContext.RouteData.Values["controller"].ToString();
         return controllers.Any(x => x == currentController) ? "active" : "";
     }
+
 }
+@{
+    var user = UserLogin.GetUserInfo();
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,13 +64,18 @@
                         <!-- BEGIN USER LOGIN DROPDOWN -->
                         <li class="dropdown dropdown-user dropdown-dark">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="~/Assets/img/avatar9.jpg">
-                                <span class="username username-hide-mobile">Administrator</span>
+                                <img alt="" class="img-circle" src="~/Assets/img/avatar.png">
+                                <span class="username username-hide-mobile">@user.LoginId</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
+                                    <a href="@Url.Action("Manager", "ModifyPassword")">
+                                        <i class="icon-user-female"></i> 修改密码
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="@Url.Action("Logout", "Account")">
-                                        <i class="icon-key"></i> Log Out
+                                        <i class="icon-key"></i> 登出
                                     </a>
                                 </li>
                             </ul>
@@ -89,30 +100,38 @@
                                 首页
                             </a>
                         </li>
-
-                        <li>
-                            <a href="@(Url.Action("Index", "Import"))">
-                                文件导入 @*<i class="fa fa-angle-down"></i>*@
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="@(Url.Action("My", "WorldHeritage"))">
-                                我的资源
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="@(Url.Action("Index", "Import"))">
-                                资源列表
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@(Url.Action("Index", "Import"))">
-                                用户列表
-                            </a>
-                        </li>
-
+                        @if (user.Authority == 0)
+                        {
+                            <li>
+                                <a href="@(Url.Action("Index", "Import"))">
+                                    文件导入 @*<i class="fa fa-angle-down"></i>*@
+                                </a>
+                            </li>
+                        }
+                        @if (user.Authority == 2)
+                        {
+                            <li>
+                                <a href="@(Url.Action("My", "WorldHeritage"))">
+                                    我的资源
+                                </a>
+                            </li>
+                        }
+                        @if (user.Authority != 2)
+                        {
+                            <li>
+                                <a href="@(Url.Action("Index", "Import"))">
+                                    资源列表
+                                </a>
+                            </li>
+                        }
+                        @if (user.Authority == 0)
+                        {
+                            <li>
+                                <a href="@(Url.Action("Index", "Import"))">
+                                    用户列表
+                                </a>
+                            </li>
+                        }
                         <li class="menu-dropdown mega-menu-dropdown " style="display:none">
                             <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
                                 科研规划栏目 @*<i class="fa fa-angle-down"></i>*@

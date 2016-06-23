@@ -31,6 +31,7 @@
                                 <th>传承人</th>
                                 <th>项目类型</th>
                                 <th>创建时间</th>
+                                <th>审核状态</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -51,6 +52,20 @@
                                         </td>
                                         <td>
                                             @item.ApplicationTime
+                                        </td>
+                                        <td>
+                                            @if (item.IsEffect == 0)
+                                            {
+                                                <span>未审核</span>
+                                            }
+                                            else if (item.IsEffect == 1)
+                                            {
+                                                <span>已审核</span>
+                                            }
+                                            else if (item.IsEffect == 2)
+                                            {
+                                                <span>已拒绝</span>
+                                            }
                                         </td>
                                         <td>
                                             <a class="btn default btn-xs purple-stripe" href="@Url.Action("Edit", new{ id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 编辑</a>
