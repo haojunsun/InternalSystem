@@ -72,7 +72,10 @@ namespace InternalSystem.Core.Services
 
         public void Update(WorldHeritage wh)
         {
-            _appDbContext.Entry(wh).State = EntityState.Modified;
+            _appDbContext.Set<WorldHeritage>().Attach(wh);
+            _appDbContext.Entry<WorldHeritage>(wh).State = System.Data.Entity.EntityState.Modified;
+
+            //_appDbContext.Entry(wh).State = EntityState.Modified;
             _appDbContext.SaveChanges();
         }
 
