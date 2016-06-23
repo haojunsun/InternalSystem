@@ -63,7 +63,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 wh.HeritageType = 2;
             }
             wh.CreatedUtc = DateTime.Now;
-            wh.User =_managerService.Get(UserLogin.GetUserInfo().ManagerId);
+            wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
             wh.IsEffect = 0;
             if (!string.IsNullOrEmpty(wh.Content))
                 wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
@@ -89,6 +89,70 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(WorldHeritage wh)
         {
+            var old = _worldHeritageService.Get(wh.WorldHeritageId);
+            old.Title = wh.Title;
+            old.InventoryId = wh.InventoryId;
+            old.TitleProper = wh.TitleProper;
+            old.Title = wh.Title;
+            old.FirstLevel = wh.FirstLevel;
+            old.SecondLevel = wh.SecondLevel;
+            old.ProjectCode = wh.ProjectCode;
+            old.SubItemNumber = wh.SubItemNumber;
+            old.Batch = wh.Batch;
+            old.Notes = wh.Notes;
+            old.ApplicationTime = wh.ApplicationTime;
+            old.Nation = wh.Nation;
+            old.NationalBranch = wh.NationalBranch;
+            old.Gender = wh.Gender;
+            old.Birth = wh.Birth;
+            old.Education = wh.Education;
+            old.Occupation = wh.Occupation;
+            old.Successor = wh.Successor;
+            old.Genre = wh.Genre;
+            old.Municipalities = wh.Municipalities;
+            old.Region = wh.Region;
+            old.CountyLevelCity = wh.CountyLevelCity;
+            old.Township = wh.Township;
+            old.Village = wh.Village;
+            old.DeclarationArea = wh.DeclarationArea;
+            old.ProtectionUnit = wh.ProtectionUnit;
+            old.EcologicalZoneProject = wh.EcologicalZoneProject;
+            old.ProductiveProtectionBase = wh.ProductiveProtectionBase;
+            old.ProvinceCode = wh.ProvinceCode;
+            old.PostTime = wh.PostTime;
+            old.Death = wh.Death;
+            old.Adopt = wh.Adopt;
+            old.Language = wh.Language;
+            old.CreatorName = wh.CreatorName;
+            old.ResponsibilityCreator = wh.ResponsibilityCreator;
+            old.DataFormat = wh.DataFormat;
+            old.DataProvider = wh.DataProvider;
+            old.CollectionUnit = wh.CollectionUnit;
+            old.DigitalFormat = wh.DigitalFormat;
+            old.Size = wh.Size;
+            old.Duration = wh.Duration;
+            old.ResolvingPower = wh.ResolvingPower;
+            old.KBps = wh.KBps;
+            old.SamplingFrequency = wh.SamplingFrequency;
+            old.Channels = wh.Channels;
+            old.StoragePlace = wh.StoragePlace;
+            old.DisplayLevel = wh.DisplayLevel;
+            old.Description = wh.Description;
+            old.DescriptionTime = wh.DescriptionTime;
+            old.Organization = wh.Organization;
+            old.Remarks = wh.Remarks;
+
+
+            if (!string.IsNullOrEmpty(wh.Content))
+                old.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+
+            if (Request.Files.Count > 0)
+            {
+                old.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
+                old.HeritageType = 2;
+            }
+
+            _worldHeritageService.Update(old);
             return Content("<script>alert('编辑内容成功');window.location.href='" + Url.Action("My") + "';</script>");
         }
 
