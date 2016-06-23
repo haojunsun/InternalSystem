@@ -21,12 +21,14 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         private readonly IWorldHeritageService _worldHeritageService;
 
         private readonly ILogService _log;
+        private readonly IManagerService _managerService;
 
-        public WorldHeritageController(IHelperServices helperServices, IWorldHeritageService worldHeritageService, ILogService log)
+        public WorldHeritageController(IHelperServices helperServices, IWorldHeritageService worldHeritageService, ILogService log, IManagerService managerService)
         {
             _helperServices = helperServices;
             _worldHeritageService = worldHeritageService;
             _log = log;
+            _managerService = managerService;
         }
 
         /// <summary>
@@ -54,7 +56,6 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(WorldHeritage wh)
         {
-            wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
             wh.HeritageType = 1;
             if (Request.Files.Count > 0)
             {
@@ -62,8 +63,11 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 wh.HeritageType = 2;
             }
             wh.CreatedUtc = DateTime.Now;
-            wh.User = UserLogin.GetUserInfo();
+            wh.User =_managerService.Get(UserLogin.GetUserInfo().ManagerId);
             wh.IsEffect = 0;
+            if (!string.IsNullOrEmpty(wh.Content))
+                wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+
             _worldHeritageService.Add(wh);
             return RedirectToAction("My");
         }

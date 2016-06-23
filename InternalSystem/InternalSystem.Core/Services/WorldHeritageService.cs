@@ -52,22 +52,21 @@ namespace InternalSystem.Core.Services
 
         public IEnumerable<WorldHeritage> List()
         {
-            return _appDbContext.WorldHeritages.Where(x => x.IsEffect == 1).OrderByDescending(x => x.CreatedUtc).ToList();
+            return _appDbContext.WorldHeritages.OrderByDescending(x => x.CreatedUtc).ToList();
         }
 
         public IEnumerable<WorldHeritage> List(int pageIndex, int pageSize, ref int totalCount)
         {
             var list = (from p in _appDbContext.WorldHeritages
-                        where p.IsEffect == 1
                         orderby p.CreatedUtc descending
                         select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
-            totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1);
+            totalCount = _appDbContext.WorldHeritages.Count();
             return list.ToList();
         }
 
         public void Add(WorldHeritage wh)
         {
-            _appDbContext.WorldHeritages.Add(wh);
+            _appDbContext.Entry(wh).State = EntityState.Added;
             _appDbContext.SaveChanges();
         }
 
@@ -92,7 +91,7 @@ namespace InternalSystem.Core.Services
 
         public WorldHeritage Get(int id)
         {
-            return _appDbContext.WorldHeritages.FirstOrDefault(x=>x.IsEffect==1 && x.WorldHeritageId==id);
+            return _appDbContext.WorldHeritages.FirstOrDefault(x=> x.WorldHeritageId==id);
         }
 
         public void Import(List<WorldHeritage> list)
