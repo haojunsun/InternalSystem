@@ -401,16 +401,24 @@
 <script>
     var rgcode;
     $(function () {
+        $('#hascode').text('');
+        $("#sub").attr("disabled", true);
         $('#rgcode').blur(function () {
-            $('#hascode').text('');
             //值相等，不重复发送请求
-            if (rgcode != $(this).val() && $(this).val()!='') {
+            if (rgcode != $(this).val() && $(this).val() != '') {
                 rgcode = $(this).val(); //人工编码
                 $.get("HasCode?code=" + rgcode, function (data) {
                     if (data != "") {
                         $('#hascode').text('人工编码已存在');
+                        $("#sub").attr("disabled", true);
+                    } else {
+                        $('#hascode').text('人工编码可用');
+                        $("#sub").attr("disabled", false);
                     }
                 });
+            } else if ($(this).val() == '') {
+                $('#hascode').text('人工编码不能为空');
+                $("#sub").attr("disabled", true);
             }
         });
     });
