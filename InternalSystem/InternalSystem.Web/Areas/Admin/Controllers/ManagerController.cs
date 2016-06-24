@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using InternalSystem.Core;
+using InternalSystem.Core.Basis;
 using InternalSystem.Core.Services;
 using InternalSystem.Infrastructure.Services;
 using InternalSystem.Web.Helpers;
@@ -139,10 +140,32 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content("<script>alert('编辑管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
         }
 
-        public ActionResult ModifyPassword()
+        public ActionResult ModifyPassword(int id)
         {
-            return View();
+            if (id == 0)
+            {
+                var user = UserLogin.GetUserInfo();
+                return View(user);
+            }
+            else
+            {
+                var user = _managerService.Get(id);
+                return View(user);
+            }
         }
 
+        [HttpPost]
+        public ActionResult ModifyPassword(Manager user)
+        {
+            var old = _managerService.Get(user.ManagerId);
+            old.Pass = _helperServices.MD5Encrypt(user.Pass);
+            _managerService.Update(old);
+            return Content("<script>alert('编辑内容成功');</script>");
+        }
     }
+
+
+
+
+
 }
