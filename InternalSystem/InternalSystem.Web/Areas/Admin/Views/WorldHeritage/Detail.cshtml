@@ -1,4 +1,9 @@
-﻿@model InternalSystem.Core.Models.WorldHeritage
+﻿@using InternalSystem.Core.Models
+@model WorldHeritage
+@{
+    var user = (Manager)ViewBag.user;
+}
+
 <div class="row" ng-controller="ArticleController">
     <div class="col-md-12">
         <div class="portlet light">
@@ -291,9 +296,6 @@
                                 <label class="control-label col-md-3">@(Model.StoragePlace)</label>
                             </div>
                         </div>
-
-
-
                         <div class="form-group">
                             <label class="control-label col-md-1">显示级别</label>
                             <div class="col-md-11">
@@ -347,7 +349,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-1">媒体文件</label>
                                 <div class="col-md-11">
-                                    <img src="@(Model.FileName)" style="width:50%" />
+                                    <img src="@(Model.FileName)" style="width: 50%" />
                                     @*<label class="control-label col-md-3">@(Model.FileName)</label>*@
                                 </div>
                             </div>
@@ -375,8 +377,18 @@
                         </div>
                     </div>
                 </form>
+                @if (user.Authority != 2)
+                {
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <a class="btn green" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 1 }))">审核通过</a>
+                                <a class="btn red" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 2 }))">审核拒绝</a>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
-

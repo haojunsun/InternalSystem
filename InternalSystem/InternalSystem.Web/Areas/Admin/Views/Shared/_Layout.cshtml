@@ -119,7 +119,7 @@
                         @if (user.Authority != 2)
                         {
                             <li>
-                                <a href="@(Url.Action("Index", "Import"))">
+                                <a href="@(Url.Action("List", "WorldHeritage"))">
                                     资源列表
                                 </a>
                             </li>
@@ -127,7 +127,7 @@
                         @if (user.Authority == 0)
                         {
                             <li>
-                                <a href="@(Url.Action("Index", "Import"))">
+                                <a href="@(Url.Action("List", "Manager"))">
                                     用户列表
                                 </a>
                             </li>

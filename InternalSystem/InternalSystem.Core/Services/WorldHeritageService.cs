@@ -18,6 +18,7 @@ namespace InternalSystem.Core.Services
     {
         IEnumerable<WorldHeritage> List();
         IEnumerable<WorldHeritage> List(int pageIndex, int pageSize, ref int totalCount);
+        IEnumerable<WorldHeritage> List(string search, int pageIndex, int pageSize, ref int totalCount);
         void Add(WorldHeritage manager);
         void Update(WorldHeritage manager);
         void Delete(int id);
@@ -283,6 +284,27 @@ namespace InternalSystem.Core.Services
         public WorldHeritage FindByCode(string code)
         {
             return _appDbContext.WorldHeritages.FirstOrDefault(x => x.ArtificialId == code);
+        }
+
+        public IEnumerable<WorldHeritage> List(string search, int pageIndex, int pageSize, ref int totalCount)
+        {
+            if (!string.IsNullOrEmpty(search))
+            {
+                var list = (from p in _appDbContext.WorldHeritages
+                            where p.Title.Contains(search)
+                            orderby p.CreatedUtc descending
+                            select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                totalCount = _appDbContext.WorldHeritages.Count(x => x.Title.Contains(search));
+                return list.ToList();
+            }
+            else
+            {
+                var list = (from p in _appDbContext.WorldHeritages
+                            orderby p.CreatedUtc descending
+                            select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                totalCount = _appDbContext.WorldHeritages.Count();
+                return list.ToList();
+            }
         }
     }
 }

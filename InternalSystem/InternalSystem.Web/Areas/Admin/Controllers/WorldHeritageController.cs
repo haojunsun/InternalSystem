@@ -166,6 +166,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
 
         public ActionResult Detail(int id)
         {
+            ViewBag.user = UserLogin.GetUserInfo();
             var wh = _worldHeritageService.Get(id);
             return View(wh);
         }
@@ -192,6 +193,37 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             old.IsEffect = 0;
             _worldHeritageService.Update(old);
             return Content("<script>alert('申请完成');window.location.href='" + Url.Action("My") + "';</script>");
+        }
+
+
+        public ActionResult List(string key, int page = 1, int size = 50)
+        {
+            ViewBag.key = key;
+            var pageIndex = page;
+            var pageSize = size;
+            var totalCount = 0;
+            var list = _worldHeritageService.List(key, pageIndex, pageSize, ref totalCount).ToList();
+            var personsAsIPagedList = new StaticPagedList<WorldHeritage>(list, pageIndex, pageSize, totalCount);
+            return View(personsAsIPagedList);
+        }
+
+        public ActionResult ChangeState(int id, int state)
+        {
+            var user = UserLogin.GetUserInfo();
+            if (user.Authority != 0 || user.Authority != 1)
+            {
+                return Content("<script>alert('无权限');window.location.href='" + Url.Action("List") + "';</script>");
+            }
+            var old = _worldHeritageService.Get(id);
+            if (old == null)
+                return JumpUrl("List", "id错误");
+
+            old.IsEffect = state;
+            old.User = _managerService.Get(user.ManagerId);
+            old.Audit = old.User.Name;
+            old.AuditTime = DateTime.Now.ToString();
+            _worldHeritageService.Update(old);
+            return Content("<script>alert('审核完成');window.location.href='" + Url.Action("List") + "';</script>");
         }
     }
 }
