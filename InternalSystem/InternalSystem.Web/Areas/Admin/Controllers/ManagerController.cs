@@ -140,7 +140,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content("<script>alert('编辑管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
         }
 
-        public ActionResult ModifyPassword(int id)
+        public ActionResult ModifyPassword(int id=0)
         {
             if (id == 0)
             {
@@ -155,10 +155,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ModifyPassword(Manager user)
+        public ActionResult ModifyPassword(Manager user,string pass)
         {
             var old = _managerService.Get(user.ManagerId);
-            old.Pass = _helperServices.MD5Encrypt(user.Pass);
+            old.Pass = _helperServices.MD5Encrypt(pass);
             _managerService.Update(old);
             return Content("<script>alert('编辑内容成功');</script>");
         }
