@@ -37,10 +37,10 @@ namespace InternalSystem.Core.Services
 
         public IEnumerable<Manager> List(int pageIndex, int pageSize, ref int totalCount)
         {
-            var list = (from p in _appDbContext.Managers where p.Authority!=0
+            var list = (from p in _appDbContext.Managers where p.Authority>0
                         orderby p.CreatedUtc descending
                         select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
-            totalCount = _appDbContext.Managers.Count(p=>p.Authority != 0);
+            totalCount = _appDbContext.Managers.Count(p=>p.Authority > 0);
             return list.ToList();
         }
 
