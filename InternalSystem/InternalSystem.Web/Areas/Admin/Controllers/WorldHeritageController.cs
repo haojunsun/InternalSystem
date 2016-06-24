@@ -183,5 +183,15 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             _worldHeritageService.Delete(id);
             return Content("<script>alert('删除成功');window.location.href='" + Url.Action("My") + "';</script>");
         }
+
+        public ActionResult Verify(int id)
+        {
+            var old = _worldHeritageService.Get(id);
+            if (old == null)
+                return JumpUrl("My", "id错误");
+            old.IsEffect = 0;
+            _worldHeritageService.Update(old);
+            return Content("<script>alert('申请完成');window.location.href='" + Url.Action("My") + "';</script>");
+        }
     }
 }
