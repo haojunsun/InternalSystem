@@ -4,6 +4,8 @@
 @model StaticPagedList<WorldHeritage>
     @{
         ViewBag.Title = "资源列表";
+        var user = (Manager)ViewBag.user;
+
     }
     <div class="row">
         <div class="col-md-12">
@@ -85,9 +87,12 @@
                                             </td>
                                             <td>
                                                 <a class="btn default btn-xs purple-stripe" href="@Url.Action("Detail", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 查看详情</a>
-                                                <a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
+                                               @if (user.Authority == 0)
+                                               {
+                                                   <a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
+                                                       <i class="fa fa-trash-o"></i> Delete
+                                                   </a>
+                                               }
                                             </td>
                                         </tr>
                                     }

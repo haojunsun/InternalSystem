@@ -56,6 +56,12 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             {
                 return Content("<script>alert('验证码错误！');window.location.href='Register';</script>");
             }
+
+            var result = _managerService.FindByName(username);
+            if (result != null)
+            {
+                return Content("<script>alert('用户名重复！');window.location.href='Register';</script>");
+            }
             var manager = new Manager();
             manager.Authority = 2;
             manager.CreatedUtc = DateTime.Now;

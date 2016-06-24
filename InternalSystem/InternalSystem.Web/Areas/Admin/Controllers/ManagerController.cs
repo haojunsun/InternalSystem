@@ -69,15 +69,26 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string name, string pass)
+        public ActionResult Create(Manager manager)
         {
-            var manager = new Manager();
+            if (string.IsNullOrEmpty(manager.Name) && string.IsNullOrEmpty(manager.Pass))
+            {
+                return Content("<script>alert('用户名与密码不能为空！');window.location.href='Create';</script>");
+            }
+
+            var result = _managerService.FindByName(manager.Name);
+            if (result != null)
+            {
+                return Content("<script>alert('用户名重复！');window.location.href='Create';</script>");
+            }
+
+            var m = new Manager();
             manager.Authority = 1;
             manager.Invalid = 0;
-            manager.Name = name;
-            manager.LoginId = name;
-            manager.Pass = _helperServices.MD5Encrypt(pass);
-            manager.CreatedUtc=DateTime.Now;
+            manager.Name = manager.Name;
+            manager.LoginId = manager.Name;
+            manager.Pass = _helperServices.MD5Encrypt(manager.Pass);
+            manager.CreatedUtc = DateTime.Now;
             _managerService.Add(manager);
 
             return Content("<script>alert('创建管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
@@ -122,7 +133,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content("<script>alert('编辑管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
         }
 
-        public ActionResult ModifyPassword(int id=0)
+        public ActionResult ModifyPassword(int id = 0)
         {
             if (id == 0)
             {
@@ -137,12 +148,16 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ModifyPassword(Manager user,string pass)
+        public ActionResult ModifyPassword(Manager user, string pass)
         {
+            var _user = UserLogin.GetUserInfo();
             var old = _managerService.Get(user.ManagerId);
             old.Pass = _helperServices.MD5Encrypt(pass);
             _managerService.Update(old);
-            return Content("<script>alert('编辑内容成功');</script>");
+            if (_user.Authority == 0)
+                return Content("<script>alert('编辑成功');window.location.href='" + Url.Action("List") + "';</script>");
+            else
+                return Content("<script>alert('编辑成功');window.location.href='" + Url.Action("Index", "Home") + "';</script>");
         }
 
         public ActionResult Invalid(int id, int state)

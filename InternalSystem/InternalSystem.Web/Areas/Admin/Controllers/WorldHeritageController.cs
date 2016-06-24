@@ -178,11 +178,15 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         /// <returns></returns>
         public ActionResult Delete(int id)
         {
+            var user = UserLogin.GetUserInfo();
             var old = _worldHeritageService.Get(id);
             if (old == null)
                 return JumpUrl("My", "id错误");
             _worldHeritageService.Delete(id);
-            return Content("<script>alert('删除成功');window.location.href='" + Url.Action("My") + "';</script>");
+            if (user.Authority == 2)
+                return Content("<script>alert('删除成功');window.location.href='" + Url.Action("My") + "';</script>");
+            else
+                return Content("<script>alert('删除成功');window.location.href='" + Url.Action("List") + "';</script>");
         }
 
         public ActionResult Verify(int id)
@@ -198,6 +202,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
 
         public ActionResult List(string key, int page = 1, int size = 50)
         {
+            ViewBag.user = UserLogin.GetUserInfo();
             ViewBag.key = key;
             var pageIndex = page;
             var pageSize = size;
@@ -210,7 +215,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         public ActionResult ChangeState(int id, int state)
         {
             var user = UserLogin.GetUserInfo();
-            if (user.Authority != 0 || user.Authority != 1)
+            if (user.Authority == 2)
             {
                 return Content("<script>alert('无权限');window.location.href='" + Url.Action("List") + "';</script>");
             }

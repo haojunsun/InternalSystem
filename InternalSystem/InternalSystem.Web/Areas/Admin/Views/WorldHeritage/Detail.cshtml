@@ -13,7 +13,14 @@
                     <span class="caption-subject font-green-sharp bold uppercase">资源详情 - @Model.Title</span>
                 </div>
                 <div class="actions">
-                    <a class="btn btn-sm green" href="@Url.Action("My")">返回资源列表</a>
+                    @if (user.Authority == 2)
+                    {
+                        <a class="btn btn-sm green" href="@Url.Action("My")">返回资源列表</a>
+                    }
+                    else
+                    {
+                         <a class="btn btn-sm green" href="@Url.Action("List")">返回资源列表</a>
+                    }
                 </div>
             </div>
             <div class="portlet-body form">
