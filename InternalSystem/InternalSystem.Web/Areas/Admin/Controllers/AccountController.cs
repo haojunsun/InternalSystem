@@ -75,6 +75,8 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             {
                 return View(true);
             }
+            if(result.Invalid==1)
+                return Content("<script>alert('账号无效！');window.location.href='Login';</script>");
 
             _helperServices.SetSession("SESSION_USER_INFO", result);
             return RedirectToAction("Index", "Home");

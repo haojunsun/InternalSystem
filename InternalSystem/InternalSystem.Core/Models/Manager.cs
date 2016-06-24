@@ -18,5 +18,10 @@ namespace InternalSystem.Core.Models
         /// 权限越小 权利越大 默认1 超管 为0 
         /// </summary>
         public int Authority { get; set; }
+
+        /// <summary>
+        /// 是否无效 0 有效 1 无效
+        /// </summary>
+        public int Invalid { get; set; }
     }
 }

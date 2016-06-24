@@ -69,33 +69,15 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string channelTag, string columnTag, int tagtype, string title, string body, int isDraft)
+        public ActionResult Create(string name, string pass)
         {
             var manager = new Manager();
-            //article.Body = body.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
-            //article.Title = title;
-            //article.CreatedUtc = DateTime.Now;
-            //article.ChannelTags = channelTag;
-            //article.ColumnTags = columnTag;
-            //article.IsDraft = isDraft;
-            //article.IsRelease = article.IsDraft == 0 ? 1 : 0;
-            //article.ManagerName = _simpleAccount.GetUserElement().Name;
-            HttpPostedFileBase hp = Request.Files["file1"];
-            if (Request.Files.Count > 0)
-            {
-                //article.TitleImageUrl = _helperServices.UpLoadImg("file", ""); //获取上传图片 
-                //if (hp != null)
-                //{
-                //    article.OtherImageUrl = _helperServices.UpLoadFile("file1", ""); //获取上传文件
-                //}
-                //if (string.IsNullOrEmpty(article.TitleImageUrl))
-                //    return Content("<script>alert('图片不能为空');window.location.href='" + Url.Action("Create", new
-                //    {
-                //        ViewBag.channelTag,
-                //        ViewBag.columnTag,
-                //        @tagtype = 1
-                //    }) + "';</script>");
-            }
+            manager.Authority = 1;
+            manager.Invalid = 0;
+            manager.Name = name;
+            manager.LoginId = name;
+            manager.Pass = _helperServices.MD5Encrypt(pass);
+            manager.CreatedUtc=DateTime.Now;
             _managerService.Add(manager);
 
             return Content("<script>alert('创建管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
@@ -161,6 +143,22 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             old.Pass = _helperServices.MD5Encrypt(pass);
             _managerService.Update(old);
             return Content("<script>alert('编辑内容成功');</script>");
+        }
+
+        public ActionResult Invalid(int id, int state)
+        {
+            var user = UserLogin.GetUserInfo();
+            if (user.Authority != 0)
+            {
+                return Content("<script>alert('无权限');window.location.href='" + Url.Action("List") + "';</script>");
+            }
+            var old = _managerService.Get(id);
+            if (old == null)
+                return JumpUrl("List", "id错误");
+
+            old.Invalid = state;
+            _managerService.Update(old);
+            return Content("<script>alert('编辑完成');window.location.href='" + Url.Action("List") + "';</script>");
         }
     }
 
