@@ -109,13 +109,14 @@
                 button_text_left_padding: 10,
                 button_text_top_padding: 11,
 
-
                 file_dialog_complete_handler: function (numFilesSelected, numFilesQueued) {
                 },
                 file_queued_handler: function (file) {
                     $("#fileName").val(file.name);
                     filenamehere = $("#fileName").val(file.name);
+                    $("#FileName").val(file.name);
                     $("#sub").attr("disabled", true);//开始上传 禁用提交按钮
+                    console.log(file.name);
                 },
                 upload_progress_handler: function (file, complete, total) {
                     var value = complete / total * 100;
@@ -242,6 +243,7 @@
                 <div class="portlet-body form">
                     @using (Html.BeginForm("Create", "WorldHeritage", FormMethod.Post, new { @class = "form-horizontal", @role = "form", enctype = "multipart/form-data" }))
                     {
+                        @Html.TextBoxFor(m => m.FileName, new { @class = "form-control", style = "display:none", id = "FileName" })
                         <div class="form-body">
                             <div class="form-group">
                                 <label class="col-md-3 control-label">系统编码：</label>
@@ -619,8 +621,8 @@
                                         <input type="button" name="name" value="开始上传" onclick="clickSubmit()" />
                                     </div>
                                 </div>
-                                <div id="progressdiv" style="display:none;">
-                                    <span>上传进度条：</span><div id="p" class="easyui-progressbar" style="width:400px;"></div>
+                                <div id="progressdiv" style="display: none; left: 300px" >
+                                    <span>上传进度条：</span><div id="p" class="easyui-progressbar" style="width:400px"></div>
                                 </div>
                             </div>
 

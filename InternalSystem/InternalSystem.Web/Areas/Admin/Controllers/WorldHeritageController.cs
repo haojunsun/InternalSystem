@@ -57,24 +57,34 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(WorldHeritage wh)
         {
-            wh.HeritageType = 0;
-            if (Request.Files.Count > 0)
+            if (!string.IsNullOrEmpty(wh.FileName))
             {
-                wh.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
-                if (!string.IsNullOrEmpty(wh.FileName))
+                wh.HeritageType = 0;
+                wh.FileName = "~/Uploads/video/" + wh.FileName;
+            }
+            else
+            {
+                wh.HeritageType = 0;
+                if (Request.Files.Count > 0)
                 {
-                    wh.HeritageType = 2;
-                }
+                    wh.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
+                    if (!string.IsNullOrEmpty(wh.FileName))
+                    {
+                        wh.HeritageType = 2;
+                    }
 
+                }
+              
+                if (!string.IsNullOrEmpty(wh.Content))
+                {
+                    wh.HeritageType = 1;
+                    wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+                }
             }
             wh.CreatedUtc = DateTime.Now;
             wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
             wh.IsEffect = 0;
-            if (!string.IsNullOrEmpty(wh.Content))
-            {
-                wh.HeritageType = 1;
-                wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
-            }
+
 
             _worldHeritageService.Add(wh);
             return RedirectToAction("My");
@@ -157,7 +167,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             if (Request.Files.Count > 0)
             {
                 old.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
-               
+
                 //old.HeritageType = 2;
             }
 
