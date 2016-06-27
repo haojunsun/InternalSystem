@@ -19,7 +19,7 @@
                     }
                     else
                     {
-                         <a class="btn btn-sm green" href="@Url.Action("List")">返回资源列表</a>
+                        <a class="btn btn-sm green" href="@Url.Action("List")">返回资源列表</a>
                     }
                 </div>
             </div>
@@ -354,7 +354,7 @@
                         @if (Model.HeritageType == 2)
                         {
                             <div class="form-group">
-                                <label class="control-label col-md-1" style="width:200px">媒体文件:</label>
+                                <label class="control-label col-md-1" style="width:200px">图片:</label>
                                 <div class="">
                                     <img src="~/Uploads/pic/@(Model.FileName)" style="width: 50%" />
                                     @*<label class="control-label col-md-3">@(Model.FileName)</label>*@
@@ -376,12 +376,15 @@
                                 </div>
                             </div>
                         }
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">内容:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Content)</label>
+                        else if (Model.HeritageType == 1)
+                        {
+                            <div class="form-group">
+                                <label class="control-label col-md-1" style="width:200px">内容:</label>
+                                <div class="">
+                                    <label class="control-label col-md-3">@(Model.Content)</label>
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </form>
                 @if (user.Authority != 2)

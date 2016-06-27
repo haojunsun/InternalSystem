@@ -19,235 +19,235 @@
                     @Html.HiddenFor(model => model.WorldHeritageId)
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="col-md-3 control-label">系统编码</label>
+                            <label class="col-md-3 control-label">系统编码：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.InventoryId, new { @class = "form-control", placeholder = "系统编码" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">人工编码</label>
+                            <label class="col-md-3 control-label">人工编码：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ArtificialId, new { @class = "form-control", placeholder = "人工编码", id = "rgcode", @readonly = "true" })
                                 <span id="hascode" style="color:red"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">文件名</label>
+                            <label class="col-md-3 control-label">文件名：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.TitleProper, new { @class = "form-control", placeholder = "文件名" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">项目申请时间</label>
+                            <label class="col-md-3 control-label">项目申请时间：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ApplicationTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">项目名称</label>
+                            <label class="col-md-3 control-label">项目名称：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "项目名称" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">一级类别</label>
+                            <label class="col-md-3 control-label">一级类别：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.FirstLevel, new { @class = "form-control", placeholder = "一级类别" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">二级类别</label>
+                            <label class="col-md-3 control-label">二级类别：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.SecondLevel, new { @class = "form-control", placeholder = "二级类别" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">项目编码</label>
+                            <label class="col-md-3 control-label">项目编码：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", placeholder = "项目编码" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">子项序号</label>
+                            <label class="col-md-3 control-label">子项序号：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.SubItemNumber, new { @class = "form-control", placeholder = "子项序号" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">批次</label>
+                            <label class="col-md-3 control-label">批次：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Batch, new { @class = "form-control", placeholder = "批次" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">民族</label>
+                            <label class="col-md-3 control-label">民族：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Nation, new { @class = "form-control", placeholder = "民族" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">民族支系</label>
+                            <label class="col-md-3 control-label">民族支系：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.NationalBranch, new { @class = "form-control", placeholder = "民族支系" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">性别</label>
+                            <label class="col-md-3 control-label">性别：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Gender, new { @class = "form-control", placeholder = "性别" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">出生日期</label>
+                            <label class="col-md-3 control-label">出生日期：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Birth, new { @class = "form-control", placeholder = "格式：2016/01/01" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">文化程度</label>
+                            <label class="col-md-3 control-label">文化程度：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Education, new { @class = "form-control", placeholder = "文化程度" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">职业</label>
+                            <label class="col-md-3 control-label">职业：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Occupation, new { @class = "form-control", placeholder = "职业" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">传承人</label>
+                            <label class="col-md-3 control-label">传承人：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Successor, new { @class = "form-control", placeholder = "传承人" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">类型</label>
+                            <label class="col-md-3 control-label">类型：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Genre, new { @class = "form-control", placeholder = "类型" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">直辖市</label>
+                            <label class="col-md-3 control-label">直辖市：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Municipalities, new { @class = "form-control", placeholder = "直辖市" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">地区</label>
+                            <label class="col-md-3 control-label">地区：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Region, new { @class = "form-control", placeholder = "地区" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">县级市</label>
+                            <label class="col-md-3 control-label">县级市：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.CountyLevelCity, new { @class = "form-control", placeholder = "县级市" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">县级市</label>
+                            <label class="col-md-3 control-label">县级市：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.CountyLevelCity, new { @class = "form-control", placeholder = "县级市" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">乡镇</label>
+                            <label class="col-md-3 control-label">乡镇：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Township, new { @class = "form-control", placeholder = "乡镇" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label"> 村落</label>
+                            <label class="col-md-3 control-label"> 村落：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Village, new { @class = "form-control", placeholder = " 村落" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">申报地区</label>
+                            <label class="col-md-3 control-label">申报地区：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.DeclarationArea, new { @class = "form-control", placeholder = "申报地区" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">保护单位</label>
+                            <label class="col-md-3 control-label">保护单位：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ProtectionUnit, new { @class = "form-control", placeholder = "保护单位" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">生态区项目</label>
+                            <label class="col-md-3 control-label">生态区项目：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.EcologicalZoneProject, new { @class = "form-control", placeholder = "生态区项目" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">生产性保护基地</label>
+                            <label class="col-md-3 control-label">生产性保护基地：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ProductiveProtectionBase, new { @class = "form-control", placeholder = "生产性保护基地" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">省区代码</label>
+                            <label class="col-md-3 control-label">省区代码：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ProvinceCode, new { @class = "form-control", placeholder = "省区代码" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">申请时间</label>
+                            <label class="col-md-3 control-label">申请时间：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.PostTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">去世</label>
+                            <label class="col-md-3 control-label">去世：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Death, new { @class = "form-control", placeholder = "去世" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">通过</label>
+                            <label class="col-md-3 control-label">通过：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Adopt, new { @class = "form-control", placeholder = "通过" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">语言</label>
+                            <label class="col-md-3 control-label">语言：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Language, new { @class = "form-control", placeholder = "语言" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">创建者名称</label>
+                            <label class="col-md-3 control-label">创建者名称：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.CreatorName, new { @class = "form-control", placeholder = "创建者名称" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">创建者责任方式</label>
+                            <label class="col-md-3 control-label">创建者责任方式：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ResponsibilityCreator, new { @class = "form-control", placeholder = "创建者责任方式" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">资料格式类型</label>
+                            <label class="col-md-3 control-label">资料格式类型：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.DataFormat, new { @class = "form-control", placeholder = "资料格式类型" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">资料提供者</label>
+                            <label class="col-md-3 control-label">资料提供者：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.DataProvider, new { @class = "form-control", placeholder = "资料提供者" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">资料典藏单位</label>
+                            <label class="col-md-3 control-label">资料典藏单位：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.CollectionUnit, new { @class = "form-control", placeholder = "资料典藏单位" })
                             </div>
@@ -256,91 +256,91 @@
 
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">数字化格式</label>
+                            <label class="col-md-3 control-label">数字化格式：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.DigitalFormat, new { @class = "form-control", placeholder = "数字化格式" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">大小</label>
+                            <label class="col-md-3 control-label">大小：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Size, new { @class = "form-control", placeholder = "大小" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">时长</label>
+                            <label class="col-md-3 control-label">时长：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Duration, new { @class = "form-control", placeholder = "时长" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">分辨率</label>
+                            <label class="col-md-3 control-label">分辨率：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.ResolvingPower, new { @class = "form-control", placeholder = "分辨率" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">视频码率</label>
+                            <label class="col-md-3 control-label">视频码率：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.KBps, new { @class = "form-control", placeholder = "视频码率" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">采样频率</label>
+                            <label class="col-md-3 control-label">采样频率：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.SamplingFrequency, new { @class = "form-control", placeholder = "采样频率" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">声道数</label>
+                            <label class="col-md-3 control-label">声道数：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Channels, new { @class = "form-control", placeholder = "声道数" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">存储地</label>
+                            <label class="col-md-3 control-label">存储地：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.StoragePlace, new { @class = "form-control", placeholder = "存储地" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">显示级别</label>
+                            <label class="col-md-3 control-label">显示级别：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.DisplayLevel, new { @class = "form-control", placeholder = "显示级别" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">著录者</label>
+                            <label class="col-md-3 control-label">著录者：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "著录者" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">著录时间</label>
+                            <label class="col-md-3 control-label">著录时间：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.DescriptionTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label"> 管理机构</label>
+                            <label class="col-md-3 control-label"> 管理机构：</label>
                             <div class="col-md-4">
                                 @Html.TextBoxFor(m => m.Organization, new { @class = "form-control", placeholder = " 管理机构" })
                             </div>
                         </div>
-                        <div class="form-group" id="text">
-                            <label class="col-md-3 control-label">内容</label>
-                            <div class="col-md-6">
-                                @Html.TextAreaFor(m => m.Content, new { @class = "form-control", placeholder = "内容", rows = "20" })
-                            </div>
-                        </div>
+                        @*<div class="form-group" id="text">
+                                <label class="col-md-3 control-label">内容：</label>
+                                <div class="col-md-6">
+                                    @Html.TextAreaFor(m => m.Content, new { @class = "form-control", placeholder = "内容", rows = "20" })
+                                </div>
+                            </div>*@
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label"> 备注</label>
+                            <label class="col-md-3 control-label"> 备注：</label>
                             <div class="col-md-6">
                                 @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control", placeholder = " 备注", rows = "10" })
                             </div>
@@ -348,9 +348,9 @@
                         @if (Model.HeritageType == 2)
                         {
                             <div class="form-group">
-                                <label class="col-md-3 control-label">图片</label>
+                                <label class="col-md-3 control-label">图片：</label>
                                 <div class="col-md-9">
-                                    <img src="~/Uploads/@Model.FileName" alt="" width="300px" />
+                                    <img src="~/Uploads/pic/@Model.FileName" alt="" width="300px" />
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div>
                                             <span class="btn default btn-file">
@@ -364,15 +364,39 @@
                                 </div>
                             </div>
                         }
+                        else if (Model.HeritageType == 0)
+                        {
+                            <div class="form-group">
+                                <label class="control-label col-md-1" style="width:200px">媒体文件:</label>
+                                <div class="">
+                                    <center>
+                                        <div>
+                                            <video id="videoplayer" poster="~/img/pic.png" title="this is Projekktor" width="900" height="500" controls=controls>
+                                                <source id="videosource" src="@(Model.FileName)" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div>
+                        }
+                        else if (Model.HeritageType == 1)
+                        {
+                            <div class="form-group">
+                                <label class="control-label col-md-1" style="width:200px">内容:</label>
+                                <div class="col-md-6">
+                                    @Html.TextAreaFor(m => m.Content, new { @class = "form-control", placeholder = "内容", rows = "20" })
+                                </div>
+                            </div>
+                        }
                         @*<div class="form-group">
-                                <label class="col-md-3 control-label">发布设置</label>
+                                <label class="col-md-3 control-label">发布设置：</label>
                                 <div class="col-md-9">
                                     <label class="radio-inline">
                                         <input type="radio" value="0" name="isDraft" @(Model.IsDraft == 0 ? "checked" : "") />直接发布
-                                    </label>
+                                    ：</label>
                                     <label class="radio-inline">
                                         <input type="radio" value="1" name="isDraft" @(Model.IsDraft == 0 ? "" : "checked") />存为草稿
-                                    </label>
+                                    ：</label>
                                 </div>
                             </div>*@
 
