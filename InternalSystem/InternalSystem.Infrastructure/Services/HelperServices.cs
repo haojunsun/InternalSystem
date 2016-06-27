@@ -423,7 +423,7 @@ namespace InternalSystem.Infrastructure.Services
                     var type = strPath.Substring(strPath.LastIndexOf(".") + 1).ToLower();
                     if (!ValidateImg(type)) return savepath;
                     //拼写数据库保存的相对路径字符串
-                    uppath = string.IsNullOrEmpty(path) ? HttpContext.Current.Server.MapPath("~/Uploads/") : HttpContext.Current.Server.MapPath("~/Uploads/" + path + "/");
+                    uppath = string.IsNullOrEmpty(path) ? HttpContext.Current.Server.MapPath("~/Uploads/pic") : HttpContext.Current.Server.MapPath("~/Uploads/pic/" + path + "/");
                     savepath += nameImg + "." + type;
                     //拼写上传图片的路径
                     uppath += nameImg + "." + type;
