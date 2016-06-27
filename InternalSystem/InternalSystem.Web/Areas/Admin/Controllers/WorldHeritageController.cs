@@ -10,6 +10,7 @@ using InternalSystem.Infrastructure.Services;
 using InternalSystem.Web.Filters;
 using InternalSystem.Web.Helpers;
 using PagedList;
+using System.IO;
 
 namespace InternalSystem.Web.Areas.Admin.Controllers
 {
@@ -238,5 +239,17 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             _worldHeritageService.Update(old);
             return Content("<script>alert('审核完成');window.location.href='" + Url.Action("List") + "';</script>");
         }
+
+        //视频上传
+        public ActionResult Upload()
+        {
+            var httpfile = Request.Files["Filedata"];
+            string fileName = Path.GetFileName(httpfile.FileName);
+            string dir = "/Uploads/video/";
+            string fullDir = dir + fileName;
+            httpfile.SaveAs(Request.MapPath(fullDir));
+            return Content(fullDir);
+        }
+
     }
 }

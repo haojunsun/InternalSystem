@@ -1090,7 +1090,9 @@
     <Content Include="Content\style.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\css.css" />
+    <Content Include="css\easyui.css" />
     <Content Include="css\fyjsstyle.css" />
+    <Content Include="css\icon.css" />
     <Content Include="css\login.css" />
     <Content Include="css\mediaelementplayer.min.css" />
     <Content Include="css\nstyle.css" />
@@ -1285,8 +1287,12 @@
     <Content Include="Content\_public.scss" />
     <Content Include="Log4net.config" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery.colorbox-min.js" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.SuperSlide.js" />
     <Content Include="Scripts\mediaelement-and-player.min.js" />
@@ -1295,6 +1301,13 @@
     <Content Include="Scripts\pagination.js" />
     <Content Include="Scripts\projekktor.js" />
     <Content Include="Scripts\seco-app.js" />
+    <Content Include="Scripts\SwfUpload\Flash\swfupload.swf" />
+    <Content Include="Scripts\SwfUpload\Images\TestImageNoText_65x29.png" />
+    <Content Include="Scripts\SwfUpload\plugins\swfupload.cookies.js" />
+    <Content Include="Scripts\SwfUpload\plugins\swfupload.queue.js" />
+    <Content Include="Scripts\SwfUpload\plugins\swfupload.speed.js" />
+    <Content Include="Scripts\SwfUpload\plugins\swfupload.swfobject.js" />
+    <Content Include="Scripts\SwfUpload\swfupload.js" />
     <Content Include="theme\buffering.gif" />
     <Content Include="theme\maccaco-load-static.png" />
     <Content Include="theme\maccaco-load.gif" />
