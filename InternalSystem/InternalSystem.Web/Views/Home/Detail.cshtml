@@ -29,9 +29,9 @@
             <div class="nav">
                 <ul>
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
-                    <li><a href="@Url.Action("videolist", "home")">视频资源</a></li>
-                    <li><a href="javascript:void(0)">图片资源</a></li>
-                    <li><a href="javascript:void(0)">文字资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "0" } })">视频资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>
                     <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
@@ -81,13 +81,26 @@
                         源资料提供者：<span ng-bind="videoinfo.DataProvider" style="color: black; margin-right: 50px"></span>
                         时长：<span ng-bind="videoinfo.Duration" style="color:black;"></span>
                     </p>
+
                     <center>
-                        <div>
+                        <div ng-show="videoinfo.HeritageType==0">
+                            <h2>视频</h2>
                             <video id="videoplayer" poster="~/img/pic.png" title="this is Projekktor" width="900" height="500" controls=controls>
                                 <source id="videosource" src="" type="video/mp4" />
                             </video>
                         </div>
+                        <div ng-show="videoinfo.HeritageType==1">
+                            <h2>文本内容</h2>
+                            <span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{videoinfo.Content}}
+                            </span>
+                        </div>
+                        <div ng-show="videoinfo.HeritageType==2">
+                            <h2>图片</h2>
+                            <img src="~/Uploads/pic/{{videoinfo.FileName}}" style="width:100%" />
+                        </div>
                     </center>
+
                 </div>
             </div>
 
@@ -108,12 +121,12 @@
     <script src="~/Scripts/angular.bundled.min.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
     <script>
-        $(function () {
-            $('#owl-demo').owlCarousel({
-                items: 1,
-                autoPlay: true
-            });
-        });
+        //$(function () {
+        //    $('#owl-demo').owlCarousel({
+        //        items: 1,
+        //        autoPlay: true
+        //    });
+        //});
     </script>
 </body>
 </html>

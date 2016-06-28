@@ -29,48 +29,16 @@
             <div class="nav">
                 <ul>
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
-                    <li><a href="@Url.Action("videolist", "home")">视频资源</a></li>
-                    <li><a href="javascript:void(0)">图片资源</a></li>
-                    <li><a href="javascript:void(0)">文字资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "0" } })">视频资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>
                     <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
             </div>
         </div>
         <div style=" clear:both;"></div>
-        @*<div class="banner" style="margin-left:400px">
-                <div>
-                    分类：
-                    <a class="classtype" href="javascript:void(0)">全部</a>
-                    <a class="classtype" href="javascript:void(0)">民间文学</a>
-                    <a class="classtype" href="javascript:void(0)">传统音乐</a>
-                    <a class="classtype" href="javascript:void(0)">传统美术</a>
-                    <a class="classtype" href="javascript:void(0)">传统技艺</a>
-                    <a class="classtype" href="javascript:void(0)">曲艺</a>
-                </div>
-                <div>
-                    类型：
-                    <a class="type" href="javascript:void(0)">全部</a>
-                    <a class="type" href="javascript:void(0)">视频</a>
-                    <a class="type" href="javascript:void(0)">图片</a>
-                    <a class="type" href="javascript:void(0)">文本</a>
-                </div>
-                <div>
-                    民族：
-                    <a class="nation" href="javascript:void(0)">全部</a>
-                    <a class="nation" href="javascript:void(0)">满族</a>
-                    <a class="nation" href="javascript:void(0)">汉族</a>
-                    <a class="nation" href="javascript:void(0)">回族</a>
-                </div>
-                <div>
-                    地区：
-                    <a class="area" href="javascript:void(0)">全国</a>
-                    <a class="area" href="javascript:void(0)">北京市</a>
-                    <a class="area" href="javascript:void(0)">天津市</a>
-                    <a class="area" href="javascript:void(0)">河北省</a>
-                </div>
-                <div>关键字搜索：<input type="text" id="searchkey" name="name" placeholder="项目名称" ng-keyup="changeSearchkey()" /></div>
-            </div>*@
+     
         <div class="selectNumberScreen">
 
             <div id="selectList" class="screenBox screenBackground">
@@ -91,7 +59,7 @@
                     <dt>类　　型：</dt>
                     <dd>
                         <a class="type" href="javascript:void(0)">全部</a>
-                        <a class="type" name="condition" href="javascript:void(0)">视频</a>
+                        <a class="type" id="resvideo" name="condition" href="javascript:void(0)">视频</a>
                         <a class="type" name="condition" href="javascript:void(0)">图片</a>
                         <a class="type" name="condition" href="javascript:void(0)">文本</a>
                     </dd>
@@ -136,19 +104,7 @@
         <div style=" clear:both;"></div>
 
         <div class="index-box-up">
-            @*<div class="pic-left">
-                    <p>产品分类</p>
-                    <div class="lanrenzhijia">
-                        <ul>
-                            <li class="on"><a href='#'>分类1</a></li>
-                            <li class="on"><a href='#'>分类2</a></li>
-                            <li class="on"><a href='#'>分类3</a></li>
-                            <li class="on"><a href='#'>分类4</a></li>
-                        </ul>
-                        <div class="hover"></div>
-                    </div>
-                </div>*@
-
+       
             <div class="">
                 <div class="box-nav">
                     <div class="box-nav-left"><img src="~/img/16.png" width="149" /></div>
@@ -160,7 +116,9 @@
                     <div class="picmain_up">
                         <div class="picmain_pic" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <a href="javascript:void(0)">
-                                <img src="~/img/lj.png" width="100%" />
+                                <img src="~/img/lj.png" width="100%" ng-show="item.HeritageType==0"/>
+                                <img src="~/img/lj2.png" width="100%" ng-show="item.HeritageType==1" />
+                                <img src="~/Uploads/pic/{{item.FileName}}" style="width:270px;height:270px" ng-show="item.HeritageType==2" />
                                 <p>{{item.Title}}</p>
                             </a>
                         </div>

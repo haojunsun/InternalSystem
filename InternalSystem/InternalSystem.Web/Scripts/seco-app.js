@@ -38,6 +38,16 @@ sc.app = angular.module('scApp', [])
         $scope.totalpage = 0;//总页数
         $scope.videoList = [];
 
+        $scope.resourceType = location.search.indexOf('=') > -1 ? location.search.split('=')[1] : "";
+     
+        if ($scope.resourceType == '0') {
+            $scope.type = '视频';
+        } else if ($scope.resourceType == '1') {
+            $scope.type = '文本';
+        } else if ($scope.resourceType == '2') {
+            $scope.type = '图片';
+        }
+
         $('.classtype').click(function () {
             $scope.classtype = $(this).text();
             if ($scope.classtype == "全部") {

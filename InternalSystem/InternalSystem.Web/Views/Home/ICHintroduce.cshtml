@@ -36,9 +36,9 @@
             <div class="nav">
                 <ul>
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
-                    <li><a href="@Url.Action("videolist", "home")">视频资源</a></li>
-                    <li><a href="javascript:void(0)">图片资源</a></li>
-                    <li><a href="javascript:void(0)">文字资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "0" } })">视频资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
+                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>
                     <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
