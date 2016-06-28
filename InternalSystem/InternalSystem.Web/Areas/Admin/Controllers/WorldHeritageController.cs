@@ -60,6 +60,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             if (!string.IsNullOrEmpty(wh.FileName))
             {
                 wh.HeritageType = 0;
+                wh.DataFormat = "视频";
                 wh.FileName = "~/Uploads/video/" + wh.FileName;
             }
             else
@@ -71,13 +72,15 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                     if (!string.IsNullOrEmpty(wh.FileName))
                     {
                         wh.HeritageType = 2;
+                        wh.DataFormat = "图片";
                     }
 
                 }
-              
+
                 if (!string.IsNullOrEmpty(wh.Content))
                 {
                     wh.HeritageType = 1;
+                    wh.DataFormat = "文本";
                     wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
                 }
             }

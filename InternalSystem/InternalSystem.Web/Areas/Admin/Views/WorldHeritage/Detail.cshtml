@@ -24,6 +24,17 @@
                 </div>
             </div>
             <div class="portlet-body form">
+                @if (user.Authority != 2)
+                {
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <a class="btn green" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 1 }))">审核通过</a>
+                                <a class="btn red" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 2 }))">审核拒绝</a>
+                            </div>
+                        </div>
+                    </div>
+                }
                 <form class="form-horizontal">
                     <div class="form-body">
                         <div class="form-group">
