@@ -2,90 +2,104 @@
 @using PagedList.Mvc
 
 @model StaticPagedList<InternalSystem.Core.Models.Manager>
-    @{
-        ViewBag.Title = "管理员列表";
-    }
-    <div class="row">
-        <div class="col-md-12">
-            <div class="portlet light">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-cogs font-green-sharp"></i>
-                        <span class="caption-subject font-green-sharp bold uppercase">@ViewBag.columnTag</span>
-                    </div>
-                    <div class="pull-right">
+@{
+    ViewBag.Title = "管理员列表";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">@ViewBag.columnTag</span>
+                </div>
+                <div class="pull-right">
 
-                        <div class="btn-group">
-                            <a class="btn btn-sm green" href="@Url.Action("Create")">
-                                添加管理员 <i class="fa fa-plus"></i>
-                            </a>
-                        </div>
+                    <div class="btn-group">
+                        <a class="btn btn-sm green" href="@Url.Action("Create", new { @userType=1 })">
+                            添加管理员 <i class="fa fa-plus"></i>
+                        </a>
+                        <a class="btn btn-sm yellow" href="@Url.Action("Create",new {@userType=3})">
+                            添加发布者 <i class="fa fa-plus"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="portlet-body">
+            </div>
+            <div class="portlet-body">
 
-                    <div class="table-scrollable table-scrollable-borderless">
+                <div class="table-scrollable table-scrollable-borderless">
 
-                        <table class="table table-hover table-light">
-                            <thead>
-                                <tr>
-                                    <th>昵称</th>
-                                    <th>LoginId</th>
-                                    <th>权限</th>
-                                    <th>创建日期</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (Model != null && Model.Count != 0)
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th>昵称</th>
+                                <th>LoginId</th>
+                                <th>权限</th>
+                                <th>创建日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Count != 0)
+                            {
+                                foreach (var item in Model.Where(item => item != null))
                                 {
-                                    foreach (var item in Model.Where(item => item != null))
-                                    {
-                                        <tr>
-                                            <td>
-                                                @item.Name
-                                            </td>
-                                            <td>
-                                                @item.LoginId
-                                            </td>
-                                            <td>
-                                                @(item.Authority == 1 ? "管理员" : "用户")
-                                            </td>
-                                            <td>
-                                                @DateTime.Parse(item.CreatedUtc.ToString()).ToString("yyyy-MM-dd HH:mm:ss")
-                                            </td>
-                                            <td>
-                                                <a class="btn default btn-xs purple-stripe" href="@Url.Action("ModifyPassword", "Manager", new { id = item.ManagerId })"><i class="fa fc-month-view"></i> 编辑密码</a>
-                                                @*<a href="@Url.Action("Delete", new { id = item.ManagerId })" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
-                                                    <i class="fa fa-trash-o"></i> Delete</a>*@
-                                                @if (item.Invalid == 0)
-                                                {
-                                                    <a href="@Url.Action("Invalid", new {id = item.ManagerId, @state = 1})" onclick=" return confirm('确认禁用吗？'); " class="btn default btn-xs red">
-                                                        <i class="fa fa-trash-o"></i> 禁用
-                                                    </a>
-                                                }
-                                                else
-                                                {
-                                                      <a href="@Url.Action("Invalid", new {id = item.ManagerId, @state = 0})" onclick=" return confirm('确认启用吗？'); " class="btn default btn-xs red">
-                                                        <i class="fa fa-trash-o"></i> 启用
-                                                    </a>
-                                                }
-                                            </td>
-                                        </tr>
-                                    }
+                                    <tr>
+                                        <td>
+                                            @item.Name
+                                        </td>
+                                        <td>
+                                            @item.LoginId
+                                        </td>
+                                        <td>
+                                            @if (item.Authority == 1)
+                                            {
+                                                <span>管理员</span>
+                                            }
+                                            else if (item.Authority == 2)
+                                            {
+                                                <span>用户</span>
+                                            }
+                                            else if (item.Authority == 3)
+                                            {
+                                                <span>发布者管理员</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @DateTime.Parse(item.CreatedUtc.ToString()).ToString("yyyy-MM-dd HH:mm:ss")
+                                        </td>
+                                        <td>
+                                            <a class="btn default btn-xs purple-stripe" href="@Url.Action("ModifyPassword", "Manager", new { id = item.ManagerId })"><i class="fa fc-month-view"></i> 编辑密码</a>
+                                            @*<a href="@Url.Action("Delete", new { id = item.ManagerId })" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
+                                                <i class="fa fa-trash-o"></i> Delete</a>*@
+                                            @if (item.Invalid == 0)
+                                            {
+                                                <a href="@Url.Action("Invalid", new {id = item.ManagerId, @state = 1})" onclick=" return confirm('确认禁用吗？'); " class="btn default btn-xs red">
+                                                    <i class="fa fa-trash-o"></i> 禁用
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("Invalid", new {id = item.ManagerId, @state = 0})" onclick=" return confirm('确认启用吗？'); " class="btn default btn-xs red">
+                                                    <i class="fa fa-trash-o"></i> 启用
+                                                </a>
+                                            }
+                                        </td>
+                                    </tr>
                                 }
-                            </tbody>
-                        </table>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.PageNumber)/@(Model.PageCount)页
                     </div>
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12">
-                            共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.PageNumber)/@(Model.PageCount)页
-                        </div>
-                        <div class="col-md-7 col-sm-12 text-right">
-                            @Html.PagedListPager(Model, page => Url.Action("List", new { page, @size = ViewBag.Size }))
-                        </div>
+                    <div class="col-md-7 col-sm-12 text-right">
+                        @Html.PagedListPager(Model, page => Url.Action("List", new { page, @size = ViewBag.Size }))
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

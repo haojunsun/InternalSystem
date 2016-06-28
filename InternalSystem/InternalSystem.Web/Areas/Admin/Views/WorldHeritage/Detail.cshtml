@@ -17,24 +17,38 @@
                     {
                         <a class="btn btn-sm green" href="@Url.Action("My")">返回资源列表</a>
                     }
-                    else
+                    else if (user.Authority == 0 || user.Authority == 1)
                     {
                         <a class="btn btn-sm green" href="@Url.Action("List")">返回资源列表</a>
+                    }
+                    else if (user.Authority == 3)
+                    {
+                        <a class="btn btn-sm green" href="@Url.Action("Release>返回资源列表</a>
                     }
                 </div>
             </div>
             <div class="portlet-body form">
                 @if (user.Authority != 2)
                 {
-                    <div class="form-actions">
+                    <div class="form-actions" style="border:none">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <a class="btn green" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 1 }))">审核通过</a>
-                                <a class="btn red" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 2 }))">审核拒绝</a>
+
+                                @if (user.Authority == 0 || user.Authority == 1)
+                                {
+                                    <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
+                                    <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                }
+                                @if (user.Authority == 3 || user.Authority == 0)
+                                {
+                                    <a class="btn green" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 1 }))">发布</a>
+                                    <a class="btn red" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                }
                             </div>
                         </div>
                     </div>
                 }
+
                 <form class="form-horizontal">
                     <div class="form-body">
                         <div class="form-group">
@@ -404,8 +418,17 @@
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <a class="btn green" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 1 }))">审核通过</a>
-                                <a class="btn red" href="@(Url.Action("ChangeState", new { id = Model.WorldHeritageId, @state = 2 }))">审核拒绝</a>
+
+                                @if (user.Authority == 0 || user.Authority == 1)
+                                {
+                                    <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
+                                    <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                }
+                                @if (user.Authority == 3 || user.Authority == 0)
+                                {
+                                    <a class="btn green" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 1 }))">发布</a>
+                                    <a class="btn red" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                }
                             </div>
                         </div>
                     </div>

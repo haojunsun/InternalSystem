@@ -85,9 +85,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 }
             }
             wh.CreatedUtc = DateTime.Now;
-            wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
+            //wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
             wh.IsEffect = 0;
-
+            wh.Description = _managerService.Get(UserLogin.GetUserInfo().ManagerId).Name;
+            wh.DescriptionTime = DateTime.Now.ToString();
 
             _worldHeritageService.Add(wh);
             return RedirectToAction("My");
@@ -234,6 +235,25 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return View(personsAsIPagedList);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="page"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public ActionResult Release(string key, int page = 1, int size = 50)
+        {
+            ViewBag.user = UserLogin.GetUserInfo();
+            ViewBag.key = key;
+            var pageIndex = page;
+            var pageSize = size;
+            var totalCount = 0;
+            var list = _worldHeritageService.Release(key, pageIndex, pageSize, ref totalCount).ToList();
+            var personsAsIPagedList = new StaticPagedList<WorldHeritage>(list, pageIndex, pageSize, totalCount);
+            return View(personsAsIPagedList);
+        }
+
         public ActionResult ChangeState(int id, int state)
         {
             var user = UserLogin.GetUserInfo();
@@ -248,9 +268,31 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             old.IsEffect = state;
             //old.User = _managerService.Get(user.ManagerId);
             old.Audit = old.User.Name;
-            old.AuditTime = DateTime.Now.ToString();
+            //old.AuditTime = DateTime.Now.ToString();
             _worldHeritageService.Update(old);
             return Content("<script>alert('审核完成');window.location.href='" + Url.Action("List") + "';</script>");
+        }
+
+        public ActionResult ChangeRelease(int id, int state)
+        {
+            var user = UserLogin.GetUserInfo();
+            if (user.Authority == 2 || user.Authority == 1)
+            {
+                return Content("<script>alert('无权限');window.location.href='" + Url.Action("List") + "';</script>");
+            }
+            var old = _worldHeritageService.Get(id);
+            if (old == null)
+                return JumpUrl("List", "id错误");
+
+            old.IsShow = state;
+            old.Release = _managerService.Get(user.ManagerId);
+            old.ReleaseTime = DateTime.Now;
+
+            _worldHeritageService.Update(old);
+            if (user.Authority == 0)
+                return Content("<script>alert('发布完成');window.location.href='" + Url.Action("List") + "';</script>");
+            else
+                return Content("<script>alert('发布完成');window.location.href='" + Url.Action("Release") + "';</script>");
         }
 
         //视频上传
@@ -265,7 +307,8 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         //资源属性介绍
-        public ActionResult Attribute() {
+        public ActionResult Attribute()
+        {
             return View();
         }
 

@@ -63,13 +63,14 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int userType)
         {
+            ViewBag.userType = userType;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Manager manager)
+        public ActionResult Create(Manager manager, int userType)
         {
             if (string.IsNullOrEmpty(manager.Name) && string.IsNullOrEmpty(manager.Pass))
             {
@@ -83,7 +84,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             }
 
             var m = new Manager();
-            manager.Authority = 1;
+            manager.Authority = userType;
             manager.Invalid = 0;
             manager.Name = manager.Name;
             manager.LoginId = manager.Name;
@@ -91,8 +92,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             manager.CreatedUtc = DateTime.Now;
             _managerService.Add(manager);
 
-            return Content("<script>alert('创建管理员成功');window.location.href='" + Url.Action("List") + "';</script>");
+            return Content("<script>alert('创建成功');window.location.href='" + Url.Action("List") + "';</script>");
         }
+
+        
         [HttpGet]
         public ActionResult Edit(int id)
         {

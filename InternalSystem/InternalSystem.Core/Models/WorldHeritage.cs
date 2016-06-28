@@ -297,5 +297,17 @@ namespace InternalSystem.Core.Models
 
         [MaxLength]
         public string Content { get; set; }
+
+        /// <summary>
+        /// 是否显示
+        /// </summary>
+        public int IsShow { get; set; }
+
+        /// <summary>
+        /// 发布者
+        /// </summary>
+        public Manager Release { get; set; }
+
+        public DateTime ReleaseTime { get; set; }
     }
 }

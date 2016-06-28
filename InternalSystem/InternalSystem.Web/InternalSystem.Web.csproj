@@ -1263,6 +1263,7 @@
     <Content Include="Areas\Admin\Views\Manager\Create.cshtml" />
     <Content Include="Areas\Admin\Views\WorldHeritage\Attribute.cshtml" />
     <Content Include="Areas\Admin\Views\Manager\Permissions.cshtml" />
+    <Content Include="Areas\Admin\Views\WorldHeritage\Release.cshtml" />
     <None Include="Backload\Config\Web.Backload.xsd">
       <SubType>Designer</SubType>
     </None>

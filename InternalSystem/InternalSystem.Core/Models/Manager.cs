@@ -15,7 +15,7 @@ namespace InternalSystem.Core.Models
         public DateTime? CreatedUtc { get; set; }
 
         /// <summary>
-        /// 权限越小 权利越大 默认1 超管 为0 
+        /// 权限越小 权利越大 管理员1 超管 为0 用户2 发布者管理员3
         /// </summary>
         public int Authority { get; set; }
 

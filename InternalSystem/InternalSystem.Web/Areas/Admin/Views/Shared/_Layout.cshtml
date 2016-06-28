@@ -123,11 +123,22 @@
                         }
                         @if (user.Authority != 2)
                         {
-                            <li>
-                                <a href="@(Url.Action("List", "WorldHeritage"))">
-                                    资源列表
-                                </a>
-                            </li>
+                            if (user.Authority != 3)
+                            {
+                                <li>
+                                    <a href="@(Url.Action("List", "WorldHeritage"))">
+                                        资源列表
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@(Url.Action("Release", "WorldHeritage"))">
+                                        资源列表
+                                    </a>
+                                </li>
+                            }
                         }
                         @if (user.Authority == 0)
                         {
@@ -147,8 +158,6 @@
                                 我的权限
                             </a>
                         </li>
-                       
-
                     </ul>
                 </div>
                 <!-- END MEGA MENU -->

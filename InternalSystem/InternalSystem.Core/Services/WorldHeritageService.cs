@@ -19,6 +19,8 @@ namespace InternalSystem.Core.Services
         IEnumerable<WorldHeritage> List();
         IEnumerable<WorldHeritage> List(int pageIndex, int pageSize, ref int totalCount);
         IEnumerable<WorldHeritage> List(string search, int pageIndex, int pageSize, ref int totalCount);
+
+        IEnumerable<WorldHeritage> Release(string search, int pageIndex, int pageSize, ref int totalCount);
         void Add(WorldHeritage manager);
         void Update(WorldHeritage manager);
         void Delete(int id);
@@ -303,6 +305,27 @@ namespace InternalSystem.Core.Services
                             orderby p.CreatedUtc descending
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
                 totalCount = _appDbContext.WorldHeritages.Count();
+                return list.ToList();
+            }
+        }
+        public IEnumerable<WorldHeritage> Release(string search, int pageIndex, int pageSize, ref int totalCount)
+        {
+            if (!string.IsNullOrEmpty(search))
+            {
+                var list = (from p in _appDbContext.WorldHeritages
+                            where p.IsEffect == 1 && (p.Title.Contains(search) || p.Description.Contains(search))
+                            orderby p.CreatedUtc descending
+                            select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1 && (x.Title.Contains(search) || x.Description.Contains(search)));
+                return list.ToList();
+            }
+            else
+            {
+                var list = (from p in _appDbContext.WorldHeritages
+                            where p.IsEffect == 1
+                            orderby p.CreatedUtc descending
+                            select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1);
                 return list.ToList();
             }
         }

@@ -86,6 +86,14 @@
     <Compile Include="Migrations\201606240757177_Invalid.Designer.cs">
       <DependentUpon>201606240757177_Invalid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606280923179_addIsShow.cs" />
+    <Compile Include="Migrations\201606280923179_addIsShow.Designer.cs">
+      <DependentUpon>201606280923179_addIsShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606280945319_addRelease.cs" />
+    <Compile Include="Migrations\201606280945319_addRelease.Designer.cs">
+      <DependentUpon>201606280945319_addRelease.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -125,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606240757177_Invalid.resx">
       <DependentUpon>201606240757177_Invalid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606280923179_addIsShow.resx">
+      <DependentUpon>201606280923179_addIsShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606280945319_addRelease.resx">
+      <DependentUpon>201606280945319_addRelease.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
