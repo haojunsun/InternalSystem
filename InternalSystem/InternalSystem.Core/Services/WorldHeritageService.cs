@@ -95,7 +95,7 @@ namespace InternalSystem.Core.Services
 
         public WorldHeritage Get(int id)
         {
-            return _appDbContext.WorldHeritages.FirstOrDefault(x=> x.WorldHeritageId==id);
+            return _appDbContext.WorldHeritages.FirstOrDefault(x => x.WorldHeritageId == id);
         }
 
         public void Import(List<WorldHeritage> list)
@@ -122,7 +122,7 @@ namespace InternalSystem.Core.Services
                 {
                     //没有任何 条件 取 全部 第一页
                     list = (from p in _appDbContext.WorldHeritages
-                            where p.IsEffect == 1 
+                            where p.IsEffect == 1
                             orderby p.CreatedUtc descending
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
                     totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1);
@@ -232,7 +232,7 @@ namespace InternalSystem.Core.Services
                         if (!string.IsNullOrEmpty(title))
                         {
                             list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Title.Contains(title) &&x.IsEffect == 1);
+                            totalCount = list.Count(x => x.Title.Contains(title) && x.IsEffect == 1);
                         }
                         result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                         result.Data.TotalCount = totalCount;
@@ -274,7 +274,7 @@ namespace InternalSystem.Core.Services
         public IEnumerable<WorldHeritage> My(int id, int pageIndex, int pageSize, ref int totalCount)
         {
             var list = (from p in _appDbContext.WorldHeritages
-                        where p.User.ManagerId==id
+                        where p.User.ManagerId == id
                         orderby p.CreatedUtc descending
                         select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             totalCount = _appDbContext.WorldHeritages.Count(x => x.User.ManagerId == id);

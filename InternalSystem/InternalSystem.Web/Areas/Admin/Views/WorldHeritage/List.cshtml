@@ -66,7 +66,18 @@
                                                 @item.Successor
                                             </td>
                                             <td>
-                                                @item.Genre
+                                               @if (item.HeritageType==0)
+                                               {
+                                                   <span>视频</span>
+                                               }
+                                               else if (item.HeritageType == 1)
+                                               {
+                                                <span>文本</span>
+                                               }
+                                               else if (item.HeritageType == 2)
+                                               {
+                                                <span>图片</span>
+                                               }
                                             </td>
                                             <td>
                                                 @item.CreatedUtc

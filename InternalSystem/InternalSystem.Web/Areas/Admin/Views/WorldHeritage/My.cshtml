@@ -70,12 +70,12 @@
                                         <td>
                                             <a class="btn default btn-xs purple-stripe" href="@Url.Action("Detail", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 查看详情</a>
                                             <a class="btn default btn-xs purple-stripe" href="@Url.Action("Edit", new {id = item.WorldHeritageId})"><i class="fa fc-month-view"></i> 编辑</a>
-                                            @*<a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
+                                            <a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
                                                 <i class="fa fa-trash-o"></i> Delete
-                                            </a>*@
+                                            </a>
                                             @if (item.IsEffect == 2)
                                             {
-                                                  <a class="btn default btn-xs purple-stripe" href="@Url.Action("Verify", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 提交审核</a>
+                                                <a class="btn default btn-xs purple-stripe" href="@Url.Action("Verify", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 提交审核</a>
                                             }
                                         </td>
                                     </tr>
