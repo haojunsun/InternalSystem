@@ -3,7 +3,7 @@
     Layout = "~/areas/Admin/Views/Shared/_Layout.cshtml";
     ViewBag.Title = Model.Title + "-" + "编辑";
 }
-
+<link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
 <div class="row" ng-controller="PackageController">
     <div class="col-md-12">
         <div class="portlet light">
@@ -366,13 +366,14 @@
                         }
                         else if (Model.HeritageType == 0)
                         {
+                            <input type="hidden" value="@(Model.FileName)" id="videourl" />
                             <div class="form-group">
                                 <label class="control-label col-md-1" style="width:200px">媒体文件:</label>
                                 <div class="">
                                     <center>
                                         <div>
                                             <video id="videoplayer" poster="~/img/pic.png" title="this is Projekktor" width="900" height="500" controls=controls>
-                                                <source id="videosource" src="@(Model.FileName)" type="video/mp4" />
+                                                <source id="videosource" src="" type="video/mp4" />
                                             </video>
                                         </div>
                                     </center>
@@ -388,18 +389,6 @@
                                 </div>
                             </div>
                         }
-                        @*<div class="form-group">
-                                <label class="col-md-3 control-label">发布设置：</label>
-                                <div class="col-md-9">
-                                    <label class="radio-inline">
-                                        <input type="radio" value="0" name="isDraft" @(Model.IsDraft == 0 ? "checked" : "") />直接发布
-                                    ：</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="1" name="isDraft" @(Model.IsDraft == 0 ? "" : "checked") />存为草稿
-                                    ：</label>
-                                </div>
-                            </div>*@
-
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
@@ -414,3 +403,18 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/projekktor.js"></script>
+<script>
+    $(function () {
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPaht = curWwwPath.substring(0, pos);
+
+        $('#videosource').attr("src", localhostPaht + $('#videourl').val().substring(1));
+        setTimeout(function () {
+            projekktor('#videoplayer'); // instantiation
+        }, 100)
+    })
+</script>
