@@ -124,10 +124,10 @@ namespace InternalSystem.Core.Services
                 {
                     //没有任何 条件 取 全部 第一页
                     list = (from p in _appDbContext.WorldHeritages
-                            where p.IsEffect == 1
+                            where p.IsEffect == 1 && p.IsShow==1
                             orderby p.CreatedUtc descending
                             select p).Skip((pageIndex - 1) * pageSize).Take(pageSize);
-                    totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1);
+                    totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1 && x.IsShow == 1);
                     result.Data.Items = list.ToList();
                     result.Data.TotalCount = totalCount;
                 }
@@ -136,30 +136,30 @@ namespace InternalSystem.Core.Services
                     if (!string.IsNullOrEmpty(firstlevel))
                     {
                         list = (from p in _appDbContext.WorldHeritages
-                                where p.FirstLevel.Contains(firstlevel) && p.IsEffect == 1
+                                where p.FirstLevel.Contains(firstlevel) && p.IsEffect == 1 && p.IsShow == 1
                                 orderby p.CreatedUtc descending
                                 select p).AsQueryable();
-                        totalCount = list.Count(x => x.FirstLevel.Contains(firstlevel) && x.IsEffect == 1);
+                        totalCount = list.Count(x => x.FirstLevel.Contains(firstlevel) && x.IsEffect == 1 && x.IsShow == 1);
 
                         if (!string.IsNullOrEmpty(dataformat))
                         {
-                            list = list.Where(x => x.DataFormat.Contains(dataformat) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.DataFormat.Contains(dataformat) && x.IsEffect == 1);
+                            list = list.Where(x => x.DataFormat.Contains(dataformat) );
+                            totalCount = list.Count(x => x.DataFormat.Contains(dataformat) );
                         }
                         if (!string.IsNullOrEmpty(nation))
                         {
-                            list = list.Where(x => x.Nation.Contains(nation) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Nation.Contains(nation) && x.IsEffect == 1);
+                            list = list.Where(x => x.Nation.Contains(nation) );
+                            totalCount = list.Count(x => x.Nation.Contains(nation) );
                         }
                         if (!string.IsNullOrEmpty(municipalities))
                         {
-                            list = list.Where(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
+                            list = list.Where(x => x.Municipalities.Contains(municipalities) );
+                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities) );
                         }
                         if (!string.IsNullOrEmpty(title))
                         {
                             list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Title.Contains(title) && x.IsEffect == 1);
+                            totalCount = list.Count(x => x.Title.Contains(title) );
                         }
 
                         result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
@@ -171,25 +171,25 @@ namespace InternalSystem.Core.Services
                     if (!string.IsNullOrEmpty(dataformat))
                     {
                         list = (from p in _appDbContext.WorldHeritages
-                                where p.DataFormat.Contains(dataformat) && p.IsEffect == 1
+                                where p.DataFormat.Contains(dataformat) && p.IsEffect == 1 && p.IsShow == 1
                                 orderby p.CreatedUtc descending
                                 select p).AsQueryable();
-                        totalCount = list.Count(x => x.DataFormat.Contains(dataformat) && x.IsEffect == 1);
+                        totalCount = list.Count(x => x.DataFormat.Contains(dataformat) && x.IsEffect == 1 && x.IsShow == 1);
 
                         if (!string.IsNullOrEmpty(nation))
                         {
-                            list = list.Where(x => x.Nation.Contains(nation) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Nation.Contains(nation) && x.IsEffect == 1);
+                            list = list.Where(x => x.Nation.Contains(nation) );
+                            totalCount = list.Count(x => x.Nation.Contains(nation) );
                         }
                         if (!string.IsNullOrEmpty(municipalities))
                         {
-                            list = list.Where(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
+                            list = list.Where(x => x.Municipalities.Contains(municipalities) );
+                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities) );
                         }
                         if (!string.IsNullOrEmpty(title))
                         {
-                            list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Title.Contains(title) && x.IsEffect == 1);
+                            list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)));
+                            totalCount = list.Count(x => x.Title.Contains(title) );
                         }
                         result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                         result.Data.TotalCount = totalCount;
@@ -202,20 +202,20 @@ namespace InternalSystem.Core.Services
                     if (!string.IsNullOrEmpty(nation))
                     {
                         list = (from p in _appDbContext.WorldHeritages
-                                where p.Nation.Contains(nation) && p.IsEffect == 1
+                                where p.Nation.Contains(nation) && p.IsEffect == 1 && p.IsShow == 1
                                 orderby p.CreatedUtc descending
                                 select p).AsQueryable();
-                        totalCount = list.Count(x => x.Nation.Contains(nation) && x.IsEffect == 1);
+                        totalCount = list.Count(x => x.Nation.Contains(nation) && x.IsEffect == 1 && x.IsShow == 1);
 
                         if (!string.IsNullOrEmpty(municipalities))
                         {
-                            list = list.Where(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
+                            list = list.Where(x => x.Municipalities.Contains(municipalities) );
+                            totalCount = list.Count(x => x.Municipalities.Contains(municipalities) );
                         }
                         if (!string.IsNullOrEmpty(title))
                         {
-                            list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) && x.IsEffect == 1);
-                            totalCount = list.Count(x => x.Title.Contains(title) && x.IsEffect == 1);
+                            list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)));
+                            totalCount = list.Count(x => x.Title.Contains(title) );
                         }
                         result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                         result.Data.TotalCount = totalCount;
@@ -226,14 +226,14 @@ namespace InternalSystem.Core.Services
                     if (!string.IsNullOrEmpty(municipalities))
                     {
                         list = (from p in _appDbContext.WorldHeritages
-                                where p.Municipalities.Contains(municipalities) && p.IsEffect == 1
+                                where p.Municipalities.Contains(municipalities) && p.IsEffect == 1 && p.IsShow == 1
                                 orderby p.CreatedUtc descending
                                 select p).AsQueryable();
-                        totalCount = list.Count(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1);
+                        totalCount = list.Count(x => x.Municipalities.Contains(municipalities) && x.IsEffect == 1 && x.IsShow == 1);
 
                         if (!string.IsNullOrEmpty(title))
                         {
-                            list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) && x.IsEffect == 1);
+                            list = list.Where(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) );
                             totalCount = list.Count(x => x.Title.Contains(title) && x.IsEffect == 1);
                         }
                         result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
@@ -245,10 +245,10 @@ namespace InternalSystem.Core.Services
                     if (!string.IsNullOrEmpty(title))
                     {
                         list = (from p in _appDbContext.WorldHeritages
-                                where (p.Title.Contains(title) || p.FirstLevel.Contains(title) || p.SecondLevel.Contains(title) || p.Nation.Contains(title) || p.Successor.Contains(title) || p.Municipalities.Contains(title) || p.CountyLevelCity.Contains(title)) && p.IsEffect == 1
+                                where (p.Title.Contains(title) || p.FirstLevel.Contains(title) || p.SecondLevel.Contains(title) || p.Nation.Contains(title) || p.Successor.Contains(title) || p.Municipalities.Contains(title) || p.CountyLevelCity.Contains(title)) 
                                 orderby p.CreatedUtc descending
                                 select p).AsQueryable();
-                        totalCount = list.Count(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)) && x.IsEffect == 1);
+                        totalCount = list.Count(x => (x.Title.Contains(title) || x.FirstLevel.Contains(title) || x.SecondLevel.Contains(title) || x.Nation.Contains(title) || x.Successor.Contains(title) || x.Municipalities.Contains(title) || x.CountyLevelCity.Contains(title)));
 
                         result.Data.Items = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                         result.Data.TotalCount = totalCount;

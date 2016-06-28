@@ -308,6 +308,6 @@ namespace InternalSystem.Core.Models
         /// </summary>
         public Manager Release { get; set; }
 
-        public DateTime ReleaseTime { get; set; }
+        public string ReleaseDateTime { get; set; }
     }
 }

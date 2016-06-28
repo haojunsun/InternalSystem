@@ -85,7 +85,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 }
             }
             wh.CreatedUtc = DateTime.Now;
-            //wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
+            wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
             wh.IsEffect = 0;
             wh.Description = _managerService.Get(UserLogin.GetUserInfo().ManagerId).Name;
             wh.DescriptionTime = DateTime.Now.ToString();
@@ -286,7 +286,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
 
             old.IsShow = state;
             old.Release = _managerService.Get(user.ManagerId);
-            old.ReleaseTime = DateTime.Now;
+            old.ReleaseDateTime = DateTime.Now.ToString();
 
             _worldHeritageService.Update(old);
             if (user.Authority == 0)
