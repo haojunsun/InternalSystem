@@ -264,5 +264,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content(fullDir);
         }
 
+        //资源属性介绍
+        public ActionResult Attribute() {
+            return View();
+        }
+
     }
 }

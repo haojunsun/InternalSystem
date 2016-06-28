@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "我的权限";
+}
+@using InternalSystem.Core.Basis
+@functions {
+    public string CheckActive(string controller)
+    {
+        var controllers = controller.Split(',');
+        string currentController = Request.RequestContext.RouteData.Values["controller"].ToString();
+        return controllers.Any(x => x == currentController) ? "active" : "";
+    }
+
+}
+@{
+    var user = UserLogin.GetUserInfo();
+}
+<div style="height:600px">
+    @if (user.Authority == 0)
+    {
+        <h2>欢迎您，超级管理员 @user.LoginId</h2>
+        <h2>您在网站的角色为超级管理员,您可以进行如下操作：</h2><br />
+        <ul style="font-size:large">
+            <li><a href="@(Url.Action("List", "WorldHeritage"))">查看用户发布资源</a></li>
+            <li><a href="@(Url.Action("List", "WorldHeritage"))">审核资源（通过、拒绝）</a></li>
+            <li><a href="@(Url.Action("List", "Manager"))">查看用户列表（禁用、启用）</a></li>
+            <li><a href="@(Url.Action("ModifyPassword", "Manager"))">修改密码</a></li>
+        </ul>
+    }
+    @if (user.Authority == 2)
+    {
+        <h2>欢迎您，用户 @user.LoginId</h2>
+        <h2>您在网站的角色为用户,您可以进行如下操作：</h2>
+        <br />
+        <ul style="font-size:large">
+            <li><a href="@(Url.Action("Create", "WorldHeritage"))">发布（视频、图片、文本）资源</a></li>
+            <li><a href="@(Url.Action("ModifyPassword", "Manager"))">修改密码</a></li>
+        </ul>
+    }
+    @if (user.Authority == 1)
+    {
+        <h2>欢迎您，管理员 @user.LoginId</h2>
+        <h2>您在网站的角色为管理员,您可以进行如下操作：</h2><br />
+        <ul style="font-size:large">
+            <li><a href="@(Url.Action("List", "WorldHeritage"))">查看用户发布资源</a></li>
+            <li><a href="@(Url.Action("List", "WorldHeritage"))">审核资源（通过、拒绝）</a></li>
+            <li><a href="@(Url.Action("ModifyPassword", "Manager"))">修改密码</a></li>
+        </ul>
+    }
+
+</div>

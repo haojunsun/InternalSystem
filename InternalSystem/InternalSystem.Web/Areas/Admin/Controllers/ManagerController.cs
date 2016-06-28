@@ -175,6 +175,12 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             _managerService.Update(old);
             return Content("<script>alert('编辑完成');window.location.href='" + Url.Action("List") + "';</script>");
         }
+
+        //权限说明
+        public ActionResult Permissions()
+        {
+            return View();
+        }
     }
 
 

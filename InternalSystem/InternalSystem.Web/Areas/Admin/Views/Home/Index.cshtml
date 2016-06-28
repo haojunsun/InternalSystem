@@ -2,5 +2,74 @@
     ViewBag.Title = "首页";
     ViewBag.SubTitle = "";
 }
-<h2>管理中心</h2>
+@using InternalSystem.Core.Basis
+@functions {
+    public string CheckActive(string controller)
+    {
+        var controllers = controller.Split(',');
+        string currentController = Request.RequestContext.RouteData.Values["controller"].ToString();
+        return controllers.Any(x => x == currentController) ? "active" : "";
+    }
 
+}
+@{
+    var user = UserLogin.GetUserInfo();
+}
+<div style="height:630px">
+    <h2>后台管理中心</h2>
+    <span style="font-size:large">本系统集资源上传、发布、导入、审核、维护为一体的资源管理中心。</span>
+    <br />
+    <br />
+    <div>
+        @if (user.Authority == 0)
+        {
+            <a href="/">
+                <h2>   系统首页>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Index", "Import"))">
+                <h2>  文件导入>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("List", "Manager"))">
+                <h2>   用户列表>></h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Logout", "Account"))">
+                <h2>   退出登录>> </h2>
+            </a>
+        }
+        @if (user.Authority == 2)
+        {
+            <a href="/">
+                <h2>   系统首页>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Create", "WorldHeritage"))">
+                <h2>   发布资源>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("ModifyPassword", "Manager"))">
+                <h2>   修改密码>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Logout", "Account"))">
+                <h2>   退出登录>> </h2>
+            </a>
+        }
+        @if (user.Authority == 1)
+        {
+            <a href="/">
+                <h2>   系统首页>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("List", "WorldHeritage"))">
+                <h2>  审核资源>></h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Logout", "Account"))">
+                <h2>   退出登录>> </h2>
+            </a>
+        }
+    </div>
+</div>

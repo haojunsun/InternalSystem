@@ -154,9 +154,9 @@
     <div class="page-header">
         <div class="page-header-top">
             <div class="container">
-                <div class="page-logo">
+                <div class="page-logo" style="width:550px">
                     <a href="@Url.Action("Index", "Home")">
-                        <h1>管理中心</h1>
+                        <h1>文化资源归集系统后台管理中心</h1>
                     </a>
                 </div>
                 <a href="javascript:;" class="menu-toggler"></a>
@@ -225,6 +225,16 @@
                                 </a>
                             </li>
                         }
+                        <li>
+                            <a href="@(Url.Action("Attribute", "WorldHeritage"))">
+                                资源属性
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@(Url.Action("Permissions", "Manager"))">
+                                我的权限
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

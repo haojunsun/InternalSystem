@@ -3,7 +3,7 @@
 @{
     var user = (Manager)ViewBag.user;
 }
-
+<link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
 <div class="row" ng-controller="ArticleController">
     <div class="col-md-12">
         <div class="portlet light">
@@ -374,13 +374,14 @@
                         }
                         else if (Model.HeritageType == 0)
                         {
+                            <input type="hidden" value="@(Model.FileName)" id="videourl" />
                             <div class="form-group">
                                 <label class="control-label col-md-1" style="width:200px">媒体文件:</label>
                                 <div class="">
                                     <center>
                                         <div>
                                             <video id="videoplayer" poster="~/img/pic.png" title="this is Projekktor" width="900" height="500" controls=controls>
-                                                <source id="videosource" src="@(Model.FileName)" type="video/mp4" />
+                                                <source id="videosource" src="" type="video/mp4" />
                                             </video>
                                         </div>
                                     </center>
@@ -413,3 +414,19 @@
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/projekktor.js"></script>
+<script>
+    $(function () {
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPaht = curWwwPath.substring(0, pos);
+
+        $('#videosource').attr("src", localhostPaht + $('#videourl').val().substring(1));
+        setTimeout(function () {
+            projekktor('#videoplayer'); // instantiation
+        }, 100)
+    })
+</script>
