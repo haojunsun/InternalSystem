@@ -33,7 +33,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="login">
+<body class="login" style="background: url('../../../img/backendbgimg.jpg') no-repeat; ">
     <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
     <div class="menu-toggler sidebar-toggler">
     </div>
@@ -41,7 +41,7 @@
     <!-- BEGIN LOGO -->
     <div class="logo">
         <a href="#">
-            <h1>管理后台</h1>
+            <h1 style="color: #990000;">文化资源归集系统后台管理中心</h1>
         </a>
     </div>
     <!-- END LOGO -->
@@ -52,17 +52,17 @@
             <div class="form-title">
                 @if (isLoginFail)
                 {
-                    <span class="form-subtitle">Your username or password is incorrect.</span>
+                    <span class="form-subtitle" style="color: #424349">用户名或密码不正确</span>
                 }
                 else
                 {
-                    <span class="form-title">Welcome.</span>
-                    <span class="form-subtitle">Please login.</span>
+                    <span class="form-title" style="color: #424349">欢迎您,</span>
+                    <span class="form-subtitle" style="color: #424349">请登录...</span>
                 }
             </div>
             <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
-                <span>
+                <span style="color: #424349">
                     Enter any username and password.
                 </span>
             </div>
@@ -76,8 +76,8 @@
                 <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" />
             </div>
             <div class="form-actions" style="text-align:center">
-                <button type="submit" class="btn btn-primary btn-block uppercase">登录</button>
-              
+                <button type="submit" class="btn btn-primary btn-block uppercase" style="color:white">登录</button>
+
                 <a href="@Url.Action("Register")" class=" btn-primary btn-block uppercase">注册</a>
             </div>
             <div class="form-actions">
@@ -94,7 +94,7 @@
         <!-- END LOGIN FORM -->
     </div>
     <div class="copyright hide">
-        
+
     </div>
     <!-- END LOGIN -->
     <!-- BEGIN CORE PLUGINS -->
@@ -111,11 +111,11 @@
     <script src="~/Assets/scripts/layout.js" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     <script>
-    jQuery(document).ready(function () {
-        // initiate layout and plugins
-        Metronic.init(); // init metronic core components
-        Layout.init(); // init current layout
-    });
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            Metronic.init(); // init metronic core components
+            Layout.init(); // init current layout
+        });
     </script>
 
 </body>
