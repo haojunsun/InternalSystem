@@ -67,9 +67,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             manager.CreatedUtc = DateTime.Now;
             manager.LoginId = username;
             manager.Name = username;
+            manager.Invalid = 1;
             manager.Pass = _helperServices.MD5Encrypt(password);
             _managerService.Add(manager);
-            return Content("<script>alert('跳转登陆！');window.location.href='Login';</script>");
+            return Content("<script>alert('注册成功，请联系管理员进行账号激活！');window.location.href='Login';</script>");
         }
 
         [HttpPost]
@@ -81,7 +82,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             {
                 return View(true);
             }
-            if(result.Invalid==1)
+            if (result.Invalid == 1)
                 return Content("<script>alert('账号无效，请联系管理员！');window.location.href='Login';</script>");
 
             _helperServices.SetSession("SESSION_USER_INFO", result);
