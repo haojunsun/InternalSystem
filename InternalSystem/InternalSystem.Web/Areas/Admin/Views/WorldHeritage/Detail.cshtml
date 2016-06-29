@@ -21,7 +21,7 @@
                     {
                         <a class="btn btn-sm green" href="@Url.Action("List")">返回资源列表</a>
                     }
-                    else if (user.Authority ==3)
+                    else if (user.Authority == 3)
                     {
                         <a class="btn btn-sm green" href="@Url.Action("Release")">返回资源列表</a>
                     }
@@ -36,13 +36,36 @@
 
                                 @if (user.Authority == 0 || user.Authority == 1)
                                 {
-                                    <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
-                                    <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                    if (Model.IsEffect == 1)
+                                    {
+                                        <span style="font-size:large">审核状态：已通过审核</span>
+                                        <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                    }
+                                    else if (Model.IsEffect == 2)
+                                    {
+                                        <span style="font-size:large">审核状态：已拒绝审核</span>
+                                        <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
+                                    }
+                                    else
+                                    {
+                                        <span style="font-size:large">审核状态：未审核</span>
+                                        <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
+                                        <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                    }
+
                                 }
                                 @if (user.Authority == 3 || user.Authority == 0)
                                 {
-                                    <a class="btn green" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 1 }))">发布</a>
-                                    <a class="btn red" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                    if (Model.IsShow == 1)
+                                    {
+                                        <span style="font-size:large">发布状态：已发布</span>
+                                        <a class="btn red" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                    }
+                                    else
+                                    {
+                                        <span style="font-size:large">发布状态：未发布</span>
+                                        <a class="btn green" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 1 }))">发布</a>
+                                    }
                                 }
                             </div>
                         </div>
@@ -370,12 +393,12 @@
                                 <label class="control-label col-md-3">@(Model.Remarks)</label>
                             </div>
                         </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1" style="width: 200px">URL地址:</label>
-                        <div class="">
-                            <label class="control-label col-md-3">@(Model.url)</label>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">URL地址:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.url)</label>
+                            </div>
                         </div>
-                    </div>
                         @if (Model.Release != null)
                         {
                             <div class="form-group">
@@ -428,15 +451,38 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
 
-                                @if (user.Authority == 0 || user.Authority == 1)
+                              @if (user.Authority == 0 || user.Authority == 1)
                                 {
-                                    <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
-                                    <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                    if (Model.IsEffect == 1)
+                                    {
+                                        <span style="font-size:large">审核状态：已通过审核</span>
+                                        <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                    }
+                                    else if (Model.IsEffect == 2)
+                                    {
+                                        <span style="font-size:large">审核状态：已拒绝审核</span>
+                                        <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
+                                    }
+                                    else
+                                    {
+                                        <span style="font-size:large">审核状态：未审核</span>
+                                        <a class="btn green" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 1}))">审核通过</a>
+                                        <a class="btn red" href="@(Url.Action("ChangeState", new {id = Model.WorldHeritageId, @state = 2}))">审核拒绝</a>
+                                    }
+
                                 }
                                 @if (user.Authority == 3 || user.Authority == 0)
                                 {
-                                    <a class="btn green" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 1 }))">发布</a>
-                                    <a class="btn red" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                    if (Model.IsShow == 1)
+                                    {
+                                        <span style="font-size:large">发布状态：已发布</span>
+                                        <a class="btn red" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                    }
+                                    else
+                                    {
+                                        <span style="font-size:large">发布状态：未发布</span>
+                                        <a class="btn green" href="@(Url.Action("ChangeRelease", new { id = Model.WorldHeritageId, @state = 1 }))">发布</a>
+                                    }
                                 }
                             </div>
                         </div>

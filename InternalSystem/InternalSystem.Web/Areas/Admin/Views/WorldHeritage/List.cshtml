@@ -2,115 +2,133 @@
 @using PagedList.Mvc
 @using InternalSystem.Core.Models
 @model StaticPagedList<WorldHeritage>
-@{
-    ViewBag.Title = "资源列表";
-    var user = (Manager)ViewBag.user;
+    @{
+        ViewBag.Title = "资源列表";
+        var user = (Manager)ViewBag.user;
 
-}
-<div class="row">
-    <div class="col-md-12">
-        <div class="portlet light">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-cogs font-green-sharp"></i>
-                    <span class="caption-subject font-green-sharp bold uppercase">资源列表</span>
-                </div>
-                <div class="pull-right">
-
-                    <div class="btn-group">
-                        <a class="btn btn-sm green" href="@Url.Action("Create")">
-                            添加资源 <i class="fa fa-plus"></i>
-                        </a>
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-cogs font-green-sharp"></i>
+                        <span class="caption-subject font-green-sharp bold uppercase">资源列表</span>
                     </div>
-                </div>
-            </div>
-            <div class="panel-heading">
-                @using (Html.BeginForm("List", "WorldHeritage", FormMethod.Get, new { @class = "form-search" }))
-                {
-                    <div class="search-box">
-                        <div class="input-group input">
-                            <input type="text" class="form-control" placeholder="按标题搜索全部数据" value="@ViewBag.key" id="key" name="key">
-                            <span class="input-group-btn">
-                                <button class="btn btn-outline btn-default" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                    <div class="pull-right">
+
+                        <div class="btn-group">
+                            <a class="btn btn-sm green" href="@Url.Action("Create")">
+                                添加资源 <i class="fa fa-plus"></i>
+                            </a>
                         </div>
                     </div>
-                }
-            </div>
-            <div class="portlet-body">
-
-                <div class="table-scrollable table-scrollable-borderless">
-
-                    <table class="table table-hover table-light">
-                        <thead>
-                            <tr>
-                                <th>项目名称</th>
-                                <th>传承人</th>
-                                <th>资源类型</th>
-                                <th>创建日期</th>
-                                <th>审核状态</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (Model != null && Model.Count != 0)
-                            {
-                                foreach (var item in Model.Where(item => item != null))
-                                {
-                                    <tr>
-                                        <td>
-                                            <a href="@(Url.Action("Detail",new{id=item.WorldHeritageId}))">@item.Title</a>
-                                        </td>
-                                        <td>
-                                            @item.Successor
-                                        </td>
-                                        <td>
-                                            @if (item.HeritageType == 0)
-                                            {
-                                                <span>视频</span>
-                                            }
-                                            else if (item.HeritageType == 1)
-                                            {
-                                                <span>文本</span>
-                                            }
-                                            else if (item.HeritageType == 2)
-                                            {
-                                                <span>图片</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            @item.CreatedUtc
-                                        </td>
-                                        <td>
-
-                                            <span>已审核</span>
-
-                                        </td>
-                                        <td>
-                                            <a class="btn default btn-xs purple-stripe" href="@Url.Action("Detail", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 查看详情</a>
-                                            @if (user.Authority == 0)
-                                            {
-                                                <a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            }
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
                 </div>
-                <div class="row">
-                    <div class="col-md-5 col-sm-12">
-                        共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.PageNumber)/@(Model.PageCount)页
+                <div class="panel-heading">
+                    @using (Html.BeginForm("List", "WorldHeritage", FormMethod.Get, new { @class = "form-search" }))
+                    {
+                        <div class="search-box">
+                            <div class="input-group input">
+                                <input type="text" class="form-control" placeholder="按标题搜索全部数据" value="@ViewBag.key" id="key" name="key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-outline btn-default" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="portlet-body">
+
+                    <div class="table-scrollable table-scrollable-borderless">
+
+                        <table class="table table-hover table-light">
+                            <thead>
+                                <tr>
+                                    <th>项目名称</th>
+                                    <th>传承人</th>
+                                    <th>资源类型</th>
+                                    <th>创建日期</th>
+                                    <th>审核状态</th>
+                                    <th>发布状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Count != 0)
+                                {
+                                    foreach (var item in Model.Where(item => item != null))
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a href="@(Url.Action("Detail",new{id=item.WorldHeritageId}))">@item.Title</a>
+                                            </td>
+                                            <td>
+                                                @item.Successor
+                                            </td>
+                                            <td>
+                                                @if (item.HeritageType == 0)
+                                                {
+                                                    <span>视频</span>
+                                                }
+                                                else if (item.HeritageType == 1)
+                                                {
+                                                    <span>文本</span>
+                                                }
+                                                else if (item.HeritageType == 2)
+                                                {
+                                                    <span>图片</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @item.CreatedUtc
+                                            </td>
+                                            <td>
+                                                @if (item.IsEffect == 0)
+                                                {
+                                                    <span>未审核</span>
+                                                }
+                                                else if (item.IsEffect == 1)
+                                                {
+                                                    <span>已审核</span>
+                                                }
+                                                else if (item.IsEffect == 2)
+                                                {
+                                                    <span>审核拒绝</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsShow == 1) { 
+                                                <span>已发布</span>
+                                                }
+                                                else { 
+                                                <span>未发布</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a class="btn default btn-xs purple-stripe" href="@Url.Action("Detail", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 查看详情</a>
+                                                @if (user.Authority == 0)
+                                                {
+                                                    <a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs red">
+                                                        <i class="fa fa-trash-o"></i> Delete
+                                                    </a>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-md-7 col-sm-12 text-right">
-                        @Html.PagedListPager(Model, page => Url.Action("List", new { page, @size = ViewBag.Size }))
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12">
+                            共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.PageNumber)/@(Model.PageCount)页
+                        </div>
+                        <div class="col-md-7 col-sm-12 text-right">
+                            @Html.PagedListPager(Model, page => Url.Action("List", new { page, @size = ViewBag.Size }))
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
