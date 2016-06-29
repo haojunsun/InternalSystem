@@ -306,7 +306,7 @@ namespace InternalSystem.Core.Models
         /// <summary>
         /// 发布者
         /// </summary>
-        public Manager Release { get; set; }
+        public virtual Manager Release { get; set; }
 
         public string ReleaseDateTime { get; set; }
     }

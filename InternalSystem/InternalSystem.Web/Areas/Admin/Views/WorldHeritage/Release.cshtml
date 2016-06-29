@@ -81,7 +81,7 @@
                                             }
                                         </td>
                                         <td>
-                                            @item.CreatedUtc
+                                            @DateTime.Parse(item.CreatedUtc.ToString()).ToString("yyyy-MM-dd")
                                         </td>
                                         <td>
                                             @if (item.IsEffect == 0)

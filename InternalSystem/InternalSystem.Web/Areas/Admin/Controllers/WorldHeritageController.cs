@@ -191,6 +191,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         {
             ViewBag.user = UserLogin.GetUserInfo();
             var wh = _worldHeritageService.Get(id);
+            _log.Debug("r-------------" + wh.Release.Name);
             return View(wh);
         }
 
@@ -267,8 +268,8 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
 
             old.IsEffect = state;
             //old.User = _managerService.Get(user.ManagerId);
-            old.Audit = old.User.Name;
-            //old.AuditTime = DateTime.Now.ToString();
+            old.Audit = _managerService.Get(user.ManagerId).Name;
+            old.AuditTime = DateTime.Now.ToString();
             _worldHeritageService.Update(old);
             return Content("<script>alert('审核完成');window.location.href='" + Url.Action("List") + "';</script>");
         }
