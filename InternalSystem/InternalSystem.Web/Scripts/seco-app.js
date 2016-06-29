@@ -11,7 +11,7 @@ sc.app = angular.module('scApp', [])
 
         $scope.getMainVedioList = function () {
             $scope.videoList = [];
-            $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": "", "dataformat": "视频", "nation": "", "municipalities": "", "title": "", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+            $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": "", "dataformat": "", "nation": "", "municipalities": "", "title": "", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
                 $scope.mainVideoList = data.Data.Items;
             }).error(function (data) {
                 console.log("查询失败");
