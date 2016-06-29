@@ -121,30 +121,35 @@
                                 </a>
                             </li>
                         }
-                        @if (user.Authority != 2)
+                        @if (user.Authority == 0)//超管
                         {
-                            if (user.Authority != 3)
-                            {
-                                <li>
-                                    <a href="@(Url.Action("List", "WorldHeritage"))">
-                                        资源列表
-                                    </a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li>
-                                    <a href="@(Url.Action("Release", "WorldHeritage"))">
-                                        资源列表
-                                    </a>
-                                </li>
-                            }
+                            <li>
+                                <a href="@(Url.Action("List", "WorldHeritage"))">
+                                    资源管理
+                                </a>
+                            </li>
+                        }
+                        @if (user.Authority == 1)//普管
+                        {
+                            <li>
+                                <a href="@(Url.Action("List", "WorldHeritage"))">
+                                    资源审核管理
+                                </a>
+                            </li>
+                        }
+                        @if (user.Authority == 3)//发布者
+                        {
+                            <li>
+                                <a href="@(Url.Action("Release", "WorldHeritage"))">
+                                    资源发布管理
+                                </a>
+                            </li>
                         }
                         @if (user.Authority == 0)
                         {
                             <li>
                                 <a href="@(Url.Action("List", "Manager"))">
-                                    用户列表
+                                    用户管理
                                 </a>
                             </li>
                         }

@@ -21,7 +21,7 @@
     <br />
     <br />
     <div>
-        @if (user.Authority == 0)
+        @if (user.Authority == 0)//超管
         {
             <a href="/">
                 <h2>   系统首页>> </h2>
@@ -29,6 +29,10 @@
             <br />
             <a href="@(Url.Action("Index", "Import"))">
                 <h2>  文件导入>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("List", "WorldHeritage"))">
+                <h2>  资源管理>></h2>
             </a>
             <br />
             <a href="@(Url.Action("List", "Manager"))">
@@ -39,14 +43,18 @@
                 <h2>   退出登录>> </h2>
             </a>
         }
-        @if (user.Authority == 2)
+        @if (user.Authority == 2)//用户
         {
             <a href="/">
                 <h2>   系统首页>> </h2>
             </a>
             <br />
             <a href="@(Url.Action("Create", "WorldHeritage"))">
-                <h2>   发布资源>> </h2>
+                <h2>   新建资源>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("My", "WorldHeritage"))">
+                <h2>   我的资源>> </h2>
             </a>
             <br />
             <a href="@(Url.Action("ModifyPassword", "Manager"))">
@@ -57,7 +65,7 @@
                 <h2>   退出登录>> </h2>
             </a>
         }
-        @if (user.Authority == 1)
+        @if (user.Authority == 1)//普管
         {
             <a href="/">
                 <h2>   系统首页>> </h2>
@@ -65,6 +73,20 @@
             <br />
             <a href="@(Url.Action("List", "WorldHeritage"))">
                 <h2>  审核资源>></h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Logout", "Account"))">
+                <h2>   退出登录>> </h2>
+            </a>
+        }
+        @if (user.Authority == 3)//发布者
+        {
+            <a href="/">
+                <h2>   系统首页>> </h2>
+            </a>
+            <br />
+            <a href="@(Url.Action("Release", "WorldHeritage"))">
+                <h2>  发布资源>></h2>
             </a>
             <br />
             <a href="@(Url.Action("Logout", "Account"))">

@@ -77,7 +77,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 1)
                         {
                             wh1.ArtificialId = dt.Rows[i][j].ToString();
-                            wh1.FileName = "~/Uploads/1/" + dt.Rows[i][j].ToString() + ".mp4";
+                            wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][j].ToString() + ".mp4";
                         }
                         if (j == 2)
                             wh1.TitleProper = dt.Rows[i][j].ToString();
@@ -201,10 +201,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                             }
                             wh1.DescriptionTime = bb;//dt.Rows[i][j].ToString();
                         }
-                        if (j == 50)
-                            wh1.Audit = dt.Rows[i][j].ToString();
-                        if (j == 51)
-                            wh1.AuditTime = dt.Rows[i][j].ToString();
+                        //if (j == 50)
+                        //    wh1.Audit = dt.Rows[i][j].ToString();
+                        //if (j == 51)
+                        //    wh1.AuditTime = dt.Rows[i][j].ToString();
                         if (j == 52)
                             wh1.Organization = dt.Rows[i][j].ToString();
                         if (j == 53)
@@ -212,11 +212,13 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 54)
                             wh1.url = dt.Rows[i][j].ToString();
 
-                    
+
                     }
                     wh1.User = _managerService.Get(2);
 
                     wh1.CreatedUtc = DateTime.Now;
+                    wh1.Description = "admin";
+                    wh1.DescriptionTime = DateTime.Now.ToString();
                     wh1.HeritageType = 0;
                     wh1.IsEffect = 1;
                     wh.Add(wh1);

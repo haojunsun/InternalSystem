@@ -81,7 +81,9 @@
                                             }
                                         </td>
                                         <td>
+                                            @if (!string.IsNullOrEmpty(item.CreatedUtc.ToString())) { 
                                             @DateTime.Parse(item.CreatedUtc.ToString()).ToString("yyyy-MM-dd")
+                                            }
                                         </td>
                                         <td>
                                             @if (item.IsEffect == 0)
@@ -108,7 +110,24 @@
                                             }
                                         </td>
                                         <td>
-                                            <a class="btn default btn-xs purple-stripe" href="@Url.Action("Detail", new { id = item.WorldHeritageId })"><i class="fa fc-month-view"></i> 查看详情</a>
+                                            <a class="btn default btn-xs purple" href="@Url.Action("Detail", new { id = item.WorldHeritageId })"> 查看详情</a>
+                                            @if (user.Authority == 3 || user.Authority == 0)
+                                            {
+                                                if (item.IsShow == 1)
+                                                {
+                                                    <a class="btn default btn-xs red" href="@(Url.Action("ChangeRelease", new { id = item.WorldHeritageId, @state = 0 }))">取消发布</a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn default btn-xs blue" href="@(Url.Action("ChangeRelease", new { id = item.WorldHeritageId, @state = 1 }))">发布资源</a>
+                                                }
+                                            }
+                                            @if (user.Authority == 0)
+                                            {
+                                                <a href="@Url.Action("Delete", new {id = item.WorldHeritageId})" onclick=" return confirm('确认删除吗？'); " class="btn default btn-xs grey">
+                                                    <i class="fa fa-trash-o"></i> 删除
+                                                </a>
+                                            }
                                         </td>
                                     </tr>
                                 }
