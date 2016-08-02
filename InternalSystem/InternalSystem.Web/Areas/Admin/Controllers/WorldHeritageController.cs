@@ -74,7 +74,6 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         wh.HeritageType = 2;
                         wh.DataFormat = "图片";
                     }
-
                 }
 
                 if (!string.IsNullOrEmpty(wh.Content))
