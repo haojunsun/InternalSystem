@@ -69,6 +69,7 @@ namespace InternalSystem.Core.Services
 
         public void Add(WorldHeritage wh)
         {
+          
             _appDbContext.Entry(wh).State = EntityState.Added;
             _appDbContext.SaveChanges();
         }
@@ -102,8 +103,8 @@ namespace InternalSystem.Core.Services
 
         public void Import(List<WorldHeritage> list)
         {
-            _appDbContext.BulkInsert(list);
-            _appDbContext.BulkSaveChanges();
+            _appDbContext.WorldHeritages.AddRange(list);
+            _appDbContext.SaveChanges();
         }
 
         public ApiResponse<PagerInfoResponse<WorldHeritage>> Search(int pageIndex, int pageSize, string firstlevel, string dataformat, string nation,
