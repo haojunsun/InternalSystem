@@ -11,7 +11,51 @@
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
     <link href="~/css/pagination.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
+    <style>
+        .seniorSearch {
+            height: 0px;
+            overflow: hidden;
+        }
 
+        #sensearch {
+            font-size: small;
+            border: solid 1px #e8e8e8;
+            color: black;
+            float: right;
+            display: block;
+            width: 90px;
+            height: 25px;
+            background-color: #f6f6f6;
+            cursor: pointer;
+            margin-right: 70px;
+            margin-top:5px;
+            font-family:Vrinda;
+            text-align:center;
+        }
+
+            #sensearch:hover {
+                color: #ff4400;
+            }
+
+        .searchBtn {
+            width: 90px;
+            height: 30px;
+            float: right;
+            display: block;
+            margin-right: 70px;
+            background-color: #95211e;
+            border: solid 1px #e8e8e8;
+            color: white;
+            cursor: pointer;
+            font-family: YouYuan;
+            font-weight: 600;
+            padding-top:2px;
+        }
+
+            .searchBtn:hover {
+                color: #f0c98b;
+            }
+    </style>
     <script>
         var sc = sc || {};
         sc.baseUrl = '@Url.Content("~/")';
@@ -20,7 +64,7 @@
 
 <body ng-app="scApp" ng-controller="VideoListController">
     <div class="top"></div>
-    <div class="logo"><img src="~/img/logo-01.png" style="margin-left:430px;" /></div>
+    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;" /></div>
     <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px" /></div>
     <div id="wrap">
         <!--整体-->
@@ -29,82 +73,99 @@
             <div class="nav">
                 <ul>
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "0" } })">视频资源</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>
-                    <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
+                    <li><a href="@Url.Action("videolist", "home")">资源搜索</a></li>
+                    @*<li><a href="@Url.Action("v>视频搜索</a></li>
+                        @*<li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
+                            <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>*@
+                    <li><a href="@Url.Action("ICHintroduce", "home")">文化资源介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
             </div>
         </div>
         <div style=" clear:both;"></div>
-     
+
         <div class="selectNumberScreen">
 
-            <div id="selectList" class="screenBox screenBackground">
+            @*<span style="font-weight:600;">全文检索：</span>*@
+            <center>
+                <input type="text" style="margin-left:100px;border-radius:6px;padding-left:5px;width:500px;height:30px;font-size:larger" id="searchkey" name="name" placeholder="项目名称/地区/传承人" ng-keyup="changeSearchkey()" />
+               
+                <a name="name2" class="searchBtn">搜&nbsp;&nbsp;索</a>
+            </center>
+            <a name="name" id="sensearch" onclick="sensearch($(this))">显示筛选 ∨</a>
+            <div class="seniorSearch">
 
-                <dl class="listIndex">
-                    <dt>分　　类：</dt>
-                    <dd>
-                        <a class="classtype" href="javascript:void(0)">全部</a>
-                        <a class="classtype" name="condition" href="javascript:void(0)">民间文学</a>
-                        <a class="classtype" name="condition" href="javascript:void(0)">传统音乐</a>
-                        <a class="classtype" name="condition" href="javascript:void(0)">传统美术</a>
-                        <a class="classtype" name="condition" href="javascript:void(0)">传统技艺</a>
-                        <a class="classtype" name="condition" href="javascript:void(0)">曲艺</a>
-                    </dd>
-                </dl>
+                <div id="selectList" class="screenBox screenBackground">
 
-                <dl class="listIndex" >
-                    <dt>类　　型：</dt>
-                    <dd>
-                        <a class="type" href="javascript:void(0)">全部</a>
-                        <a class="type" id="resvideo" name="condition" href="javascript:void(0)">视频</a>
-                        <a class="type" name="condition" href="javascript:void(0)">图片</a>
-                        <a class="type" name="condition" href="javascript:void(0)">文本</a>
-                    </dd>
-                </dl>
+                    <dl class="listIndex">
+                        <dt>分　　类：</dt>
+                        <dd>
+                            <a class="classtype" href="javascript:void(0)">全部</a>
+                            <a class="classtype" name="condition" href="javascript:void(0)">民间文学</a>
+                            <a class="classtype" name="condition" href="javascript:void(0)">传统音乐</a>
+                            <a class="classtype" name="condition" href="javascript:void(0)">传统美术</a>
+                            <a class="classtype" name="condition" href="javascript:void(0)">传统技艺</a>
+                            <a class="classtype" name="condition" href="javascript:void(0)">曲艺</a>
+                        </dd>
+                    </dl>
 
-                <dl class="listIndex" >
-                    <dt>民　　族：</dt>
-                    <dd>
-                        <a class="nation" href="javascript:void(0)">全部</a>
-                        <a class="nation" name="condition" href="javascript:void(0)">满族</a>
-                        <a class="nation" name="condition" href="javascript:void(0)">汉族</a>
-                        <a class="nation" name="condition" href="javascript:void(0)">回族</a>
-                    </dd>
-                </dl>
+                    <dl class="listIndex">
+                        <dt>类　　型：</dt>
+                        <dd>
+                            <a class="type" href="javascript:void(0)">全部</a>
+                            <a class="type" id="resvideo" name="condition" href="javascript:void(0)">视频</a>
+                            <a class="type" name="condition" href="javascript:void(0)">图片</a>
+                            <a class="type" name="condition" href="javascript:void(0)">文本</a>
+                        </dd>
+                    </dl>
 
-                <dl class="listIndex" >
-                    <dt>地　　区：</dt>
-                    <dd>
-                        <a class="area" href="javascript:void(0)">全国</a>
-                        <a class="area" name="condition" href="javascript:void(0)">北京市</a>
-                        <a class="area" name="condition" href="javascript:void(0)">天津市</a>
-                        <a class="area" name="condition" href="javascript:void(0)">河北省</a>
-                    </dd>
-                </dl>
-                <dl class="listIndex">
-                    <dt>搜　　索：</dt>
-                    <input type="text" style="border-radius:6px;width:400px;height:28px;font-size:larger" id="searchkey" name="name" placeholder="项目名称/地区/传承人" ng-keyup="changeSearchkey()" />
-                </dl>
+                    @*<dl class="listIndex">
+                            <dt>介　　质：</dt>
+                            <dd>
+                                <a class="nation" href="javascript:void(0)">全部</a>
+                                <a class="nation" name="condition" href="javascript:void(0)" ng-click="searchType('视频');">视频</a>
+                                <a class="nation" name="condition" href="javascript:void(0)" ng-click="searchType('文本');">文本</a>
+                                <a class="nation" name="condition" href="javascript:void(0)" ng-click="searchType('图片');">图片</a>
+                            </dd>
+                        </dl>*@
+
+                    <dl class="listIndex">
+                        <dt>民　　族：</dt>
+                        <dd>
+                            <a class="nation" href="javascript:void(0)">全部</a>
+                            <a class="nation" name="condition" href="javascript:void(0)">满族</a>
+                            <a class="nation" name="condition" href="javascript:void(0)">汉族</a>
+                            <a class="nation" name="condition" href="javascript:void(0)">回族</a>
+                        </dd>
+                    </dl>
+
+                    <dl class="listIndex">
+                        <dt>地　　区：</dt>
+                        <dd>
+                            <a class="area" href="javascript:void(0)">全国</a>
+                            <a class="area" name="condition" href="javascript:void(0)">北京市</a>
+                            <a class="area" name="condition" href="javascript:void(0)">天津市</a>
+                            <a class="area" name="condition" href="javascript:void(0)">河北省</a>
+                        </dd>
+                    </dl>
+
+                </div>
+
+                <div class="hasBeenSelected">
+                    <dl>
+                        <dt>您已选择：</dt>
+                        <dd style="display:none" class="clearDd">
+                            <div class="clearList"></div>
+                            <div style="display:none;" class="eliminateCriteria">清空</div>
+                        </dd>
+                    </dl>
+                </div>
             </div>
-
-            <div class="hasBeenSelected">
-                <dl>
-                    <dt>您已选择：</dt>
-                    <dd style="display:none" class="clearDd">
-                        <div class="clearList"></div>
-                        <div style="display:none;" class="eliminateCriteria">清空</div>
-                    </dd>
-                </dl>
-            </div>
-
         </div>
         <div style=" clear:both;"></div>
 
         <div class="index-box-up">
-       
+
             <div class="">
                 <div class="box-nav">
                     <div class="box-nav-left"><img src="~/img/16.png" width="149" /></div>
@@ -116,7 +177,7 @@
                     <div class="picmain_up">
                         <div class="picmain_pic" style="height:290px" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <a href="javascript:void(0)">
-                                <img src="~/img/lj.png" width="100%" ng-show="item.HeritageType==0"/>
+                                <img src="~/img/lj.png" width="100%" ng-show="item.HeritageType==0" />
                                 <img src="~/img/lj2.png" width="100%" ng-show="item.HeritageType==1" />
                                 <img src="~/Uploads/pic/{{item.FileName}}" style="width:270px;height:270px" ng-show="item.HeritageType==2" />
                                 <p>{{item.Title}}</p>
@@ -141,7 +202,7 @@
             </div>
         </div>
     </div>
-    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
     <script src="~/Scripts/angular.bundled.min.js"></script>
     <script src="~/Scripts/pagination.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
@@ -158,6 +219,53 @@
             });
         });
 
+        //高级搜索
+        var sensearch = function (ele) {
+            //收起
+            if ($('.seniorSearch').css('height').split('px')[0] >= 210) {
+                ele.html('显示筛选 ∨');
+                var hei = $('.seniorSearch').css('height').split('px')[0];
+                var hei2 = $('.selectNumberScreen').css('height').split('px')[0];
+                //高级搜索内容
+                var aa = setInterval(function () {
+                    hei -= 15;
+                    if (hei < 0) {
+                        $('.seniorSearch').css('height', 0 + 'px');
+                        clearInterval(aa);
+                    } else {
+                        $('.seniorSearch').css('height', hei + 'px');
+                    }
+                }, 10);
+                //外部容器高度
+                var bb = setInterval(function () {
+                    hei2 -= 9;
+                    if (hei2 < 90) {
+                        $('.selectNumberScreen').css('height', '90px');
+                        clearInterval(bb);
+                    } else {
+                        $('.selectNumberScreen').css('height', hei2 + 'px');
+                    }
+                }, 10);
+            } else {//展开
+                ele.html('收起筛选 ∧');
+                var hei = 0;
+                var hei2 = 90;
+
+                var aa = setInterval(function () {
+                    hei += 15;
+                    $('.seniorSearch').css('height', hei + 'px');
+                    if (hei >= 210)
+                        clearInterval(aa);
+                }, 10);
+
+                var bb = setInterval(function () {
+                    hei2 += 9
+                    $('.selectNumberScreen').css('height', hei2 + 'px');
+                    if (hei2 >= 250)
+                        clearInterval(bb);
+                }, 10);
+            }
+        }
 
         //选项卡
         var dlNum = $("#selectList").find("dl");
@@ -186,12 +294,10 @@
             } else {
                 $(this).addClass("selected").siblings().removeClass("selected");
             }
-
-
         });
+
 
         //选项卡
     </script>
 </body>
 </html>
-

@@ -1,6 +1,5 @@
 ﻿var sc = sc || {};
 sc.app = angular.module('scApp', [])
-
     .controller('RootController', ['$scope', '$location', function ($scope, $location) {
 
     }])
@@ -39,7 +38,7 @@ sc.app = angular.module('scApp', [])
         $scope.videoList = [];
 
         $scope.resourceType = location.search.indexOf('=') > -1 ? location.search.split('=')[1] : "";
-     
+
         if ($scope.resourceType == '0') {
             $scope.type = '视频';
         } else if ($scope.resourceType == '1') {
@@ -95,6 +94,10 @@ sc.app = angular.module('scApp', [])
             $scope.getVedioList();
         }
 
+        $scope.searchType = function (type) {
+            $scope.type = type;
+        }
+
         $scope.getVedioList = function () {
             $scope.videoList = [];
             $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": $scope.classtype, "dataformat": $scope.type, "nation": $scope.nation, "municipalities": $scope.area, "title": $scope.searchkey, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
@@ -131,14 +134,14 @@ sc.app = angular.module('scApp', [])
 
         //进入详情页
         openDetail = function (whid, ele) {
-            console.log(whid);
-            window.location.href = 'detail?video=' + whid;
+            window.open('detail?video=' + whid);
         }
 
 
         //筛选条件
         //删除一个
         $(".selectedShow em").live("click", function () {
+
             $(this).parents(".selectedShow").hide();
             var textTypeIndex = $(this).parents(".selectedShow").index();
             index = textTypeIndex;
@@ -157,7 +160,8 @@ sc.app = angular.module('scApp', [])
                 $scope.area = "";//地区
 
             $(".listIndex").eq(index).find("a").eq(0).addClass("selected");
-
+            $scope.pageIndex = 1;
+            $scope.getVedioList();
         });
         //清空
         $(".eliminateCriteria").live("click", function () {

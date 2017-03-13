@@ -20,19 +20,20 @@
 
 <body ng-app="scApp" ng-controller="DetailController">
     <div class="top"></div>
-    <div class="logo"><img src="~/img/logo-01.png" style="margin-left:430px;" /></div>
+    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;" /></div>
     <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px" /></div>
     <div id="wrap">
         <!--整体-->
         <div class="index-nav">
 
             <div class="nav">
-                <ul>
+                <ul style="height:23px;">
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "0" } })">视频资源</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>
-                    <li><a href="@Url.Action("ICHintroduce", "home")">非遗介绍</a></li>
+                    <li><a href="@Url.Action("videolist", "home")">资源搜索</a></li>
+                    @*<li><a href="@Url.Action("v>视频资源</a></li>
+                    @*<li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
+                        <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>*@
+                    <li><a href="@Url.Action("ICHintroduce", "home")">文化资源介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
             </div>
