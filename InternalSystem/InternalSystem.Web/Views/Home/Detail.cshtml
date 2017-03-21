@@ -20,7 +20,7 @@
 
 <body ng-app="scApp" ng-controller="DetailController">
     <div class="top"></div>
-    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;" /></div>
+    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;width:100px;height:100px;" class="work-img-wid fyimg" /></div>
     <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px" /></div>
     <div id="wrap">
         <!--整体-->
@@ -126,6 +126,17 @@
         //        autoPlay: true
         //    });
         //});
+
+        $(function () {
+            //导航图片切换
+            $('.nav').mousemove(function () {
+                $('.nav').css('background', 'url(../img/nav-2.png)');
+            })
+
+            $('.nav').mouseleave(function () {
+                $('.nav').css('background', 'url(../img/nav.png)');
+            })
+        })
     </script>
 </body>
 </html>

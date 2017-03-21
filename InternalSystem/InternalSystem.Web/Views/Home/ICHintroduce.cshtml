@@ -12,6 +12,10 @@
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/fyjsstyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/theme/style.css" type="text/css" media="screen" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/pagination.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/css.css" type="text/css" rel="stylesheet" />
     <style>
         .fyimg {
         width:570px;
@@ -27,7 +31,7 @@
 <body>
     <div class="top"></div>
 
-    <div class="logo"><img src="~/img/logo-01.png" style="margin-left:430px;" /></div>
+    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;width:100px;height:100px;" class="work-img-wid fyimg" /></div>
     <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px" /></div>
     <div id="wrap">
         <!--整体-->
@@ -38,7 +42,7 @@
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
                     <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "0" } })">资源搜索</a></li>
                     @*<li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
-                    <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>*@
+                        <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>*@
                     <li><a href="@Url.Action("ICHintroduce", "home")">文化资源介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
@@ -47,12 +51,24 @@
     </div>
     <div style=" clear:both;"></div>
 
-    <div class="content">
-        <section class="best-quality">
-            <div class="container">
-                <p style="font-size:x-large;font-weight:800;font-family:KaiTi;">文化资源介绍</p>
+    <div class="index-box-up" >
+
+        <div class="" style="width:1003px;margin:0 auto;">
+            <div class="box-nav">
+                <div class="box-nav-left"><img src="~/img/16.png" class="work-img-wid fyimg" style="width:149px;height:61px;" /></div>
+                <div class="box-nav-right"><strong>首页 > 视频列表</strong></div>
             </div>
-        </section>
+            <img src="~/img/002.png" width="740" />
+            <p><strong></strong></p>
+        </div>
+    </div>
+    <div class="content" style="text-align:center;">
+        @*<section class="best-quality">
+                <div class="container">
+                    <p style="font-size:45px;color:#7c0000;font-weight:800;font-family:KaiTi;">文化资源介绍</p>
+                </div>
+            </section>*@
+        <h2 style="font-family:KaiTi;color:#ae0606;font-size:48px;margin:0 auto;font-weight:800;">文化资源介绍</h2>
         <div class="work-section">
             <div class="container">
                 <div class="col-md-6 work-grids">
@@ -136,13 +152,28 @@
         </div>
     </div>
 
-    <div class="foot">
-            <div class="foot-text">
-                <p>版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</p>
-                <p>地址：北京市朝阳区朝来高科技产业园6楼西侧3层　</p>
-                <p>技术支持：北京华阳凡科数字控制技术有限公司</p>
-            </div>
-    </div>
 
+
+
+    <div class="foot">
+        <div class="foot-text">
+            <p>版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</p>
+            <p>地址：北京市朝阳区朝来高科技产业园6楼西侧3层　</p>
+            <p>技术支持：北京华阳凡科数字控制技术有限公司</p>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery.js"></script>
+    <script>
+        $(function () {
+            //导航图片切换
+            $('.nav').mousemove(function () {
+                $('.nav').css('background', 'url(../img/nav-2.png)');
+            })
+
+            $('.nav').mouseleave(function () {
+                $('.nav').css('background', 'url(../img/nav.png)');
+            })
+        })
+    </script>
 </body>
 </html>

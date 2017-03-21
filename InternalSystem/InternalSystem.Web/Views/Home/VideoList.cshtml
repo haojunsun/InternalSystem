@@ -65,7 +65,7 @@
 
 <body ng-app="scApp" ng-controller="VideoListController">
     <div class="top"></div>
-    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;" /></div>
+    <div class="logo"><img src="~/img/logo-01.png" style="margin-left: 330px;width:100px;height:100px;" class="work-img-wid fyimg" /></div>
     <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px" /></div>
     <div id="wrap">
         <!--整体-->
@@ -216,6 +216,15 @@
                 var distance = index * (Height + 1) + pTop + 'px'; //如果你的li有个border-bottom为1px高度的话，这里需要加1
                 $('.lanrenzhijia .hover').stop().animate({ top: distance }, 150); //默认动画时间为150毫秒，懒人们可根据需要修改
             });
+
+            //导航图片切换
+            $('.nav').mousemove(function () {
+                $('.nav').css('background', 'url(../img/nav-2.png)');
+            })
+
+            $('.nav').mouseleave(function () {
+                $('.nav').css('background', 'url(../img/nav.png)');
+            })
         });
 
         //高级搜索

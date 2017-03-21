@@ -61,8 +61,8 @@
 
 <body ng-app="scApp" ng-controller="HomeController">
     <div class="top"></div>
-    <div class="logo" style="height:100px;"><img src="~/img/logo-01.png" style="margin-left:330px;" /></div>
-    <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px" /></div>
+    <div class="logo" style="height:100px;"><img src="~/img/logo-01.png" style="margin-left:330px;height:100px;width:100px;" class="work-img-wid fyimg" /></div>
+    <div class="logo"><img src="~/img/logo.png" style="width:300px;margin-top:30px"  /></div>
     <div id="wrap">
         <!--整体-->
         <div class="index-nav">
@@ -97,7 +97,7 @@
                 <div class="index-box-left">
                     <div class="box-nav">
                         <div class="box-nav-left"><img src="~/img/11.png" class="work-img-wid fyimg" style="width:149px;" /></div>
-                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")">了解文化</a></div>
+                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")" style="color:#780202;font-family:KaiTi;font-weight:600">更多详情</a></div>
                     </div>
                     <img src="~/img/001.png" width="500" />
                     <div class="box-img">
@@ -109,7 +109,7 @@
                 <div class="index-box-right">
                     <div class="box-nav">
                         <div class="box-nav-left"><img src="~/img/12.png" class="work-img-wid fyimg" style="width:149px;" /></div>
-                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")">了解文化</a></div>
+                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")" style="color:#780202;font-family:KaiTi;font-weight:600">更多详情</a></div>
                     </div>
                     <img src="~/img/001.png" width="470" />
                     <div class="box-img">
@@ -124,7 +124,7 @@
                 <div class="index-box-left">
                     <div class="box-nav">
                         <div class="box-nav-left"><img src="~/img/13.png" class="work-img-wid fyimg" style="width:149px;" /></div>
-                        <div class="box-nav-right"><a href="@Url.Action("videolist", "home")">+更多</a></div>
+                        <div class="box-nav-right"><a href="@Url.Action("videolist", "home")" style="color:#780202;font-family:KaiTi;font-weight:600">更多+</a></div>
                     </div>
                     <img src="~/img/001.png" width="500" />
                     <ul class="news_list_c" style="height:162px">
@@ -236,6 +236,15 @@
                 $('.pic .owl-wrapper').css('transform', 'translate3d(' + piclistReduce + 'px, 0px, 0px)');
             },20);
 
+
+            //导航图片切换
+            $('.nav').mousemove(function () {
+                $('.nav').css('background', 'url(../img/nav-2.png)');
+            })
+
+            $('.nav').mouseleave(function () {
+                $('.nav').css('background', 'url(../img/nav.png)');
+            })
 
             //setInterval(function () {
             //    $('#colorbox').css('width', '992px');
