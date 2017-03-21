@@ -7,10 +7,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>文化资源归集系统</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/css.css" type="text/css" rel="stylesheet" />
     <link href="~/css/owl.carousel.css" rel="stylesheet">
     <link href="~/css/owl.theme.css" rel="stylesheet">
     <link href="~/css/picdelstyle.css" rel="stylesheet">
+    <link href="~/css/fyjsstyle.css" rel="stylesheet" />
 
     <style>
         #owl-demo {
@@ -66,12 +68,12 @@
         <div class="index-nav">
 
             <div class="nav">
-                <ul style="height:23px;">
+                <ul style="height:23px;font-family:KaiTi">
                     <li><a href="@Url.Action("main","home")">首 页</a></li>
                     <li><a href="@Url.Action("videolist", "home")">资源搜索</a></li>
                     @*<li><a href="@Url.Action("v>资源搜索</a></li>
-            @*<li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
-                <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>*@
+                        @*<li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "2" } })">图片资源</a></li>
+                            <li><a href="@Url.Action("videolist", "home", new System.Web.Routing.RouteValueDictionary { { "type", "1" } })">文本资源</a></li>*@
                     <li><a href="@Url.Action("ICHintroduce", "home")">文化资源介绍</a></li>
                     <li><a href="/Admin/Account/Login">资源管理</a></li>
                 </ul>
@@ -94,24 +96,24 @@
             <div class="index-box-up">
                 <div class="index-box-left">
                     <div class="box-nav">
-                        <div class="box-nav-left"><img src="~/img/11.png" width="149" /></div>
-                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")">了解非遗</a></div>
+                        <div class="box-nav-left"><img src="~/img/11.png" class="work-img-wid fyimg" style="width:149px;" /></div>
+                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")">了解文化</a></div>
                     </div>
                     <img src="~/img/001.png" width="500" />
                     <div class="box-img">
-                        <img src="~/img/1-1.png" width="156" />
-                        <p>非物质文化遗产是指各族人民世代相承的，与群众生活密切相关的各种传统文化表现形式（如民俗活动，表演艺术，传统知识和技能，以及与之相关的器具，实物，手工制品等）和文化空间（即定期举行传统文化活动或集中展现传统文化表现形式的场所，兼具空间性和时间性）。有关自然界和宇宙的民间传统知识和实践。与上述表现形式相关的文化空间。</p>
+                        <img src="~/img/1-1.png" class="work-img-wid fyimg" style="width:156px;" />
+                        <p>文化资源是人们从事文化生活和生产所必须的前提准备。文化资源从对人们的贡献力量来看，有广义和狭义之分：广义上的文化资源泛指人们从事一切与文化活动有关的生产和生活内容的总称，它以精神状态为主要存在形式；狭义上的文化资源是指对人们能够产生直接和间接经济利益的精神文化内容。文化资源的丰富程度和质量高低直接对当地文化经济的发展产生影响。</p>
                     </div>
                     <img src="~/img/001.png" width="500" />
                 </div>
                 <div class="index-box-right">
                     <div class="box-nav">
-                        <div class="box-nav-left"><img src="~/img/12.png" width="149" /></div>
-                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")">了解非遗</a></div>
+                        <div class="box-nav-left"><img src="~/img/12.png" class="work-img-wid fyimg" style="width:149px;" /></div>
+                        <div class="box-nav-right"><a href="@Url.Action("ICHintroduce", "home")">了解文化</a></div>
                     </div>
                     <img src="~/img/001.png" width="470" />
                     <div class="box-img">
-                        <img src="~/img/1-2.png" width="156" />
+                        <img src="~/img/1-2.png" class="work-img-wid fyimg" style="width:156px;" />
                         <p>我国的非物质文化遗产是承载中华民族精神与情感的重要载体，是维系国家统一，民族团结的基础，也是人类智慧的体现。然而，在经济全球化和现代化的冲击下，我国的非物质文化遗产正面临着历史上前所未有的急剧变迁。大批有历史，文化和科学价值的非物质文化遗产遭到不同程度的破坏，……因此，加快非物质文化遗产的保护工作已迫在眉睫。</p>
                     </div>
                     <img src="~/img/001.png" width="470" />
@@ -121,8 +123,8 @@
             <div class="index-box-up">
                 <div class="index-box-left">
                     <div class="box-nav">
-                        <div class="box-nav-left"><img src="~/img/13.png" width="149" /></div>
-                        <div class="box-nav-right"><a href="@Url.Action("videolist", "home")">+MORE</a></div>
+                        <div class="box-nav-left"><img src="~/img/13.png" class="work-img-wid fyimg" style="width:149px;" /></div>
+                        <div class="box-nav-right"><a href="@Url.Action("videolist", "home")">+更多</a></div>
                     </div>
                     <img src="~/img/001.png" width="500" />
                     <ul class="news_list_c" style="height:162px">
@@ -136,13 +138,13 @@
                 </div>
                 <div class="index-box-right">
                     <div class="box-nav">
-                        <div class="box-nav-left"><img src="~/img/14.png" width="149" /></div>
+                        <div class="box-nav-left"><img src="~/img/14.png" class="work-img-wid fyimg" style="width:149px;" /></div>
                         @*<div class="box-nav-right"><a href="news.html">+MORE</a></div>*@
                     </div>
                     <img src="~/img/001.png" width="460" />
                     <div class="box-img">
-                        <img src="~/img/1.png" width="156" />
-                        <p>凤阳非遗保护与传承取得明显成效,近年来，凤阳县高度重视文化建设，创新工作机制，在坚持区域性整体保护的同时，积极做好凤阳花鼓、凤阳民歌、凤阳凤画等非物质文化遗产的传承、保护、开发和利用工作，取得明显成效。凤阳花鼓戏、凤阳民歌等4项目入选省级非遗项目，并申报公布了凤阳民乐等10项市级29项县级非遗项目。</p>
+                        <img src="~/img/1.png" class="work-img-wid fyimg" style="width:156px;" />
+                        <p>淮河文化是安徽的四大文化圈之一，因大多处在淮河两岸，作为区域文化，故可综合称皖文化， 包括了商周时代的东夷(包括淮夷)文化、涡淮两岸产生的老庄文化、先秦时期荆楚文化、吴越文化以及两汉和北宋之后南移的中原文化、明清之际兴起的淮扬文化。淮河在我国东南部南北分界的地理区位，自然赋予了淮河文化鲜明的地域特色。</p>
                     </div>
                     <img src="~/img/001.png" width="460" />
                 </div>
@@ -172,12 +174,10 @@
     </div>
     <div style=" clear:both;"></div>
     <div class="foot">
-        <div class="footer">
-            <div class="foot-text">
-                <p>版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</p>
-                <p>地址：北京市朝阳区朝来高科技产业园6楼西侧3层　</p>
-                <p>技术支持：北京华阳凡科数字控制技术有限公司</p>
-            </div>
+        <div class="foot-text" style="">
+            <p>版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</p>
+            <p>地址：北京市朝阳区朝来高科技产业园6楼西侧3层　</p>
+            <p>技术支持：北京华阳凡科数字控制技术有限公司</p>
         </div>
     </div>
 
@@ -188,7 +188,8 @@
         $(function () {
             $('#owl-demo').owlCarousel({
                 items: 1,
-                autoPlay: true
+                autoPlay: true,
+                slideSpeed: 3000
             });
 
             $('#owl-foot').owlCarousel({
@@ -208,11 +209,27 @@
                 slideshowAuto: false,
                 previous: "上一张",
                 next: "下一张",
+                width: "992",
                 close: "关闭",
                 slideshowStart: "播放",
                 slideshowStop: "暂停",
-                current: "第 {current} 张 (共{total}张)"
+                current: "第 {current} 张 (共{total}张)",
+
+                onComplete: function () {
+                    $('#colorbox').css('width', '992px');
+                    $('#colorbox').css('height', '658px');
+                }
             });
+
+
+            //setInterval(function () {
+            //    $('#colorbox').css('width', '992px');
+            //}, 1000);
+
+
+            //$('.box-nav-left img').mousemove(function () {
+            //    console.log(1);
+            //});
         });
     </script>
 </body>
