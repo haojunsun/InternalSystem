@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201606281011353_upReleaseTime.Designer.cs">
       <DependentUpon>201606281011353_upReleaseTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703210919466_newOrigin.cs" />
+    <Compile Include="Migrations\201703210919466_newOrigin.Designer.cs">
+      <DependentUpon>201703210919466_newOrigin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606281011353_upReleaseTime.resx">
       <DependentUpon>201606281011353_upReleaseTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703210919466_newOrigin.resx">
+      <DependentUpon>201703210919466_newOrigin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
