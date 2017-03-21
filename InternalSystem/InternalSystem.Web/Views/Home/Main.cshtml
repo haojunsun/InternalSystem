@@ -220,6 +220,21 @@
                     $('#colorbox').css('height', '658px');
                 }
             });
+            var piclistReduce = 0;
+            var fangx = false;
+            var inter=setInterval(function () {
+                if (piclistReduce <= -1620)
+                    fangx = true;
+
+                else if (piclistReduce >= -10)
+                    fangx = false;
+
+                if (fangx)
+                    piclistReduce += 1;
+                else
+                    piclistReduce -= 1;
+                $('.pic .owl-wrapper').css('transform', 'translate3d(' + piclistReduce + 'px, 0px, 0px)');
+            },20);
 
 
             //setInterval(function () {
