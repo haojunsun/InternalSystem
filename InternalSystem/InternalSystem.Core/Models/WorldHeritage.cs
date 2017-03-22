@@ -285,34 +285,43 @@ namespace InternalSystem.Core.Models
         /// </summary>
         public string NameReferences { get; set; }
         /// <summary>
-        /// 源资料创建者
+        /// 源资料创建者 责任方式 
         /// </summary>
         public string NameofReferencesCreator { get; set; }
         /// <summary>
         /// 国际标准书号/国际标准音像制品编
         /// </summary>
         public string RoleofReferencesCreator { get; set; }
+
         /// <summary>
-        /// 源资料格式类型
+        /// 国际标准书号/国际标准音像制品编
         /// </summary>
         public string ISBNISRC { get; set; }
         /// <summary>
-        /// 获取方式
+        /// 源资料格式类型
         /// </summary>
         public string ReferencesFormat { get; set; }
         /// <summary>
-        /// 源资料提供者
+        /// 
+        /// 获取方式
         /// </summary>
         public string AcquisitionMethod { get; set; }
         /// <summary>
-        /// 源资料典藏单位
+        ///
+        /// 源资料提供者
         /// </summary>
         public string ProviderOfReferences { get; set; }
 
         /// <summary>
+        /// 源资料典藏单位
+        /// </summary>
+        public string RepositoryName { get; set; }
+
+        /// <summary>
         /// 出版 出版者
         /// </summary>
-        public string RepositoryNamePublisher { get; set; }
+
+        public string Publisher { get; set; }
         /// <summary>
         /// 出版 出版时间
         /// </summary> 
@@ -383,6 +392,47 @@ namespace InternalSystem.Core.Models
         public string Note { get; set; }
 
 
+        /*附表一 名称重复 添加 前缀*/
+        public string ArtificialID { get; set; }
+        public string RelatedPeople_Name { get; set; }
+        public string RelatedPeople_Role { get; set; }
+        public string RelatedPeople_NationalityOfRelatedPeople { get; set; }
+        public string RelatedPeople_BirthplaceOfRelatedPeople { get; set; }
+        public string RelatedPeople_GenderOfRelatedPeople { get; set; }
+        public string RelatedPeople_AgeOfRelatedPeople { get; set; }
+        public string RelatedPeople_EducationLevelOfRelatedPeople { get; set; }
+        public string RelatedPeople_VocationOfRelatedPeople { get; set; }
+
+        /*附表二 名称重复 添加 前缀*/
+
+        public string CoverageTemporal_ArtificialID { get; set; }
+        public string CoverageTemporal_TemporalType { get; set; }
+        public string CoverageTemporal_FromHistoricalCalendar { get; set; }
+        public string CoverageTemporal_ToHistoricalCalendar { get; set; }
+        public string CoverageTemporal_FromADCalendar { get; set; }
+        public string CoverageTemporal_ToADCalendar { get; set; }
+
+        /*附表三 名称重复 添加 前缀*/
+
+        public string CoverageSpatial_ArtificialID { get; set; }
+        public string CoverageSpatial_SpatialType { get; set; }
+        public string CoverageSpatial_HistoricalPlaceName { get; set; }
+        public string CoverageSpatial_PresentPlaceName { get; set; }
+        public string CoverageSpatial_OtherPlaceName { get; set; }
+        public string CoverageSpatial_province { get; set; }
+        public string CoverageSpatial_City { get; set; }
+        public string CoverageSpatial_County { get; set; }
+        public string CoverageSpatial_Town { get; set; }
+        public string CoverageSpatial_Village { get; set; }
+        public string CoverageSpatial_Venues { get; set; }
+        public string CoverageSpatial_LongitudeLatitude { get; set; }
+
+        /*附表四 名称重复 添加 前缀*/
+
+        public string CreatorofReferences_ArtificialID { get; set; }
+        public string CreatorofReferences_NameofCreator { get; set; }
+        public string CreatorofReferences_RoleofReferencesCreator { get; set; }
+
         /// <summary>
         /// 著录者
         /// </summary>
@@ -412,7 +462,7 @@ namespace InternalSystem.Core.Models
         /// 管理机构
         /// </summary>
         public string MetadataManagement { get; set; }
-      
+
 
 
         /// <summary>

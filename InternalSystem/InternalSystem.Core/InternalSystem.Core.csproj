@@ -102,6 +102,10 @@
     <Compile Include="Migrations\201703210919466_newOrigin.Designer.cs">
       <DependentUpon>201703210919466_newOrigin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703221011011_fb.cs" />
+    <Compile Include="Migrations\201703221011011_fb.Designer.cs">
+      <DependentUpon>201703221011011_fb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -153,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703210919466_newOrigin.resx">
       <DependentUpon>201703210919466_newOrigin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221011011_fb.resx">
+      <DependentUpon>201703221011011_fb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
