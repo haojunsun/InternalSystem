@@ -1191,8 +1191,10 @@
     <Content Include="img\ic_xl\txt_4.png" />
     <Content Include="img\ic_xl\txt_5.png" />
     <Content Include="img\lj.png" />
+    <Content Include="img\lj2.png" />
     <Content Include="img\logo-01.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\nav-2.png" />
     <Content Include="img\nav.png" />
     <Content Include="img\top.png" />
     <Content Include="img\top1.png" />
