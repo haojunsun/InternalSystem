@@ -302,12 +302,10 @@ namespace InternalSystem.Core.Models
         /// </summary>
         public string ReferencesFormat { get; set; }
         /// <summary>
-        /// 
         /// 获取方式
         /// </summary>
         public string AcquisitionMethod { get; set; }
         /// <summary>
-        ///
         /// 源资料提供者
         /// </summary>
         public string ProviderOfReferences { get; set; }
@@ -320,7 +318,6 @@ namespace InternalSystem.Core.Models
         /// <summary>
         /// 出版 出版者
         /// </summary>
-
         public string Publisher { get; set; }
         /// <summary>
         /// 出版 出版时间

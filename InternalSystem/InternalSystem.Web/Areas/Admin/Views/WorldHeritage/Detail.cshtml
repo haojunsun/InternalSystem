@@ -87,226 +87,614 @@
                                 <label class="control-label col-md-3">@(Model.ArtificialId)</label>
                             </div>
                         </div>
+                        @*<div class="form-group">
+                                <label class="control-label col-md-1" style="width:200px">资料格式类型:</label>
+                                <div class="">
+                                    <label class="control-label col-md-3">@(Model.DataFormat)</label>
+                                </div>
+                            </div>*@
+
+
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">文件名:</label>
+                            <label class="control-label col-md-1" style="width:200px">正题名:</label>
                             <div class="">
                                 <label class="control-label col-md-3">@(Model.TitleProper)</label>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">项目名称:</label>
+                            <label class="control-label col-md-1" style="width:200px">其他题名:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.Title)</label>
+                                <label class="control-label col-md-3">@(Model.OtherTitle)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">艺术门类 一级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FirstLevelOfArtClassification)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">艺术门类 二级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SecondLevelOfArtClassification)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">艺术门类 三级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ThirdLevelOfArtClassification)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">民族属性 一级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FirstLevelOfEthnicGroup)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px"> 民族属性 二级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SecondLevelOfEthnicGroup)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px"> 民族属性 三级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Subgroup)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">社会属性 一级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FirstLevelOfSocialAttributes)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">社会属性 二级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SecondLevelOfSocialAttributes)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">艺术形态 时代属性:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.TimesProperty)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">艺术形态  组成要素 一级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FirstLevelOfElements)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">项目类别一级:</label>
+                            <label class="control-label col-md-1" style="width:200px">艺术形态 组成要素 二级分类:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.FirstLevel)</label>
+                                <label class="control-label col-md-3">@(Model.SecondLevelOfElements)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">艺术形态 组成要素 三级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ThirdLevelOfElements)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">脚色行当 一级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FirstLevelOfCharacter)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">脚色行当 二级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SecondLevelOfCharacter)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">艺术形态 艺术流派:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ArtSchool)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">艺术形态 表演形式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.PerformingForm)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">艺术形态 结构体式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Structure)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">曲牌板式 曲牌名:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SongPattern)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">曲牌板式 板式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.BeatsPattern)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">律吕宫调 民间调式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.MusicModeName)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">律吕宫调 工尺谱系:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.GongCheModeName)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">律吕宫调 简谱系统:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.NumberedMusicalNotationModeName)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">律吕宫调 《九宫大成》系统:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.JiuGongDaChengModeName)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">资源属性 一级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FirstLevelOfSubjectClassification)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">资源属性 二级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SecondLevelOfResourcesClassification)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">资源属性 三级分类:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ThirdLevelOfResourcesClassification)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">资源属性 关键词:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Keywords)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">描述 摘要:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Abstract)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">描述 获奖 奖项名称:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.NameOfAwards)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">描述 获奖 获奖年度或届次:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.YearOrTimeOfAwards)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">描述 获奖 颁奖单位:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Awarder)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">类型:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Type)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">相关人物/组织 人物/组织名称:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Name)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">责任方式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Role)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">民族:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.NationalityOfRelatedPeople)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">籍贯:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.BirthplaceOfRelatedPeople)</label>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">性别:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.GenderOfRelatedPeople)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">年龄:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.AgeOfRelatedPeople)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 文化程度:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.EducationLevelOfRelatedPeople)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 职业/职称:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.VocationOfRelatedPeople)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 时间类型:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.TemporalType)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 历史纪年 起始时间:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FromHistoricalCalendar)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 历史纪年 结束时间:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ToHistoricalCalendar)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">公元纪年 起始时间:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FromADCalendar)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">公元纪年 结束时间:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ToADCalendar)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">空间类型:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.SpatialType)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 时地名:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.HistoricalPlaceName)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 今地名:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.PresentPlaceName)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 其他地名:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.OtherPlaceName)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 省:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Province)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 市:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.City)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">项目类别二级: </label>
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 County:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.SecondLevel)</label>
+                                <label class="control-label col-md-3">@(Model.County)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">项目编码:</label>
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 Town:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.ProjectCode)</label>
+                                <label class="control-label col-md-3">@(Model.Town)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">子项序号:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.SubItemNumber)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">批次:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Batch)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">注释:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Notes)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">项目申请时间:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.ApplicationTime)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">民族:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Nation)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">民族支系:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.NationalBranch)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">性别:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Gender)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">出生日期:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Birth)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">文化程度:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Education)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">职业:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Occupation)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">传承人:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Successor)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">类型:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Genre)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">直辖市:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Municipalities)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">地区:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Region)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">县级市:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.CountyLevelCity)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">乡镇:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Township)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">村落:</label>
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 Village:</label>
                             <div class="">
                                 <label class="control-label col-md-3">@(Model.Village)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">申报地区:</label>
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 场地:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.DeclarationArea)</label>
+                                <label class="control-label col-md-3">@(Model.Venues)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">保护单位:</label>
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 经纬度:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.ProtectionUnit)</label>
+                                <label class="control-label col-md-3">@(Model.LongitudeLatitude)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">生态区项目:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.EcologicalZoneProject)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">生产性保护基地:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.ProductiveProtectionBase)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">省区代码:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.ProvinceCode)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">申请时间:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.PostTime)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">去世:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Death)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">通过:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Adopt)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">语言:</label>
+                            <label class="control-label col-md-1" style="width: 200px">地域/地点名称 语言:</label>
                             <div class="">
                                 <label class="control-label col-md-3">@(Model.Language)</label>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">创建者名称:</label>
+                            <label class="control-label col-md-1" style="width: 200px">关联 包含:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.CreatorName)</label>
+                                <label class="control-label col-md-3">@(Model.HasPart)</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">创建者责任方式:</label>
+                            <label class="control-label col-md-1" style="width: 200px">关联 包含于:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.ResponsibilityCreator)</label>
+                                <label class="control-label col-md-3">@(Model.IsPartOf)</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">关联 参照:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Refer)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">关联 有格式为:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.HasFormat)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">来源 出处/源资料名称:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.NameReferences)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">源资料创建者 责任方式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.NameofReferencesCreator)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">国际标准书号/国际标准音像制品编:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.RoleofReferencesCreator)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">国际标准书号/国际标准音像制品编号:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ISBNISRC)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px">源资料格式类型:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ReferencesFormat)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 获取方式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.AcquisitionMethod)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 源资料提供者:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.ProviderOfReferences)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 源资料典藏单位:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.RepositoryName)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 出版 出版者:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Publisher)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 出版 出版时间:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.PublicationDate)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 出版 出版地:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.PlaceOfPublication)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 数字化信息  数字化格式:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.DigitalObjectFormat)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 大小:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Size)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 时长:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Duration)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 分辨率（解析度）:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.DigitalSpecification)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 音/视频数据码率:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.AudioVideoBitRate)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 音频采样频率:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.AudioSamplingFrequency)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 声道数:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.NumberOfChannels)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 储存地址:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.FilePath)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 显示级别:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.DisplayType)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 备份光盘存放编号:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.CDNumber)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 授权者:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Holder)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 授权起止时间:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.RightsDate)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width: 200px"> 授权条款:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Licens)</label>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-1" style="width:200px">资料格式类型:</label>
                             <div class="">
                                 <label class="control-label col-md-3">@(Model.DataFormat)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">资料提供者:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.DataProvider)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">资料典藏单位:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.CollectionUnit)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">数字化格式:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.DigitalFormat)</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -322,71 +710,18 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">分辨率:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.ResolvingPower)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">视频码率:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.KBps)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">采样频率:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.SamplingFrequency)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">声道数:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Channels)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">存储地:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.StoragePlace)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">显示级别:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.DisplayLevel)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">著录者:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Description)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">著录时间:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.DescriptionTime)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="control-label col-md-1" style="width:200px">审核者:</label>
                             <div class="">
                                 <label class="control-label col-md-3">@(Model.Audit)</label>
                             </div>
                         </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1" style="width: 200px">审核时间:</label>
-                        <div class="">
-                            <label class="control-label col-md-3">@(Model.AuditTime)</label>
-                        </div>
-                    </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">管理机构:</label>
+                            <label class="control-label col-md-1" style="width: 200px">审核时间:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.Organization)</label>
+                                <label class="control-label col-md-3">@(Model.AuditTime)</label>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-1" style="width:200px">备注:</label>
                             <div class="">
@@ -423,14 +758,14 @@
                                 </div>
                             </div>
                         }
-                       
+
                         <div class="form-group">
                             <label class="control-label col-md-1" style="width: 200px">URL地址:</label>
                             <div class="">
                                 <label class="control-label col-md-3">@(Model.url)</label>
                             </div>
                         </div>
-                     
+
                         @if (Model.HeritageType == 2)
                         {
                             <div class="form-group">
