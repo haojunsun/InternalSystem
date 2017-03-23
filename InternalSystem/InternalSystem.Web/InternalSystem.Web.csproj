@@ -1324,7 +1324,6 @@
     <Content Include="theme\player.png" />
     <Content Include="theme\start.png" />
     <Content Include="theme\style.css" />
-    <Content Include="Uploads\fyexcel\111111.xls" />
     <Content Include="images\Thumbs.db" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\Hind_Vadodara\HindVadodara-Regular.ttf" />
@@ -1370,6 +1369,8 @@
     <Content Include="theme\Thumbs.db" />
     <Content Include="Views\Error\Main.cshtml" />
     <Content Include="Views\Home\GuidePage.cshtml" />
+    <Content Include="Uploads\fyexcel\11.xls" />
+    <Content Include="Uploads\fyexcel\22.xls" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
