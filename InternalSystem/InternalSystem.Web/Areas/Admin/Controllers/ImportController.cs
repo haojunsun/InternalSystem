@@ -162,7 +162,21 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 34)//颁奖单位
                             wh1.Awarder = dt.Rows[i][j].ToString();
                         if (j == 35)//类型
+                        {
                             wh1.Type = dt.Rows[i][j].ToString();
+                            if (dt.Rows[i][j].ToString().Contains("频"))
+                            {
+                                wh1.HeritageType = 0;
+                            }
+                            else if (dt.Rows[i][j].ToString().Contains("图"))
+                            {
+                                wh1.HeritageType = 2;
+                            }
+                            else
+                            {
+                                wh1.HeritageType = 1;
+                            }
+                        }
                         if (j == 36)//人物组织名称
                             wh1.Name = dt.Rows[i][j].ToString();
                         if (j == 37)//责任方式
@@ -379,7 +393,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                     wh1.CreatedUtc = DateTime.Now;
                     wh1.IsShow = 1;
                     wh1.ReleaseDateTime = DateTime.Now.ToString();
-                    wh1.HeritageType = 0;
+
                     wh1.IsEffect = 1;
                     wh.Add(wh1);
 
@@ -548,7 +562,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         /// <param name="pageSize"></param>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-       
+
         //public ActionResult Search(string firstlevel, string dataformat, string nation, string municipalities, string title, int pageSize, int pageIndex)
         //{
         //    var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat, nation, municipalities, title);
@@ -566,9 +580,9 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         /// <param name="pageIndex"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult NewSearch(string key,string firstLevelOfArtClassification,string secondLevelOfEthnicGroup,string type, int pageSize, int pageIndex)
+        public ActionResult NewSearch(string key, string firstLevelOfArtClassification, string secondLevelOfEthnicGroup, string type, int pageSize, int pageIndex)
         {
-            var result = _worldHeritageService.NewSearch( key, firstLevelOfArtClassification, secondLevelOfEthnicGroup, type,  pageSize,  pageIndex);
+            var result = _worldHeritageService.NewSearch(key, firstLevelOfArtClassification, secondLevelOfEthnicGroup, type, pageSize, pageIndex);
             return Json(result, JsonRequestBehavior.DenyGet);
         }
 

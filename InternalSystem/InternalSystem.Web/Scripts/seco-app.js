@@ -42,7 +42,7 @@ sc.app = angular.module('scApp', [])
         if ($scope.resourceType == '0') {
             $scope.type = '视频';
         } else if ($scope.resourceType == '1') {
-            $scope.type = '文本';
+            $scope.type = '谱例';
         } else if ($scope.resourceType == '2') {
             $scope.type = '图片';
         }
@@ -77,16 +77,16 @@ sc.app = angular.module('scApp', [])
             $scope.pageIndex = 1;
             $scope.getVedioList();
         })
-        $('.area').click(function () {
-            $scope.area = $(this).text();
-            if ($scope.area == "全国") {
-                $scope.area = "";
-                $('.clearList').find('div').eq(3).hide();
-            }
-            console.log($scope.area);
-            $scope.pageIndex = 1;
-            $scope.getVedioList();
-        })
+        //$('.area').click(function () {
+        //    $scope.area = $(this).text();
+        //    if ($scope.area == "全国") {
+        //        $scope.area = "";
+        //        $('.clearList').find('div').eq(3).hide();
+        //    }
+        //    console.log($scope.area);
+        //    $scope.pageIndex = 1;
+        //    $scope.getVedioList();
+        //})
         $scope.changeSearchkey = function () {
             $scope.searchkey = $("#searchkey").val();
             console.log($scope.searchkey);
@@ -100,8 +100,8 @@ sc.app = angular.module('scApp', [])
 
         $scope.getVedioList = function () {
             $scope.videoList = [];
-            $http.post(sc.baseUrl + 'Import/Search', { "firstlevel": $scope.classtype, "dataformat": $scope.type, "nation": $scope.nation, "municipalities": $scope.area, "title": $scope.searchkey, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
-                //console.log(data);
+            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                console.log(data.Data.Items);
                 $scope.datacount = data.Data.TotalCount;
                 $scope.totalpage = data.Data.TotalPaged;
                 $scope.videoList = data.Data.Items;
