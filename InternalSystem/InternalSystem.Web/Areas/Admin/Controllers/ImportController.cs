@@ -396,7 +396,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         /// <summary>
         /// 搜索
         /// </summary>
-        /// <param name="key">关键字（匹配字段 正题名 社会属性一级分类 组成要素一级分类 艺        术流派 表演形式 曲牌名 板式 关键字 类型 人物/组织名称） </param>
+        /// <param name="key">关键字（匹配字段 正题名 社会属性一级分类 组成要素一级分类 艺术流派 表演形式 曲牌名 板式 关键字 类型 人物/组织名称） </param>
         /// <param name="firstLevelOfArtClassification">艺术门类一级 </param>
         /// <param name="secondLevelOfEthnicGroup">民族-二级</param>
         /// <param name="type">类型Type</param>
