@@ -106,6 +106,10 @@
     <Compile Include="Migrations\201703221011011_fb.Designer.cs">
       <DependentUpon>201703221011011_fb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703230942479_editword.cs" />
+    <Compile Include="Migrations\201703230942479_editword.Designer.cs">
+      <DependentUpon>201703230942479_editword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221011011_fb.resx">
       <DependentUpon>201703221011011_fb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703230942479_editword.resx">
+      <DependentUpon>201703230942479_editword.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

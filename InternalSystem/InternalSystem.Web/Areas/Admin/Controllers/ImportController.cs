@@ -92,7 +92,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 1)//人工编码
                         {
                             wh1.ArtificialId = dt.Rows[i][j].ToString();
-                            wh1.ArtificialID = dt.Rows[i][j].ToString();
+                            wh1.RelatedPeople_ArtificialID = dt.Rows[i][j].ToString();
                             wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][j].ToString() + ".mp4";
                         }
                         if (j == 2)//正题名

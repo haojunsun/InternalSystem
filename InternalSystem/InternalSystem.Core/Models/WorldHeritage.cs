@@ -393,7 +393,7 @@ namespace InternalSystem.Core.Models
 
 
         /*附表一 名称重复 添加 前缀*/
-        public string ArtificialID { get; set; }
+        public string RelatedPeople_ArtificialID { get; set; }
         public string RelatedPeople_Name { get; set; }
         public string RelatedPeople_Role { get; set; }
         public string RelatedPeople_NationalityOfRelatedPeople { get; set; }
