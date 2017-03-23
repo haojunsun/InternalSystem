@@ -499,6 +499,7 @@ namespace InternalSystem.Core.Models
         /// </summary>
         public int IsShow { get; set; }
 
+        public string DataFormat { get; set; }
         /// <summary>
         /// 发布者
         /// </summary>

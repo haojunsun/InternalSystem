@@ -57,41 +57,38 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(WorldHeritage wh)
         {
-            //if (!string.IsNullOrEmpty(wh.FileName))
-            //{
-            //    wh.HeritageType = 0;
-            //    wh.DataFormat = "视频";
-            //    wh.FileName = "~/Uploads/video/" + wh.FileName;
-            //}
-            //else
-            //{
-            //    wh.HeritageType = 0;
-            //    if (Request.Files.Count > 0)
-            //    {
-            //        wh.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
-            //        if (!string.IsNullOrEmpty(wh.FileName))
-            //        {
-            //            wh.HeritageType = 2;
-            //            wh.DataFormat = "图片";
-            //        }
-            //    }
-
-            //    if (!string.IsNullOrEmpty(wh.Content))
-            //    {
-            //        wh.HeritageType = 1;
-            //        wh.DataFormat = "文本";
-            //        wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
-            //    }
-            //}
-            //wh.CreatedUtc = DateTime.Now;
-            //wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
-            //wh.IsEffect = 0;
+            if (!string.IsNullOrEmpty(wh.FileName))
+            {
+                wh.HeritageType = 0;
+                wh.DataFormat = "视频";
+                wh.FileName = "~/Uploads/video/" + wh.FileName;
+            }
+            else
+            {
+                wh.HeritageType = 0;
+                if (Request.Files.Count > 0)
+                {
+                    wh.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
+                    if (!string.IsNullOrEmpty(wh.FileName))
+                    {
+                        wh.HeritageType = 2;
+                        wh.DataFormat = "图片";
+                    }
+                }
+                if (!string.IsNullOrEmpty(wh.Content))
+                {
+                    wh.HeritageType = 1;
+                    wh.DataFormat = "文本";
+                    wh.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+                }
+            }
+            wh.CreatedUtc = DateTime.Now;
+            wh.User = _managerService.Get(UserLogin.GetUserInfo().ManagerId);
+            wh.IsEffect = 0;
             //wh.Description = _managerService.Get(UserLogin.GetUserInfo().ManagerId).Name;
-            //wh.DescriptionTime = DateTime.Now.ToString();
-
-            //_worldHeritageService.Add(wh);
-            //return RedirectToAction("My");
-            return View();
+            ////wh.DescriptionTime = DateTime.Now.ToString();
+            _worldHeritageService.Add(wh);
+            return RedirectToAction("My");
         }
 
         public ActionResult Edit(int id)
