@@ -189,7 +189,6 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         {
             ViewBag.user = UserLogin.GetUserInfo();
             var wh = _worldHeritageService.Get(id);
-            //_log.Debug("r-------------" + wh.Release.Name);
             return View(wh);
         }
 
