@@ -132,6 +132,23 @@ namespace InternalSystem.Core.Services
                 IQueryable<WorldHeritage> list;
                 var totalCount = 0;
 
+                //没有任何 条件 取 全部 第一页
+                if (string.IsNullOrEmpty(key) && string.IsNullOrEmpty(firstLevelOfArtClassification)
+                    && string.IsNullOrEmpty(secondLevelOfEthnicGroup)
+                    && string.IsNullOrEmpty(type))
+                {
+                    list = (from p in _appDbContext.WorldHeritages
+                        where p.IsEffect == 1 && p.IsShow == 1
+                        orderby p.CreatedUtc descending
+                        select p).Skip((pageIndex - 1)*pageSize).Take(pageSize);
+                    totalCount = _appDbContext.WorldHeritages.Count(x => x.IsEffect == 1 && x.IsShow == 1);
+                    result.Data.Items = list.ToList();
+                    result.Data.TotalCount = totalCount;
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {
