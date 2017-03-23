@@ -375,13 +375,47 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
             return Content(message);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstlevel"></param>
+        /// <param name="dataformat"></param>
+        /// <param name="nation"></param>
+        /// <param name="municipalities"></param>
+        /// <param name="title"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
+       
+        //public ActionResult Search(string firstlevel, string dataformat, string nation, string municipalities, string title, int pageSize, int pageIndex)
+        //{
+        //    var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat, nation, municipalities, title);
+        //    return Json(result, JsonRequestBehavior.DenyGet);
+        //}
+
+        /// <summary>
+        /// 搜索
+        /// </summary>
+        /// <param name="key">关键字（匹配字段 正题名 社会属性一级分类 组成要素一级分类 艺        术流派 表演形式 曲牌名 板式 关键字 类型 人物/组织名称） </param>
+        /// <param name="firstLevelOfArtClassification">艺术门类一级 </param>
+        /// <param name="secondLevelOfEthnicGroup">民族-二级</param>
+        /// <param name="type">类型Type</param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult Search(string firstlevel, string dataformat, string nation, string municipalities, string title, int pageSize, int pageIndex)
+        public ActionResult NewSearch(string key,string firstLevelOfArtClassification,string secondLevelOfEthnicGroup,string type, int pageSize, int pageIndex)
         {
-            var result = _worldHeritageService.Search(pageIndex, pageSize, firstlevel, dataformat, nation, municipalities, title);
+            var result = _worldHeritageService.NewSearch( key, firstLevelOfArtClassification, secondLevelOfEthnicGroup, type,  pageSize,  pageIndex);
             return Json(result, JsonRequestBehavior.DenyGet);
         }
 
+
+        /// <summary>
+        /// 详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Find(int id)
         {

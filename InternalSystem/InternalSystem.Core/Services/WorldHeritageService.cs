@@ -43,6 +43,9 @@ namespace InternalSystem.Core.Services
         IEnumerable<WorldHeritage> My(int id, int pageIndex, int pageSize, ref int totalCount);
 
         WorldHeritage FindByCode(string code);
+
+        ApiResponse<PagerInfoResponse<WorldHeritage>> NewSearch(string key, string firstLevelOfArtClassification,
+            string secondLevelOfEthnicGroup, string type, int pageSize, int pageIndex);
     }
 
     public class WorldHeritageService : IWorldHeritageService
@@ -113,6 +116,30 @@ namespace InternalSystem.Core.Services
             string dataformat, string nation,
             string municipalities, string title)
         {
+            return null;
+        }
+
+        public ApiResponse<PagerInfoResponse<WorldHeritage>> NewSearch(string key, string firstLevelOfArtClassification,
+            string secondLevelOfEthnicGroup, string type, int pageSize, int pageIndex)
+        {
+            var result = new ApiResponse<PagerInfoResponse<WorldHeritage>>();
+            result.Data = new PagerInfoResponse<WorldHeritage>();
+            result.Data.Items = new List<WorldHeritage>();
+            result.Data.Size = pageSize;
+            result.Data.Index = pageIndex;
+            try
+            {
+                IQueryable<WorldHeritage> list;
+                var totalCount = 0;
+
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccessful = false;
+                result.Message = "数据错误！";
+                result.StatusCode = StatusCode.ClientError;
+                return result;
+            }
             return null;
         }
 
