@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201703230954190_addDataFormat.Designer.cs">
       <DependentUpon>201703230954190_addDataFormat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703231004055_Audituser.cs" />
+    <Compile Include="Migrations\201703231004055_Audituser.Designer.cs">
+      <DependentUpon>201703231004055_Audituser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\Article.cs" />
@@ -174,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703230954190_addDataFormat.resx">
       <DependentUpon>201703230954190_addDataFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703231004055_Audituser.resx">
+      <DependentUpon>201703231004055_Audituser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

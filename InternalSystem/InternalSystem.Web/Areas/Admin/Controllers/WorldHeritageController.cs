@@ -264,9 +264,9 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 return JumpUrl("List", "id错误");
 
             old.IsEffect = state;
-            //old.User = _managerService.Get(user.ManagerId);
-            //old.Audit = _managerService.Get(user.ManagerId).Name;
-            //old.AuditTime = DateTime.Now.ToString();
+            old.User = _managerService.Get(user.ManagerId);
+            old.Audit = _managerService.Get(user.ManagerId).Name;
+            old.AuditTime = DateTime.Now.ToString();
             _worldHeritageService.Update(old);
             return Content("<script>alert('审核完成');window.location.href='" + Url.Action("List") + "';</script>");
         }

@@ -505,6 +505,10 @@ namespace InternalSystem.Core.Models
         /// </summary>
         public virtual Manager Release { get; set; }
 
+
         public string ReleaseDateTime { get; set; }
+
+        public string Audit { get; set; }
+       public string AuditTime { get; set; }
     }
 }

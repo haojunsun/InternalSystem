@@ -10,7 +10,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-cogs font-green-sharp"></i>
-                    <span class="caption-subject font-green-sharp bold uppercase">资源详情 - @Model.Title</span>
+                    <span class="caption-subject font-green-sharp bold uppercase">资源详情 - @Model.TitleProper</span>
                 </div>
                 <div class="actions">
                     @if (user.Authority == 2)
@@ -375,10 +375,22 @@
                                 <label class="control-label col-md-3">@(Model.Audit)</label>
                             </div>
                         </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-1" style="width: 200px">审核时间:</label>
+                        <div class="">
+                            <label class="control-label col-md-3">@(Model.AuditTime)</label>
+                        </div>
+                    </div>
                         <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">审核时间:</label>
+                            <label class="control-label col-md-1" style="width:200px">管理机构:</label>
                             <div class="">
-                                <label class="control-label col-md-3">@(Model.AuditTime)</label>
+                                <label class="control-label col-md-3">@(Model.Organization)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-1" style="width:200px">备注:</label>
+                            <div class="">
+                                <label class="control-label col-md-3">@(Model.Note)</label>
                             </div>
                         </div>
                         @if (Model.IsShow == 1 && Model.Release != null)
@@ -411,18 +423,7 @@
                                 </div>
                             </div>
                         }
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">管理机构:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Organization)</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-1" style="width:200px">备注:</label>
-                            <div class="">
-                                <label class="control-label col-md-3">@(Model.Remarks)</label>
-                            </div>
-                        </div>
+                       
                         <div class="form-group">
                             <label class="control-label col-md-1" style="width: 200px">URL地址:</label>
                             <div class="">
