@@ -58,30 +58,36 @@
             </div>
             <img src="~/img/002.png" width="1003" />
             <div class="abouttext">
-                <p><strong><span ng-bind="videoinfo.Title" style="font-size:x-large"></span></strong></p>
+                <p><strong><span ng-bind="videoinfo.TitleProper" style="font-size:x-large;color:#6b0101;"></span></strong></p>
                 <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
                 <p>
                     <span>
-                        著录者：<span ng-bind="videoinfo.Description" style="color: black; margin-right: 50px"></span>
-                        著录时间：<span ng-bind="videoinfo.DescriptionTime" style="color: black; margin-right: 50px"></span>
+                        @*著录者：<span ng-bind="videoinfo.Description" style="color: black; margin-right: 50px"></span>*@
+                       <span style="margin-left:70%">著录时间：</span> <span ng-bind="videoinfo.ReleaseDateTime" style="color: black; margin-right: 50px"></span>
                     </span>
                 </p>
                 <div class="text">
-                    <p>
-                        项目类别：<span ng-bind="videoinfo.FirstLevel" style="color: black; margin-right: 50px"></span>
-                        民族：<span ng-bind="videoinfo.Nation" style="color:black;margin-right:50px"></span>
-                        传承人：<span ng-bind="videoinfo.Successor" style="color:black;"></span>
+                    <p style="color: #6b0101;">
+                        项目类别：<span ng-bind="videoinfo.FirstLevelOfArtClassification" style="color:#0055cb;"></span>-
+                        <span ng-bind="videoinfo.SecondLevelOfArtClassification" style="color: #0055cb; "></span>-
+                        <span ng-bind="videoinfo.ThirdLevelOfArtClassification" style="color: #0055cb; margin-right: 50px"></span>
+                     
                     </p>
-                    <p>
-                        省/直辖市：<span ng-bind="videoinfo.Municipalities" style="color: black; margin-right: 50px"></span>
-                        市/地区：<span ng-bind="videoinfo.Region" style="color: black; margin-right: 50px"></span>
-                        县/县级市：<span ng-bind="videoinfo.CountyLevelCity" style="color: black; margin-right: 50px"></span>
-                        乡/镇：<span ng-bind="videoinfo.Township" style="color:black;"></span>
+                    <p style="color: #6b0101;">
+                        艺术流派：<span ng-bind="videoinfo.ArtSchool" style="color: #0055cb; margin-right: 50px"></span>
+                        民族：<span ng-bind="videoinfo.SecondLevelOfEthnicGroup" style="color: #0055cb; margin-right: 50px"></span>
+                        相关人物：<span ng-bind="videoinfo.Name" style="color: #0055cb;"></span>
                     </p>
-                    <p>
-                        源资料格式：<span ng-bind="videoinfo.DataFormat" style="color: black; margin-right: 50px"></span>
-                        源资料提供者：<span ng-bind="videoinfo.DataProvider" style="color: black; margin-right: 50px"></span>
-                        时长：<span ng-bind="videoinfo.Duration" style="color:black;"></span>
+                    <p style="color: #6b0101;">
+                        省/直辖市：<span ng-bind="videoinfo.Province" style="color: #0055cb; margin-right: 50px"></span>
+                        市/地区：<span ng-bind="videoinfo.City" style="color: #0055cb; margin-right: 50px"></span>
+                        县/县级市：<span ng-bind="videoinfo.County" style="color: #0055cb; margin-right: 50px"></span>
+                        乡/镇：<span ng-bind="videoinfo.Town" style="color: #0055cb;"></span>
+                    </p>
+                    <p style="color: #6b0101;" >
+                        源资料格式：<span ng-bind="videoinfo.ReferencesFormat" style="color: #0055cb; margin-right: 50px"></span>
+                        源资料提供者：<span ng-bind="videoinfo.ProviderOfReferences" style="color: #0055cb; margin-right: 50px"></span>
+                        时长：<span ng-bind="videoinfo.Duration" style="color: #0055cb;"></span>
                     </p>
 
                     <center>
@@ -99,7 +105,7 @@
                         </div>
                         <div ng-show="videoinfo.HeritageType==2">
                             <h2>图片</h2>
-                            <img src="~/Uploads/pic/{{videoinfo.FileName}}" style="width:100%" />
+                            <img src="{{videoinfo.FileName}}" style="width:100%" />
                         </div>
                     </center>
 

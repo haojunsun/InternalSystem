@@ -129,8 +129,8 @@
                     <img src="~/img/001.png" width="500" />
                     <ul class="news_list_c" style="height:162px">
                         <li ng-repeat="item in mainVideoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
-                            <span ng-bind="item.DescriptionTime" style="color: black; float: right; "></span>
-                            <a href="javascript:void(0)" title="{{item.Title}}"><span ng-bind="item.Title" style="float:left;font-size:larger;color:black"></span></a>
+                            <span ng-bind="item.ReleaseDateTime" style="color: black; float: right; "></span>
+                            <a href="javascript:void(0)" title="{{item.TitleProper}}"><span ng-bind="item.TitleProper" style="float:left;font-size:initial;color:black"></span></a>
                         </li>
 
                     </ul>
