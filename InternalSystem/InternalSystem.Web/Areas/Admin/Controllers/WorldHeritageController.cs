@@ -108,73 +108,141 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(WorldHeritage wh)
         {
-            //var old = _worldHeritageService.Get(wh.WorldHeritageId);
-            //old.Title = wh.Title;
-            //old.InventoryId = wh.InventoryId;
-            //old.TitleProper = wh.TitleProper;
-            //old.Title = wh.Title;
-            //old.FirstLevel = wh.FirstLevel;
-            //old.SecondLevel = wh.SecondLevel;
-            //old.ProjectCode = wh.ProjectCode;
-            //old.SubItemNumber = wh.SubItemNumber;
-            //old.Batch = wh.Batch;
-            //old.Notes = wh.Notes;
-            //old.ApplicationTime = wh.ApplicationTime;
-            //old.Nation = wh.Nation;
-            //old.NationalBranch = wh.NationalBranch;
-            //old.Gender = wh.Gender;
-            //old.Birth = wh.Birth;
-            //old.Education = wh.Education;
-            //old.Occupation = wh.Occupation;
-            //old.Successor = wh.Successor;
-            //old.Genre = wh.Genre;
-            //old.Municipalities = wh.Municipalities;
-            //old.Region = wh.Region;
-            //old.CountyLevelCity = wh.CountyLevelCity;
-            //old.Township = wh.Township;
-            //old.Village = wh.Village;
-            //old.DeclarationArea = wh.DeclarationArea;
-            //old.ProtectionUnit = wh.ProtectionUnit;
-            //old.EcologicalZoneProject = wh.EcologicalZoneProject;
-            //old.ProductiveProtectionBase = wh.ProductiveProtectionBase;
-            //old.ProvinceCode = wh.ProvinceCode;
-            //old.PostTime = wh.PostTime;
-            //old.Death = wh.Death;
-            //old.Adopt = wh.Adopt;
-            //old.Language = wh.Language;
-            //old.CreatorName = wh.CreatorName;
-            //old.ResponsibilityCreator = wh.ResponsibilityCreator;
-            //old.DataFormat = wh.DataFormat;
-            //old.DataProvider = wh.DataProvider;
-            //old.CollectionUnit = wh.CollectionUnit;
-            //old.DigitalFormat = wh.DigitalFormat;
-            //old.Size = wh.Size;
-            //old.Duration = wh.Duration;
-            //old.ResolvingPower = wh.ResolvingPower;
-            //old.KBps = wh.KBps;
-            //old.SamplingFrequency = wh.SamplingFrequency;
-            //old.Channels = wh.Channels;
-            //old.StoragePlace = wh.StoragePlace;
-            //old.DisplayLevel = wh.DisplayLevel;
-            //old.Description = wh.Description;
-            //old.DescriptionTime = wh.DescriptionTime;
-            //old.Organization = wh.Organization;
-            //old.Remarks = wh.Remarks;
+            var old = _worldHeritageService.Get(wh.WorldHeritageId);
+            old.InventoryId = wh.InventoryId;
+            old.TitleProper = wh.TitleProper;
+            old.ArtificialId = wh.ArtificialId;
+            old.TitleProper = wh.TitleProper;
 
+            old.OtherTitle = wh.OtherTitle;
+            old.FirstLevelOfArtClassification = wh.FirstLevelOfArtClassification;
+            old.SecondLevelOfArtClassification = wh.SecondLevelOfArtClassification;
 
-            //if (!string.IsNullOrEmpty(wh.Content))
-            //    old.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+            old.ThirdLevelOfArtClassification = wh.ThirdLevelOfArtClassification;
+            old.FirstLevelOfEthnicGroup = wh.FirstLevelOfEthnicGroup;
+            old.SecondLevelOfEthnicGroup = wh.SecondLevelOfEthnicGroup;
 
-            //if (Request.Files.Count > 0)
-            //{
-            //    old.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
+            old.Subgroup = wh.Subgroup;
+            old.FirstLevelOfSocialAttributes = wh.FirstLevelOfSocialAttributes;
+            old.SecondLevelOfSocialAttributes = wh.SecondLevelOfSocialAttributes;
 
-            //    //old.HeritageType = 2;
-            //}
+            old.TimesProperty = wh.TimesProperty;
+            old.FirstLevelOfElements = wh.FirstLevelOfElements;
+            old.SecondLevelOfElements = wh.SecondLevelOfElements;
 
-            //_worldHeritageService.Update(old);
-            //return Content("<script>alert('编辑内容成功');window.location.href='" + Url.Action("My") + "';</script>");
-            return View();
+            old.ThirdLevelOfElements = wh.ThirdLevelOfElements;
+            old.FirstLevelOfCharacter = wh.FirstLevelOfCharacter;
+            old.SecondLevelOfCharacter = wh.SecondLevelOfCharacter;
+
+            old.ArtSchool = wh.ArtSchool;
+            old.PerformingForm = wh.PerformingForm;
+            old.Structure = wh.Structure;
+
+            old.SongPattern = wh.SongPattern;
+            old.BeatsPattern = wh.BeatsPattern;
+            old.MusicModeName = wh.MusicModeName;
+
+            old.GongCheModeName = wh.GongCheModeName;
+            old.NumberedMusicalNotationModeName = wh.NumberedMusicalNotationModeName;
+            old.JiuGongDaChengModeName = wh.JiuGongDaChengModeName;
+
+            old.FirstLevelOfSubjectClassification = wh.FirstLevelOfSubjectClassification;
+            old.SecondLevelOfResourcesClassification = wh.SecondLevelOfResourcesClassification;
+            old.ThirdLevelOfResourcesClassification = wh.ThirdLevelOfResourcesClassification;
+
+            old.Keywords = wh.Keywords;
+            old.Abstract = wh.Abstract;
+            old.NameOfAwards = wh.NameOfAwards;
+
+            old.YearOrTimeOfAwards = wh.YearOrTimeOfAwards;
+            old.Awarder = wh.Awarder;
+            old.Type = wh.Type;
+
+            old.Name = wh.Name;
+            old.Role = wh.Role;
+            old.NationalityOfRelatedPeople = wh.NationalityOfRelatedPeople;
+
+            old.BirthplaceOfRelatedPeople = wh.BirthplaceOfRelatedPeople;
+            old.GenderOfRelatedPeople = wh.GenderOfRelatedPeople;
+            old.AgeOfRelatedPeople = wh.AgeOfRelatedPeople;
+
+            old.EducationLevelOfRelatedPeople = wh.EducationLevelOfRelatedPeople;
+            old.VocationOfRelatedPeople = wh.VocationOfRelatedPeople;
+            old.TemporalType = wh.TemporalType;
+
+            old.FromHistoricalCalendar = wh.FromHistoricalCalendar;
+            old.ToHistoricalCalendar = wh.ToHistoricalCalendar;
+            old.FromADCalendar = wh.FromADCalendar;
+
+            old.ToADCalendar = wh.ToADCalendar;
+            old.SpatialType = wh.SpatialType;
+            old.HistoricalPlaceName = wh.HistoricalPlaceName;
+
+            old.PresentPlaceName = wh.PresentPlaceName;
+            old.OtherPlaceName = wh.OtherPlaceName;
+            old.Province = wh.Province;
+
+            old.City = wh.City;
+            old.County = wh.County;
+            old.Town = wh.Town;
+
+            old.Village = wh.Village;
+            old.Venues = wh.Venues;
+            old.LongitudeLatitude = wh.LongitudeLatitude;
+
+            old.Language = wh.Language;
+            old.HasPart = wh.HasPart;
+            old.IsPartOf = wh.IsPartOf;
+
+            old.Refer = wh.Refer;
+            old.HasFormat = wh.HasFormat;
+
+            old.NameReferences = wh.NameReferences;
+            old.NameofReferencesCreator = wh.NameofReferencesCreator;
+            old.RoleofReferencesCreator = wh.RoleofReferencesCreator;
+
+            old.ISBNISRC = wh.ISBNISRC;
+            old.ReferencesFormat = wh.ReferencesFormat;
+            old.AcquisitionMethod = wh.AcquisitionMethod;
+
+            old.ProviderOfReferences = wh.ProviderOfReferences;
+            old.RepositoryName = wh.RepositoryName;
+            old.Publisher = wh.Publisher;
+
+            old.PublicationDate = wh.PublicationDate;
+            old.PlaceOfPublication = wh.PlaceOfPublication;
+            old.DigitalObjectFormat = wh.DigitalObjectFormat;
+
+            old.Size = wh.Size;
+            old.Duration = wh.Duration;
+            old.DigitalSpecification = wh.DigitalSpecification;
+
+            old.AudioVideoBitRate = wh.AudioVideoBitRate;
+            old.AudioSamplingFrequency = wh.AudioSamplingFrequency;
+            old.NumberOfChannels = wh.NumberOfChannels;
+
+            old.FilePath = wh.FilePath;
+            old.DisplayType = wh.DisplayType;
+            old.CDNumber = wh.CDNumber;
+
+            old.Holder = wh.Holder;
+            old.RightsDate = wh.RightsDate;
+            old.Licens = wh.Licens;
+
+            old.Note = wh.Note;
+
+            if (!string.IsNullOrEmpty(wh.Content))
+                old.Content = wh.Content.Replace(" ", "&nbsp").Replace("\r\n", "<br />");
+
+            if (Request.Files.Count > 0)
+            {
+                old.FileName = _helperServices.UpLoadImg("file", ""); //获取上传图片 
+
+                //old.HeritageType = 2;
+            }
+
+            _worldHeritageService.Update(old);
+            return Content("<script>alert('编辑内容成功');window.location.href='" + Url.Action("My") + "';</script>");
         }
 
         public ActionResult HasCode(string code)
