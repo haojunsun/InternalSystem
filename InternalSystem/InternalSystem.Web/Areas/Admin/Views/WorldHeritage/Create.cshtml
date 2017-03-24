@@ -145,10 +145,7 @@
                 swfu.startUpload();
             }
         }
-
-
     </script>
-
 </head>
 <body>
     <div class="page-header">
@@ -285,243 +282,522 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">文件名：</label>
+                                <label class="col-md-3 control-label">正题名：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.TitleProper, new { @class = "form-control", placeholder = "文件名" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">项目申请时间：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ApplicationTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">项目名称：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "项目名称" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">一级类别：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.FirstLevel, new { @class = "form-control", placeholder = "一级类别" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">二级类别：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.SecondLevel, new { @class = "form-control", placeholder = "二级类别" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">项目编码：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", placeholder = "项目编码" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">子项序号：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.SubItemNumber, new { @class = "form-control", placeholder = "子项序号" })
+                                    @Html.TextBoxFor(m => m.TitleProper, new { @class = "form-control", placeholder = "正题名" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">批次：</label>
+                                <label class="col-md-3 control-label">其他题名：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Batch, new { @class = "form-control", placeholder = "批次" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">民族：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Nation, new { @class = "form-control", placeholder = "民族" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">民族支系：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.NationalBranch, new { @class = "form-control", placeholder = "民族支系" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">性别：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Gender, new { @class = "form-control", placeholder = "性别" })
+                                    @Html.TextBoxFor(m => m.OtherTitle, new { @class = "form-control", placeholder = "其他题名" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">出生日期：</label>
+                                <label class="col-md-3 control-label">艺术门类 一级分类：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Birth, new { @class = "form-control", placeholder = "格式：2016/01/01" })
+                                    @Html.TextBoxFor(m => m.FirstLevelOfArtClassification, new { @class = "form-control", placeholder = "艺术门类 一级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">艺术门类 二级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.SecondLevelOfArtClassification, new { @class = "form-control", placeholder = "艺术门类 二级分类" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">文化程度：</label>
+                                <label class="col-md-3 control-label">艺术门类 三级分类：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Education, new { @class = "form-control", placeholder = "文化程度" })
+                                    @Html.TextBoxFor(m => m.ThirdLevelOfArtClassification, new { @class = "form-control", placeholder = "艺术门类 三级分类" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">职业：</label>
+                                <label class="col-md-3 control-label">民族属性 一级分类：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Occupation, new { @class = "form-control", placeholder = "职业" })
+                                    @Html.TextBoxFor(m => m.FirstLevelOfEthnicGroup, new { @class = "form-control", placeholder = "民族属性 一级分类" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">传承人：</label>
+                                <label class="col-md-3 control-label"> 民族属性 二级分类：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Successor, new { @class = "form-control", placeholder = "传承人" })
+                                    @Html.TextBoxFor(m => m.SecondLevelOfEthnicGroup, new { @class = "form-control", placeholder = " 民族属性 二级分类" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">民族属性 三级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Subgroup, new { @class = "form-control", placeholder = "民族属性 三级分类" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">社会属性 一级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FirstLevelOfSocialAttributes, new { @class = "form-control", placeholder = "社会属性 一级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">社会属性 二级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.SecondLevelOfSocialAttributes, new { @class = "form-control", placeholder = "社会属性 二级分类" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">艺术形态 时代属性：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.TimesProperty, new { @class = "form-control", placeholder = "艺术形态 时代属性" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">艺术形态  组成要素 一级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FirstLevelOfElements, new { @class = "form-control", placeholder = "艺术形态  组成要素 一级分类" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">艺术形态 组成要素 二级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.SecondLevelOfElements, new { @class = "form-control", placeholder = "艺术形态 组成要素 二级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">艺术形态 组成要素 三级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ThirdLevelOfElements, new { @class = "form-control", placeholder = "艺术形态 组成要素 三级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">脚色行当 一级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FirstLevelOfCharacter, new { @class = "form-control", placeholder = "脚色行当 一级分类" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">脚色行当 二级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.SecondLevelOfCharacter, new { @class = "form-control", placeholder = "脚色行当 二级分类" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">艺术形态 艺术流派：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ArtSchool, new { @class = "form-control", placeholder = "艺术形态 艺术流派" })
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label">类型：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Genre, new { @class = "form-control", placeholder = "类型" })
+                                    @Html.TextBoxFor(m => m.PerformingForm, new { @class = "form-control", placeholder = "艺术形态 表演形式" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">直辖市：</label>
+                                <label class="col-md-3 control-label">艺术形态 结构体式：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Municipalities, new { @class = "form-control", placeholder = "直辖市" })
+                                    @Html.TextBoxFor(m => m.Structure, new { @class = "form-control", placeholder = "艺术形态 结构体式" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">地区：</label>
+                                <label class="col-md-3 control-label">曲牌板式 曲牌名：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Region, new { @class = "form-control", placeholder = "地区" })
+                                    @Html.TextBoxFor(m => m.SongPattern, new { @class = "form-control", placeholder = "曲牌板式 曲牌名" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">县级市：</label>
+                                <label class="col-md-3 control-label">曲牌板式 板式：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.CountyLevelCity, new { @class = "form-control", placeholder = "县级市" })
+                                    @Html.TextBoxFor(m => m.BeatsPattern, new { @class = "form-control", placeholder = "曲牌板式 板式" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">县级市：</label>
+                                <label class="col-md-3 control-label">律吕宫调 民间调式：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.CountyLevelCity, new { @class = "form-control", placeholder = "县级市" })
+                                    @Html.TextBoxFor(m => m.MusicModeName, new { @class = "form-control", placeholder = "律吕宫调 民间调式" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">乡镇：</label>
+                                <label class="col-md-3 control-label">律吕宫调 工尺谱系：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Township, new { @class = "form-control", placeholder = "乡镇" })
+                                    @Html.TextBoxFor(m => m.GongCheModeName, new { @class = "form-control", placeholder = "律吕宫调 工尺谱系" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label"> 村落：</label>
+                                <label class="col-md-3 control-label"> 律吕宫调 简谱系统：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Village, new { @class = "form-control", placeholder = " 村落" })
+                                    @Html.TextBoxFor(m => m.NumberedMusicalNotationModeName, new { @class = "form-control", placeholder = " 律吕宫调 简谱系统" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">律吕宫调 《九宫大成》系统：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.JiuGongDaChengModeName, new { @class = "form-control", placeholder = "律吕宫调 《九宫大成》系统" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">资源属性 一级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FirstLevelOfSubjectClassification, new { @class = "form-control", placeholder = "资源属性 一级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">资源属性 二级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.SecondLevelOfResourcesClassification, new { @class = "form-control", placeholder = "资源属性 二级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">资源属性 三级分类：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ThirdLevelOfResourcesClassification, new { @class = "form-control", placeholder = "资源属性 三级分类" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">资源属性 关键词：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Keywords, new { @class = "form-control", placeholder = "关键词" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">描述 摘要：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Abstract, new { @class = "form-control", placeholder = "描述 摘要" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">描述 获奖 奖项名称：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.NameOfAwards, new { @class = "form-control", placeholder = "描述 获奖 奖项名称" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">描述 获奖 获奖年度或届次：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.YearOrTimeOfAwards, new { @class = "form-control", placeholder = "描述 获奖 获奖年度或届次" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">描述 获奖 颁奖单位：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Awarder, new { @class = "form-control", placeholder = "描述 获奖 颁奖单位" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">类型：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Type, new { @class = "form-control", placeholder = "类型" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">相关人物/组织 人物/组织名称：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "相关人物/组织 人物/组织名称" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">责任方式：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = "责任方式" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">民族：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.NationalityOfRelatedPeople, new { @class = "form-control", placeholder = "民族" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">籍贯：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.BirthplaceOfRelatedPeople, new { @class = "form-control", placeholder = "籍贯" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">性别：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.GenderOfRelatedPeople, new { @class = "form-control", placeholder = "性别" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">年龄：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.AgeOfRelatedPeople, new { @class = "form-control", placeholder = "年龄" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">文化程度：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.EducationLevelOfRelatedPeople, new { @class = "form-control", placeholder = "文化程度" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">职业/职称：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.VocationOfRelatedPeople, new { @class = "form-control", placeholder = "职业/职称" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">时间类型：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.TemporalType, new { @class = "form-control", placeholder = "时间类型" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">历史纪年 起始时间：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FromHistoricalCalendar, new { @class = "form-control", placeholder = "历史纪年 起始时间" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">历史纪年 结束时间：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ToHistoricalCalendar, new { @class = "form-control", placeholder = "历史纪年 结束时间" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">公元纪年 起始时间：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FromADCalendar, new { @class = "form-control", placeholder = "公元纪年 起始时间" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">公元纪年 结束时间：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ToADCalendar, new { @class = "form-control", placeholder = "公元纪年 结束时间" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">空间类型：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.SpatialType, new { @class = "form-control", placeholder = "空间类型" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">地域/地点名称 时地名：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.HistoricalPlaceName, new { @class = "form-control", placeholder = "地域/地点名称 时地名" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">地域/地点名称 今地名：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.PresentPlaceName, new { @class = "form-control", placeholder = "地域/地点名称 今地名" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">地域/地点名称 其他地名：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.OtherPlaceName, new { @class = "form-control", placeholder = "地域/地点名称 其他地名" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">申报地区：</label>
+                                <label class="col-md-3 control-label">省：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.DeclarationArea, new { @class = "form-control", placeholder = "申报地区" })
+                                    @Html.TextBoxFor(m => m.Province, new { @class = "form-control", placeholder = "省" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">保护单位：</label>
+                                <label class="col-md-3 control-label">市：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ProtectionUnit, new { @class = "form-control", placeholder = "保护单位" })
+                                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "市" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">生态区项目：</label>
+                                <label class="col-md-3 control-label">县：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.EcologicalZoneProject, new { @class = "form-control", placeholder = "生态区项目" })
+                                    @Html.TextBoxFor(m => m.County, new { @class = "form-control", placeholder = "县" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">生产性保护基地：</label>
+                                <label class="col-md-3 control-label">镇：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ProductiveProtectionBase, new { @class = "form-control", placeholder = "生产性保护基地" })
+                                    @Html.TextBoxFor(m => m.Town, new { @class = "form-control", placeholder = "镇" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">省区代码：</label>
+                                <label class="col-md-3 control-label">村：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ProvinceCode, new { @class = "form-control", placeholder = "省区代码" })
+                                    @Html.TextBoxFor(m => m.Village, new { @class = "form-control", placeholder = "村" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">申请时间：</label>
+                                <label class="col-md-3 control-label">场地：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.PostTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
+                                    @Html.TextBoxFor(m => m.Venues, new { @class = "form-control", placeholder = "场地" })
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-md-3 control-label">去世：</label>
+                                <label class="col-md-3 control-label">经纬度：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Death, new { @class = "form-control", placeholder = "去世" })
+                                    @Html.TextBoxFor(m => m.LongitudeLatitude, new { @class = "form-control", placeholder = "经纬度" })
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">通过：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Adopt, new { @class = "form-control", placeholder = "通过" })
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="col-md-3 control-label">语言：</label>
                                 <div class="col-md-4">
                                     @Html.TextBoxFor(m => m.Language, new { @class = "form-control", placeholder = "语言" })
                                 </div>
                             </div>
+
+
                             <div class="form-group">
-                                <label class="col-md-3 control-label">创建者名称：</label>
+                                <label class="col-md-3 control-label">关联 包含：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.CreatorName, new { @class = "form-control", placeholder = "创建者名称" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">创建者责任方式：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ResponsibilityCreator, new { @class = "form-control", placeholder = "创建者责任方式" })
+                                    @Html.TextBoxFor(m => m.HasPart, new { @class = "form-control", placeholder = "关联 包含" })
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 关联 包含于：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.IsPartOf, new { @class = "form-control", placeholder = " 关联 包含于" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 关联 参照：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Refer, new { @class = "form-control", placeholder = " 关联 参照" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 关联 有格式为：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.HasFormat, new { @class = "form-control", placeholder = " 关联 有格式为" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 来源 出处/源资料名称：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.NameReferences, new { @class = "form-control", placeholder = " 来源 出处/源资料名称" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 源资料创建者 责任方式：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.NameofReferencesCreator, new { @class = "form-control", placeholder = " 源资料创建者 责任方式" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 国际标准书号/国际标准音像制品编：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.RoleofReferencesCreator, new { @class = "form-control", placeholder = " 国际标准书号/国际标准音像制品编" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> 国际标准书号/国际标准音像制品编：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ISBNISRC, new { @class = "form-control", placeholder = " 国际标准书号/国际标准音像制品编" })
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label">资料格式类型：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.DataFormat, new { @class = "form-control", placeholder = "资料格式类型" })
+                                    @Html.TextBoxFor(m => m.ReferencesFormat, new { @class = "form-control", placeholder = "资料格式类型" })
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">资料提供者：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.DataProvider, new { @class = "form-control", placeholder = "资料提供者" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">资料典藏单位：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.CollectionUnit, new { @class = "form-control", placeholder = "资料典藏单位" })
-                                </div>
-                            </div>
-
-
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">数字化格式：</label>
+                                <label class="col-md-3 control-label">获取方式：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.DigitalFormat, new { @class = "form-control", placeholder = "数字化格式" })
+                                    @Html.TextBoxFor(m => m.AcquisitionMethod, new { @class = "form-control", placeholder = "获取方式" })
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">源资料提供者：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.ProviderOfReferences, new { @class = "form-control", placeholder = "源资料提供者" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">源资料典藏单位：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.RepositoryName, new { @class = "form-control", placeholder = "源资料典藏单位" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">出版 出版者：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Publisher, new { @class = "form-control", placeholder = "出版 出版者" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">出版 出版时间：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.PublicationDate, new { @class = "form-control", placeholder = "出版 出版时间" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">出版 出版地：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.PlaceOfPublication, new { @class = "form-control", placeholder = "出版 出版地" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">数字化信息  数字化格式：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.DigitalObjectFormat, new { @class = "form-control", placeholder = "数字化信息  数字化格式" })
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label">大小：</label>
                                 <div class="col-md-4">
                                     @Html.TextBoxFor(m => m.Size, new { @class = "form-control", placeholder = "大小" })
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">时长：</label>
                                 <div class="col-md-4">
@@ -529,56 +805,96 @@
                                 </div>
                             </div>
 
+                         
                             <div class="form-group">
-                                <label class="col-md-3 control-label">分辨率：</label>
+                                <label class="col-md-3 control-label">分辨率（解析度）：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.ResolvingPower, new { @class = "form-control", placeholder = "分辨率" })
+                                    @Html.TextBoxFor(m => m.DigitalSpecification, new { @class = "form-control", placeholder = "分辨率（解析度）" })
                                 </div>
                             </div>
+                         
                             <div class="form-group">
-                                <label class="col-md-3 control-label">视频码率：</label>
+                                <label class="col-md-3 control-label">音/视频数据码率：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.KBps, new { @class = "form-control", placeholder = "视频码率" })
+                                    @Html.TextBoxFor(m => m.AudioVideoBitRate, new { @class = "form-control", placeholder = "音/视频数据码率" })
                                 </div>
                             </div>
+                         
                             <div class="form-group">
-                                <label class="col-md-3 control-label">采样频率：</label>
+                                <label class="col-md-3 control-label">音频采样频率：</label>
                                 <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.SamplingFrequency, new { @class = "form-control", placeholder = "采样频率" })
+                                    @Html.TextBoxFor(m => m.AudioSamplingFrequency, new { @class = "form-control", placeholder = "音频采样频率" })
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">声道数：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.NumberOfChannels, new { @class = "form-control", placeholder = "声道数" })
+                                </div>
+                            </div>
+                         
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">储存地址：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.FilePath, new { @class = "form-control", placeholder = "储存地址" })
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">显示级别：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.DisplayType, new { @class = "form-control", placeholder = "显示级别" })
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">备份光盘存放编号：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.CDNumber, new { @class = "form-control", placeholder = "备份光盘存放编号" })
+                                </div>
+                            </div>
+                         
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">授权者：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Holder, new { @class = "form-control", placeholder = "授权者" })
+                                </div>
+                            </div>
+                         
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">授权起止时间：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.RightsDate, new { @class = "form-control", placeholder = "授权起止时间" })
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">授权条款：</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.Licens, new { @class = "form-control", placeholder = "授权条款" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">声道数：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Channels, new { @class = "form-control", placeholder = "声道数" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">存储地：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.StoragePlace, new { @class = "form-control", placeholder = "存储地" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">显示级别：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.DisplayLevel, new { @class = "form-control", placeholder = "显示级别" })
+                                <label class="col-md-3 control-label">备注：</label>
+                                <div class="col-md-6">
+                                    @Html.TextAreaFor(m => m.Note, new { @class = "form-control", placeholder = " 备注", rows = "10" })
                                 </div>
                             </div>
 
                             @*<div class="form-group">
-                                <label class="col-md-3 control-label">著录者：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "著录者" })
+                                    <label class="col-md-3 control-label">著录者：</label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "著录者" })
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">著录时间：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.DescriptionTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
-                                </div>
-                            </div>*@
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">著录时间：</label>
+                                    <div class="col-md-4">
+                                        @Html.TextBoxFor(m => m.DescriptionTime, new { @class = "form-control", placeholder = "格式：2016/01/01" })
+                                    </div>
+                                </div>*@
                             @*<div class="form-group">
                                     <label class="col-md-3 control-label"> 审核者：</label>
                                     <div class="col-md-4">
@@ -591,19 +907,7 @@
                                         @Html.TextBoxFor(m => m.AuditTime, new { @class = "form-control", placeholder = " 审核时间" })
                                     </div>
                                 </div>*@
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> 管理机构：</label>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.Organization, new { @class = "form-control", placeholder = " 管理机构" })
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> 备注：</label>
-                                <div class="col-md-6">
-                                    @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control", placeholder = " 备注", rows = "10" })
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label"> 资源类型：</label>
@@ -647,7 +951,7 @@
                                         <input type="button" name="name" value="开始上传" onclick="clickSubmit()" />
                                     </div>
                                 </div>
-                                <div id="progressdiv" style="display: none; left: 300px" >
+                                <div id="progressdiv" style="display: none; left: 300px">
                                     <span>上传进度条：</span><div id="p" class="easyui-progressbar" style="width:400px"></div>
                                 </div>
                             </div>
