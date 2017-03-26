@@ -93,7 +93,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         {
                             wh1.ArtificialId = dt.Rows[i][j].ToString();
                             wh1.RelatedPeople_ArtificialID = dt.Rows[i][j].ToString();
-                            wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][j].ToString() + ".mp4";
+                            //wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][j].ToString() + ".mp4";
                         }
                         if (j == 2)//正题名
                             wh1.TitleProper = dt.Rows[i][j].ToString();
@@ -260,7 +260,10 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 76)//出版地
                             wh1.PlaceOfPublication = dt.Rows[i][j].ToString();
                         if (j == 77)//数字化格式
+                        {
                             wh1.DigitalObjectFormat = dt.Rows[i][j].ToString();
+                            wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][1].ToString() + "." + dt.Rows[i][j].ToString();
+                        }
                         if (j == 78)//大小
                             wh1.Size = dt.Rows[i][j].ToString();
                         if (j == 79)//时长

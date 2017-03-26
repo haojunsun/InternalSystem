@@ -150,18 +150,18 @@ namespace InternalSystem.Core.Services
                 }
                 else
                 {
-                    list = (from p in _appDbContext.WorldHeritages 
-                            where p.IsEffect == 1 && p.IsShow == 1 
-                        orderby p.CreatedUtc descending
-                        select p);
+                    list = (from p in _appDbContext.WorldHeritages
+                            where p.IsEffect == 1 && p.IsShow == 1
+                            orderby p.CreatedUtc descending
+                            select p);
 
                     if (!string.IsNullOrEmpty(key))
                     {
                         //正题名 社会属性一级分类 组成要素一级分类 艺术流派 表演形式 曲牌名 板式 关键字 类型 人物/组织名称
-                        list = list.Where(p=>(p.TitleProper.Contains(key) || p.FirstLevelOfSocialAttributes.Contains(key) ||
-                                       p.FirstLevelOfElements.Contains(key) ||  p.ArtSchool.Contains(key) ||
-                                       p.PerformingForm.Contains(key) || p.SongPattern.Contains(key) ||p.BeatsPattern.Contains(key) ||
-                                       p.Name.Contains(key) || p.Keywords.Contains(key) ||  p.Type.Contains(key)));
+                        list = list.Where(p => (p.TitleProper.Contains(key) || p.FirstLevelOfSocialAttributes.Contains(key) ||
+                                       p.FirstLevelOfElements.Contains(key) || p.ArtSchool.Contains(key) ||
+                                       p.PerformingForm.Contains(key) || p.SongPattern.Contains(key) || p.BeatsPattern.Contains(key) ||
+                                       p.Name.Contains(key) || p.Keywords.Contains(key) || p.Type.Contains(key)));
                     }
                     if (!string.IsNullOrEmpty(firstLevelOfArtClassification))
                     {
@@ -169,7 +169,12 @@ namespace InternalSystem.Core.Services
                     }
                     if (!string.IsNullOrEmpty(secondLevelOfEthnicGroup))
                     {
-                        list = list.Where(p => p.SecondLevelOfEthnicGroup.Contains(secondLevelOfEthnicGroup));
+                        if (secondLevelOfEthnicGroup == "少数民族")
+                        {
+                            list = list.Where(p => p.FirstLevelOfEthnicGroup.Contains(secondLevelOfEthnicGroup));
+                        }
+                        else
+                            list = list.Where(p => p.SecondLevelOfEthnicGroup.Contains(secondLevelOfEthnicGroup));
                     }
                     if (!string.IsNullOrEmpty(type))
                     {
