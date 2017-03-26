@@ -69,7 +69,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                 DataTable dt3 = new DataTable();
                 DataTable dt4 = new DataTable();
 
-                dt = ExcelToDataTable(path + "\\fyexcel\\" + file.Name, 0, 6, 98);
+                dt = ExcelToDataTable(path + "\\fyexcel\\" + file.Name, 0, 7, 98);
                 dt1 = ExcelToDataTable(path + "\\fyexcel\\" + file.Name, 1, 5, 10);
                 dt2 = ExcelToDataTable(path + "\\fyexcel\\" + file.Name, 2, 5, 6);
                 dt3 = ExcelToDataTable(path + "\\fyexcel\\" + file.Name, 3, 5, 12);
