@@ -159,7 +159,7 @@ namespace InternalSystem.Core.Services
                     {
                         //正题名 社会属性一级分类 组成要素一级分类 艺术流派 表演形式 曲牌名 板式 关键字 类型 人物/组织名称
                         list = list.Where(p => (p.TitleProper.Contains(key) || p.FirstLevelOfSocialAttributes.Contains(key) ||
-                                       p.FirstLevelOfElements.Contains(key) || p.ArtSchool.Contains(key) ||
+                                       p.FirstLevelOfElements.Contains(key) || p.SecondLevelOfEthnicGroup.Contains(key) || p.ArtSchool.Contains(key) ||
                                        p.PerformingForm.Contains(key) || p.SongPattern.Contains(key) || p.BeatsPattern.Contains(key) ||
                                        p.Name.Contains(key) || p.Keywords.Contains(key) || p.Type.Contains(key)));
                     }
