@@ -164,9 +164,9 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 35)//类型
                         {
                             wh1.Type = dt.Rows[i][j].ToString();
-                            if (dt.Rows[i][j].ToString().Contains("频"))
+                            if (dt.Rows[i][j].ToString().Contains("谱"))
                             {
-                                wh1.HeritageType = 0;
+                                wh1.HeritageType = 1;
                             }
                             else if (dt.Rows[i][j].ToString().Contains("图"))
                             {
@@ -174,7 +174,7 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                             }
                             else
                             {
-                                wh1.HeritageType = 1;
+                                wh1.HeritageType = 0;
                             }
                         }
                         if (j == 36)//人物组织名称
