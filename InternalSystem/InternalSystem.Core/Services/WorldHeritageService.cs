@@ -161,7 +161,7 @@ namespace InternalSystem.Core.Services
                         list = list.Where(p => (p.TitleProper.Contains(key) || p.FirstLevelOfSocialAttributes.Contains(key) ||
                                        p.FirstLevelOfElements.Contains(key) || p.SecondLevelOfEthnicGroup.Contains(key) || p.ArtSchool.Contains(key) ||
                                        p.PerformingForm.Contains(key) || p.SongPattern.Contains(key) || p.BeatsPattern.Contains(key) ||
-                                       p.Name.Contains(key) || p.Keywords.Contains(key) || p.Type.Contains(key)));
+                                       p.Name.Contains(key) || p.Keywords.Contains(key) || p.ReferencesFormat.Contains(key)));
                     }
                     if (!string.IsNullOrEmpty(firstLevelOfArtClassification))
                     {
@@ -178,7 +178,7 @@ namespace InternalSystem.Core.Services
                     }
                     if (!string.IsNullOrEmpty(type))
                     {
-                        list = list.Where(p => p.Type.Contains(type));
+                        list = list.Where(p => p.ReferencesFormat.Contains(type));
                     }
                 }
 

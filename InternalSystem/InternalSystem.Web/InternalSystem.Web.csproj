@@ -1154,7 +1154,13 @@
     <Content Include="img\14.png" />
     <Content Include="img\15.png" />
     <Content Include="img\16.png" />
+    <Content Include="img\audio.png" />
     <Content Include="img\backendbgimg.jpg" />
+    <Content Include="img\banner1.jpg" />
+    <Content Include="img\banner2.jpg" />
+    <Content Include="img\banner3.jpg" />
+    <Content Include="img\banner4.jpg" />
+    <Content Include="img\banner5.jpg" />
     <Content Include="img\bg_member.jpg" />
     <Content Include="img\bg_shoulei.jpg" />
     <Content Include="img\bg_xav.jpg" />
@@ -1166,6 +1172,7 @@
     <Content Include="img\bjc.png" />
     <Content Include="img\class1.png" />
     <Content Include="img\class2.png" />
+    <Content Include="img\document.png" />
     <Content Include="img\foot.png" />
     <Content Include="img\ic_l\ic_spr.png" />
     <Content Include="img\ic_l\txt_1.png" />
@@ -1190,14 +1197,25 @@
     <Content Include="img\ic_xl\txt_3.png" />
     <Content Include="img\ic_xl\txt_4.png" />
     <Content Include="img\ic_xl\txt_5.png" />
+    <Content Include="img\img1.jpg" />
+    <Content Include="img\img2.jpg" />
+    <Content Include="img\imgdetail.jpg" />
+    <Content Include="img\imgdetail1.jpg" />
     <Content Include="img\lj.png" />
     <Content Include="img\lj2.png" />
     <Content Include="img\logo-01.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\logo2.png" />
     <Content Include="img\nav-2.png" />
     <Content Include="img\nav.png" />
+    <Content Include="img\special1.png" />
+    <Content Include="img\text1.jpg" />
     <Content Include="img\top.png" />
     <Content Include="img\top1.png" />
+    <Content Include="img\video.png" />
+    <Content Include="img\video1.jpg" />
+    <Content Include="img\video2.jpg" />
+    <Content Include="img\video3.jpg" />
     <Content Include="Scripts\angular.bundled.min.js" />
     <Content Include="Scripts\angular.ui-sortable.js" />
     <Content Include="Scripts\angularui-sortable-bundle.js" />
@@ -1293,6 +1311,7 @@
     <Content Include="Content\_public.scss" />
     <Content Include="Log4net.config" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="css\style.less" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -1369,8 +1388,50 @@
     <Content Include="theme\Thumbs.db" />
     <Content Include="Views\Error\Main.cshtml" />
     <Content Include="Views\Home\GuidePage.cshtml" />
-    <Content Include="Uploads\fyexcel\11.xls" />
-    <Content Include="Uploads\fyexcel\22.xls" />
+    <Content Include="Views\Home\Category.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\ImgDetail.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\ImgList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\MusicDetail.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\MusicList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\TextDetail.cshtml" />
+    <Content Include="Views\Home\TextList.cshtml" />
+    <Content Include="Views\Home\VideoDetail.cshtml" />
+    <Content Include="Views\Home\VideoNList.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Uploads\fyexcel\云南花灯编目改二——20170417.xls" />
+    <Content Include="Uploads\fyexcel\樊祖荫改二——20170324.xls" />
+    <Content Include="Uploads\fyexcel\第一届南北民歌擂台赛决赛总表 改20170417.xls" />
+    <Content Include="Uploads\fyexcel\第一届民歌初赛总表 改20170417.xls" />
+    <Content Include="Uploads\fyexcel\第七届决赛 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第七届初赛复赛 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第三届决赛 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第三届南北民歌擂台赛初赛总表 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第三节器乐大赛 改.xls" />
+    <Content Include="Uploads\fyexcel\第二届决赛 改20170417.xls" />
+    <Content Include="Uploads\fyexcel\第二届南北民歌擂台赛初赛总表 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第二届民族乐器演奏比赛合表 改.xls" />
+    <Content Include="Uploads\fyexcel\第五届器乐大赛 改.xls" />
+    <Content Include="Uploads\fyexcel\第五届器乐大赛复赛决赛编目 改.xls" />
+    <Content Include="Uploads\fyexcel\第五届民歌决赛 改20170417.xls" />
+    <Content Include="Uploads\fyexcel\第五届民歌初赛总表 改20170417.xls" />
+    <Content Include="Uploads\fyexcel\第六届民歌决赛总表 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第六届民歌初赛总表 改 20170417.xls" />
+    <Content Include="Uploads\fyexcel\第四届器乐大赛 改.xls" />
+    <Content Include="Uploads\fyexcel\第四届民歌决赛 改20170417.xls" />
+    <Content Include="Uploads\fyexcel\第四届民歌初赛 改 20170417.xls" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
@@ -1378,6 +1439,8 @@
     <Folder Include="files\imgs\" />
     <Folder Include="Models\" />
     <Folder Include="Uploads\1\" />
+    <Folder Include="Uploads\importPic\" />
+    <Folder Include="Uploads\importVideo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -37,5 +37,56 @@ namespace InternalSystem.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Category()
+        {
+            return View();
+        }
+        public ActionResult ImgList()
+        {
+            return View();
+        }
+
+        public ActionResult ImgDetail()
+        {
+            return View();
+        }
+        public ActionResult MusicList()
+        {
+            return View();
+        }
+
+        public ActionResult MusicDetail()
+        {
+            return View();
+        }
+        public ActionResult TextList()
+        {
+            return View();
+        }
+
+        public ActionResult TextDetail()
+        {
+            return View();
+        }
+        public ActionResult VideoNList()
+        {
+            return View();
+        }
+
+        public ActionResult VideoDetail()
+        {
+            return View();
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
     }
 }

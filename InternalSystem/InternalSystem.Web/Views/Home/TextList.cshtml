@@ -1,0 +1,247 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文化资源归集系统</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    
+</head>
+<body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="TextListController">
+    <div class="header">
+        @*<div class="titleHeader">
+                <div>欢迎来到文化资源归集系统~</div>
+            </div>*@
+        <div class="searchTitle">
+            <div class="logoBox clearfix">
+                <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
+                <div class="search pull-right">
+                    <div class="searchTop clearfix">
+                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <a class="searchBtn pull-left" style="    width: 40px;height: 40px;background-color: #d0152f;display: block;text-align: center;line-height: 41px;cursor: pointer;">
+                            <span class="glyphicon glyphicon-zoom-in"></span>
+                        </a>
+                        <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
+                    </div>
+                    <div class="classify">
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent" checked="">图片
+                            </label>
+                        </span>
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent">视频
+                            </label>
+                        </span>
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent">文字
+                            </label>
+                        </span>
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent">音频
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="navigate clearfix">
+            <li>
+                <a href="">全部分类</a>
+                <ul>
+                    <li>
+                        <span>民族地方</span>
+                        》
+                        <div>
+                            <a href="#">自治区概况</a>
+                            <a href="#">自治州概况</a>
+                            <a href="#">自治县概况</a>
+                            <a href="#">民族乡概况</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>语言文字</span>
+                        》
+                        <div>
+                            <a href="#">民族语言文字知识</a>
+                            <a href="#">民族语言简志</a>
+                            <a href="#">民族语言文字概况</a>
+                            <a href="#">民族语文词书</a>
+                            <a href="#">民族语言人物</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
+            <li onclick="window.location='/home/textlist';" class="active"><a href="">文字</a></li>
+            <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
+            <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">影视</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音乐</a></li>
+            <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
+        </ul>
+    </div>
+    <div class="textListContent">
+        <div class="listHead">
+            <h3>文字</h3>
+            <div class="litleNav">
+                <a href="#">首页</a>
+                >
+                <a href="#">文字</a>
+            </div>
+        </div>
+
+    
+
+        <div class="listContent">
+            <div class="list">
+                <table width="100%" class="text-list">
+                    <thead>
+                        <tr class="tablehead">
+                            <th width="65%">文字名称</th>
+                            <th width="5%">作者</th>
+                            <th width="30%">发布时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*<tr>
+                            <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
+                            <td>网络</td>
+                            <td>2017-04-12 15:14:36</td>
+                        </tr>*@
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @*<div class="pageQuery">
+                <span class="glyphicon glyphicon-backward"></span>
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span>第1页共44页</span>
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="glyphicon glyphicon-forward"></span>
+                <span>页码</span>
+                <input type="text">
+                <i>GO</i>
+            </div>*@
+        <div id="pages" style="margin-left:350px"></div>
+    </div>
+    <div class="homeFooter">
+        <div class="footNav">
+            <ul class="text-center clearfix">
+                <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
+                <li><a href="">关于我们</a></li>
+                <li><a href="">网站声明</a></li>
+                <li><a href="">网站联盟</a></li>
+                <li><a href="">友情链接</a></li>
+            </ul>
+        </div>
+        <div class="text-center">版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</div>
+        <div class="text-center">地址：北京市朝阳区朝来高科技产业园6楼西侧3层</div>
+        <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
+    </div>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/pagination.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
+    <script>
+        var index;
+        $(function () {
+            $('.classtype').click(function () {
+                console.log(this);
+            })
+        });
+
+        //高级搜索
+        //var sensearch = function (ele) {
+        //    //收起
+        //    if ($('.seniorSearch2').css('height').split('px')[0] >= 210) {
+        //        ele.html('显示筛选 ∨');
+        //        var hei = $('.seniorSearch2').css('height').split('px')[0];
+        //        var hei2 = $('.selectNumberScreen').css('height').split('px')[0];
+        //        //高级搜索内容
+        //        var aa = setInterval(function () {
+        //            hei -= 15;
+        //            if (hei < 0) {
+        //                $('.seniorSearch2').css('height', 0 + 'px');
+        //                clearInterval(aa);
+        //            } else {
+        //                $('.seniorSearch2').css('height', hei + 'px');
+        //            }
+        //        }, 10);
+        //        //外部容器高度
+        //        var bb = setInterval(function () {
+        //            hei2 -= 9;
+        //            if (hei2 < 90) {
+        //                $('.selectNumberScreen').css('height', '90px');
+        //                clearInterval(bb);
+        //            } else {
+        //                $('.selectNumberScreen').css('height', hei2 + 'px');
+        //            }
+        //        }, 10);
+        //    } else {//展开
+        //        ele.html('收起筛选 ∧');
+        //        var hei = 0;
+        //        var hei2 = 90;
+
+        //        var aa = setInterval(function () {
+        //            hei += 15;
+        //            $('.seniorSearch2').css('height', hei + 'px');
+        //            if (hei >= 210)
+        //                clearInterval(aa);
+        //        }, 10);
+
+        //        var bb = setInterval(function () {
+        //            hei2 += 9
+        //            $('.selectNumberScreen').css('height', hei2 + 'px');
+        //            if (hei2 >= 250)
+        //                clearInterval(bb);
+        //        }, 10);
+        //    }
+        //}
+
+        //选项卡
+        //var dlNum = $("#selectList").find("dl");
+        //for (i = 0; i < dlNum.length; i++) {
+        //    $(".hasBeenSelected .clearList").append("<div class=\"selectedInfor selectedShow\" style=\"display:none\"><span></span><label></label><em></em></div>");
+        //}
+
+        //var refresh = "true";
+
+        //$(".listIndex a ").live("click", function () {
+        //    if ($(this).attr('name') == 'condition') {
+        //        var text = $(this).text();
+        //        var selectedShow = $(".selectedShow");
+        //        var textTypeIndex = $(this).parents("dl").index();
+        //        var textType = $(this).parent("dd").siblings("dt").text();
+        //        index = textTypeIndex; //- (2);
+        //        $(".clearDd").show();
+        //        $(".selectedShow").eq(index).show();
+        //        $(this).addClass("selected").siblings().removeClass("selected");
+        //        selectedShow.eq(index).find("span").text(textType);
+        //        selectedShow.eq(index).find("label").text(text);
+        //        var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
+        //        if (show > 1) {
+        //            $(".eliminateCriteria").show();
+        //        }
+        //    } else {
+        //        $(this).addClass("selected").siblings().removeClass("selected");
+        //    }
+        //});
+
+
+        //选项卡
+    </script>
+</body>
+
+</html>

@@ -10,7 +10,7 @@ sc.app = angular.module('scApp', [])
 
         $scope.getMainVedioList = function () {
             $scope.videoList = [];
-            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": '', "firstLevelOfArtClassification": '', "secondLevelOfEthnicGroup":'', "type": '', "pageSize": 5, "pageIndex": 1 }).success(function (data) {
+            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": '', "firstLevelOfArtClassification": '', "secondLevelOfEthnicGroup": '', "type": '', "pageSize": 5, "pageIndex": 1 }).success(function (data) {
                 $scope.mainVideoList = data.Data.Items;
             }).error(function (data) {
                 console.log("查询失败");
@@ -25,7 +25,7 @@ sc.app = angular.module('scApp', [])
 
         $scope.getMainVedioList();
     }])
-    .controller('VideoListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+    .controller('TextListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.classtype = "";//分类
         $scope.type = "";//类型
         $scope.nation = "";//民族
@@ -39,13 +39,8 @@ sc.app = angular.module('scApp', [])
 
         $scope.resourceType = location.search.indexOf('=') > -1 ? location.search.split('=')[1] : "";
 
-        if ($scope.resourceType == '0') {
-            $scope.type = '视频';
-        } else if ($scope.resourceType == '1') {
-            $scope.type = '谱例';
-        } else if ($scope.resourceType == '2') {
-            $scope.type = '图片';
-        }
+
+        $scope.type = '文字';
 
         $('.classtype').click(function () {
             $scope.classtype = $(this).text();
@@ -98,9 +93,24 @@ sc.app = angular.module('scApp', [])
             $scope.type = type;
         }
 
-        $scope.getVedioList = function () {
+        //$scope.getVedioList = function () {
+        //    $scope.videoList = [];
+        //    $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+        //        console.log(data.Data.Items);
+        //        $scope.datacount = data.Data.TotalCount;
+        //        $scope.totalpage = data.Data.TotalPaged;
+        //        $scope.videoList = data.Data.Items;
+        //        //重新加载页码
+        //        $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+        //    }).error(function (data) {
+        //        console.log("查询失败");
+        //    });
+        //}
+
+        $scope.getTextList = function () {
             $scope.videoList = [];
-            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification":"", "secondLevelOfEthnicGroup": "", "type": "文字", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
                 console.log(data.Data.Items);
                 $scope.datacount = data.Data.TotalCount;
                 $scope.totalpage = data.Data.TotalPaged;
@@ -113,7 +123,7 @@ sc.app = angular.module('scApp', [])
             });
         }
 
-        $scope.getVedioList();
+        $scope.getTextList();
 
         //翻页
         changePage = function (ele) {
@@ -136,49 +146,151 @@ sc.app = angular.module('scApp', [])
         openDetail = function (whid, ele) {
             window.open('detail?video=' + whid);
         }
-
-
-        //筛选条件
-        //删除一个
-        $(".selectedShow em").live("click", function () {
-
-            $(this).parents(".selectedShow").hide();
-            var textTypeIndex = $(this).parents(".selectedShow").index();
-            index = textTypeIndex;
-            $(".listIndex").eq(index).find("a").removeClass("selected");
-
-            if ($(".listIndex .selected").length < 2) {
-                $(".eliminateCriteria").hide();
-            }
-            if (index == 0)
-                $scope.classtype = "";//分类
-            else if (index == 1)
-                $scope.type = "";//类型
-            else if (index == 2)
-                $scope.nation = "";//民族
-            else if (index == 3)
-                $scope.area = "";//地区
-
-            $(".listIndex").eq(index).find("a").eq(0).addClass("selected");
-            $scope.pageIndex = 1;
-            $scope.getVedioList();
-        });
-        //清空
-        $(".eliminateCriteria").live("click", function () {
-            $(".selectedShow").hide();
-            $(this).hide();
-            $(".listIndex a ").removeClass("selected");
-            $scope.classtype = "";//分类
-            $scope.type = "";//类型
-            $scope.nation = "";//民族
-            $scope.area = "";//地区
-            $scope.getVedioList();
-            $(".listIndex").eq(0).find("a").eq(0).addClass("selected");
-            $(".listIndex").eq(1).find("a").eq(0).addClass("selected");
-            $(".listIndex").eq(2).find("a").eq(0).addClass("selected");
-            $(".listIndex").eq(3).find("a").eq(0).addClass("selected");
-        });
     }])
+        .controller('ImgListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+            $scope.searchkey = "";//搜索关键字
+            $scope.pageIndex = 1;//页码
+            $scope.pageSize = 6;//条数每页
+            $scope.datacount = 0;//总条数
+            $scope.totalpage = 0;//总页数
+            $scope.videoList = [];
+
+
+            $scope.getTextList = function () {
+                $scope.videoList = [];
+                $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                    console.log(data.Data.Items);
+                    $scope.datacount = data.Data.TotalCount;
+                    $scope.totalpage = data.Data.TotalPaged;
+                    $scope.videoList = data.Data.Items;
+                    //重新加载页码
+                    $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+                }).error(function (data) {
+                    console.log("查询失败");
+                });
+            }
+
+            $scope.getVedioList();
+
+            //翻页
+            changePage = function (ele) {
+                var nextpage = $(ele).text();
+                if (nextpage == '第一页') {
+                    $scope.pageIndex = 1;
+                } else if (nextpage == '下一页') {
+                    $scope.pageIndex = parseInt($scope.pageIndex) + 1;
+                } else if (nextpage == '最后一页') {
+                    $scope.pageIndex = $scope.totalpage;
+                } else if (nextpage == '上一页') {
+                    $scope.pageIndex = $scope.pageIndex - 1;
+                } else {
+                    $scope.pageIndex = nextpage;
+                }
+                $scope.getVedioList();
+            }
+
+            //进入详情页
+            openDetail = function (whid, ele) {
+                window.open('detail?video=' + whid);
+            }
+        }])
+     .controller('VideoListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+         $scope.searchkey = "";//搜索关键字
+         $scope.pageIndex = 1;//页码
+         $scope.pageSize = 10;//条数每页
+         $scope.datacount = 0;//总条数
+         $scope.totalpage = 0;//总页数
+         $scope.videoList = [];
+
+
+         $scope.getVedioList = function () {
+             $scope.videoList = [];
+             $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification":"", "secondLevelOfEthnicGroup": "", "type":"视频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                 console.log(data);
+                 $scope.datacount = data.Data.TotalCount;
+                 $scope.totalpage = data.Data.TotalPaged;
+                 $scope.videoList = data.Data.Items;
+                 //重新加载页码
+                 $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+             }).error(function (data) {
+                 console.log("查询失败");
+             });
+         }
+
+         $scope.getVedioList();
+
+         //翻页
+         changePage = function (ele) {
+             var nextpage = $(ele).text();
+             if (nextpage == '第一页') {
+                 $scope.pageIndex = 1;
+             } else if (nextpage == '下一页') {
+                 $scope.pageIndex = parseInt($scope.pageIndex) + 1;
+             } else if (nextpage == '最后一页') {
+                 $scope.pageIndex = $scope.totalpage;
+             } else if (nextpage == '上一页') {
+                 $scope.pageIndex = $scope.pageIndex - 1;
+             } else {
+                 $scope.pageIndex = nextpage;
+             }
+             $scope.getVedioList();
+         }
+
+         //进入详情页
+         openDetail = function (whid, ele) {
+             window.open('detail?video=' + whid);
+         }
+     }])
+     .controller('MusicListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+         $scope.searchkey = "";//搜索关键字
+         $scope.pageIndex = 1;//页码
+         $scope.pageSize = 6;//条数每页
+         $scope.datacount = 0;//总条数
+         $scope.totalpage = 0;//总页数
+         $scope.videoList = [];
+
+
+         $scope.getTextList = function () {
+             $scope.videoList = [];
+             $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                 console.log(data.Data.Items);
+                 $scope.datacount = data.Data.TotalCount;
+                 $scope.totalpage = data.Data.TotalPaged;
+                 $scope.videoList = data.Data.Items;
+                 //重新加载页码
+                 $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+             }).error(function (data) {
+                 console.log("查询失败");
+             });
+         }
+
+         $scope.getVedioList();
+
+         //翻页
+         changePage = function (ele) {
+             var nextpage = $(ele).text();
+             if (nextpage == '第一页') {
+                 $scope.pageIndex = 1;
+             } else if (nextpage == '下一页') {
+                 $scope.pageIndex = parseInt($scope.pageIndex) + 1;
+             } else if (nextpage == '最后一页') {
+                 $scope.pageIndex = $scope.totalpage;
+             } else if (nextpage == '上一页') {
+                 $scope.pageIndex = $scope.pageIndex - 1;
+             } else {
+                 $scope.pageIndex = nextpage;
+             }
+             $scope.getVedioList();
+         }
+
+         //进入详情页
+         openDetail = function (whid, ele) {
+             window.open('detail?video=' + whid);
+         }
+     }])
     .controller('DetailController', ['$scope', '$http', function ($scope, $http) {
         var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
         $scope.videoinfo = {};

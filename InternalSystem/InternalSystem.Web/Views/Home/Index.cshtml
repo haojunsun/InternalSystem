@@ -1,0 +1,404 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文化资源归集系统</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+</head>
+<body style="background: url(../img/bj1.png); width: 100%;">
+    <div class="header">
+        @* <div class="titleHeader">
+            <div>欢迎来到文化资源归集系统~</div>
+        </div>*@
+        <div class="searchTitle">
+            <div class="logoBox clearfix">
+                <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
+                <div class="search pull-right">
+                    <div class="searchTop clearfix">
+                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <a class="searchBtn pull-left">
+                            <span class="glyphicon glyphicon-zoom-in"></span>
+                        </a>
+                        <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
+                    </div>
+                    <div class="classify">
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent" checked="">图片
+                            </label>
+                        </span>
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent">视频
+                            </label>
+                        </span>
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent">文字
+                            </label>
+                        </span>
+                        <span>
+                            <label>
+                                <input type="radio" name="searchContent">音频
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="navigate clearfix">
+            <li>
+                <a href="">全部分类</a>
+                <ul>
+                    <li>
+                        <span>民族地方</span>
+                        》
+                        <div>
+                            <a href="#">自治区概况</a>
+                            <a href="#">自治州概况</a>
+                            <a href="#">自治县概况</a>
+                            <a href="#">民族乡概况</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>语言文字</span>
+                        》
+                        <div>
+                            <a href="#">民族语言文字知识</a>
+                            <a href="#">民族语言简志</a>
+                            <a href="#">民族语言文字概况</a>
+                            <a href="#">民族语文词书</a>
+                            <a href="#">民族语言人物</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li onclick="window.location='/home/index';" class="active"><a href="/home/index">首页</a></li>
+            <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
+            <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
+            <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">影视</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音乐</a></li>
+            <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
+        </ul>
+    </div>
+    <div class="banner">
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/img/banner1.jpg" alt="First slide">
+                </div>
+                <div class="item">
+                    <img src="~/img/banner2.jpg" alt="Second slide">
+                </div>
+                <div class="item">
+                    <img src="~/img/banner3.jpg" alt="Third slide">
+                </div>
+                <div class="item">
+                    <img src="~/img/banner4.jpg" alt="Third slide">
+                </div>
+                <div class="item">
+                    <img src="~/img/banner5.jpg" alt="Third slide">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="carousel-control left" href="#myCarousel"
+               data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel"
+               data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+    <div class="homeContent">
+        <div class="homeContentSpecial">
+            <div class="homeContentTitle">
+                <span>专题</span>
+                <a href="#">更多 》</a>
+            </div>
+            <div class="specialContent clearfix">
+                <div class="special">
+                    <div class="specialTitle">
+                        《天籁之声》歌手亲情献唱，被粉丝追捧！
+                    </div>
+                    <div class="specialBox clearfix">
+                        <div class="specialBoxImg pull-left">
+                            <img src="~/img/special1.png" alt="">
+                        </div>
+                        <div class="specialBoxText pull-left">
+                            看到过开心落泪的歌手吗？听过傈僳族独特的装饰性颤音吗？体会过伽倻琴的延边曲风吗？《天籁之声》汇聚最民族的视听，等你来品！传承民族音乐文化，搭建传统和...
+                        </div>
+                    </div>
+                </div>
+                <div class="special">
+                    <div class="specialTitle">
+                        《天籁之声》歌手亲情献唱，被粉丝追捧！
+                    </div>
+                    <div class="specialBox clearfix">
+                        <div class="specialBoxImg pull-left">
+                            <img src="~/img/special1.png" alt="">
+                        </div>
+                        <div class="specialBoxText pull-left">
+                            看到过开心落泪的歌手吗？听过傈僳族独特的装饰性颤音吗？体会过伽倻琴的延边曲风吗？《天籁之声》汇聚最民族的视听，等你来品！传承民族音乐文化，搭建传统和...
+                        </div>
+                    </div>
+                </div>
+                <div class="special">
+                    <div class="specialTitle">
+                        《天籁之声》歌手亲情献唱，被粉丝追捧！
+                    </div>
+                    <div class="specialBox clearfix">
+                        <div class="specialBoxImg pull-left">
+                            <img src="~/img/special1.png" alt="">
+                        </div>
+                        <div class="specialBoxText pull-left">
+                            看到过开心落泪的歌手吗？听过傈僳族独特的装饰性颤音吗？体会过伽倻琴的延边曲风吗？《天籁之声》汇聚最民族的视听，等你来品！传承民族音乐文化，搭建传统和...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="homeContentVideo">
+            <div class="homeContentTitle">
+                <span>视频</span>
+                <a href="#">更多 》</a>
+            </div>
+            <div class="videoContent clearfix">
+                <div class="videoLeft pull-left">
+                    <img src="~/img/video1.jpg" alt="">
+                </div>
+                <div class="videoRight pull-left clearfix">
+                    <div class="video">
+                        <div class="videoImg">
+                            <img src="~/img/video2.jpg" alt="">
+                        </div>
+                        <div class="videoText">
+                            <div>我们一起回家</div>
+                            <div class="videoTextContent"></div>
+                            <div><a href="#">详情 》</a></div>
+                        </div>
+                    </div>
+                    <div class="video">
+                        <div class="videoImg">
+                            <img src="~/img/video2.jpg" alt="">
+                        </div>
+                        <div class="videoText">
+                            <div>我们一起回家</div>
+                            <div class="videoTextContent"></div>
+                            <div><a href="#">详情 》</a></div>
+                        </div>
+                    </div>
+                    <div class="video mr-top">
+                        <div class="videoImg">
+                            <img src="~/img/video2.jpg" alt="">
+                        </div>
+                        <div class="videoText">
+                            <div>我们一起回家</div>
+                            <div class="videoTextContent">陕北民歌流传于榆林 延安的山坡、沟洼、田野、村落，是世世代代的陕北地方劳动人民...</div>
+                            <div><a href="#">详情 》</a></div>
+                        </div>
+                    </div>
+                    <div class="video mr-top">
+                        <div class="videoImg">
+                            <img src="~/img/video2.jpg" alt="">
+                        </div>
+                        <div class="videoText">
+                            <div>我们一起回家</div>
+                            <div class="videoTextContent"></div>
+                            <div><a href="#">详情 》</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="homeContentText">
+            <div class="homeContentTitle">
+                <span>文字</span>
+                <a href="#">更多 》</a>
+            </div>
+            <div class="textContent clearfix">
+                <div class="text">
+                    <div class="textHeader">
+                        <span></span>
+                        民族人口
+                    </div>
+                    <div class="textBottom clearfix">
+                        <div class="textImg">
+                            <img src="~/img/text1.jpg" alt="">
+                        </div>
+                        <div class="textBody">
+                            <div class="textBodyHead">中国少数民族人口数量排名</div>
+                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="textHeader">
+                        <span></span>
+                        民族人口
+                    </div>
+                    <div class="textBottom clearfix">
+                        <div class="textImg">
+                            <img src="~/img/text1.jpg" alt="">
+                        </div>
+                        <div class="textBody">
+                            <div class="textBodyHead">中国少数民族人口数量排名</div>
+                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="textHeader">
+                        <span></span>
+                        民族人口
+                    </div>
+                    <div class="textBottom clearfix">
+                        <div class="textImg">
+                            <img src="~/img/text1.jpg" alt="">
+                        </div>
+                        <div class="textBody">
+                            <div class="textBodyHead">中国少数民族人口数量排名</div>
+                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="textHeader">
+                        <span></span>
+                        民族人口
+                    </div>
+                    <div class="textBottom clearfix">
+                        <div class="textImg">
+                            <img src="~/img/text1.jpg" alt="">
+                        </div>
+                        <div class="textBody">
+                            <div class="textBodyHead">中国少数民族人口数量排名</div>
+                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="textHeader">
+                        <span></span>
+                        民族人口
+                    </div>
+                    <div class="textBottom clearfix">
+                        <div class="textImg">
+                            <img src="~/img/text1.jpg" alt="">
+                        </div>
+                        <div class="textBody">
+                            <div class="textBodyHead">中国少数民族人口数量排名</div>
+                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="textHeader">
+                        <span></span>
+                        民族人口
+                    </div>
+                    <div class="textBottom clearfix">
+                        <div class="textImg">
+                            <img src="~/img/text1.jpg" alt="">
+                        </div>
+                        <div class="textBody">
+                            <div class="textBodyHead">中国少数民族人口数量排名</div>
+                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="homeContentImg">
+            <div class="homeContentTitle">
+                <span>图片</span>
+                <a href="#">更多 》</a>
+            </div>
+            <div class="imgContent clearfix">
+                <div class="img">
+                    <img src="~/img/img1.jpg" alt="">
+                    <span class="textBg"></span>
+                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                </div>
+                <div class="img">
+                    <img src="~/img/img1.jpg" alt="">
+                    <span class="textBg"></span>
+                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                </div>
+                <div class="img">
+                    <img src="~/img/img1.jpg" alt="">
+                    <span class="textBg"></span>
+                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                </div>
+                <div class="img">
+                    <img src="~/img/img1.jpg" alt="">
+                    <span class="textBg"></span>
+                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                </div>
+            </div>
+        </div>
+     
+    
+      
+        @*<div class="homeContentNation">
+            <div class="homeContentTitle">
+                <span>中华各民族</span>
+            </div>
+            <div class="nationContent">
+                <ul class="clearfix">
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                    <li><a href="">汉族</a></li>
+                </ul>
+            </div>
+        </div>*@
+    </div>
+    <div class="homeFooter">
+        <div class="footNav">
+            <ul class="text-center clearfix">
+                <li onclick="window.location='/home/index';" ><a href="/home/index">首页</a></li>
+                <li><a href="">关于我们</a></li>
+                <li><a href="">网站声明</a></li>
+                <li><a href="">网站联盟</a></li>
+                <li><a href="">友情链接</a></li>
+            </ul>
+        </div>
+        <div class="text-center">版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</div>
+        <div class="text-center">地址：北京市朝阳区朝来高科技产业园6楼西侧3层</div>
+        <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
+        @*<div class="text-center">京ICP备16031227号 Copyright 文化资源归集系统 www.minwang.com.cn All rights reserved</div>*@
+    </div>
+</body>
+</html>
