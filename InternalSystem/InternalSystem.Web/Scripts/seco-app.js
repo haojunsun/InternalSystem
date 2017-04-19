@@ -229,7 +229,7 @@ sc.app = angular.module('scApp', [])
           $scope.pageIndex2 = 1;//页码
           $scope.pageIndex3 = 1;//页码
           $scope.pageIndex4 = 1;//页码
-          $scope.pageSize1 = 6;//条数每页
+          $scope.pageSize1 = 8;//条数每页
           $scope.pageSize2 = 6;//条数每页
           $scope.pageSize3 = 6;//条数每页
           $scope.pageSize4 = 6;//条数每页
@@ -259,8 +259,15 @@ sc.app = angular.module('scApp', [])
                   $('.clearList').find('div').eq(0).hide();
               }
               console.log($scope.classtype);
-              $scope.pageIndex = 1;
-              //$scope.getVedioList();
+              $scope.pageIndex1 = 1;
+              $scope.pageIndex2 = 1;
+              $scope.pageIndex3 = 1;
+              $scope.pageIndex4 = 1;
+
+              $scope.gettextList();
+              $scope.getmusicList();
+              $scope.getvideoList();
+              $scope.getimgList();
           })
           //民族
           $('.nation').click(function () {
@@ -270,8 +277,15 @@ sc.app = angular.module('scApp', [])
                   $('.clearList').find('div').eq(2).hide();
               }
               console.log($scope.nation);
-              $scope.pageIndex = 1;
-              //$scope.getVedioList();
+              $scope.pageIndex1 = 1;
+              $scope.pageIndex2 = 1;
+              $scope.pageIndex3 = 1;
+              $scope.pageIndex4 = 1;
+
+              $scope.gettextList();
+              $scope.getmusicList();
+              $scope.getvideoList();
+              $scope.getimgList();
           })
 
           $scope.changeSearchkey = function () {
@@ -282,28 +296,28 @@ sc.app = angular.module('scApp', [])
           }
 
           $scope.gettextList = function () {
-              $scope.videoList = [];
-              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "文字", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+              $scope.textList = [];
+              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "文字", "pageSize": $scope.pageSize3, "pageIndex": $scope.pageIndex3 }).success(function (data) {
                   console.log(data.Data.Items);
                   $scope.datacount3 = data.Data.TotalCount;
                   $scope.totalpage3 = data.Data.TotalPaged;
                   $scope.textList = data.Data.Items;
                   //重新加载页码
-                  $.pagination('pages3', $scope.pageIndex3, $scope.pageSize3, data.Data.TotalCount3, "", { keyword: 'hello world' });
+                  $.pagination('pages3', $scope.pageIndex3, $scope.pageSize3, data.Data.TotalCount, "", { keyword: 'hello world' });
 
               }).error(function (data) {
                   console.log("查询失败");
               });
           }
           $scope.getmusicList = function () {
-              $scope.videoList = [];
-              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "音频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+              $scope.musicList = [];
+              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "音频", "pageSize": $scope.pageSize4, "pageIndex": $scope.pageIndex4 }).success(function (data) {
                   console.log(data.Data.Items);
                   $scope.datacount4 = data.Data.TotalCount;
                   $scope.totalpage4 = data.Data.TotalPaged;
                   $scope.musicList = data.Data.Items;
                   //重新加载页码
-                  $.pagination('pages4', $scope.pageIndex4, $scope.pageSize4, data.Data.TotalCount4, "", { keyword: 'hello world' });
+                  $.pagination('pages4', $scope.pageIndex4, $scope.pageSize4, data.Data.TotalCount, "", { keyword: 'hello world' });
 
               }).error(function (data) {
                   console.log("查询失败");
@@ -311,13 +325,13 @@ sc.app = angular.module('scApp', [])
           }
           $scope.getvideoList = function () {
               $scope.videoList = [];
-              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "视频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "视频", "pageSize": $scope.pageSize2, "pageIndex": $scope.pageIndex2 }).success(function (data) {
                   console.log(data.Data.Items);
                   $scope.datacount2 = data.Data.TotalCount;
                   $scope.totalpage2 = data.Data.TotalPaged;
                   $scope.videoList = data.Data.Items;
                   //重新加载页码
-                  $.pagination('pages2', $scope.pageIndex2, $scope.pageSize2, data.Data.TotalCount2, "", { keyword: 'hello world' });
+                  $.pagination('pages2', $scope.pageIndex2, $scope.pageSize2, data.Data.TotalCount, "", { keyword: 'hello world' });
 
               }).error(function (data) {
                   console.log("查询失败");
@@ -325,14 +339,14 @@ sc.app = angular.module('scApp', [])
           }
 
           $scope.getimgList = function () {
-              $scope.videoList = [];
-              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "图片", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+              $scope.imgList = [];
+              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": "图片", "pageSize": $scope.pageSize1, "pageIndex": $scope.pageIndex1 }).success(function (data) {
                   console.log(data.Data.Items);
                   $scope.datacount1 = data.Data.TotalCount;
                   $scope.totalpage1 = data.Data.TotalPaged;
                   $scope.imgList = data.Data.Items;
                   //重新加载页码
-                  $.pagination('pages1', $scope.pageIndex1, $scope.pageSize1, data.Data.TotalCount1, "", { keyword: 'hello world' });
+                  $.pagination('pages1', $scope.pageIndex1, $scope.pageSize1, data.Data.TotalCount, "", { keyword: 'hello world' });
 
               }).error(function (data) {
                   console.log("查询失败");
@@ -343,24 +357,75 @@ sc.app = angular.module('scApp', [])
 
           //翻页
           changePage = function (ele) {
+              var parid=$(ele).parent().parent().parent().attr('id');
               var nextpage = $(ele).text();
+              var tempPageIndex = 1;
               if (nextpage == '第一页') {
-                  $scope.pageIndex = 1;
+                  $tempPageIndex = 1;
               } else if (nextpage == '下一页') {
-                  $scope.pageIndex = parseInt($scope.pageIndex) + 1;
+                  if (parid == 'pages1') {
+                      tempPageIndex = parseInt($scope.pageIndex1) + 1;
+                  } else if (parid == 'pages2') {
+                      tempPageIndex = parseInt($scope.pageIndex2) + 1;
+                  } else if (parid == 'pages3') {
+                      tempPageIndex = parseInt($scope.pageIndex3) + 1;
+                  } else if (parid == 'pages4') {
+                      tempPageIndex = parseInt($scope.pageIndex4) + 1;
+                  }
               } else if (nextpage == '最后一页') {
-                  $scope.pageIndex = $scope.totalpage;
+                  if (parid == 'pages1') {
+                      tempPageIndex = $scope.totalpage1;
+                  } else if (parid == 'pages2') {
+                      tempPageIndex = $scope.totalpage2;
+                  } else if (parid == 'pages3') {
+                      tempPageIndex = $scope.totalpage3;
+                  } else if (parid == 'pages4') {
+                      tempPageIndex = $scope.totalpage4;
+                  }
               } else if (nextpage == '上一页') {
-                  $scope.pageIndex = $scope.pageIndex - 1;
+                  if (parid == 'pages1') {
+                      tempPageIndex = $scope.pageIndex1 - 1;
+                  } else if (parid == 'pages2') {
+                      tempPageIndex = $scope.pageIndex2 - 1;
+                  } else if (parid == 'pages3') {
+                      tempPageIndex = $scope.pageIndex3 - 1;
+                  } else if (parid == 'pages4') {
+                      tempPageIndex = $scope.pageIndex4 - 1;
+                  }
               } else {
-                  $scope.pageIndex = nextpage;
+                  tempPageIndex = nextpage;
               }
-              //$scope.getList();
+
+              if (parid == 'pages1') {
+                  $scope.pageIndex1 = tempPageIndex;
+                  $scope.gettextList();
+              } else if (parid == 'pages2') {
+                  $scope.pageIndex2 = tempPageIndex;
+                  $scope.getvideoList();
+              } else if (parid == 'pages3') {
+                  $scope.pageIndex3 = tempPageIndex;
+                  $scope.getimgList();
+              } else if (parid == 'pages4') {
+                  $scope.pageIndex4 = tempPageIndex;
+                  $scope.getmusicList();
+              }
           }
 
           //进入详情页
-          openDetail = function (whid, ele) {
-              window.open('detail?video=' + whid);
+          openDetail1 = function (whid, ele) {
+              window.open('ImgDetail?video=' + whid);
+          }
+
+          openDetail2 = function (whid, ele) {
+              window.open('VideoDetail?video=' + whid);
+          }
+
+          openDetail3 = function (whid, ele) {
+              window.open('TextDetail?video=' + whid);
+          }
+
+          openDetail4 = function (whid, ele) {
+              window.open('MusicDetail?video=' + whid);
           }
       }])
     .controller('DetailController', ['$scope', '$http', function ($scope, $http) {

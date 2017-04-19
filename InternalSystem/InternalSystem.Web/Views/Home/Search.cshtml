@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -14,7 +13,16 @@
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/css/pagination.css">
     <style>
-        #pages a {
+        #pages1 a {
+            color: #337ab7;
+        }
+        #pages2 a {
+            color: #337ab7;
+        }
+        #pages3 a {
+            color: #337ab7;
+        }
+        #pages4 a {
             color: #337ab7;
         }
     </style>
@@ -149,8 +157,8 @@
             </div>
         </div>
         @*<div class="serchResult">
-            共检索到<span>51</span>条结果
-        </div>*@
+                共检索到<span>51</span>条结果
+            </div>*@
         <div class="listContent">
             <div class="category">
                 <ul class="nav nav-tabs category-tab clearfix" role="tablist">
@@ -165,44 +173,9 @@
                     <div role="tabpanel" class="tab-pane  active" id="home">
                         <div class="tabBox tabImg">
                             <ul class="clearfix">
-                                <li>
+                                <li ng-repeat="item in imgList" _whid="{{item.WorldHeritageId}}" onclick="openDetail1($(this).attr('_whid'));">
                                     <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
+                                        <img src="{{item.FileName}}" style="width:280px;height:189px" />
                                     </a>
                                 </li>
                             </ul>
@@ -212,40 +185,10 @@
                     <div role="tabpanel" class="tab-pane" id="profile">
                         <div class="tabBox tabVideo">
                             <ul class="clearfix">
-                                <li>
+                                <li ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail2($(this).attr('_whid'));">
                                     <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
+                                        <img src="~/img/lj.png" width="270" height="152" alt="">
+                                        <p><img src="~/img/video.png" alt="">{{item.FirstLevelOfArtClassification}}:{{item.TitleProper}}</p>
                                     </a>
                                 </li>
                             </ul>
@@ -259,52 +202,20 @@
                                     <tr class="tablehead">
                                         <th>
                                             <p class="clearfix">
-                                                <span>文字名称</span>
-                                                <span>作者</span>
-                                                <span>上传时间</span>
+                                                <span>资源名称</span>
+                                                <span>艺术门类</span>
                                             </p>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr ng-repeat="item in textList" _whid="{{item.WorldHeritageId}}" onclick="openDetail3($(this).attr('_whid'));">
                                         <td>
                                             <p class="clearfix">
-                                                <a href=""><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</a>
-                                                <span>网络</span>
-                                                <span>2017-04-12 15:14:36</span>
+                                                <a href=""><img src="~/img/document.png" alt="">{{item.TitleProper}}</a>
+                                                <span>{{item.FirstLevelOfArtClassification}}</span>
                                             </p>
-                                            <p class="textN">古城安州的“陈氏三进士” 安州（如今的安州镇），同样是一座历史名城。在清代的《安州志》中，就提到了“濡阳八景”的说法，据传，此八景为元代安州太守完颜安远所定，清代道光年间俞湘在编纂《安州志》时曾依名核</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="clearfix">
-                                                <a href=""><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</a>
-                                                <span>网络</span>
-                                                <span>2017-04-12 15:14:36</span>
-                                            </p>
-                                            <p class="textN">古城安州的“陈氏三进士” 安州（如今的安州镇），同样是一座历史名城。在清代的《安州志》中，就提到了“濡阳八景”的说法，据传，此八景为元代安州太守完颜安远所定，清代道光年间俞湘在编纂《安州志》时曾依名核</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="clearfix">
-                                                <a href=""><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</a>
-                                                <span>网络</span>
-                                                <span>2017-04-12 15:14:36</span>
-                                            </p>
-                                            <p class="textN">古城安州的“陈氏三进士” 安州（如今的安州镇），同样是一座历史名城。在清代的《安州志》中，就提到了“濡阳八景”的说法，据传，此八景为元代安州太守完颜安远所定，清代道光年间俞湘在编纂《安州志》时曾依名核</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="clearfix">
-                                                <a href=""><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</a>
-                                                <span>网络</span>
-                                                <span>2017-04-12 15:14:36</span>
-                                            </p>
-                                            <p class="textN">古城安州的“陈氏三进士” 安州（如今的安州镇），同样是一座历史名城。在清代的《安州志》中，就提到了“濡阳八景”的说法，据传，此八景为元代安州太守完颜安远所定，清代道光年间俞湘在编纂《安州志》时曾依名核</p>
+                                            <p class="textN">{{item.SecondLevelOfArtClassification}}</p>
                                         </td>
                                     </tr>
 
@@ -319,15 +230,13 @@
                                 <thead>
                                     <tr class="tablehead">
                                         <th width="65%">音频名称</th>
-                                        <th width="5%">作者</th>
-                                        <th width="30%">上传时间</th>
+                                        <th width="35%">艺术门类</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img src="~/img/audio.png" alt="">素颜</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 11:01:26</td>
+                                    <tr ng-repeat="item in musicList" _whid="{{item.WorldHeritageId}}" onclick="openDetail4($(this).attr('_whid'));">
+                                        <td><img src="~/img/audio.png" alt="">{{item.TitleProper}}</td>
+                                        <td>{{item.FirstLevelOfArtClassification}}</td>
                                     </tr>
                                 </tbody>
                             </table>
