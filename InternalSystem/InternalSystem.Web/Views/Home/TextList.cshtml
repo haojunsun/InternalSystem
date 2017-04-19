@@ -123,7 +123,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in textList">
+                        <tr ng-repeat="item in textList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <td><img src="~/img/lj2.png" alt="">{{item.TitleProper}}</td>
                             <td>{{item.FirstLevelOfArtClassification}}</td>
                         </tr>

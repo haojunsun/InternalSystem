@@ -113,7 +113,7 @@
         <div class="listContent">
             <div class="list">
                 <ul class="videoList clearfix">
-                    <li ng-repeat="item in videoList">
+                    <li ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                         <div class="img">
                             <img src="~/img/lj.png" width="270" height="152" alt="">
                         </div>

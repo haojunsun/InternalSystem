@@ -113,8 +113,8 @@
         <div class="listContent">
             <div class="list">
                 <ul class="imgList clearfix">
-                    <li ng-repeat="item in imgList">
-                        <img src="{{item.FileName}}" style="width:280px;height:189px"  />
+                    <li ng-repeat="item in imgList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
+                        <img src="{{item.FileName}}" style="width:280px;height:189px" />
                     </li>
                     
                 </ul>
