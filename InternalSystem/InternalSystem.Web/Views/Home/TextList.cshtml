@@ -12,7 +12,16 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
-    
+    <link rel="stylesheet" type="text/css" href="~/css/pagination.css">
+    <style>
+        #pages a {
+            color: #337ab7;
+        }
+    </style>
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
 <body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="TextListController">
     <div class="header">
@@ -30,7 +39,7 @@
                         </a>
                         <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
                     </div>
-                    <div class="classify">
+                    <div class="classify" style="display:none;">
                         <span>
                             <label>
                                 <input type="radio" name="searchContent" checked="">图片
@@ -87,8 +96,8 @@
             <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
             <li onclick="window.location='/home/textlist';" class="active"><a href="">文字</a></li>
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
-            <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">影视</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音乐</a></li>
+            <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -109,17 +118,15 @@
                 <table width="100%" class="text-list">
                     <thead>
                         <tr class="tablehead">
-                            <th width="65%">文字名称</th>
-                            <th width="5%">作者</th>
-                            <th width="30%">发布时间</th>
+                            <th width="65%">资源名称</th>
+                            <th width="35%">艺术门类</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @*<tr>
-                            <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                            <td>网络</td>
-                            <td>2017-04-12 15:14:36</td>
-                        </tr>*@
+                        <tr ng-repeat="item in textList">
+                            <td><img src="~/img/lj2.png" alt="">{{item.TitleProper}}</td>
+                            <td>{{item.FirstLevelOfArtClassification}}</td>
+                        </tr>
                       
                     </tbody>
                 </table>

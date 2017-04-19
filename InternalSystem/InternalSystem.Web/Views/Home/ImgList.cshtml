@@ -12,6 +12,16 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/pagination.css">
+    <style>
+        #pages a {
+            color: #337ab7;
+        }
+    </style>
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
 <body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="ImgListController">
     <div class="header">
@@ -29,7 +39,7 @@
                         </a>
                         <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
                     </div>
-                    <div class="classify">
+                    <div class="classify" style="display:none;">
                         <span>
                             <label>
                                 <input type="radio" name="searchContent" checked="">图片
@@ -86,8 +96,8 @@
             <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
             <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
             <li onclick="window.location='/home/imglist';" class="active"><a href="">图片</a></li>
-            <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">影视</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音乐</a></li>
+            <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -103,17 +113,14 @@
         <div class="listContent">
             <div class="list">
                 <ul class="imgList clearfix">
-                    <li><img src="~/img/img2.jpg" alt=""></li>
-                    <li><img src="~/img/img2.jpg" alt=""></li>
-                    <li><img src="~/img/img2.jpg" alt=""></li>
-                    <li><img src="~/img/img2.jpg" alt=""></li>
-                    <li><img src="~/img/img2.jpg" alt=""></li>
-                    <li><img src="~/img/img2.jpg" alt=""></li>
-                    <li><img src="~/img/img2.jpg" alt=""></li>
+                    <li ng-repeat="item in imgList">
+                        <img src="{{item.FileName}}" style="width:280px;height:189px"  />
+                    </li>
+                    
                 </ul>
             </div>
         </div>
-        <div class="pageQuery">
+        @*<div class="pageQuery">
             <span class="glyphicon glyphicon-backward"></span>
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span>第1页共44页</span>
@@ -122,7 +129,8 @@
             <span>页码</span>
             <input type="text">
             <i>GO</i>
-        </div>
+        </div>*@
+        <div id="pages" style="margin-left:350px"></div>
     </div>
     <div class="homeFooter">
         <div class="footNav">
@@ -138,5 +146,8 @@
         <div class="text-center">地址：北京市朝阳区朝来高科技产业园6楼西侧3层</div>
         <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
     </div>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/pagination.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
 </body>
 </html>

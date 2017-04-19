@@ -12,6 +12,16 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/pagination.css">
+    <style>
+        #pages a {
+            color: #337ab7;
+        }
+    </style>
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
 <body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="VideoListController">
     <div class="header">
@@ -29,7 +39,7 @@
                         </a>
                         <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
                     </div>
-                    <div class="classify">
+                    <div class="classify" style="display:none;">
                         <span>
                             <label>
                                 <input type="radio" name="searchContent" checked="">图片
@@ -86,8 +96,8 @@
             <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
             <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
-            <li onclick="window.location='/home/videonlist';" class="active"><a href="">影视</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音乐</a></li>
+            <li onclick="window.location='/home/videonlist';" class="active"><a href="">视频</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -103,49 +113,13 @@
         <div class="listContent">
             <div class="list">
                 <ul class="videoList clearfix">
-                    <li>
+                    <li ng-repeat="item in videoList">
                         <div class="img">
-                            <img src="~/img/video3.jpg" width="270" height="152" alt="">
+                            <img src="~/img/lj.png" width="270" height="152" alt="">
                         </div>
                         <div class="imgName">
                             <img src="~/img/video.png" alt="">
-                            美好生活2
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img">
-                            <img src="~/img/video3.jpg" alt="">
-                        </div>
-                        <div class="imgName">
-                            <img src="~/img/video.png" alt="">
-                            美好生活2
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img">
-                            <img src="~/img/video3.jpg" alt="">
-                        </div>
-                        <div class="imgName">
-                            <img src="~/img/video.png" alt="">
-                            美好生活2
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img">
-                            <img src="~/img/video3.jpg" alt="">
-                        </div>
-                        <div class="imgName">
-                            <img src="~/img/video.png" alt="">
-                            美好生活2
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img">
-                            <img src="~/img/video3.jpg" alt="">
-                        </div>
-                        <div class="imgName">
-                            <img src="~/img/video.png" alt="">
-                            美好生活2
+                            {{item.FirstLevelOfArtClassification}}:{{item.TitleProper}}
                         </div>
                     </li>
                 </ul>

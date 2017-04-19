@@ -35,7 +35,7 @@ sc.app = angular.module('scApp', [])
         $scope.pageSize = 6;//条数每页
         $scope.datacount = 0;//总条数
         $scope.totalpage = 0;//总页数
-        $scope.videoList = [];
+        $scope.textList = [];
 
         $scope.resourceType = location.search.indexOf('=') > -1 ? location.search.split('=')[1] : "";
 
@@ -109,12 +109,12 @@ sc.app = angular.module('scApp', [])
         //}
 
         $scope.getTextList = function () {
-            $scope.videoList = [];
+            $scope.textList = [];
             $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification":"", "secondLevelOfEthnicGroup": "", "type": "文字", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
                 console.log(data.Data.Items);
                 $scope.datacount = data.Data.TotalCount;
                 $scope.totalpage = data.Data.TotalPaged;
-                $scope.videoList = data.Data.Items;
+                $scope.textList = data.Data.Items;
                 //重新加载页码
                 $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
 
@@ -139,7 +139,7 @@ sc.app = angular.module('scApp', [])
             } else {
                 $scope.pageIndex = nextpage;
             }
-            $scope.getVedioList();
+            $scope.getTextList();
         }
 
         //进入详情页
@@ -150,19 +150,19 @@ sc.app = angular.module('scApp', [])
         .controller('ImgListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
             $scope.searchkey = "";//搜索关键字
             $scope.pageIndex = 1;//页码
-            $scope.pageSize = 6;//条数每页
+            $scope.pageSize = 9;//条数每页
             $scope.datacount = 0;//总条数
             $scope.totalpage = 0;//总页数
-            $scope.videoList = [];
+            $scope.imgList = [];
 
 
-            $scope.getTextList = function () {
+            $scope.getImgList = function () {
                 $scope.videoList = [];
-                $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "图片", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
                     console.log(data.Data.Items);
                     $scope.datacount = data.Data.TotalCount;
                     $scope.totalpage = data.Data.TotalPaged;
-                    $scope.videoList = data.Data.Items;
+                    $scope.imgList = data.Data.Items;
                     //重新加载页码
                     $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
 
@@ -171,7 +171,7 @@ sc.app = angular.module('scApp', [])
                 });
             }
 
-            $scope.getVedioList();
+            $scope.getImgList();
 
             //翻页
             changePage = function (ele) {
@@ -187,7 +187,7 @@ sc.app = angular.module('scApp', [])
                 } else {
                     $scope.pageIndex = nextpage;
                 }
-                $scope.getVedioList();
+                $scope.getImgList();
             }
 
             //进入详情页
@@ -198,7 +198,7 @@ sc.app = angular.module('scApp', [])
      .controller('VideoListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
          $scope.searchkey = "";//搜索关键字
          $scope.pageIndex = 1;//页码
-         $scope.pageSize = 10;//条数每页
+         $scope.pageSize = 6;//条数每页
          $scope.datacount = 0;//总条数
          $scope.totalpage = 0;//总页数
          $scope.videoList = [];
@@ -207,7 +207,7 @@ sc.app = angular.module('scApp', [])
          $scope.getVedioList = function () {
              $scope.videoList = [];
              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification":"", "secondLevelOfEthnicGroup": "", "type":"视频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
-                 console.log(data);
+                 console.log("data:",data.Data.Items);
                  $scope.datacount = data.Data.TotalCount;
                  $scope.totalpage = data.Data.TotalPaged;
                  $scope.videoList = data.Data.Items;
@@ -246,19 +246,19 @@ sc.app = angular.module('scApp', [])
      .controller('MusicListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
          $scope.searchkey = "";//搜索关键字
          $scope.pageIndex = 1;//页码
-         $scope.pageSize = 6;//条数每页
+         $scope.pageSize = 8;//条数每页
          $scope.datacount = 0;//总条数
          $scope.totalpage = 0;//总页数
-         $scope.videoList = [];
+         $scope.MusicList = [];
 
 
-         $scope.getTextList = function () {
+         $scope.getMusicList = function () {
              $scope.videoList = [];
-             $http.post(sc.baseUrl + 'Import/NewSearch', { "key": $scope.searchkey, "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": $scope.nation, "type": $scope.type, "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+             $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "音频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
                  console.log(data.Data.Items);
                  $scope.datacount = data.Data.TotalCount;
                  $scope.totalpage = data.Data.TotalPaged;
-                 $scope.videoList = data.Data.Items;
+                 $scope.MusicList = data.Data.Items;
                  //重新加载页码
                  $.pagination('pages', $scope.pageIndex, $scope.pageSize, data.Data.TotalCount, "", { keyword: 'hello world' });
 
@@ -267,7 +267,7 @@ sc.app = angular.module('scApp', [])
              });
          }
 
-         $scope.getVedioList();
+         $scope.getMusicList();
 
          //翻页
          changePage = function (ele) {
@@ -283,7 +283,7 @@ sc.app = angular.module('scApp', [])
              } else {
                  $scope.pageIndex = nextpage;
              }
-             $scope.getVedioList();
+             $scope.getMusicList();
          }
 
          //进入详情页
