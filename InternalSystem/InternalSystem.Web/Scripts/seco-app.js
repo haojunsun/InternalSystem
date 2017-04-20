@@ -24,7 +24,30 @@ sc.app = angular.module('scApp', [])
         }
 
         $scope.getMainVedioList();
-    }])
+    }]).controller('IndexController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+          $scope.searchkey = "";//搜索关键字
+          $scope.pageIndex = 1;//页码
+          $scope.pageSize = 4;//条数每页
+          $scope.videoList = [];
+
+
+          $scope.getVedioList = function () {
+              $scope.videoList = [];
+              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "视频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                  console.log("data:", data.Data.Items);
+                  $scope.videoList = data.Data.Items;
+              }).error(function (data) {
+                  console.log("查询失败");
+              });
+          }
+
+          $scope.getVedioList();
+
+          //进入详情页
+          openDetail = function (whid, ele) {
+              window.open('VideoDetail?video=' + whid);
+          }
+      }])
     .controller('TextListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.pageIndex = 1;//页码
         $scope.pageSize = 6;//条数每页

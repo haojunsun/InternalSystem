@@ -11,8 +11,12 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
-<body style="background: url(../img/bj1.png); width: 100%;">
+<body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="IndexController">
     <div class="header">
         @* <div class="titleHeader">
                 <div>欢迎来到文化资源归集系统~</div>
@@ -226,7 +230,7 @@
                             <a href="/home/category?key=巫术、禁忌等民间知识">巫术、禁忌等民间知识</a>
                             <a href="/home/category?key=其他">其他</a>
                         </div>
-                    </li> 
+                    </li>
                     <li>
                         <span>传统美术</span>
                         》
@@ -238,7 +242,7 @@
                             <a href="/home/category?key=塑型捏制">塑型捏制</a>
                             <a href="/home/category?key=刺绣">刺绣</a>
                         </div>
-                    </li> 
+                    </li>
                     <li>
                         <span>传统医药</span>
                         》
@@ -296,229 +300,191 @@
         <div class="homeContentSpecial">
             <div class="homeContentTitle">
                 <span>专题</span>
-                <a href="#">更多 》</a>
+                @*<a href="#">更多 》</a>*@
             </div>
             <div class="specialContent clearfix">
                 <div class="special">
                     <div class="specialTitle">
-                        《天籁之声》歌手亲情献唱，被粉丝追捧！
+                        文化资源
                     </div>
                     <div class="specialBox clearfix">
                         <div class="specialBoxImg pull-left">
-                            <img src="~/img/special1.png" alt="">
+                            <img src="~/img/zhuanti01.jpg" alt="">
                         </div>
                         <div class="specialBoxText pull-left">
-                            看到过开心落泪的歌手吗？听过傈僳族独特的装饰性颤音吗？体会过伽倻琴的延边曲风吗？《天籁之声》汇聚最民族的视听，等你来品！传承民族音频文化，搭建传统和...
+                            2013年9月通道双江乡上团村举行讲款，市级传承人杨通照在讲款，款众在庄严的听，每讲完一段款众会高声应和“是呀”——张红摄
                         </div>
                     </div>
                 </div>
                 <div class="special">
                     <div class="specialTitle">
-                        《天籁之声》歌手亲情献唱，被粉丝追捧！
+                        文化资源
                     </div>
                     <div class="specialBox clearfix">
                         <div class="specialBoxImg pull-left">
-                            <img src="~/img/special1.png" alt="">
+                            <img src="~/img/zhuanti02.jpg" alt="">
                         </div>
                         <div class="specialBoxText pull-left">
-                            看到过开心落泪的歌手吗？听过傈僳族独特的装饰性颤音吗？体会过伽倻琴的延边曲风吗？《天籁之声》汇聚最民族的视听，等你来品！传承民族音频文化，搭建传统和...
+                            由女说唱艺人演唱《辉特特美日跟特木尼传说》——吴星摄
                         </div>
                     </div>
                 </div>
                 <div class="special">
                     <div class="specialTitle">
-                        《天籁之声》歌手亲情献唱，被粉丝追捧！
+                        文化资源
                     </div>
                     <div class="specialBox clearfix">
                         <div class="specialBoxImg pull-left">
-                            <img src="~/img/special1.png" alt="">
+                            <img src="~/img/zhuanti03.jpg" alt="">
                         </div>
                         <div class="specialBoxText pull-left">
-                            看到过开心落泪的歌手吗？听过傈僳族独特的装饰性颤音吗？体会过伽倻琴的延边曲风吗？《天籁之声》汇聚最民族的视听，等你来品！传承民族音频文化，搭建传统和...
+                            2000年5月11日(农历四月初八)转山会上传统赛马活动——康定县文化馆摄
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="homeContentVideo">
-            <div class="homeContentTitle">
-                <span>视频</span>
-                <a href="#">更多 》</a>
-            </div>
-            <div class="videoContent clearfix">
-                <div class="videoLeft pull-left">
-                    <img src="~/img/video1.jpg" alt="">
-                </div>
-                <div class="videoRight pull-left clearfix">
-                    <div class="video">
-                        <div class="videoImg">
-                            <img src="~/img/video2.jpg" alt="">
-                        </div>
-                        <div class="videoText">
-                            <div>我们一起回家</div>
-                            <div class="videoTextContent"></div>
-                            <div><a href="#">详情 》</a></div>
-                        </div>
-                    </div>
-                    <div class="video">
-                        <div class="videoImg">
-                            <img src="~/img/video2.jpg" alt="">
-                        </div>
-                        <div class="videoText">
-                            <div>我们一起回家</div>
-                            <div class="videoTextContent"></div>
-                            <div><a href="#">详情 》</a></div>
-                        </div>
-                    </div>
-                    <div class="video mr-top">
-                        <div class="videoImg">
-                            <img src="~/img/video2.jpg" alt="">
-                        </div>
-                        <div class="videoText">
-                            <div>我们一起回家</div>
-                            <div class="videoTextContent">陕北民歌流传于榆林 延安的山坡、沟洼、田野、村落，是世世代代的陕北地方劳动人民...</div>
-                            <div><a href="#">详情 》</a></div>
-                        </div>
-                    </div>
-                    <div class="video mr-top">
-                        <div class="videoImg">
-                            <img src="~/img/video2.jpg" alt="">
-                        </div>
-                        <div class="videoText">
-                            <div>我们一起回家</div>
-                            <div class="videoTextContent"></div>
-                            <div><a href="#">详情 》</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="homeContentText">
             <div class="homeContentTitle">
-                <span>文字</span>
-                <a href="#">更多 》</a>
+                <span>文化动态</span>
+                @*<a href="#">更多 》</a>*@
             </div>
             <div class="textContent clearfix">
                 <div class="text">
                     <div class="textHeader">
                         <span></span>
-                        民族人口
+                        激活文化文物单位资源，促进文化创意产业发展
                     </div>
                     <div class="textBottom clearfix">
                         <div class="textImg">
-                            <img src="~/img/text1.jpg" alt="">
+                            <img src="~/img/3.jpg" alt="">
                         </div>
-                        <div class="textBody">
-                            <div class="textBodyHead">中国少数民族人口数量排名</div>
-                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        <div class="textBody" style="background-color:white;">
+                            @*<div class="textBodyHead"></div>*@
+                            <div>近日，为了全面贯彻落实国务院关于文化文物单位文化创意产品开发工作的精神，进一步推进我省文化文物单位文化创意产品开发工作，省政府在太原召开了全省文化文物单位文化创意产品开发工作座谈会。省政府有关领导，省文化厅、省文物局主要领导以及省发改委、省财政厅分管领导和各地市文化、文物单位领导参会。</div>
                         </div>
                     </div>
                 </div>
                 <div class="text">
                     <div class="textHeader">
                         <span></span>
-                        民族人口
+                        文化传承的自觉性和制度化
                     </div>
                     <div class="textBottom clearfix">
                         <div class="textImg">
-                            <img src="~/img/text1.jpg" alt="">
+                            <img src="~/img/6.jpg" alt="">
                         </div>
-                        <div class="textBody">
-                            <div class="textBodyHead">中国少数民族人口数量排名</div>
-                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        <div class="textBody" style="background-color:white;">
+                            @*<div class="textBodyHead">中国少数民族人口数量排名</div>*@
+                            <div>民族文化传承与文化传播不同。文化传承是一个民族文化内部的源与流、继承与创新关系；文化传播是本土文化与外来文化、文化交往与文化吸取关系。民族文化重传承，外来文化重借鉴。文化传承的源流不断，以国家的存在和统一为前提。中国拥有丰富的传统文化。</div>
                         </div>
                     </div>
                 </div>
                 <div class="text">
                     <div class="textHeader">
                         <span></span>
-                        民族人口
+                        转化民族资源 创新性建立民族文化新平台
                     </div>
                     <div class="textBottom clearfix">
                         <div class="textImg">
-                            <img src="~/img/text1.jpg" alt="">
+                            <img src="~/img/7.jpg" alt="">
                         </div>
-                        <div class="textBody">
-                            <div class="textBodyHead">中国少数民族人口数量排名</div>
-                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        <div class="textBody" style="background-color:white;">
+                            @*<div class="textBodyHead">中国少数民族人口数量排名</div>*@
+                            <div>服务于国家大数据战略，“中国民族文化资源库”项目与贵阳市合作的一年中，借势发展。据北京天成嘉华文化传媒董事长张爽介绍，“资源库”已于去年完成了一期开发工程的建设，其包含了搜集提交、数字化加工、信息采集、加工标引、数据中心管理、内容制作、发布七大子系统以及线上线下一体化平台。</div>
                         </div>
                     </div>
                 </div>
                 <div class="text">
                     <div class="textHeader">
                         <span></span>
-                        民族人口
+                        挖掘本土文化资源
                     </div>
                     <div class="textBottom clearfix">
                         <div class="textImg">
-                            <img src="~/img/text1.jpg" alt="">
+                            <img src="~/img/10.jpg" alt="">
                         </div>
-                        <div class="textBody">
-                            <div class="textBodyHead">中国少数民族人口数量排名</div>
-                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        <div class="textBody" style="background-color:white;">
+                            @*<div class="textBodyHead">中国少数民族人口数量排名</div>*@
+                            <div>近年来，漳州市纪委注重发挥文化“润德无声”的作用，挖掘整理谷文昌、漳浦两帝师廉政文化和黄道周、庄恒阳等有影响力的家族遗训、家规风范，通过搭建网络和媒体专题宣传、建立完善市廉政教育基地、龙海埭美家风馆、华安齐家馆，开展谷文昌家风宣讲等，进一步强化党员领导干部纪律规矩意识。</div>
                         </div>
                     </div>
                 </div>
                 <div class="text">
                     <div class="textHeader">
                         <span></span>
-                        民族人口
+                        实现传统文化的创造性转化
                     </div>
                     <div class="textBottom clearfix">
                         <div class="textImg">
-                            <img src="~/img/text1.jpg" alt="">
+                            <img src="~/img/11.jpg" alt="">
                         </div>
-                        <div class="textBody">
-                            <div class="textBodyHead">中国少数民族人口数量排名</div>
-                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        <div class="textBody" style="background-color:white;">
+                            @*<div class="textBodyHead">中国少数民族人口数量排名</div>*@
+                            <div>优秀的传统文化固然是一个国家、一个民族传承和发展的根本，学习、研究、应用传统文化是必要的，但是我们继承传统文化需要科学的心态。不是说直接将传统文化拿来照套照用，而是要积极作为，把传统文化和发展现实文化有机统一起来，实现传统文化的创造性转化。</div>
                         </div>
                     </div>
                 </div>
                 <div class="text">
                     <div class="textHeader">
                         <span></span>
-                        民族人口
+                        让优秀传统文化融入日常生活
                     </div>
                     <div class="textBottom clearfix">
                         <div class="textImg">
-                            <img src="~/img/text1.jpg" alt="">
+                            <img src="~/img/13.jpg" alt="">
                         </div>
-                        <div class="textBody">
-                            <div class="textBodyHead">中国少数民族人口数量排名</div>
-                            <div>中国是一个多民族的国家，其中汉族人口比重最大，约占全国人口总数的92%左右，其它55个民族总人口偏少，约占全国总人口的8%左右，故称其为少数民族。全国55个少数民族中人口最多的是壮族，人口超过1500万；最少的是珞巴族，人口不足3000人（未包括藏南印度占领地区60万珞巴族）。</div>
+                        <div class="textBody" style="background-color:white;">
+                            @*<div class="textBodyHead">中国少数民族人口数量排名</div>*@
+                            <div>传统文化应“注重实践与养成、需求与供给、形式与内容相结合，把中华优秀传统文化融入生产生活各方面”，日常生活承载着丰富的文化基因，群众才是传统的文化主角。只有融入，优秀传统文化才能焕发生机和活力，才能激发起人们认知、了解、保护与传承的热情。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="homeContentVideo">
+            <div class="homeContentTitle">
+                <span>视频</span>
+                <a href="/home/videonlist">更多 》</a>
+            </div>
+            <div class="videoContent clearfix">
+                <div class="videoLeft pull-left">
+                    <img src="~/img/shipin01.jpg" alt="">
+                </div>
+                <div class="videoRight pull-left clearfix">
+                    <div class="video" ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
+                        <div class="videoImg">
+                            <img style="height:115px;width:200px;" src="~/img/lj.png" alt="">
+                        </div>
+                        <div class="videoText">
+                            <div>{{item.TitleProper}}</div>
+                            <div class="videoTextContent"></div>
+                            <div><a href="#">详情 》</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
         <div class="homeContentImg">
             <div class="homeContentTitle">
-                <span>图片</span>
-                <a href="#">更多 》</a>
+                <span>文化风采</span>
+                <a href="/home/imglist">更多 》</a>
             </div>
             <div class="imgContent clearfix">
                 <div class="img">
-                    <img src="~/img/img1.jpg" alt="">
-                    <span class="textBg"></span>
-                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                    <img style="width:280px;height:195px;" src="~/img/img1.jpg" alt="">
                 </div>
                 <div class="img">
-                    <img src="~/img/img1.jpg" alt="">
-                    <span class="textBg"></span>
-                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                    <img style="width:280px;height:195px;" src="~/img/img2.jpg" alt="">
                 </div>
                 <div class="img">
-                    <img src="~/img/img1.jpg" alt="">
-                    <span class="textBg"></span>
-                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                    <img style="width:280px;height:195px;" src="~/img/img3.jpg" alt="">
                 </div>
                 <div class="img">
-                    <img src="~/img/img1.jpg" alt="">
-                    <span class="textBg"></span>
-                    <span class="text">天籁之声明星闪烁！斯琴格日乐</span>
+                    <img style="width:280px;height:195px;" src="~/img/img4.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -556,9 +522,6 @@
             <ul class="text-center clearfix">
                 <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
                 <li><a href="">关于我们</a></li>
-                <li><a href="">网站声明</a></li>
-                <li><a href="">网站联盟</a></li>
-                <li><a href="">友情链接</a></li>
             </ul>
         </div>
         <div class="text-center">版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</div>
@@ -566,6 +529,9 @@
         <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
         @*<div class="text-center">京ICP备16031227号 Copyright 文化资源归集系统 www.minwang.com.cn All rights reserved</div>*@
     </div>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/pagination.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
     <script>
         $(function () {
             $('.searchBtn').click(function () {
