@@ -1215,8 +1215,6 @@
     <Content Include="Assets\plugins\uniform\README.md" />
     <Content Include="Areas\Admin\Views\Import\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Import\List.cshtml" />
-    <Content Include="App_Data\logs\2016-06-15.log" />
-    <Content Include="App_Data\logs\2016-06-16.log" />
     <Content Include="Areas\Admin\Views\Manager\List.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
     <Content Include="Areas\Admin\Views\WorldHeritage\List.cshtml" />
@@ -1375,6 +1373,7 @@
     <Content Include="Uploads\fyexcel\第四届民歌初赛 改 20170417.xls" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\logs\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\WebApi\" />
     <Folder Include="files\imgs\" />
