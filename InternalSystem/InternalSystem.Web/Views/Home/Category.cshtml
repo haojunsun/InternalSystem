@@ -23,7 +23,7 @@
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     <div class="searchTop clearfix">
-                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
                         <a class="searchBtn pull-left">
                             <span class="glyphicon glyphicon-zoom-in"></span>
                         </a>
@@ -327,5 +327,13 @@
         <div class="text-center">地址：北京市朝阳区朝来高科技产业园6楼西侧3层</div>
         <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
     </div>
+    <script>
+        $(function () {
+            $('.searchBtn').click(function () {
+                var key = $('#topkey').val();
+                window.location = '/home/search?key=' + key;
+            })
+        })
+    </script>
 </body>
 </html>

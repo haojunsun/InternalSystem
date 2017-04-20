@@ -33,7 +33,7 @@
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     <div class="searchTop clearfix">
-                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
                         <a class="searchBtn pull-left">
                             <span class="glyphicon glyphicon-zoom-in"></span>
                         </a>
@@ -149,5 +149,13 @@
     <script src="~/Scripts/angular.bundled.min.js"></script>
     <script src="~/Scripts/pagination.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
+    <script>
+        $(function () {
+            $('.searchBtn').click(function () {
+                var key = $('#topkey').val();
+                window.location = '/home/search?key=' + key;
+            })
+        })
+    </script>
 </body>
 </html>

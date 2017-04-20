@@ -13,6 +13,8 @@
     <script src="~/Scripts/mediaelement-and-player.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/css/mediaelementplayer.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.js"></script> 
+    <script src="~/Scripts/projekktor.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
     <script>
         var sc = sc || {};
@@ -29,7 +31,7 @@
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     <div class="searchTop clearfix">
-                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
                         <a class="searchBtn pull-left">
                             <span class="glyphicon glyphicon-zoom-in"></span>
                         </a>
@@ -113,16 +115,18 @@
             <div class="detailListLeft">
                 <div class="detailListLeftOne">
                     <h5>
-                        <a><img src="~/img/video.png" alt=""><span>美丽的特色小镇旅游好去处</span></a>
-                        <span>价格　￥0.00 </span>
+                        <a><img src="~/img/video.png" alt=""><span>{{videoinfo.TitleProper}}</span></a>
+                        @*<span>价格　￥0.00 </span>
                         <div class="download">
                             <span class="glyphicon glyphicon-download"></span>
                             下载
-                        </div>
+                        </div>*@
 
                     </h5>
                     <div class="oneContent">
-                        <video src="http://player.ku6.com/inside/Lo1S2BNszkgG7b4c6dhOnw../v.swf&adss=0" controls="controls"></video>
+                        <video id="videoplayer" poster="~/img/pic.png" title="this is Projekktor" width="900" height="500" controls=controls>
+                            <source id="videosource" src="" type="video/mp4" />
+                        </video>
                     </div>
                 </div>
 
@@ -133,14 +137,14 @@
                 </h3>
                 <div class="rightContent">
                     <ul class="imgDetailRight">
-                        <li>大小：<span>0.03M</span></li>
-                        <li>作者：<span>0.03M</span></li>
-                        <li>来源：<span>0.03M</span></li>
-                        <li>民族：<span>0.03M</span></li>
-                        <li>标签：<span>0.03M</span></li>
-                        <li>版权所属：<span>0.03M</span></li>
-                        <li>版权期限：<span>0.03M</span></li>
-                        <li>描述：<span>0.03M</span></li>
+                        <li>名称：<span>{{videoinfo.TitleProper}}</span></li>
+                        <li>艺术类别：<span>{{videoinfo.FirstLevelOfArtClassification}} {{videoinfo.SecondLevelOfArtClassification}} {{videoinfo.ThirdLevelOfArtClassification}}</span></li>
+                        <li>艺术流派：<span>{{videoinfo.ArtSchool}}</span></li>
+                        <li>民族：<span>{{videoinfo.SecondLevelOfEthnicGroup}}</span></li>
+                        <li>省市：<span>{{videoinfo.Province}} {{videoinfo.City}}</span></li>
+                        <li>项县：<span>{{videoinfo.County}} {{videoinfo.Town}}</span></li>
+                        <li>相关人物：<span>{{videoinfo.Name}}</span></li>
+                        <li>源资料提供者：<span>{{videoinfo.ProviderOfReferences}}</span></li>
                     </ul>
                 </div>
             </div>
@@ -150,43 +154,10 @@
                 <p>相关推荐</p>
             </h3>
             <ul class="imgDetaillBottom clearfix videoDetailBottom">
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
+                <li ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
+                    <a href="#"><img src="~/img/lj.png" alt=""></a>
+                    <p>{{item.FirstLevelOfArtClassification}}:{{item.TitleProper}}</p>
                 </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-                <li>
-                    <a href="#"><img src="~/img/imgdetail1.jpg" alt=""></a>
-                    <p>西江苗寨</p>
-                </li>
-
             </ul>
         </div>
     </div>
@@ -209,7 +180,10 @@
     <script src="~/Scripts/seco-app.js"></script>
     <script>
         $(function () {
-
+            $('.searchBtn').click(function () {
+                var key = $('#topkey').val();
+                window.location = '/home/search?key=' + key;
+            })
         })
     </script>
 

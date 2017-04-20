@@ -247,6 +247,8 @@ sc.app = angular.module('scApp', [])
           $scope.musicList = [];
 
           $scope.resourceType = location.search.indexOf('=') > -1 ? location.search.split('=')[1] : "";
+          //默认搜索
+          var defaultKey = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
 
 
           $scope.type = '文字';
@@ -361,7 +363,14 @@ sc.app = angular.module('scApp', [])
               });
           }
 
-          //$scope.getList();
+          //如果有默认搜索 
+          if (defaultKey) {
+              $scope.searchkey = decodeURI(defaultKey);
+              $scope.gettextList();
+              $scope.getmusicList();
+              $scope.getvideoList();
+              $scope.getimgList();
+          }
 
           //翻页
           changePage = function (ele) {
@@ -439,6 +448,16 @@ sc.app = angular.module('scApp', [])
     .controller('TextDetailController', ['$scope', '$http', function ($scope, $http) {
         var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
         $scope.videoinfo = {};
+        $scope.textList = [];
+
+        $scope.gettextList = function () {
+            $scope.textList = [];
+            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "文字", "pageSize": 10, "pageIndex": 1 }).success(function (data) {
+                $scope.textList = data.Data.Items;
+            }).error(function (data) {
+                console.log("查询失败");
+            });
+        }
 
         //获取单条数据
         $scope.getVideoInfo = function () {
@@ -466,12 +485,23 @@ sc.app = angular.module('scApp', [])
         $scope.getVideoInfo();
         //进入详情页
         openDetail = function (whid, ele) {
-            window.open('MusicDetail?video=' + whid);
+            window.open('TextDetail?video=' + whid);
         }
     }])
  .controller('VideoDetailController', ['$scope', '$http', function ($scope, $http) {
      var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
      $scope.videoinfo = {};
+     $scope.videoList = [];
+
+     $scope.getvideoList = function () {
+         $scope.videoList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "视频", "pageSize": 10, "pageIndex": 1 }).success(function (data) {
+             $scope.videoList = data.Data.Items;
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+     $scope.getvideoList();
 
      //获取单条数据
      $scope.getVideoInfo = function () {
@@ -499,12 +529,24 @@ sc.app = angular.module('scApp', [])
      $scope.getVideoInfo();
      //进入详情页
      openDetail = function (whid, ele) {
-         window.open('MusicDetail?video=' + whid);
+         window.open('VideoDetail?video=' + whid);
      }
  }])
  .controller('ImgDetailController', ['$scope', '$http', function ($scope, $http) {
      var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
      $scope.videoinfo = {};
+     $scope.imgList = [];
+
+     $scope.getimgList = function () {
+         $scope.imgList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "图片", "pageSize": 10, "pageIndex": 1 }).success(function (data) {
+             $scope.imgList = data.Data.Items;
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+
+     $scope.getimgList();
 
      //获取单条数据
      $scope.getVideoInfo = function () {
@@ -532,7 +574,7 @@ sc.app = angular.module('scApp', [])
      $scope.getVideoInfo();
      //进入详情页
      openDetail = function (whid, ele) {
-         window.open('MusicDetail?video=' + whid);
+         window.open('ImgDetail?video=' + whid);
      }
  }])
  .controller('MusicDetailController', ['$scope', '$http', function ($scope, $http) {
@@ -542,7 +584,7 @@ sc.app = angular.module('scApp', [])
 
      $scope.getmusicList = function () {
          $scope.musicList = [];
-         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup":"", "type": "音频", "pageSize": 6, "pageIndex": 1 }).success(function (data) {
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "音频", "pageSize": 6, "pageIndex": 1 }).success(function (data) {
              $scope.musicList = data.Data.Items;
          }).error(function (data) {
              console.log("查询失败");

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -16,14 +15,14 @@
 <body style="background: url(../img/bj1.png); width: 100%;">
     <div class="header">
         @* <div class="titleHeader">
-            <div>欢迎来到文化资源归集系统~</div>
-        </div>*@
+                <div>欢迎来到文化资源归集系统~</div>
+            </div>*@
         <div class="searchTitle">
             <div class="logoBox clearfix">
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     <div class="searchTop clearfix">
-                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
                         <a class="searchBtn pull-left">
                             <span class="glyphicon glyphicon-zoom-in"></span>
                         </a>
@@ -87,7 +86,8 @@
             <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li><li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
+            <li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -356,39 +356,39 @@
                 </div>
             </div>
         </div>
-     
-    
-      
+
+
+
         @*<div class="homeContentNation">
-            <div class="homeContentTitle">
-                <span>中华各民族</span>
-            </div>
-            <div class="nationContent">
-                <ul class="clearfix">
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                    <li><a href="">汉族</a></li>
-                </ul>
-            </div>
-        </div>*@
+                <div class="homeContentTitle">
+                    <span>中华各民族</span>
+                </div>
+                <div class="nationContent">
+                    <ul class="clearfix">
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                        <li><a href="">汉族</a></li>
+                    </ul>
+                </div>
+            </div>*@
     </div>
     <div class="homeFooter">
         <div class="footNav">
             <ul class="text-center clearfix">
-                <li onclick="window.location='/home/index';" ><a href="/home/index">首页</a></li>
+                <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
                 <li><a href="">关于我们</a></li>
                 <li><a href="">网站声明</a></li>
                 <li><a href="">网站联盟</a></li>
@@ -400,5 +400,13 @@
         <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
         @*<div class="text-center">京ICP备16031227号 Copyright 文化资源归集系统 www.minwang.com.cn All rights reserved</div>*@
     </div>
+    <script>
+        $(function () {
+            $('.searchBtn').click(function () {
+                var key = $('#topkey').val();
+                window.location = '/home/search?key=' + key;
+            })
+        })
+    </script>
 </body>
 </html>

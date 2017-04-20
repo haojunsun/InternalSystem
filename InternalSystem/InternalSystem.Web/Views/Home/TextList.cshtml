@@ -33,7 +33,7 @@
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     <div class="searchTop clearfix">
-                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
                         <a class="searchBtn pull-left" style="    width: 40px;height: 40px;background-color: #d0152f;display: block;text-align: center;line-height: 41px;cursor: pointer;">
                             <span class="glyphicon glyphicon-zoom-in"></span>
                         </a>
@@ -166,6 +166,11 @@
         $(function () {
             $('.classtype').click(function () {
                 console.log(this);
+            })
+
+            $('.searchBtn').click(function () {
+                var key = $('#topkey').val();
+                window.location = '/home/search?key=' + key;
             })
         });
 

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -27,7 +26,7 @@
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     <div class="searchTop clearfix">
-                        <input type="text" class="pull-left" placeholder="请输入查询条件...">
+                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
                         <a class="searchBtn pull-left">
                             <span class="glyphicon glyphicon-zoom-in"></span>
                         </a>
@@ -98,7 +97,7 @@
     </div>
     <div class="textListContent">
         <div class="listHead">
-            <h3><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</h3>
+            <h3><img src="~/img/document.png" alt="">{{videoinfo.TitleProper}}</h3>
             <div class="litleNav">
                 <a href="#">首页</a>
                 >
@@ -109,23 +108,23 @@
             <div class="detailListLeft">
                 <div class="detailListLeftOne">
                     <h5>
-                        <a href="">阅读全文</a>
-                        <span>价格　￥0.00 </span>
-                        <div class="download">
-                            <span class="glyphicon glyphicon-download"></span>
-                            下载
-                        </div>
+                        @*<a href="">阅读全文</a>
+                            <span>价格　￥0.00 </span>
+                            <div class="download">
+                                <span class="glyphicon glyphicon-download"></span>
+                                下载
+                            </div>*@
 
                     </h5>
                     <div class="oneContent">
-                        <p>描述：<span></span></p>
-                        <p>作者：<span></span></p>
-                        <p>民族：<span>汉族</span></p>
-                        <p>作者单位：<span></span></p>
-                        <p>版权归属：<span>第三方</span></p>
-                        <p>版权期限：<span>2051年04月12日</span></p>
-                        <p>参考文字：<span></span></p>
-                        <p>标签：<span></span></p>
+                        <p>名称：<span>{{videoinfo.TitleProper}}</span></p>
+                        <p>艺术类别：<span>{{videoinfo.FirstLevelOfArtClassification}} {{videoinfo.SecondLevelOfArtClassification}} {{videoinfo.ThirdLevelOfArtClassification}}</span></p>
+                        <p>艺术流派：<span>{{videoinfo.ArtSchool}}</span></p>
+                        <p>民族：<span>{{videoinfo.SecondLevelOfEthnicGroup}}</span></p>
+                        <p>省市：<span>{{videoinfo.Province}} {{videoinfo.City}}</span></p>
+                        <p>项县：<span>{{videoinfo.County}} {{videoinfo.Town}}</span></p>
+                        <p>相关人物：<span>{{videoinfo.Name}}</span></p>
+                        <p>源资料提供者：<span>{{videoinfo.ProviderOfReferences}}</span></p>
                     </div>
                 </div>
                 <div class="detailListLeftTwo">
@@ -137,48 +136,28 @@
                             <tr>
                                 <td>
                                     <ul>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
+                                        <li ng-repeat="item in textList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
+                                            <a href="">{{item.FirstLevelOfArtClassification}}-{{item.TitleProper}}</a>
+                                        </li>
                                     </ul>
                                 </td>
-                                <td>
-                                    <ul>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                    </ul>
-                                </td>
+
                             </tr>
-                            <tr>
-                                <td>
-                                    <ul>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                        <li><a href="">怒族历史</a></li>
-                                    </ul>
-                                </td>
-                            </tr>
+
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="detialListRight">
-                <h3>
-                    <p>相关专题</p>
-                </h3>
-                <div class="rightContent">
-                    <ul>
-                        <li>未找到相关专题</li>
-                    </ul>
-                </div>
-            </div>
+            @*<div class="detialListRight">
+                    <h3>
+                        <p>相关专题</p>
+                    </h3>
+                    <div class="rightContent">
+                        <ul>
+                            <li>未找到相关专题</li>
+                        </ul>
+                    </div>
+                </div>*@
         </div>
     </div>
     <div class="homeFooter">
@@ -200,7 +179,10 @@
     <script src="~/Scripts/seco-app.js"></script>
     <script>
         $(function () {
-           
+            $('.searchBtn').click(function () {
+                var key = $('#topkey').val();
+                window.location = '/home/search?key=' + key;
+            })
         })
     </script>
 </body>
