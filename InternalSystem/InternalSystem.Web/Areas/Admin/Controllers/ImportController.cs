@@ -246,7 +246,13 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 69)//国际标准书号
                             wh1.ISBNISRC = dt.Rows[i][j].ToString();
                         if (j == 70)//原资料格式类型
+                        {
                             wh1.ReferencesFormat = dt.Rows[i][j].ToString();
+                            if(dt.Rows[i][j].ToString()=="视频")
+                                wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][1].ToString() + ".mp4";
+                            else
+                                wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][1].ToString() + "." + dt.Rows[i][77].ToString();
+                        }
                         if (j == 71)//获取方式
                             wh1.AcquisitionMethod = dt.Rows[i][j].ToString();
                         if (j == 72)//资料提供者
@@ -262,7 +268,6 @@ namespace InternalSystem.Web.Areas.Admin.Controllers
                         if (j == 77)//数字化格式
                         {
                             wh1.DigitalObjectFormat = dt.Rows[i][j].ToString();
-                            wh1.FileName = "~/Uploads/importVideo/" + dt.Rows[i][1].ToString() + "." + dt.Rows[i][j].ToString();
                         }
                         if (j == 78)//大小
                             wh1.Size = dt.Rows[i][j].ToString();
