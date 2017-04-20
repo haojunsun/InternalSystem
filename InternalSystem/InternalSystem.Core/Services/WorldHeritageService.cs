@@ -165,7 +165,7 @@ namespace InternalSystem.Core.Services
                     }
                     if (!string.IsNullOrEmpty(firstLevelOfArtClassification))
                     {
-                        list = list.Where(p => p.FirstLevelOfArtClassification.Contains(firstLevelOfArtClassification));
+                        list = list.Where(p => p.FirstLevelOfArtClassification.Contains(firstLevelOfArtClassification) || p.SecondLevelOfArtClassification.Contains(firstLevelOfArtClassification));
                     }
                     if (!string.IsNullOrEmpty(secondLevelOfEthnicGroup))
                     {

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -12,8 +11,40 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/pagination.css">
+    <style>
+        #pages1 a {
+            color: #337ab7;
+        }
+
+        #pages2 a {
+            color: #337ab7;
+        }
+
+        #pages3 a {
+            color: #337ab7;
+        }
+
+        #pages4 a {
+            color: #337ab7;
+        }
+
+        .blackColor {
+            color: black;
+            text-decoration: none;
+        }
+
+        .redColor {
+            color: #D0152F;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
-<body style="background: url(../img/bj1.png); width: 100%;">
+<body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="CategoryController">
     <div class="header">
         @*<div class="titleHeader">
                 <div>欢迎来到文化资源归集系统~</div>
@@ -61,24 +92,190 @@
                 <a href="">全部分类</a>
                 <ul>
                     <li>
-                        <span>民族地方</span>
+                        <span>中国歌曲</span>
                         》
                         <div>
-                            <a href="#">自治区概况</a>
-                            <a href="#">自治州概况</a>
-                            <a href="#">自治县概况</a>
-                            <a href="#">民族乡概况</a>
+                            <a href="/home/category?key=民族歌曲">民族歌曲</a>
+                            <a href="/home/category?key=少数民族歌曲">少数民族歌曲</a>
+                            <a href="/home/category?key=艺术歌曲">艺术歌曲</a>
+                            <a href="/home/category?key=流行歌曲">流行歌曲</a>
+                            <a href="/home/category?key=影视剧歌曲">影视剧歌曲</a>
+                            <a href="/home/category?key=儿童歌曲">儿童歌曲</a>
+                            <a href="/home/category?key=革命歌曲">革命歌曲</a>
                         </div>
                     </li>
                     <li>
-                        <span>语言文字</span>
+                        <span>中国器乐</span>
                         》
                         <div>
-                            <a href="#">民族语言文字知识</a>
-                            <a href="#">民族语言简志</a>
-                            <a href="#">民族语言文字概况</a>
-                            <a href="#">民族语文词书</a>
-                            <a href="#">民族语言人物</a>
+                            <a href="/home/category?key=民族器乐">民族器乐</a>
+                            <a href="/home/category?key=少数民族器乐">少数民族器乐</a>
+                            <a href="/home/category?key=交响乐">交响乐</a>
+                            <a href="/home/category?key=协奏曲">协奏曲</a>
+                            <a href="/home/category?key=组曲">组曲</a>
+                            <a href="/home/category?key=电影音乐">电影音乐</a>
+                            <a href="/home/category?key=舞剧音乐">舞剧音乐</a>
+                            <a href="/home/category?key=军乐">军乐</a>
+                            <a href="/home/category?key=仪式音乐">仪式音乐</a>
+                            <a href="/home/category?key=通俗音乐">通俗音乐</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>传统戏曲</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=京剧">京剧</a>
+                            <a href="/home/category?key=昆曲">昆曲</a>
+                            <a href="/home/category?key=北京曲剧">北京曲剧</a>
+                            <a href="/home/category?key=评剧">评剧</a>
+                            <a href="/home/category?key=河北梆子">河北梆子</a>
+                            <a href="/home/category?key=老调">老调</a>
+                            <a href="/home/category?key=丝弦戏">丝弦戏</a>
+                            <a href="/home/category?key=唐剧">唐剧</a>
+                            <a href="/home/category?key=武安平调落子">武安平调落子</a>
+                            <a href="/home/category?key=晋剧">晋剧</a>
+                            <a href="/home/category?key=山西北路梆子">山西北路梆子</a>
+                            <a href="/home/category?key=蒲剧">蒲剧</a>
+                            <a href="/home/category?key=上党梆子">上党梆子</a>
+                            <a href="/home/category?key=秧歌戏">秧歌戏</a>
+                            <a href="/home/category?key=二人台">二人台</a>
+                            <a href="/home/category?key=吉剧">吉剧</a>
+                            <a href="/home/category?key=沪剧">沪剧</a>
+                            <a href="/home/category?key=滑稽戏">滑稽戏</a>
+                            <a href="/home/category?key=锡剧">锡剧</a>
+                            <a href="/home/category?key=河南曲剧">河南曲剧</a>
+                            <a href="/home/category?key=淮剧">淮剧</a>
+                            <a href="/home/category?key=苏剧">苏剧</a>
+                            <a href="/home/category?key=越剧">越剧</a>
+                            <a href="/home/category?key=婺剧">婺剧</a>
+                            <a href="/home/category?key=赣剧">赣剧</a>
+                            <a href="/home/category?key=山东梆子">山东梆子</a>
+                            <a href="/home/category?key=吕剧">吕剧</a>
+                            <a href="/home/category?key=湖南花鼓戏">湖南花鼓戏</a>
+                            <a href="/home/category?key=柳琴戏">柳琴戏</a>
+                            <a href="/home/category?key=豫剧">豫剧</a>
+                            <a href="/home/category?key=扬剧">扬剧</a>
+                            <a href="/home/category?key=汉剧">汉剧</a>
+                            <a href="/home/category?key=楚剧">楚剧</a>
+                            <a href="/home/category?key=湖北花鼓戏">湖北花鼓戏</a>
+                            <a href="/home/category?key=湘剧">湘剧</a>
+                            <a href="/home/category?key=祁剧">祁剧</a>
+                            <a href="/home/category?key=滇剧">滇剧</a>
+                            <a href="/home/category?key=粤剧">粤剧</a>
+                            <a href="/home/category?key=潮剧">潮剧</a>
+                            <a href="/home/category?key=琼剧">琼剧</a>
+                            <a href="/home/category?key=广东汉剧">广东汉剧</a>
+                            <a href="/home/category?key=白字戏">白字戏</a>
+                            <a href="/home/category?key=桂剧">桂剧</a>
+                            <a href="/home/category?key=彩调">彩调</a>
+                            <a href="/home/category?key=川剧">川剧</a>
+                            <a href="/home/category?key=四川灯戏">四川灯戏</a>
+                            <a href="/home/category?key=黔剧">黔剧</a>
+                            <a href="/home/category?key=贵州花灯剧">贵州花灯剧</a>
+                            <a href="/home/category?key=五音戏">五音戏</a>
+                            <a href="/home/category?key=云南花灯戏">云南花灯戏</a>
+                            <a href="/home/category?key=秦腔">秦腔</a>
+                            <a href="/home/category?key=碗碗腔">碗碗腔</a>
+                            <a href="/home/category?key=眉户">眉户</a>
+                            <a href="/home/category?key=陇剧">陇剧</a>
+                            <a href="/home/category?key=道情戏">道情戏</a>
+                            <a href="/home/category?key=平弦戏">平弦戏</a>
+                            <a href="/home/category?key=少数民族剧种">少数民族剧种</a>
+                            <a href="/home/category?key=其他">其他</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>中国戏剧</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=话剧">话剧</a>
+                            <a href="/home/category?key=歌剧">歌剧</a>
+                            <a href="/home/category?key=舞剧">舞剧</a>
+                            <a href="/home/category?key=歌舞剧">歌舞剧</a>
+                            <a href="/home/category?key=舞台剧">舞台剧</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>传统曲艺</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=鼓词类">鼓词类</a>
+                            <a href="/home/category?key=弹词类">弹词类</a>
+                            <a href="/home/category?key=道情类">道情类</a>
+                            <a href="/home/category?key=琴书类">琴书类</a>
+                            <a href="/home/category?key=牌子曲">牌子曲</a>
+                            <a href="/home/category?key=时调小曲">时调小曲</a>
+                            <a href="/home/category?key=杂曲">杂曲</a>
+                            <a href="/home/category?key=走唱类">走唱类</a>
+                            <a href="/home/category?key=评话类">评话类</a>
+                            <a href="/home/category?key=相声、滑稽">相声、滑稽</a>
+                            <a href="/home/category?key=快板、快书">快板、快书</a>
+                            <a href="/home/category?key=少数民族曲种">少数民族曲种</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>中国文学</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=民间文学">民间文学</a>
+                            <a href="/home/category?key=儿童文学">儿童文学</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>传统舞蹈</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=生产舞蹈">生产舞蹈</a>
+                            <a href="/home/category?key=生活舞蹈">生活舞蹈</a>
+                            <a href="/home/category?key=仪式舞蹈">仪式舞蹈</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>传统技艺</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=织造印染">织造印染</a>
+                            <a href="/home/category?key=金属锻制">金属锻制</a>
+                            <a href="/home/category?key=乐器制作">乐器制作</a>
+                            <a href="/home/category?key=文房四宝">文房四宝</a>
+                            <a href="/home/category?key=生活器具">生活器具</a>
+                            <a href="/home/category?key=陶瓷烧制">陶瓷烧制</a>
+                            <a href="/home/category?key=漆器绘制">漆器绘制</a>
+                            <a href="/home/category?key=建筑营造">建筑营造</a>
+                            <a href="/home/category?key=食品加工">食品加工</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>民俗</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=节庆会典">节庆会典</a>
+                            <a href="/home/category?key=人生礼俗">人生礼俗</a>
+                            <a href="/home/category?key=民间信仰">民间信仰</a>
+                            <a href="/home/category?key=生产贸易习俗">生产贸易习俗</a>
+                            <a href="/home/category?key=服饰文化">服饰文化</a>
+                            <a href="/home/category?key=民间游艺">民间游艺</a>
+                            <a href="/home/category?key=巫术、禁忌等民间知识">巫术、禁忌等民间知识</a>
+                            <a href="/home/category?key=其他">其他</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>传统美术</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=美术绘制">美术绘制</a>
+                            <a href="/home/category?key=盆景插花">盆景插花</a>
+                            <a href="/home/category?key=雕刻">雕刻</a>
+                            <a href="/home/category?key=编制扎制">编制扎制</a>
+                            <a href="/home/category?key=塑型捏制">塑型捏制</a>
+                            <a href="/home/category?key=刺绣">刺绣</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>传统医药</span>
+                        》
+                        <div>
+                            <a href="/home/category?key=传统医药">传统医药</a>
                         </div>
                     </li>
                 </ul>
@@ -87,7 +284,8 @@
             <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li><li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
+            <li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -103,10 +301,10 @@
         <div class="listContent">
             <div class="category">
                 <ul class="nav nav-tabs category-tab clearfix" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><div>图片</div><div>20条</div></a></li>
-                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><div>视频</div><div>4条</div></a></li>
-                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><div>文字</div><div>4条</div></a></li>
-                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><div>音频</div><div>0条</div></a></li>
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><div>图片</div><div>{{datacount1}}条</div></a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><div>视频</div><div>{{datacount2}}条</div></a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><div>文字</div><div>{{datacount3}}条</div></a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><div>音频</div><div>{{datacount4}}条</div></a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -114,170 +312,56 @@
                     <div role="tabpanel" class="tab-pane  active" id="home">
                         <div class="tabBox tabImg">
                             <ul class="clearfix">
-                                <li>
+                                <li ng-repeat="item in imgList" _whid="{{item.WorldHeritageId}}" onclick="openDetail1($(this).attr('_whid'));">
                                     <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/img/img1.jpg" alt="">
+                                        <img src="{{item.FileName}}" style="width:280px;height:189px" />
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="pageQuery">
-                            <span class="glyphicon glyphicon-backward"></span>
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span>第1页共44页</span>
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="glyphicon glyphicon-forward"></span>
-                            <span>页码</span>
-                            <input type="text">
-                            <i>GO</i>
-                        </div>
+                        <div id="pages1" style="margin-left:350px"></div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="profile">
                         <div class="tabBox tabVideo">
                             <ul class="clearfix">
-                                <li>
+                                <li ng-repeat="item in videoList" _whid="{{item.WorldHeritageId}}" onclick="openDetail2($(this).attr('_whid'));">
                                     <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="~/img/video1.jpg" alt="">
-                                        <p><img src="~/img/video.png" alt="">中国侗族在三江 歌曲MV</p>
+                                        <img src="~/img/lj.png" width="270" height="152" alt="">
+                                        <p><img src="~/img/video.png" alt="">{{item.FirstLevelOfArtClassification}}:{{item.TitleProper}}</p>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="pageQuery">
-                            <span class="glyphicon glyphicon-backward"></span>
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span>第1页共44页</span>
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="glyphicon glyphicon-forward"></span>
-                            <span>页码</span>
-                            <input type="text">
-                            <i>GO</i>
-                        </div>
+                        <div id="pages2" style="margin-left:350px"></div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="messages">
-                        <div class="tabBox tabText">
+                        <div class="tabBox SearchtabText">
                             <table width="100%" class="text-list">
                                 <thead>
                                     <tr class="tablehead">
-                                        <th width="65%">文字名称</th>
-                                        <th width="5%">作者</th>
-                                        <th width="30%">上传时间</th>
+                                        <th>
+                                            <p class="clearfix">
+                                                <span>资源名称</span>
+                                                <span>艺术门类</span>
+                                            </p>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
+                                    <tr ng-repeat="item in textList" _whid="{{item.WorldHeritageId}}" onclick="openDetail3($(this).attr('_whid'));">
+                                        <td>
+                                            <p class="clearfix">
+                                                <a href=""><img src="~/img/document.png" alt="">{{item.TitleProper}}</a>
+                                                <span>{{item.FirstLevelOfArtClassification}}</span>
+                                            </p>
+                                            <p class="textN">{{item.SecondLevelOfArtClassification}}</p>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="~/img/document.png" alt="">雄县曾是宋辽边陲重镇</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 15:14:36</td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
-                        <div class="pageQuery">
-                            <span class="glyphicon glyphicon-backward"></span>
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span>第1页共44页</span>
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="glyphicon glyphicon-forward"></span>
-                            <span>页码</span>
-                            <input type="text">
-                            <i>GO</i>
-                        </div>
+                        <div id="pages3" style="margin-left:350px"></div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="settings">
                         <div class="tabBox tabAudio">
@@ -285,29 +369,18 @@
                                 <thead>
                                     <tr class="tablehead">
                                         <th width="65%">音频名称</th>
-                                        <th width="5%">作者</th>
-                                        <th width="30%">上传时间</th>
+                                        <th width="35%">艺术门类</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img src="~/img/audio.png" alt="">素颜</td>
-                                        <td>网络</td>
-                                        <td>2017-04-12 11:01:26</td>
+                                    <tr ng-repeat="item in musicList" _whid="{{item.WorldHeritageId}}" onclick="openDetail4($(this).attr('_whid'));">
+                                        <td><img src="~/img/audio.png" alt="">{{item.TitleProper}}</td>
+                                        <td>{{item.FirstLevelOfArtClassification}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="pageQuery">
-                            <span class="glyphicon glyphicon-backward"></span>
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span>第1页共44页</span>
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="glyphicon glyphicon-forward"></span>
-                            <span>页码</span>
-                            <input type="text">
-                            <i>GO</i>
-                        </div>
+                        <div id="pages4" style="margin-left:350px"></div>
                     </div>
                 </div>
             </div>
@@ -327,6 +400,9 @@
         <div class="text-center">地址：北京市朝阳区朝来高科技产业园6楼西侧3层</div>
         <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
     </div>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/pagination.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
     <script>
         $(function () {
             $('.searchBtn').click(function () {

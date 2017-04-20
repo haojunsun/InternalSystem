@@ -622,4 +622,170 @@ sc.app = angular.module('scApp', [])
          window.open('MusicDetail?video=' + whid);
      }
  }])
+ .controller('CategoryController', ['$scope', '$http', function ($scope, $http) {
+     $scope.classtype = "";//分类
+     $scope.type = "";//类型
+     $scope.nation = "";//民族
+     $scope.area = "";//地区
+     $scope.searchkey = "";//搜索关键字
+     $scope.pageIndex1 = 1;//页码
+     $scope.pageIndex2 = 1;//页码
+     $scope.pageIndex3 = 1;//页码
+     $scope.pageIndex4 = 1;//页码
+     $scope.pageSize1 = 8;//条数每页
+     $scope.pageSize2 = 6;//条数每页
+     $scope.pageSize3 = 6;//条数每页
+     $scope.pageSize4 = 6;//条数每页
+     $scope.datacount1 = 0;//总条数
+     $scope.datacount2 = 0;//总条数
+     $scope.datacount3 = 0;//总条数
+     $scope.datacount4 = 0;//总条数
+     $scope.totalpage1 = 0;//总页数
+     $scope.totalpage2 = 0;//总页数
+     $scope.totalpage3 = 0;//总页数
+     $scope.totalpage4 = 0;//总页数
+     $scope.textList = [];
+     $scope.imgList = [];
+     $scope.videoList = [];
+     $scope.musicList = [];
+
+     //默认搜索
+     var defaultClass = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
+     $scope.classtype = decodeURI(defaultClass);
+
+     $scope.gettextList = function () {
+         $scope.textList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": "", "type": "文字", "pageSize": $scope.pageSize3, "pageIndex": $scope.pageIndex3 }).success(function (data) {
+             console.log(data.Data.Items);
+             $scope.datacount3 = data.Data.TotalCount;
+             $scope.totalpage3 = data.Data.TotalPaged;
+             $scope.textList = data.Data.Items;
+             //重新加载页码
+             $.pagination('pages3', $scope.pageIndex3, $scope.pageSize3, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+     $scope.getmusicList = function () {
+         $scope.musicList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": "", "type": "音频", "pageSize": $scope.pageSize4, "pageIndex": $scope.pageIndex4 }).success(function (data) {
+             console.log(data.Data.Items);
+             $scope.datacount4 = data.Data.TotalCount;
+             $scope.totalpage4 = data.Data.TotalPaged;
+             $scope.musicList = data.Data.Items;
+             //重新加载页码
+             $.pagination('pages4', $scope.pageIndex4, $scope.pageSize4, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+     $scope.getvideoList = function () {
+         $scope.videoList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": "", "type": "视频", "pageSize": $scope.pageSize2, "pageIndex": $scope.pageIndex2 }).success(function (data) {
+             console.log(data.Data.Items);
+             $scope.datacount2 = data.Data.TotalCount;
+             $scope.totalpage2 = data.Data.TotalPaged;
+             $scope.videoList = data.Data.Items;
+             //重新加载页码
+             $.pagination('pages2', $scope.pageIndex2, $scope.pageSize2, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+
+     $scope.getimgList = function () {
+         $scope.imgList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": "", "type": "图片", "pageSize": $scope.pageSize1, "pageIndex": $scope.pageIndex1 }).success(function (data) {
+             console.log(data.Data.Items);
+             $scope.datacount1 = data.Data.TotalCount;
+             $scope.totalpage1 = data.Data.TotalPaged;
+             $scope.imgList = data.Data.Items;
+             //重新加载页码
+             $.pagination('pages1', $scope.pageIndex1, $scope.pageSize1, data.Data.TotalCount, "", { keyword: 'hello world' });
+
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+     $scope.gettextList();
+     $scope.getvideoList();
+     $scope.getmusicList();
+     $scope.getimgList();
+     //翻页
+     changePage = function (ele) {
+         var parid = $(ele).parent().parent().parent().attr('id');
+         var nextpage = $(ele).text();
+         var tempPageIndex = 1;
+         if (nextpage == '第一页') {
+             $tempPageIndex = 1;
+         } else if (nextpage == '下一页') {
+             if (parid == 'pages1') {
+                 tempPageIndex = parseInt($scope.pageIndex1) + 1;
+             } else if (parid == 'pages2') {
+                 tempPageIndex = parseInt($scope.pageIndex2) + 1;
+             } else if (parid == 'pages3') {
+                 tempPageIndex = parseInt($scope.pageIndex3) + 1;
+             } else if (parid == 'pages4') {
+                 tempPageIndex = parseInt($scope.pageIndex4) + 1;
+             }
+         } else if (nextpage == '最后一页') {
+             if (parid == 'pages1') {
+                 tempPageIndex = $scope.totalpage1;
+             } else if (parid == 'pages2') {
+                 tempPageIndex = $scope.totalpage2;
+             } else if (parid == 'pages3') {
+                 tempPageIndex = $scope.totalpage3;
+             } else if (parid == 'pages4') {
+                 tempPageIndex = $scope.totalpage4;
+             }
+         } else if (nextpage == '上一页') {
+             if (parid == 'pages1') {
+                 tempPageIndex = $scope.pageIndex1 - 1;
+             } else if (parid == 'pages2') {
+                 tempPageIndex = $scope.pageIndex2 - 1;
+             } else if (parid == 'pages3') {
+                 tempPageIndex = $scope.pageIndex3 - 1;
+             } else if (parid == 'pages4') {
+                 tempPageIndex = $scope.pageIndex4 - 1;
+             }
+         } else {
+             tempPageIndex = nextpage;
+         }
+
+         if (parid == 'pages1') {
+             $scope.pageIndex1 = tempPageIndex;
+             $scope.gettextList();
+         } else if (parid == 'pages2') {
+             $scope.pageIndex2 = tempPageIndex;
+             $scope.getvideoList();
+         } else if (parid == 'pages3') {
+             $scope.pageIndex3 = tempPageIndex;
+             $scope.getimgList();
+         } else if (parid == 'pages4') {
+             $scope.pageIndex4 = tempPageIndex;
+             $scope.getmusicList();
+         }
+     }
+
+     //进入详情页
+     openDetail1 = function (whid, ele) {
+         window.open('ImgDetail?video=' + whid);
+     }
+
+     openDetail2 = function (whid, ele) {
+         window.open('VideoDetail?video=' + whid);
+     }
+
+     openDetail3 = function (whid, ele) {
+         window.open('TextDetail?video=' + whid);
+     }
+
+     openDetail4 = function (whid, ele) {
+         window.open('MusicDetail?video=' + whid);
+     }
+ }])
+
 ;;
