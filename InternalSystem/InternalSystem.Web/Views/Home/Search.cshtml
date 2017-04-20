@@ -25,6 +25,14 @@
         #pages4 a {
             color: #337ab7;
         }
+        .blackColor {
+            color: black;
+            text-decoration: none;
+        }
+        .redColor {
+            color: #D0152F;
+            text-decoration: none;
+        }
     </style>
     <script>
         var sc = sc || {};
@@ -105,7 +113,7 @@
             <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li><li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -120,8 +128,8 @@
         </div>
         <div class="selectNumberScreen">
             <center>
-                <input type="text" style="margin-left:100px;border-radius:6px;padding-left:5px;width:500px;height:30px;font-size:larger" id="searchkey" name="name" placeholder="项目名称/地区/传承人" ng-keyup="changeSearchkey()" />
-                <a name="name2" style="width: 45px; height: 20px; color: white; font-size: 20px; cursor: pointer; background-color: #d0152f;">搜&nbsp;&nbsp;索</a>
+                <input type="text" style="margin-left:100px;border-radius:6px;padding-left:5px;width:500px;height:30px;font-size:larger" id="searchkey" name="name" placeholder="项目名称/地区/传承人" />
+                <a name="name2" style="font-family:KaiTi;width: 45px; height: 20px; color: white; font-size: 20px; cursor: pointer; background-color: #d0152f;padding:5px;" ng-click="changeSearchkey();">搜&nbsp;索</a>
             </center>
             <div class="seniorSearch2">
 
@@ -129,27 +137,27 @@
                     <dl class="listIndex">
                         <dt style="font-size:20px;">分　　类：</dt>
                         <dd>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" href="javascript:void(0)">全部</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">中国歌曲</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">中国器乐</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">传统戏曲</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">中国戏剧</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">传统曲艺</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">中国文学</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">传统舞蹈</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">传统技艺</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">民俗</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">传统医药</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="classtype" name="condition" href="javascript:void(0)">传统美术</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor redColor" href="javascript:void(0)">全部</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国歌曲</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国器乐</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统戏曲</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国戏剧</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统曲艺</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国文学</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统舞蹈</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统技艺</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">民俗</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统医药</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统美术</a>
                         </dd>
                     </dl>
 
                     <dl class="listIndex">
                         <dt style="font-size:20px;">民　　族：</dt>
                         <dd>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="nation" href="javascript:void(0)">全部</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="nation" name="condition" href="javascript:void(0)">汉族</a>
-                            <a style="color:black;font-size:18px;margin-left:6px;" class="nation" name="condition" href="javascript:void(0)">少数民族</a>
+                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor redColor" href="javascript:void(0)">全部</a>
+                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor" name="condition" href="javascript:void(0)">汉族</a>
+                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor" name="condition" href="javascript:void(0)">少数民族</a>
                         </dd>
                     </dl>
                 </div>
@@ -264,5 +272,18 @@
     <script src="~/Scripts/angular.bundled.min.js"></script>
     <script src="~/Scripts/pagination.js"></script>
     <script src="~/Scripts/seco-app.js"></script>
+    <script>
+        $(function () {
+            $('.classtype').click(function () {
+                $('.classtype').removeClass('redColor');
+                $(this).addClass('redColor');
+            })
+
+            $('.nation').click(function () {
+                $('.nation').removeClass('redColor');
+                $(this).addClass('redColor');
+            })
+        })
+    </script>
 </body>
 </html>

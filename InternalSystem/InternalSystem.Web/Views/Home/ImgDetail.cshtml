@@ -12,8 +12,12 @@
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <script>
+        var sc = sc || {};
+        sc.baseUrl = '@Url.Content("~/")';
+    </script>
 </head>
-<body style="background: url(../img/bj1.png); width: 100%;">
+<body style="background: url(../img/bj1.png); width: 100%;" ng-app="scApp" ng-controller="ImgDetailController">
     <div class="header">
         @*<div class="titleHeader">
                 <div>欢迎来到文化资源归集系统~</div>
@@ -88,6 +92,7 @@
             <li onclick="window.location='/home/imglist';" class="active"><a href="">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
             <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
+            <li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -170,5 +175,14 @@
         <div class="text-center">地址：北京市朝阳区朝来高科技产业园6楼西侧3层</div>
         <div class="text-center">技术支持：北京华阳凡科数字控制技术有限公司</div>
     </div>
+    <script src="~/Scripts/angular.bundled.min.js"></script>
+    <script src="~/Scripts/pagination.js"></script>
+    <script src="~/Scripts/seco-app.js"></script>
+    <script>
+        $(function () {
+
+        })
+    </script>
+
 </body>
 </html>

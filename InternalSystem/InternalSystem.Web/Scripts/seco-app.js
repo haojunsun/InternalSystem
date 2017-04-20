@@ -290,9 +290,17 @@ sc.app = angular.module('scApp', [])
 
           $scope.changeSearchkey = function () {
               $scope.searchkey = $("#searchkey").val();
-              console.log($scope.searchkey);
-              $scope.pageIndex = 1;
-             // $scope.getVedioList();
+              console.log("key:", $scope.searchkey);
+
+              $scope.pageIndex1 = 1;
+              $scope.pageIndex2 = 1;
+              $scope.pageIndex3 = 1;
+              $scope.pageIndex4 = 1;
+
+              $scope.gettextList();
+              $scope.getmusicList();
+              $scope.getvideoList();
+              $scope.getimgList();
           }
 
           $scope.gettextList = function () {
@@ -357,7 +365,7 @@ sc.app = angular.module('scApp', [])
 
           //翻页
           changePage = function (ele) {
-              var parid=$(ele).parent().parent().parent().attr('id');
+              var parid = $(ele).parent().parent().parent().attr('id');
               var nextpage = $(ele).text();
               var tempPageIndex = 1;
               if (nextpage == '第一页') {
@@ -428,7 +436,7 @@ sc.app = angular.module('scApp', [])
               window.open('MusicDetail?video=' + whid);
           }
       }])
-    .controller('DetailController', ['$scope', '$http', function ($scope, $http) {
+    .controller('TextDetailController', ['$scope', '$http', function ($scope, $http) {
         var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
         $scope.videoinfo = {};
 
@@ -456,5 +464,120 @@ sc.app = angular.module('scApp', [])
         }
 
         $scope.getVideoInfo();
+        //进入详情页
+        openDetail = function (whid, ele) {
+            window.open('MusicDetail?video=' + whid);
+        }
     }])
+ .controller('VideoDetailController', ['$scope', '$http', function ($scope, $http) {
+     var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
+     $scope.videoinfo = {};
+
+     //获取单条数据
+     $scope.getVideoInfo = function () {
+         if (!whid)
+             return;
+         $http.post(sc.baseUrl + 'Import/Find', { "id": whid }).success(function (data) {
+             console.log(data);
+             $scope.videoinfo = data;
+             //console.log($scope.videoinfo.FileName);
+
+             var curWwwPath = window.document.location.href;
+             var pathName = window.document.location.pathname;
+             var pos = curWwwPath.indexOf(pathName);
+             var localhostPaht = curWwwPath.substring(0, pos);
+
+             $('#videosource').attr("src", localhostPaht + $scope.videoinfo.FileName.substring(1));
+             setTimeout(function () {
+                 projekktor('#videoplayer'); // instantiation
+             }, 100)
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+
+     $scope.getVideoInfo();
+     //进入详情页
+     openDetail = function (whid, ele) {
+         window.open('MusicDetail?video=' + whid);
+     }
+ }])
+ .controller('ImgDetailController', ['$scope', '$http', function ($scope, $http) {
+     var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
+     $scope.videoinfo = {};
+
+     //获取单条数据
+     $scope.getVideoInfo = function () {
+         if (!whid)
+             return;
+         $http.post(sc.baseUrl + 'Import/Find', { "id": whid }).success(function (data) {
+             console.log(data);
+             $scope.videoinfo = data;
+             //console.log($scope.videoinfo.FileName);
+
+             var curWwwPath = window.document.location.href;
+             var pathName = window.document.location.pathname;
+             var pos = curWwwPath.indexOf(pathName);
+             var localhostPaht = curWwwPath.substring(0, pos);
+
+             $('#videosource').attr("src", localhostPaht + $scope.videoinfo.FileName.substring(1));
+             setTimeout(function () {
+                 projekktor('#videoplayer'); // instantiation
+             }, 100)
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+
+     $scope.getVideoInfo();
+     //进入详情页
+     openDetail = function (whid, ele) {
+         window.open('MusicDetail?video=' + whid);
+     }
+ }])
+ .controller('MusicDetailController', ['$scope', '$http', function ($scope, $http) {
+     var whid = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
+     $scope.videoinfo = {};
+     $scope.musicList = [];
+
+     $scope.getmusicList = function () {
+         $scope.musicList = [];
+         $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup":"", "type": "音频", "pageSize": 6, "pageIndex": 1 }).success(function (data) {
+             $scope.musicList = data.Data.Items;
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+     $scope.getmusicList();
+
+     //获取单条数据
+     $scope.getVideoInfo = function () {
+         if (!whid)
+             return;
+         $http.post(sc.baseUrl + 'Import/Find', { "id": whid }).success(function (data) {
+             console.log(data);
+             $scope.videoinfo = data;
+             //console.log($scope.videoinfo.FileName);
+
+             var curWwwPath = window.document.location.href;
+             var pathName = window.document.location.pathname;
+             var pos = curWwwPath.indexOf(pathName);
+             var localhostPaht = curWwwPath.substring(0, pos);
+
+             $('#musicaudio').attr("src", localhostPaht + $scope.videoinfo.FileName.substring(1));
+             //$('#videosource').attr("src", localhostPaht + $scope.videoinfo.FileName.substring(1));
+             //setTimeout(function () {
+             //    projekktor('#videoplayer'); // instantiation
+             //}, 100)
+         }).error(function (data) {
+             console.log("查询失败");
+         });
+     }
+
+     $scope.getVideoInfo();
+     //进入详情页
+     openDetail = function (whid, ele) {
+         window.open('MusicDetail?video=' + whid);
+     }
+ }])
 ;;
