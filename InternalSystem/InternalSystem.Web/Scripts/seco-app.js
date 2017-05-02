@@ -674,8 +674,8 @@ sc.app = angular.module('scApp', [])
 
      //默认搜索
      var defaultClass = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
+     
      $scope.classtype = decodeURI(defaultClass);
-
      $scope.gettextList = function () {
          $scope.textList = [];
          $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": $scope.classtype, "secondLevelOfEthnicGroup": "", "type": "文字", "pageSize": $scope.pageSize3, "pageIndex": $scope.pageIndex3 }).success(function (data) {

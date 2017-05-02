@@ -262,7 +262,7 @@
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';" class="active"><a href="">视频</a></li>
             <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
-            <li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
+            @*<li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>*@
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -302,14 +302,15 @@
                     <p>视频信息</p>
                 </h3>
                 <div class="rightContent">
-                    <ul class="imgDetailRight">
+                    <ul class="imgDetailRight" style="font-size:15px;font-family:'Microsoft YaHei';color:black;">
                         <li>名称：<span>{{videoinfo.TitleProper}}</span></li>
                         <li>艺术类别：<span>{{videoinfo.FirstLevelOfArtClassification}} {{videoinfo.SecondLevelOfArtClassification}} {{videoinfo.ThirdLevelOfArtClassification}}</span></li>
-                        <li>艺术流派：<span>{{videoinfo.ArtSchool}}</span></li>
+                        @*<li>艺术流派：<span>{{videoinfo.ArtSchool}}</span></li>*@
                         <li>民族：<span>{{videoinfo.SecondLevelOfEthnicGroup}}</span></li>
-                        <li>省市：<span>{{videoinfo.Province}} {{videoinfo.City}}</span></li>
-                        <li>项县：<span>{{videoinfo.County}} {{videoinfo.Town}}</span></li>
+                        @*<li>省市：<span>{{videoinfo.Province}} {{videoinfo.City}}</span></li>
+                        <li>项县：<span>{{videoinfo.County}} {{videoinfo.Town}}</span></li>*@
                         <li>相关人物：<span>{{videoinfo.Name}}</span></li>
+                        <li>地域：<span>{{videoinfo.HistoricalPlaceName}} {{videoinfo.PresentPlaceName}} {{videoinfo.OtherPlaceName}}</span></li>
                         <li>源资料提供者：<span>{{videoinfo.ProviderOfReferences}}</span></li>
                     </ul>
                 </div>

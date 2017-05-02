@@ -16,22 +16,31 @@
         #pages1 a {
             color: #337ab7;
         }
+
         #pages2 a {
             color: #337ab7;
         }
+
         #pages3 a {
             color: #337ab7;
         }
+
         #pages4 a {
             color: #337ab7;
         }
+
         .blackColor {
             color: black;
             text-decoration: none;
         }
+
         .redColor {
             color: #D0152F;
             text-decoration: none;
+        }
+
+        .ahover:hover {
+            color: red;
         }
     </style>
     <script>
@@ -49,12 +58,12 @@
                 <a href="#" class="logo pull-left"><img src="~/img/logo.png"></a>
                 <div class="search pull-right">
                     @*<div class="searchTop clearfix">
-                        <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
-                        <a class="searchBtn pull-left">
-                            <span class="glyphicon glyphicon-zoom-in"></span>
-                        </a>
-                        <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
-                    </div>*@
+                            <input type="text" id="topkey" class="pull-left" placeholder="请输入查询条件...">
+                            <a class="searchBtn pull-left">
+                                <span class="glyphicon glyphicon-zoom-in"></span>
+                            </a>
+                            <a href="/home/search" class="seniorSearch pull-left">高级搜索</a>
+                        </div>*@
                     <div class="classify" style="display:none;">
                         <span>
                             <label>
@@ -279,7 +288,7 @@
             <li onclick="window.location='/home/textlist';"><a href="/home/textlist">文字</a></li>
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
-            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li><li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
+            <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>@*<li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>*@
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -303,27 +312,27 @@
                     <dl class="listIndex">
                         <dt style="font-size:20px;">分　　类：</dt>
                         <dd>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor redColor" href="javascript:void(0)">全部</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国歌曲</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国器乐</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统戏曲</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国戏剧</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统曲艺</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">中国文学</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统舞蹈</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统技艺</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">民俗</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统医药</a>
-                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor" name="condition" href="javascript:void(0)">传统美术</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor  redColor ahoverahover" href="javascript:void(0)">全部</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">中国歌曲</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">中国器乐</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">传统戏曲</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">中国戏剧</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">传统曲艺</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">中国文学</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">传统舞蹈</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">传统技艺</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">民俗</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">传统医药</a>
+                            <a style="font-size:18px;margin-left:6px;" class="classtype blackColor ahover" name="condition" href="javascript:void(0)">传统美术</a>
                         </dd>
                     </dl>
 
                     <dl class="listIndex">
                         <dt style="font-size:20px;">民　　族：</dt>
                         <dd>
-                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor redColor" href="javascript:void(0)">全部</a>
-                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor" name="condition" href="javascript:void(0)">汉族</a>
-                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor" name="condition" href="javascript:void(0)">少数民族</a>
+                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor redColor ahover" href="javascript:void(0)">全部</a>
+                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor ahover" name="condition" href="javascript:void(0)">汉族</a>
+                            <a style="font-size:18px;margin-left:6px;" class="nation blackColor ahover" name="condition" href="javascript:void(0)">少数民族</a>
                         </dd>
                     </dl>
                 </div>
@@ -426,9 +435,9 @@
             <ul class="text-center clearfix">
                 <li onclick="window.location='/home/index';"><a href="/home/index">首页</a></li>
                 <li><a href="">关于我们</a></li>
-                
-                
-                
+
+
+
             </ul>
         </div>
         <div class="text-center">版权所有：北京华阳凡科数字控制技术有限公司　 24小时热线电话：010-56718031</div>

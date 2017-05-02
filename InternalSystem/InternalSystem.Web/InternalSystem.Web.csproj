@@ -1133,8 +1133,8 @@
     <Content Include="img\banner3.jpg" />
     <Content Include="img\banner4.jpg" />
     <Content Include="img\banner5.jpg" />
-    <Content Include="img\bj.png" />
     <Content Include="img\bj1.png" />
+    <Content Include="img\bj2.png" />
     <Content Include="img\bjb.png" />
     <Content Include="img\bjc.png" />
     <Content Include="img\class1.png" />

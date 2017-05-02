@@ -264,7 +264,7 @@
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
             <li onclick="window.location='/home/musiclist';" class="active"><a href="">音频</a></li>
-            <li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
+            @*<li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>*@
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -282,14 +282,24 @@
                 <table width="100%">
                     <thead>
                         <tr class="tablehead">
-                            <th width="65%">音频名称</th>
-                            <th width="5%">艺术门类</th>
+                            <th width="25%">音频名称</th>
+                            <th width="20%">艺术门类</th>
+                            <th width="15%">相关人物</th>
+                            <th width="15%">民族</th>
+                            <th width="10%">时长</th>
+                            <th width="10%">格式</th>
+                            <th width="10%">大小</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="item in MusicList" _whid="{{item.WorldHeritageId}}" onclick="openDetail($(this).attr('_whid'));">
                             <td><img src="~/img/audio.png" alt="">{{item.TitleProper}}</td>
-                            <td>{{item.FirstLevelOfArtClassification}}</td>
+                            <td style="text-align:center;">{{item.FirstLevelOfArtClassification}}</td>
+                            <td style="text-align:center;">{{item.Name}}</td>
+                            <td style="text-align:center;">{{item.SecondLevelOfEthnicGroup}}</td>
+                            <td style="text-align:center;">{{item.Duration}}</td>
+                            <td style="text-align:center;">{{item.DigitalObjectFormat}}</td>
+                            <td style="text-align:center;">{{item.Size}}</td>
                         </tr>
                        
                     </tbody>

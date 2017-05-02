@@ -257,7 +257,7 @@
             <li onclick="window.location='/home/imglist';"><a href="/home/imglist">图片</a></li>
             <li onclick="window.location='/home/videonlist';"><a href="/home/videonlist">视频</a></li>
             <li onclick="window.location='/home/musiclist';"><a href="/home/musiclist">音频</a></li>
-            <li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>
+            @*<li onclick="window.location='/home/search';"><a href="/home/search">搜索</a></li>*@
             <li onclick="window.location='/Admin/Account/Login';"><a href="/Admin/Account/Login">会员中心</a></li>
         </ul>
     </div>
@@ -282,13 +282,13 @@
                             </div>*@
 
                     </h5>
-                    <div class="oneContent">
+                    <div class="oneContent" style="font-size:17px;font-family:'Microsoft YaHei';color:black;">
                         <p>名称：<span>{{videoinfo.TitleProper}}</span></p>
                         <p>艺术类别：<span>{{videoinfo.FirstLevelOfArtClassification}} {{videoinfo.SecondLevelOfArtClassification}} {{videoinfo.ThirdLevelOfArtClassification}}</span></p>
                         <p>艺术流派：<span>{{videoinfo.ArtSchool}}</span></p>
                         <p>民族：<span>{{videoinfo.SecondLevelOfEthnicGroup}}</span></p>
                         <p>省市：<span>{{videoinfo.Province}} {{videoinfo.City}}</span></p>
-                        <p>项县：<span>{{videoinfo.County}} {{videoinfo.Town}}</span></p>
+                        <p>镇县：<span>{{videoinfo.County}} {{videoinfo.Town}}</span></p>
                         <p>相关人物：<span>{{videoinfo.Name}}</span></p>
                         <p>源资料提供者：<span>{{videoinfo.ProviderOfReferences}}</span></p>
                     </div>
