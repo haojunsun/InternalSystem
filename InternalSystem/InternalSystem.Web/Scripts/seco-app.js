@@ -25,29 +25,29 @@ sc.app = angular.module('scApp', [])
 
         $scope.getMainVedioList();
     }]).controller('IndexController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-          $scope.searchkey = "";//搜索关键字
-          $scope.pageIndex = 1;//页码
-          $scope.pageSize = 4;//条数每页
-          $scope.videoList = [];
+        $scope.searchkey = "";//搜索关键字
+        $scope.pageIndex = 1;//页码
+        $scope.pageSize = 4;//条数每页
+        $scope.videoList = [];
 
 
-          $scope.getVedioList = function () {
-              $scope.videoList = [];
-              $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "视频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
-                  console.log("data:", data.Data.Items);
-                  $scope.videoList = data.Data.Items;
-              }).error(function (data) {
-                  console.log("查询失败");
-              });
-          }
+        $scope.getVedioList = function () {
+            $scope.videoList = [];
+            $http.post(sc.baseUrl + 'Import/NewSearch', { "key": "", "firstLevelOfArtClassification": "", "secondLevelOfEthnicGroup": "", "type": "视频", "pageSize": $scope.pageSize, "pageIndex": $scope.pageIndex }).success(function (data) {
+                console.log("data:", data.Data.Items);
+                $scope.videoList = data.Data.Items;
+            }).error(function (data) {
+                console.log("查询失败");
+            });
+        }
 
-          $scope.getVedioList();
+        $scope.getVedioList();
 
-          //进入详情页
-          openDetail = function (whid, ele) {
-              window.open('VideoDetail?video=' + whid);
-          }
-      }])
+        //进入详情页
+        openDetail = function (whid, ele) {
+            window.open('VideoDetail?video=' + whid);
+        }
+    }])
     .controller('TextListController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.pageIndex = 1;//页码
         $scope.pageSize = 6;//条数每页
@@ -77,6 +77,12 @@ sc.app = angular.module('scApp', [])
         $scope.getTextList();
 
         //翻页
+        jumpPage = function (ele) {
+            var parid = $(ele).parent().parent().attr('id');
+            var pagema = $('#' + parid + ' .pagema').val();
+            $scope.pageIndex = pagema;
+            $scope.gettextList();
+        }
         changePage = function (ele) {
             var nextpage = $(ele).text();
             if (nextpage == '第一页') {
@@ -125,6 +131,12 @@ sc.app = angular.module('scApp', [])
             $scope.getImgList();
 
             //翻页
+            jumpPage = function (ele) {
+                var parid = $(ele).parent().parent().attr('id');
+                var pagema = $('#' + parid + ' .pagema').val();
+                $scope.pageIndex = pagema;
+                $scope.getImgList();
+            }
             changePage = function (ele) {
                 var nextpage = $(ele).text();
                 if (nextpage == '第一页') {
@@ -173,6 +185,12 @@ sc.app = angular.module('scApp', [])
          $scope.getVedioList();
 
          //翻页
+         jumpPage = function (ele) {
+             var parid = $(ele).parent().parent().attr('id');
+             var pagema = $('#' + parid + ' .pagema').val();
+             $scope.pageIndex = pagema;
+             $scope.getVedioList();
+         }
          changePage = function (ele) {
              var nextpage = $(ele).text();
              if (nextpage == '第一页') {
@@ -221,6 +239,12 @@ sc.app = angular.module('scApp', [])
          $scope.getMusicList();
 
          //翻页
+         jumpPage = function (ele) {
+             var parid = $(ele).parent().parent().attr('id');
+             var pagema = $('#' + parid + ' .pagema').val();
+             $scope.pageIndex = pagema;
+             $scope.getMusicList();
+         }
          changePage = function (ele) {
              var nextpage = $(ele).text();
              if (nextpage == '第一页') {
@@ -396,6 +420,24 @@ sc.app = angular.module('scApp', [])
           }
 
           //翻页
+          jumpPage = function (ele) {
+              var parid = $(ele).parent().parent().attr('id');
+              var pagema = $('#' + parid + ' .pagema').val();
+
+              if (parid == 'pages1') {
+                  $scope.pageIndex1 = pagema;
+                  $scope.gettextList();
+              } else if (parid == 'pages2') {
+                  $scope.pageIndex2 = pagema;
+                  $scope.getvideoList();
+              } else if (parid == 'pages3') {
+                  $scope.pageIndex3 = pagema;
+                  $scope.getimgList();
+              } else if (parid == 'pages4') {
+                  $scope.pageIndex4 = pagema;
+                  $scope.getmusicList();
+              }
+          }
           changePage = function (ele) {
               var parid = $(ele).parent().parent().parent().attr('id');
               var nextpage = $(ele).text();
@@ -674,7 +716,7 @@ sc.app = angular.module('scApp', [])
 
      //默认搜索
      var defaultClass = window.location.search.indexOf('=') > -1 ? window.location.search.split('=')[1] : "";
-     
+
      $scope.classtype = decodeURI(defaultClass);
      $scope.gettextList = function () {
          $scope.textList = [];
@@ -738,6 +780,27 @@ sc.app = angular.module('scApp', [])
      $scope.getmusicList();
      $scope.getimgList();
      //翻页
+     jumpPage = function (ele) {
+         var parid = $(ele).parent().parent().attr('id');
+         var pagema = $('#' + parid + ' .pagema').val();
+         console.log('11', pagema);
+
+         if (parid == 'pages1') {
+             $scope.pageIndex1 = pagema;
+             $scope.gettextList();
+         } else if (parid == 'pages2') {
+             $scope.pageIndex2 = pagema;
+
+             $scope.getvideoList();
+         } else if (parid == 'pages3') {
+             $scope.pageIndex3 = pagema;
+             $scope.getimgList();
+         } else if (parid == 'pages4') {
+             $scope.pageIndex4 = pagema;
+             $scope.getmusicList();
+         }
+     }
+
      changePage = function (ele) {
          var parid = $(ele).parent().parent().parent().attr('id');
          var nextpage = $(ele).text();

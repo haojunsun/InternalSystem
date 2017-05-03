@@ -35,7 +35,9 @@ $.extend({
         else
             $.createLi(curPage, totalPage, '最后一页', totalPage, pageArg, extra, callback, "").appendTo(ulObj);
 
-        $('<p></p>').text('共' + totalPage + '页，' + totalRecord + '条记录').appendTo(renderObj);
+        $('<input type="text" class="pagema" style="float:left;width:45px;border:1px solid #2E6AB1;height:22px;margin-left:8px;" />').appendTo(ulObj);
+        $('<input type="button" class="pagebtn" value="跳转" onclick="jumpPage($(this));" style="background-color:white;color:#2E6AB1;float:left;width:35px;border:1px solid #2E6AB1;height:22px;margin-left:2px;" />').appendTo(ulObj);
+        $('<p style="margin-left:8px;"></p>').text('共' + totalPage + '页，' + totalRecord + '条记录').appendTo(ulObj);
     },
     createLi: function (current, now, content, totalPage, pageArg, extra, callback, classname) {
         var liObj = classname ? $('<li class="' + classname + '">最后一页</li>') : $('<li class="' + classname + '"></li>');
