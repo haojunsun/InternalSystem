@@ -6,6 +6,7 @@
 }
 body {
   font: 12px/1.5 tahoma, arial, sans-serif;
+  padding-top: 20px;
   color: #666;
 }
 label {
@@ -406,6 +407,9 @@ a:hover {
 .homeFooter .footNav li a:hover {
   color: #D0152F;
 }
+.homeFooter .footNav li:last-child:after {
+  display: none;
+}
 .homeFooter .footCode {
   position: absolute;
   width: 100px;
@@ -492,6 +496,7 @@ a:hover {
 }
 .textListContent {
   width: 1006px;
+  min-height:670px;
   margin: 0 auto;
 }
 .textListContent .listContent {
@@ -553,7 +558,7 @@ a:hover {
   background-color: #fafafa;
   height: 184px;
   width: 280px;
-  padding: 15px;
+  padding: 30px;
   float: left;
   margin: 15px 0 0 36px;
 }
@@ -561,8 +566,8 @@ a:hover {
   cursor: pointer;
 }
 .videoList li .img img {
-  width: 270px;
-  height: 152px;
+  width: 250px;
+  height: 127px;
 }
 .videoList li .imgName {
   text-align: center;
@@ -714,7 +719,7 @@ a:hover {
 .detialListRight .rightContent ul li {
   line-height: 24px;
   padding-left: 28px;
-  color: #818181;
+  color: black;
 }
 .detialListRight .rightContent ul.imgDetailRight {
   padding: 15px;
@@ -723,7 +728,7 @@ a:hover {
   padding: 0;
 }
 .detialListRight .rightContent ul.imgDetailRight li span {
-  color: #919191;
+  color: black;
 }
 .category .category-tab {
   background: #fff;
@@ -785,9 +790,11 @@ a:hover {
 .category .categoryTabContent .tabBox.tabVideo ul li {
   float: left;
   height: 184px;
-  padding: 11px;
+  width:280px;
+  padding: 30px;
   background: #fafafa;
   margin: 10px 0 0 35px;
+  text-align:center;
 }
 .category .categoryTabContent .tabBox.tabVideo ul li a {
   background: #fafafa;
@@ -795,8 +802,8 @@ a:hover {
   display: block;
 }
 .category .categoryTabContent .tabBox.tabVideo ul li a > img {
-  width: 270px;
-  height: 152px;
+  width: 250px;
+  height: 127px;
 }
 .category .categoryTabContent .tabBox.tabVideo ul li a > p img {
   width: 14px;
